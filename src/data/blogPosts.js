@@ -1,5 +1,14 @@
 export const blogPosts = [
-  // NEW POST — Excel to Power BI (Blog #3)
+   // D365FO vs SAP vs Oracle NetSuite (Blog #4)
+  {
+    slug: "d365fo-vs-sap-s4hana-vs-oracle-netsuite",
+    title: "D365FO vs SAP S/4HANA vs Oracle NetSuite: Which ERP Should Growing Enterprises Choose in 2026?",
+    excerpt: "Compare Microsoft Dynamics 365 Finance & Operations, SAP S/4HANA, and Oracle NetSuite. Learn which ERP platform is best for manufacturing, scalability, implementation, and business growth in 2026.",
+    category: "ERP Comparison",
+    datePublished: "2026-06-02",
+    readTime: "10 min read",
+  },
+  // Excel to Power BI (Blog #3)
   {
     slug: "replace-excel-reporting-with-power-bi-d365fo",
     title: "How to Replace Excel Reporting with Power BI in D365FO — A Practical Guide for Finance Teams",
@@ -9,7 +18,7 @@ export const blogPosts = [
     readTime: "11 min read",
   },
 
-  // EXISTING POST — D365FO Implementation Timeline
+  // D365FO Implementation Timeline
   {
     slug: "how-long-does-d365fo-implementation-take",
     title: "How Long Does a D365FO Implementation Take? A Realistic Timeline Guide for 2026",
@@ -19,7 +28,7 @@ export const blogPosts = [
     readTime: "12 min read",
   },
 
-  // EXISTING POST — AX 2012 End of Support
+  // AX 2012 End of Support
   {
     slug: "ax-2012-end-of-support-2028-india",
     title: "AX 2012 End of Support in 2028 — What Every Indian Enterprise Needs to Know Now",

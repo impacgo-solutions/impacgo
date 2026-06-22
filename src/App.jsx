@@ -46,6 +46,7 @@ import D365Development from "./pages/D365Development";
 import D365CRM from "./pages/D365CRM";
 
 import ExcelToPowerBIBlog from "./pages/blog/ExceltopowerBI";
+import D365FOVsSAPVsOracleBlog from"./pages/blog/D365FOVsSAPVsOracleBlog";
 
 
 
@@ -187,6 +188,11 @@ function App() {
           path="/blog/ax-2012-end-of-support-2028-india"
           element={<AX2012EndOfSupport2028Blog />}
         />
+
+        <Route 
+  path="/blog/d365fo-vs-sap-s4hana-vs-oracle-netsuite" 
+  element={<D365FOVsSAPVsOracleBlog />} 
+/>
 
         <Route
         path="/blog/how-long-does-d365fo-implementation-take"
