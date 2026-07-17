@@ -149,9 +149,14 @@ const breadcrumbSchema = createBreadcrumbSchema([
               className="w-full h-96 object-cover"
             />
             <div className="absolute inset-0 flex flex-col items-center justify-center text-center bg-gradient-to-br from-green-900/80 to-emerald-900/70">
-              <span className="bg-white/20 backdrop-blur-sm text-white text-xs font-semibold px-4 py-1 rounded-full mb-4 tracking-widest">
-                IMPACGO PRODUCT
-              </span>
+              <div className="flex flex-wrap items-center justify-center gap-2 mb-4">
+                <span className="bg-white/20 backdrop-blur-sm text-white text-xs font-semibold px-4 py-1 rounded-full tracking-widest">
+                  IMPACGO PRODUCT
+                </span>
+                <span className="bg-emerald-400/90 text-emerald-950 text-xs font-bold px-4 py-1 rounded-full tracking-widest">
+                  CALVIQ
+                </span>
+              </div>
               <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
                 Dairy Farm Management System
               </h1>
@@ -208,14 +213,29 @@ const breadcrumbSchema = createBreadcrumbSchema([
           {/* CTA */}
           <div className="text-center mt-16">
             <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-              Ready to digitise your dairy operations?
+              Ready to digitise your dairy operations? This product is built and run as{" "}
+              <span className="font-semibold text-emerald-700">CALVIQ</span>.
             </p>
-            <button
-              className="bg-gradient-to-r from-green-600 to-emerald-600 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:opacity-90 transition duration-300"
-              onClick={() => navigate("/contact")}
-            >
-              Request a Demo
-            </button>
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              <button
+                className="bg-gradient-to-r from-green-600 to-emerald-600 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:opacity-90 transition duration-300"
+                onClick={() => navigate("/calviq/demo")}
+              >
+                Request a Demo
+              </button>
+              <button
+                className="border-2 border-emerald-600 text-emerald-700 px-6 py-3 rounded-lg text-lg font-semibold hover:bg-emerald-50 transition duration-300"
+                onClick={() => navigate("/calviq")}
+              >
+                View Calviq Landing Page
+              </button>
+              <a
+                href="https://calviq.impacgo.com/#/login"
+                className="border-2 border-gray-300 text-gray-700 px-6 py-3 rounded-lg text-lg font-semibold hover:bg-gray-50 transition duration-300"
+              >
+                Open App / Log In
+              </a>
+            </div>
           </div>
         </div>
       </section>

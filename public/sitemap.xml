@@ -184,6 +184,24 @@
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
+  <url>
+    <loc>https://www.impacgo.com/blog/replace-excel-reporting-with-power-bi-d365fo</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.impacgo.com/blog/d365fo-vs-sap-s4hana-vs-oracle-netsuite</loc>
+    <lastmod>2026-06-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.impacgo.com/blog/power-apps-for-d365fo</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
 
   <!-- Contact -->
   <url>
@@ -202,6 +220,24 @@
 <url>
   <loc>https://www.impacgo.com/blog/d365fo-vs-sap-s4hana-vs-oracle-netsuite</loc>
   <lastmod>2026-06-02</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.9</priority>
+</url>
+<url>
+  <loc>https://www.impacgo.com/blog/power-apps-for-d365fo</loc>
+  <lastmod>2026-06-18</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.9</priority>
+</url>
+<url>
+  <loc>https://www.impacgo.com/blog/power-automate-for-d365fo</loc>
+  <lastmod>2026-06-25</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.9</priority>
+</url>
+<url>
+  <loc>https://www.impacgo.com/blog/d365fo-modules-for-indian-manufacturers</loc>
+  <lastmod>2026-06-22</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.9</priority>
 </url>

@@ -33,6 +33,21 @@ import hitechi from "../assets/clients/hitechi.webp";
 import ironingboy from "../assets/clients/ironingboy.webp";   
 
 export default function HomePage() {
+  // Header nav items like "Products"/"Services" link to "/#products" etc.
+  // When arriving here from a different page (full navigation), the browser
+  // processes the hash before React has rendered these sections, so the
+  // native anchor-scroll silently misses. Retry once mounted.
+  useEffect(() => {
+    if (window.location.hash) {
+      const el = document.getElementById(window.location.hash.slice(1));
+      if (el) {
+        requestAnimationFrame(() => {
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      }
+    }
+  }, []);
+
   return (
     <div className="min-h-screen bg-gray-50">
       <SEO
@@ -342,7 +357,7 @@ function ServicesSection() {
   };
 
   return (
-    <section id="services" className="py-20 bg-blue-50">
+    <section id="services" className="py-20 bg-blue-50 scroll-mt-24">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Services</h2>
@@ -849,7 +864,7 @@ function ProductsSection() {
   const products = [
     {
       icon: Tractor,
-      name: "Dairy Farm Management System",
+      name: "Dairy Farm Management System (CALVIQ)",
       description: "Complete farm management for modern dairy operations.",
       features: [
         "Milk production tracking per animal & session",
@@ -861,6 +876,7 @@ function ProductsSection() {
       ],
       image: dfms,
       path: "/products/dairy-farm",
+      calviqPath: "/calviq",
       tag: null,
       gradient: "from-green-500 to-emerald-600",
     },
@@ -901,7 +917,7 @@ function ProductsSection() {
   ];
 
   return (
-    <section id="products" className="py-20 bg-white">
+    <section id="products" className="py-20 bg-white scroll-mt-24">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Products</h2>
@@ -958,6 +974,14 @@ function ProductsSection() {
                   >
                     Know More
                   </button>
+                  {product.calviqPath && (
+                    <button
+                      className="mt-2 border border-blue-600 text-blue-600 py-2 px-4 rounded-full hover:bg-blue-50 transition-all"
+                      onClick={() => navigate(product.calviqPath)}
+                    >
+                      View Calviq Landing Page
+                    </button>
+                  )}
                 </div>
               </div>
             );
@@ -1159,7 +1183,7 @@ function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-blue-50">
+    <section id="contact" className="py-20 bg-blue-50 scroll-mt-24">
       <div className="container mx-auto px-4">
 
         <div className="text-center mb-12">

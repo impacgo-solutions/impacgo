@@ -1,4 +1,34 @@
 export const blogPosts = [
+
+  // D365FO Modules for Indian Manufacturers (Blog #7) - NEWEST
+  {
+    slug: "d365fo-modules-for-indian-manufacturers",
+    title: "D365FO Modules for Indian Manufacturers: Complete Guide for 2026",
+    excerpt: "Explore the most important D365FO modules used by Indian manufacturers including Finance, Supply Chain Management, Production Control, Warehouse Management, Quality Management, Asset Management, and Master Planning. Learn how these modules improve productivity, compliance, inventory control, and operational efficiency.",
+    category: "D365FO Manufacturing",
+    datePublished: "2026-06-22",
+    readTime: "12 min read",
+  },
+  
+  // Power Automate for D365FO (Blog #6) -
+  {
+    slug: "power-automate-for-d365fo",
+    title: "Power Automate for D365FO: Streamline Approvals, Notifications, and Business Workflows",
+    excerpt: "Learn how Power Automate integrates with D365FO to automate repetitive tasks, streamline approvals, trigger notifications, and connect business systems. Discover how low-code automation improves productivity and operational efficiency.",
+    category: "Power Automate",
+    datePublished: "2026-06-25",
+    readTime: "8 min read",
+  },
+
+   // Power Apps for D365FO (Blog #5)
+  {
+    slug: "power-apps-for-d365fo",
+    title: "Power Apps for D365FO: Extending Dynamics 365 Finance & Operations with Low-Code Applications",
+    excerpt: "Discover how Microsoft Power Apps extends D365FO with custom applications, process automation, and mobile solutions. Learn about integration methods, real-world use cases, key benefits, and best practices for successful Power Apps implementations.",
+    category: "Power Platform",
+    datePublished: "2026-06-18",
+    readTime: "12 min read",
+  },
    // D365FO vs SAP vs Oracle NetSuite (Blog #4)
   {
     slug: "d365fo-vs-sap-s4hana-vs-oracle-netsuite",

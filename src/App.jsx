@@ -29,6 +29,9 @@ import AXMigration from "./pages/Axmigration";
 import BlogIndex from "./pages/blog/BlogIndex";
 import AX2012EndOfSupport2028Blog from "./pages/blog/AX2012EndOfSupport2028Blog";
 import D365FOImplementationTimelineBlog from "./pages/blog/D365foimplementationtimelineblog";
+import PowerAppsD365FOBlog from "./pages/blog/PowerAppsD365FOBlog";
+import PowerAutomateD365FOBlog from "./pages/blog/PowerAutomateD365FOBlog";
+import D365FOModulesForIndianManufacturersBlog from "./pages/blog/D365FOModulesForIndianManufacturersBlog";
 
 // Power Platform Pages
 import PowerApps from "./pages/Powerapps";
@@ -48,11 +51,14 @@ import D365CRM from "./pages/D365CRM";
 import ExcelToPowerBIBlog from "./pages/blog/ExceltopowerBI";
 import D365FOVsSAPVsOracleBlog from"./pages/blog/D365FOVsSAPVsOracleBlog";
 
+// Calviq Landing Page (dedicated sub-app)
+import CalviqApp from "./calviq/CalviqApp";
+
 
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <Routes>
 
         {/* ---------------- HOME ---------------- */}
@@ -201,7 +207,28 @@ function App() {
           <Route 
   path="/blog/replace-excel-reporting-with-power-bi-d365fo" 
   element={<ExcelToPowerBIBlog />} 
+  
 />
+        <Route
+          path="/blog/power-apps-for-d365fo"
+          element={<PowerAppsD365FOBlog />}
+        />
+        <Route 
+  path="/blog/power-automate-for-d365fo" 
+  element={<PowerAutomateD365FOBlog />} 
+/>
+<Route>
+  <Route
+    path="/blog/d365fo-modules-for-indian-manufacturers"
+    element={<D365FOModulesForIndianManufacturersBlog />}
+  />
+</Route>
+        {/* ---------------- CALVIQ LANDING PAGE ---------------- */}
+        <Route
+          path="/calviq/*"
+          element={<CalviqApp />}
+        />
+
         {/* ---------------- CONTACT ---------------- */}
         <Route
           path="/contact"
