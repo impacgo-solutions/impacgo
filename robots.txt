@@ -1,0 +1,11 @@
+# robots.txt for impacgo.com
+# Allow all search engines to crawl the site
+
+User-agent: *
+Allow: /
+
+# Disallow API routes if you add them later
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://www.impacgo.com/sitemap.xml
