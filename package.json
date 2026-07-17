@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://impacgo.github.io/impacgo-solutions",
+  "homepage": "https://impacgo-solutions.github.io/impacgo",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
