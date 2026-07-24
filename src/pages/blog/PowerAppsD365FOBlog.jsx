@@ -507,7 +507,7 @@ export default function PowerAppsD365FOBlog() {
  <h2 id="use-cases" className="text-3xl font-bold text-gray-900 mb-4">
  4. Real-World Business Use Cases
  </h2>
- <section id="use-cases" className="mb-12">
+ <section className="mb-12">
  
  <div className="grid md:grid-cols-2 gap-6 mb-6">
  <div className="bg-green-50 border border-green-200 rounded-xl p-5">

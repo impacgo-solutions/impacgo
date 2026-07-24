@@ -69,7 +69,7 @@ const articleSchema = createArticleSchema({
     datePublished: "2026-06-02",
     dateModified: "2026-06-02",
     authorName: "Impacgo Solutions",
-    path: "/blog/Excel-to-powerBI-in-D365FO",
+    path: "/blog/replace-excel-reporting-with-power-bi-d365fo",
   });
  
   const faqSchema = createFaqSchema(faqs);
@@ -79,7 +79,7 @@ const articleSchema = createArticleSchema({
     { name: "Blog", path: "/blog" },
     {
       name: "Replace Excel reporting with powerBI in D365FO",
-      path: "/blog/Excel-to-powerBI-in-D365FO",
+      path: "/blog/replace-excel-reporting-with-power-bi-d365fo",
     },
   ]);
  
@@ -89,8 +89,8 @@ const articleSchema = createArticleSchema({
     title="Excel replace with PowerBI in D365FO | Practical Guide for Finance Teams"
     description="Many finance teams using Microsoft Dynamics 365 Finance & Operations (D365FO) still rely on Excel-based reporting. This guide explains how to replace manual Excel reports with Microsoft Power BI, enabling automated reporting, real-time insights, interactive dashboards, and improved financial decision-making."
     keywords="Excel to Power BI, D365FO reporting, Power BI dashboards, financial reporting, real-time analytics, reporting automation, finance reporting, D365FO analytics, Microsoft Power BI, business intelligence."
-    path="/blog/Excel-to-powerBI-in-D365FO"
-    schema={[articleSchema, breadcrumbSchema]}
+    path="/blog/replace-excel-reporting-with-power-bi-d365fo"
+    schema={[articleSchema, faqSchema, breadcrumbSchema]}
 />
  
       <ScrollToTop />
@@ -553,15 +553,15 @@ const articleSchema = createArticleSchema({
                 Related Service
               </p>
               <Link
-                to="/services/ax-migration"
+                to="/services/power-bi"
                 className="group inline-flex items-center text-xl font-bold text-gray-900 hover:text-blue-600 transition-colors"
               >
-                AX 2012 to D365FO Migration Services
+                Power BI Implementation Services
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               <p className="text-gray-600 mt-2">
-                See Impacgo's complete AX migration service offering, our 6-step
-                methodology, and how to request a free readiness assessment.
+                See Impacgo's complete Power BI implementation service offering
+                and how to request a free reporting consultation.
               </p>
             </div>
         </div>

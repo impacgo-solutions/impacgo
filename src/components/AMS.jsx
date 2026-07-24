@@ -7,7 +7,7 @@ import ams from "../assets/ams.jpg";
 import ContactCard from "../components/ContactCard";
 import Footer from "../components/Footer";
 import SEO from "../components/SEO";
-import { createServiceSchema } from "../components/schemas";
+import { createServiceSchema, createBreadcrumbSchema } from "../components/schemas";
 const amsOfferings = [
   {
     title: "Application Monitoring",
@@ -102,6 +102,11 @@ export default function AMS() {
   serviceType: "Application Management",
   path: "/services/ams",
 });
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Services", path: "/#services" },
+    { name: "Application Management Services", path: "/services/ams" },
+  ]);
   return (
     <div>
       <SEO

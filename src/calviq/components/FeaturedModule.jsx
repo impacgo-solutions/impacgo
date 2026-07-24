@@ -1,4 +1,4 @@
-import qrScanCattle from '../assets/images/qr-scan-cattle.png';
+import qrScanCattle from '../assets/images/qr-scan-cattle.jpg';
 
 export default function FeaturedModule() {
   return (

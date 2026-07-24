@@ -1,6 +1,7 @@
 import logo from "../assets/logo.png";
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 export default function POSHeader() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -12,8 +13,6 @@ export default function POSHeader() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const paths = ['/']; // Only keeping the Home path
 
   return (
     <div>
@@ -37,14 +36,14 @@ export default function POSHeader() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
               >
-                <a
-                  href={paths[0]} // Home path
+                <Link
+                  to="/"
                   className={`text-lg font-medium transition-colors duration-300 ${
                     isScrolled ? 'text-gray-800 hover:text-blue-600' : 'text-white hover:text-gray-200'
                   }`}
                 >
                   Home
-                </a>
+                </Link>
               </motion.li>
             </ul>
           </nav>

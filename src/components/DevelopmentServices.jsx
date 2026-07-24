@@ -7,7 +7,7 @@ import devp from "../assets/devp.png";
 import ContactCard from "../components/ContactCard";
 import Footer from "../components/Footer";
 import SEO from "../components/SEO";
-import { createServiceSchema } from "../components/schemas";
+import { createServiceSchema, createBreadcrumbSchema } from "../components/schemas";
 const services = [
   {
     title: "Custom Development",
@@ -94,6 +94,11 @@ export default function DevelopmentServices() {
   serviceType: "ERP Development",
   path: "/services/development",
 });
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Services", path: "/#services" },
+    { name: "Development Services", path: "/services/development" },
+  ]);
   return (
     <div>
       <SEO

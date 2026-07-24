@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import aiBcsVisualization from '../assets/images/ai-bcs-visualization.png';
+import aiBcsVisualization from '../assets/images/ai-bcs-visualization.jpg';
 
 export default function AISpotlight() {
   return (

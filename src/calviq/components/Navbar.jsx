@@ -5,10 +5,10 @@ import useNavScroll from '../hooks/useNavScroll';
 const EXTERNAL_LOGIN_URL = 'https://calviq.impacgo.com/#/login';
 
 const navLinks = [
-  { label: 'Features', href: '/#features' },
-  { label: 'Pricing', href: '/#pricing' },
-  { label: 'Why CALVIQ', href: '/#why-calviq' },
-  { label: 'Contact', href: '/#contact' },
+  { label: 'Features', href: '/calviq/#features' },
+  { label: 'Pricing', href: '/calviq/#pricing' },
+  { label: 'Why CALVIQ', href: '/calviq/#why-calviq' },
+  { label: 'Contact', href: '/calviq/#contact' },
 ];
 
 export default function Navbar() {

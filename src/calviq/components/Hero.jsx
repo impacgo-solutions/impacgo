@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import heroMobileApp from '../assets/images/hero-mobile-app.png';
-import heroFarmScene from '../assets/images/hero-farm-scene.png';
+import heroMobileApp from '../assets/images/hero-mobile-app.jpg';
+import heroFarmScene from '../assets/images/hero-farm-scene.jpg';
 
 const EXTERNAL_LOGIN_URL = 'https://calviq.impacgo.com/#/login';
 

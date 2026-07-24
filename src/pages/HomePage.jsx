@@ -118,6 +118,7 @@ function HeroSection() {
       <img
         src={bgimg}
         alt="Business Team"
+        fetchPriority="high"
         className="absolute inset-0 w-full h-full object-cover opacity-20"
       />
 
@@ -225,6 +226,7 @@ function IndustriesSection() {
                 <img
                   src={industry.image}
                   alt={industry.name}
+                  loading="lazy"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -876,9 +878,27 @@ function ProductsSection() {
       ],
       image: dfms,
       path: "/products/dairy-farm",
-      calviqPath: "/calviq",
+      landingPage: { path: "/calviq", label: "Explore Calviq" },
       tag: null,
       gradient: "from-green-500 to-emerald-600",
+    },
+    {
+      icon: Package,
+      name: "Inventory Management System (STOCKLYTE)",
+      description: "Real-time, multi-location inventory control tower.",
+      features: [
+        "Real-time stock tracking across every location",
+        "Automated reorder points & low-stock alerts",
+        "Barcode / QR scanning for fast stock movement",
+        "Vendor & purchase order management",
+        "Multi-warehouse & multi-location visibility",
+        "Analytics dashboards & demand forecasting",
+      ],
+      image: supplyChain,
+      path: "/products/inventory-management",
+      landingPage: { path: "/stocklyte", label: "Explore StockLyte" },
+      tag: null,
+      gradient: "from-indigo-500 to-blue-600",
     },
     {
       icon: ClipboardList,
@@ -938,6 +958,7 @@ function ProductsSection() {
                   <img
                     src={product.image}
                     alt={product.name}
+                    loading="lazy"
                     className="w-full h-full object-cover"
                   />
                   <div
@@ -974,12 +995,12 @@ function ProductsSection() {
                   >
                     Know More
                   </button>
-                  {product.calviqPath && (
+                  {product.landingPage && (
                     <button
                       className="mt-2 border border-blue-600 text-blue-600 py-2 px-4 rounded-full hover:bg-blue-50 transition-all"
-                      onClick={() => navigate(product.calviqPath)}
+                      onClick={() => navigate(product.landingPage.path)}
                     >
-                      View Calviq Landing Page
+                      {product.landingPage.label}
                     </button>
                   )}
                 </div>
@@ -1105,6 +1126,7 @@ function ClientLogosSection() {
               <img
                 src={client.logo}
                 alt={client.name}
+                loading="lazy"
                 className="max-h-6 md:max-h-5 lg:max-h-7 w-auto object-contain opacity-80 hover:opacity-100 transition duration-300"
               />
             </div>

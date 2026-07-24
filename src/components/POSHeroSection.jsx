@@ -1,10 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import bgimg from '../assets/posbg.jpg'; 
+import { useNavigate } from 'react-router-dom';
+import bgimg from '../assets/posbg.jpg';
 
 import { ChevronDown, CheckCircle } from 'lucide-react'
 
 function POSHeroSection() {
+    const navigate = useNavigate();
     return (
         <motion.div
           initial={{ opacity: 0 }}
@@ -34,6 +36,7 @@ function POSHeroSection() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => navigate("/contact")}
               className="bg-blue-600 text-white py-3 px-8  rounded-full shadow-lg text-lg font-semibold hover:bg-blue-700 transition-all duration-300 lg:ml-7"
             >
               Know More

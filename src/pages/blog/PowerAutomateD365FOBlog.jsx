@@ -572,15 +572,15 @@ export default function PowerAutomateD365FOBlog() {
                                 Related Service
                             </p>
                             <Link
-                                to="/services/ax-migration"
+                                to="/services/power-automate"
                                 className="group inline-flex items-center text-xl font-bold text-gray-900 hover:text-blue-600 transition-colors"
                             >
-                                AX 2012 to D365FO Migration Services
+                                Power Automate Implementation Services
                                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                             </Link>
                             <p className="text-gray-600 mt-2">
-                                See Impacgo's complete AX migration service offering, our 6-step
-                                methodology, and how to request a free readiness assessment.
+                                See Impacgo's complete Power Automate implementation service
+                                offering and how to request a free workflow assessment.
                             </p>
                         </div>
                     </div>

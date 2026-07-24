@@ -286,7 +286,7 @@ const breadcrumbSchema = createBreadcrumbSchema([
                     <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center mb-4 transition-all duration-300 transform hover:scale-110">
                       <step.icon className="text-white text-3xl" />
                     </div>
-                    {index !== implementationProcess.length && (
+                    {index !== implementationProcess.length - 1 && (
                       <div className="h-8 w-1 bg-gradient-to-t from-blue-600 to-indigo-500 mx-auto"></div>
                     )}
                   </div>

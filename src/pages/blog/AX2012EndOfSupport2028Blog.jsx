@@ -90,7 +90,7 @@ export default function AX2012EndOfSupport2028Blog() {
   description="Microsoft has announced end of support for Dynamics AX 2012 by January 2028. Complete migration guide covering risks, options, timeline, and how to plan your D365 Finance & Operations upgrade. For global enterprises and Indian businesses."
   keywords="AX 2012 end of support 2028, Dynamics AX 2012 end of life, AX 2012 migration, AX 2012 to D365 migration, Microsoft AX 2028 deadline, AX 2012 R3 end of support, Dynamics AX migration plan, AX 2012 India, AX 2012 global migration"
   path="/blog/ax-2012-end-of-support-2028-india"
-  schema={[articleSchema, breadcrumbSchema]}
+  schema={[articleSchema, faqSchema, breadcrumbSchema]}
 />
 
       <ScrollToTop />

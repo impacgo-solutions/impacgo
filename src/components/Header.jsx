@@ -29,12 +29,17 @@ export default function Header() {
   }, [isMenuOpen]);
 
   // Navigation items
+  // Products/Services/Contact are plain <a> tags (not React Router Links),
+  // so they're resolved by the browser as absolute to the domain root — they
+  // need the deployed base path (e.g. "/impacgo/" on GitHub Pages) prefixed
+  // explicitly, unlike the isRoute:true entries which go through React
+  // Router's basename automatically.
   const navItems = [
     { name: "Home", path: "/", isRoute: true },
-    { name: "Products", path: "/#products", isRoute: false },
-    { name: "Services", path: "/#services", isRoute: false },
+    { name: "Products", path: `${import.meta.env.BASE_URL}#products`, isRoute: false },
+    { name: "Services", path: `${import.meta.env.BASE_URL}#services`, isRoute: false },
     { name: "Blog", path: "/blog", isRoute: true },
-    { name: "Contact", path: "/#contact", isRoute: false },
+    { name: "Contact", path: `${import.meta.env.BASE_URL}#contact`, isRoute: false },
   ];
 
   const closeMenu = () => {
@@ -190,7 +195,7 @@ export default function Header() {
           {/* OPTIONAL BUTTON */}
           <div className="pt-6">
             <a
-              href="/#contact"
+              href={`${import.meta.env.BASE_URL}#contact`}
               onClick={closeMenu}
               className="block w-full text-center bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl font-semibold transition"
             >

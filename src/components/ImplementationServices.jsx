@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 import ContactCard from "../components/ContactCard";
 import impl from "../assets/financialimg.jpg";
 import SEO from "../components/SEO";
-import { createServiceSchema } from "../components/schemas";
+import { createServiceSchema, createBreadcrumbSchema } from "../components/schemas";
 
 const implementationProcess = [
   {
@@ -97,6 +97,11 @@ export default function ImplementationServices() {
   serviceType: "ERP Implementation",
   path: "/services/implementation",
 });
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Services", path: "/#services" },
+    { name: "Implementation Services", path: "/services/implementation" },
+  ]);
   return (
     <div>
       <SEO
