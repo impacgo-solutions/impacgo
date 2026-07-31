@@ -1,0 +1,119 @@
+/* FarmYieldIQ landing page (src/farmyieldiq) — custom classes referenced by
+   its components that aren't part of Tailwind's utility set. Scoped here
+   rather than in the site-wide index.css so this sub-app stays self-contained.
+   Class names are prefixed fyiq- (except .material-symbols-outlined, which is
+   an identical duplicate of the same rule in calviq.css/stocklyte.css) so
+   they never collide with the other two sub-apps' global stylesheets. */
+
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
+.fyiq-sophisticated-shadow {
+  box-shadow: 0 4px 20px -1px rgb(2 54 37 / 0.08), 0 2px 10px -2px rgb(2 54 37 / 0.06);
+}
+
+.fyiq-hero-gradient {
+  background: linear-gradient(135deg, #023625 0%, #0b4a34 45%, #1f4d3a 100%);
+}
+
+.fyiq-nav-blur {
+  background-color: transparent;
+  transition: all 0.4s ease;
+}
+.fyiq-nav-scrolled {
+  background-color: rgba(249, 250, 246, 0.85);
+  backdrop-filter: blur(16px);
+  border-bottom-color: rgba(113, 121, 115, 0.2);
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+/* Reveal-on-scroll animation */
+.fyiq-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.fyiq-reveal.fyiq-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Shimmer effect for primary CTAs */
+.fyiq-shimmer-btn {
+  position: relative;
+  overflow: hidden;
+}
+.fyiq-shimmer-btn::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0) 40%,
+    rgba(255, 255, 255, 0.35) 50%,
+    rgba(255, 255, 255, 0) 60%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(45deg);
+  transition: all 0.3s;
+  opacity: 0;
+}
+@media (hover: hover) and (pointer: fine) {
+  .fyiq-shimmer-btn:hover::after {
+    animation: fyiq-shimmer 1.5s infinite;
+    opacity: 1;
+  }
+}
+@keyframes fyiq-shimmer {
+  0% {
+    transform: translateX(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(100%) rotate(45deg);
+  }
+}
+
+/* Card hover lift (pointer/hover-capable devices only) */
+.fyiq-card-hover {
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+@media (hover: hover) and (pointer: fine) {
+  .fyiq-card-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px -12px rgba(2, 54, 37, 0.15);
+    border-color: #006d33;
+  }
+}
+
+.fyiq-floating {
+  animation: fyiq-floating 4s ease-in-out infinite;
+}
+@keyframes fyiq-floating {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}

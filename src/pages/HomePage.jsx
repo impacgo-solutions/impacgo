@@ -8,6 +8,7 @@ import { useState, useEffect } from "react";
 import dfms from "../assets/dfms.jpg";
 import worktast from "../assets/worktask.jpg";
 import construction from "../assets/Construction.jpg";
+import farmYieldIq from "../assets/farmyieldiq-dashboard.png";
 import SEO from "../components/SEO";
 import { organizationSchema, localBusinessSchema } from "../components/schemas";
 import emailjs from "@emailjs/browser";
@@ -899,6 +900,24 @@ function ProductsSection() {
       landingPage: { path: "/stocklyte", label: "Explore StockLyte" },
       tag: null,
       gradient: "from-indigo-500 to-blue-600",
+    },
+    {
+      icon: Layers,
+      name: "Farmland & Livestock Operations Platform (FARMYIELDIQ)",
+      description: "Unified operations for managed farmland plots and livestock portfolios.",
+      features: [
+        "Layout, block & plot management with pricing and registration tracking",
+        "Livestock tracking — breed, health & milk records per farm",
+        "Partner portfolios with document vault & live feed access",
+        "Real estate sales pipeline — leads, bookings & team hierarchy",
+        "Employee, travel expense & partner request management",
+        "Dashboard KPIs across partners, layouts, plots & documents",
+      ],
+      image: farmYieldIq,
+      path: "/products/farm-yield-iq",
+      landingPage: { path: "/farmyieldiq", label: "Explore FarmYieldIQ" },
+      tag: null,
+      gradient: "from-emerald-600 to-amber-600",
     },
     {
       icon: ClipboardList,

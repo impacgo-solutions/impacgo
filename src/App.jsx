@@ -28,6 +28,7 @@ const AIAutomation = lazy(() => import("./pages/Aiautomation"));
 // Product Pages
 const DairyFarm = lazy(() => import("./pages/Dairyfarm"));
 const InventoryManagement = lazy(() => import("./pages/Inventorymanagement"));
+const FarmYieldIQ = lazy(() => import("./pages/FarmYieldIQ"));
 const WorkTask = lazy(() => import("./pages/Worktask"));
 const ConstructionPlanner = lazy(() => import("./pages/Constructionplanner"));
 const AXMigration = lazy(() => import("./pages/Axmigration"));
@@ -63,6 +64,9 @@ const CalviqApp = lazy(() => import("./calviq/CalviqApp"));
 
 // StockLyte Landing Page (dedicated sub-app) — same treatment
 const StockLyteApp = lazy(() => import("./stocklyte/StockLyteApp"));
+
+// FarmYieldIQ Landing Page (dedicated sub-app) — same treatment
+const FarmYieldIQApp = lazy(() => import("./farmyieldiq/FarmYieldIQApp"));
 
 function PageLoadingFallback() {
   return (
@@ -181,6 +185,11 @@ function App() {
         />
 
         <Route
+          path="/products/farm-yield-iq"
+          element={<FarmYieldIQ />}
+        />
+
+        <Route
           path="/products/work-task"
           element={<WorkTask />}
         />
@@ -255,6 +264,12 @@ function App() {
         <Route
           path="/stocklyte/*"
           element={<StockLyteApp />}
+        />
+
+        {/* ---------------- FARMYIELDIQ LANDING PAGE ---------------- */}
+        <Route
+          path="/farmyieldiq/*"
+          element={<FarmYieldIQApp />}
         />
 
         {/* ---------------- CONTACT ---------------- */}
