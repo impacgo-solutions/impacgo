@@ -14,12 +14,13 @@ import {
   FaLifeRing,
   FaCloudUploadAlt,
 } from "react-icons/fa";
-import { Code2 } from "lucide-react";
+import { Code2, GitBranch, Terminal } from "lucide-react";
 
 import POSHeader from "../components/POSHeader";
 import Footer from "../components/Footer";
 import ContactCard from "../components/ContactCard";
-import D365DevelopmentHeroSection from "../components/D365DevelopmentHeroSection";
+import PageHero, { HeroPanel } from "../components/PageHero";
+import financialimg from "../assets/financialimg.jpg";
 import SEO from "../components/SEO";
 import {
   createServiceSchema,
@@ -213,7 +214,45 @@ export default function D365Development() {
       <POSHeader />
 
       <main className="flex-grow">
-        <D365DevelopmentHeroSection />
+        <PageHero
+          backgroundStyle="linear-gradient(135deg, #0f172a 0%, #1e3a8a 35%, #0891b2 100%)"
+          image={financialimg}
+          imageAlt="D365FO Development and Customisation"
+          eyebrow="X++ Development · Extensions · ALM · CI/CD"
+          eyebrowIcon={Code2}
+          title={
+            <>
+              D365FO{" "}
+              <span className="bg-gradient-to-r from-cyan-300 to-blue-200 bg-clip-text text-transparent">
+                Development & Customisation
+              </span>{" "}
+              — Global X++ Specialists
+            </>
+          }
+          description="Specialist Dynamics 365 Finance & Operations development team in India. X++ extensions, custom forms, integration code, data entities, batch jobs, security policies, and full ALM with Azure DevOps CI/CD. Production-grade D365FO code, not throwaway hacks."
+          stats={[
+            { icon: Terminal, label: "Language", value: "X++ · C#" },
+            { icon: GitBranch, label: "ALM", value: "Azure DevOps" },
+            { icon: Code2, label: "Model", value: "Extension-first" },
+          ]}
+          primaryCta={{ label: "Get a Free Development Consultation", onClick: () => navigate("/contact") }}
+          secondaryCta={{
+            label: "See Our Process",
+            onClick: () => document.getElementById("d365dev-process")?.scrollIntoView({ behavior: "smooth" }),
+          }}
+          panel={
+            <HeroPanel
+              eyebrow="Development Capabilities"
+              title="What our D365FO developers build"
+              items={[
+                { icon: Code2, title: "X++ extensions & customisations", description: "Forms, tables, methods, business logic" },
+                { icon: Terminal, title: "Data entities & integrations", description: "OData, custom services, batch jobs" },
+                { icon: GitBranch, title: "ALM & deployment automation", description: "Azure DevOps, LCS, build pipelines" },
+              ]}
+              footnote="All development follows Microsoft's extension-first model. No over-layering. Upgrade-safe code that survives every D365FO platform update."
+            />
+          }
+        />
 
         <section className="bg-blue-50 border-y-2 border-blue-200 py-6">
           <div className="container mx-auto px-6 md:px-12">

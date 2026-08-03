@@ -14,12 +14,13 @@ import {
   FaChartLine,
   FaMobileAlt,
 } from "react-icons/fa";
-import { TrendingUp } from "lucide-react";
+import { TrendingUp, BarChart3, Database } from "lucide-react";
 
 import POSHeader from "../components/POSHeader";
 import Footer from "../components/Footer";
 import ContactCard from "../components/ContactCard";
-import PowerBIHeroSection from "../components/PowerBIHeroSection";
+import PageHero, { HeroPanel } from "../components/PageHero";
+import financialimg from "../assets/financialimg.jpg";
 import SEO from "../components/SEO";
 import {
   createServiceSchema,
@@ -215,7 +216,45 @@ export default function PowerBI() {
       <POSHeader />
 
       <main className="flex-grow">
-        <PowerBIHeroSection />
+        <PageHero
+          backgroundStyle="linear-gradient(135deg, #b45309 0%, #d97706 35%, #1e40af 100%)"
+          image={financialimg}
+          imageAlt="Microsoft Power BI Implementation"
+          eyebrow="Replace Excel Month-End Reports With Real-Time Dashboards"
+          eyebrowIcon={TrendingUp}
+          title={
+            <>
+              Power BI{" "}
+              <span className="bg-gradient-to-r from-amber-200 to-yellow-200 bg-clip-text text-transparent">
+                Implementation Partner
+              </span>{" "}
+              — Global
+            </>
+          }
+          description="Stop building Excel reports that take three days to prepare and are out of date the moment they're sent. Impacgo builds live Power BI dashboards connected to Dynamics 365 F&O, your data warehouse, and finance systems — so your leadership team sees real numbers in real time."
+          stats={[
+            { icon: BarChart3, label: "Delivery", value: "4-8 weeks" },
+            { icon: Database, label: "Sources", value: "D365 · Excel · SQL" },
+            { icon: TrendingUp, label: "Refresh", value: "Real-time" },
+          ]}
+          primaryCta={{ label: "Get a Free Power BI Consultation", onClick: () => navigate("/contact") }}
+          secondaryCta={{
+            label: "See Our Process",
+            onClick: () => document.getElementById("powerbi-process")?.scrollIntoView({ behavior: "smooth" }),
+          }}
+          panel={
+            <HeroPanel
+              eyebrow="Common Use Cases"
+              title="What Indian finance teams build with Power BI"
+              items={[
+                { icon: BarChart3, title: "Executive & CFO dashboards", description: "Live P&L, cashflow, working capital views" },
+                { icon: TrendingUp, title: "Sales & inventory analytics", description: "Real-time sales, stock, demand forecasting" },
+                { icon: Database, title: "Financial close & statutory reports", description: "Faster month-end, GST/TDS dashboards" },
+              ]}
+              footnote="Native connectors for D365 F&O, SQL Server, Azure Synapse, Excel, SharePoint — plus DAX models built for Indian reporting requirements."
+            />
+          }
+        />
 
         {/* ============ Pain-Point Banner ============ */}
         <section className="bg-amber-50 border-y-2 border-amber-200 py-6">

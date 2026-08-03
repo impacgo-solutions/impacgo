@@ -17,7 +17,8 @@ import {
 } from "react-icons/fa";
 import { MdOutlineEngineering, MdOutlineSupportAgent } from "react-icons/md";
 import POSHeader from "../components/POSHeader";
-import AIAutomationHeroSection from "../components/AIAutomationHeroSection";
+import PageHero from "../components/PageHero";
+import manufacturingImg from "../assets/manufacturing.jpg";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import Footer from "../components/Footer";
@@ -192,7 +193,14 @@ const breadcrumbSchema = createBreadcrumbSchema([
 />
       <ScrollToTop />
       <POSHeader />
-      <AIAutomationHeroSection />
+      <PageHero
+        gradient="from-slate-900 via-purple-900 to-slate-900"
+        image={manufacturingImg}
+        imageAlt="AI & Automation Solutions"
+        title="AI & Automation Solutions"
+        description="Intelligent solutions that automate, assist, and amplify your business — from RPA and AI chatbots to computer vision, predictive analytics, and AI-powered decision support embedded into your ERP systems."
+        primaryCta={{ label: "Know More", onClick: () => navigate("/contact") }}
+      />
 
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-6 md:px-12">

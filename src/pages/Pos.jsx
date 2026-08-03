@@ -1,9 +1,9 @@
 
 import { FaCheckCircle, FaCloud, FaCode, FaCog, FaSyncAlt, FaShieldAlt, FaChartLine } from 'react-icons/fa';
-import POSHeroSection from '../components/POSHeroSection';
+import PageHero from '../components/PageHero';
 import Footer from '../components/Footer';
 import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import POSHeader from '../components/POSHeader';
 import maintain from "../assets/maintain.jpg";
 import posimg from "../assets/posimg.jpg"
@@ -22,6 +22,7 @@ const ScrollToTop = () => {
 };
 
 export default function Component() {
+  const navigate = useNavigate();
   const faqs = [
   {
     question: "What POS solutions does Impacgo provide?",
@@ -64,7 +65,14 @@ const breadcrumbSchema = createBreadcrumbSchema([
       <POSHeader />
 
       <main className="flex-grow">
-        <POSHeroSection />
+        <PageHero
+          gradient="from-blue-900 via-indigo-800 to-purple-900"
+          image={posimg}
+          imageAlt="POS Solutions"
+          title="POS Solutions Tailored for Your Retail Business"
+          description="At Impacgo, we specialize in delivering comprehensive POS solutions that empower retail businesses to achieve seamless transactions, enhanced customer experience, and streamlined operations. With extensive experience in both custom-built and packaged POS systems, we offer tailored support that aligns perfectly with your operational goals."
+          primaryCta={{ label: "Know More", onClick: () => navigate("/contact") }}
+        />
 
         <section className="py-20">
           <div className="container mx-auto px-4">

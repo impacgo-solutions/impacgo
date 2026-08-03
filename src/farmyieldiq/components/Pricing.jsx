@@ -7,7 +7,7 @@ export default function Pricing() {
             Simple, Scalable Pricing
           </h2>
           <p className="font-farmyieldiq-body text-body-lg text-farmyieldiq-on-surface-variant max-w-xl mx-auto">
-            From a single layout to a multi-farm, multi-team operation, we'll build a plan around your portfolio.
+            From a single layout to a multi-layout, multi-team operation, we'll build a plan around your portfolio.
           </p>
         </div>
         <div className="max-w-2xl mx-auto">
@@ -17,7 +17,7 @@ export default function Pricing() {
             </div>
             <h3 className="font-farmyieldiq-headline text-2xl mb-2 text-white">Custom Plans</h3>
             <p className="text-white/60 text-sm max-w-md font-farmyieldiq-body">
-              Every operation's mix of layouts, livestock, partners and sales headcount is different — pricing is
+              Every operation's mix of layouts, plots, partners and sales headcount is different — pricing is
               scoped to yours.
             </p>
             <ul className="space-y-5 my-10 text-left">
@@ -27,7 +27,7 @@ export default function Pricing() {
               </li>
               <li className="flex items-center gap-3 text-sm text-white/90 font-farmyieldiq-body">
                 <span className="material-symbols-outlined text-farmyieldiq-secondary-fixed font-bold">check</span>
-                Livestock &amp; Partner Portfolio Tracking
+                Plot &amp; Partner Portfolio Tracking
               </li>
               <li className="flex items-center gap-3 text-sm text-white/90 font-farmyieldiq-body">
                 <span className="material-symbols-outlined text-farmyieldiq-secondary-fixed font-bold">check</span>

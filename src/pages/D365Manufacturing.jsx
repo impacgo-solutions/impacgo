@@ -14,12 +14,13 @@ import {
   FaChartLine,
   FaLifeRing,
 } from "react-icons/fa";
-import { Factory } from "lucide-react";
+import { Factory, Cog, Layers } from "lucide-react";
 
 import POSHeader from "../components/POSHeader";
 import Footer from "../components/Footer";
 import ContactCard from "../components/ContactCard";
-import D365ManufacturingHeroSection from "../components/D365ManufacturingHeroSection";
+import PageHero, { HeroPanel } from "../components/PageHero";
+import manufacturingImg from "../assets/manufacturing.jpg";
 import SEO from "../components/SEO";
 import {
   createServiceSchema,
@@ -216,7 +217,45 @@ export default function D365Manufacturing() {
       <POSHeader />
 
       <main className="flex-grow">
-        <D365ManufacturingHeroSection />
+        <PageHero
+          backgroundStyle="linear-gradient(135deg, #1e293b 0%, #1e3a8a 35%, #b45309 100%)"
+          image={manufacturingImg}
+          imageAlt="D365 for Manufacturing Implementation"
+          eyebrow="Production Control · BOM · MES Integration · Indian Manufacturing"
+          eyebrowIcon={Factory}
+          title={
+            <>
+              Dynamics 365 for{" "}
+              <span className="bg-gradient-to-r from-amber-300 to-orange-200 bg-clip-text text-transparent">
+                Manufacturing
+              </span>{" "}
+              — Global Manufacturing Specialists
+            </>
+          }
+          description="Specialist Microsoft Dynamics 365 Finance & Operations implementation for Indian manufacturers. Production control, BOM, MRP, quality management, warehouse, and shop floor — fully integrated with MES, Power Apps, and Power BI. Built for discrete, process, and lean manufacturing."
+          stats={[
+            { icon: Cog, label: "Go-live", value: "6-9 months" },
+            { icon: Factory, label: "Manufacturing", value: "Discrete · Process" },
+            { icon: Layers, label: "Integrated", value: "D365 · MES" },
+          ]}
+          primaryCta={{ label: "Free Manufacturing Discovery Workshop", onClick: () => navigate("/contact") }}
+          secondaryCta={{
+            label: "See Our Process",
+            onClick: () => document.getElementById("d365mfg-process")?.scrollIntoView({ behavior: "smooth" }),
+          }}
+          panel={
+            <HeroPanel
+              eyebrow="Manufacturing Capabilities"
+              title="What we build on D365FO for Indian manufacturers"
+              items={[
+                { icon: Factory, title: "Production control & shop floor", description: "Work orders, routings, real-time status" },
+                { icon: Cog, title: "BOM & MRP planning", description: "Multi-level BOMs, master planning, MPS" },
+                { icon: Layers, title: "MES & IoT integration", description: "Closed-loop with shop floor systems" },
+              ]}
+              footnote="GST, TDS, e-invoicing, Indian payroll, and statutory reporting baked in. Discrete, process (food & chemicals), and lean manufacturing — all supported."
+            />
+          }
+        />
 
         {/* ============ Pain-Point Banner ============ */}
         <section className="bg-amber-50 border-y-2 border-amber-200 py-6">

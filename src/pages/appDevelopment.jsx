@@ -1,7 +1,8 @@
 import { FaCheckCircle, FaRocket, FaUsers, FaCogs, FaLightbulb } from "react-icons/fa";
 import { MdOutlineCampaign, MdOutlineSupportAgent, MdOutlineEngineering } from "react-icons/md";
 import POSHeader from "../components/POSHeader";
-import CRMHeroSection from "../components/CRMHeroSection";
+import PageHero from "../components/PageHero";
+import crmImg from "../assets/crm.jpg";
 import { useLocation,useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import Footer from '../components/Footer';
@@ -178,7 +179,14 @@ const breadcrumbSchema = createBreadcrumbSchema([
 />
       <ScrollToTop />
     <POSHeader />
-    <CRMHeroSection />
+    <PageHero
+      gradient="from-blue-900 via-sky-800 to-cyan-800"
+      image={crmImg}
+      imageAlt="Web and Mobile Application Development"
+      title="Web & Mobile Application Development"
+      description="We design and develop scalable, secure, and high-performance web and mobile applications that empower enterprises, integrate seamlessly with ERP systems, and drive digital transformation."
+      primaryCta={{ label: "Know More", onClick: () => navigate("/contact") }}
+    />
     <section className="py-16 bg-gray-50">
     
       <div className="container mx-auto px-6 md:px-12">

@@ -7,11 +7,11 @@ const problems = [
     desc: 'Plot pricing, paid/balance amounts, and registration status tracked across scattered sheets, with no single source of truth.',
   },
   {
-    icon: 'visibility_off',
+    icon: 'folder_off',
     iconBg: 'bg-farmyieldiq-tertiary-container/20',
     iconColor: 'text-farmyieldiq-tertiary-fixed-dim',
-    title: 'No Live View of the Herd',
-    desc: "Cattle health, breed and milk-yield records live in paper logs, so problems on a farm surface days after they happen.",
+    title: 'Partner Documents Scattered Everywhere',
+    desc: "Certificates, agreements and invoices live in email threads and local folders, so nobody has one place to check a partner's paperwork.",
   },
   {
     icon: 'call_missed',
@@ -30,7 +30,7 @@ export default function ProblemSection() {
           Escape the Spreadsheet Sprawl
         </h2>
         <p className="font-farmyieldiq-body text-body-lg text-farmyieldiq-on-surface-variant max-w-2xl mx-auto">
-          Land, livestock, partners and sales run on the same business — but rarely on the same system.
+          Land, partners and sales run on the same business — but rarely on the same system.
           FarmYieldIQ brings it all under one roof.
         </p>
       </div>
@@ -53,7 +53,7 @@ export default function ProblemSection() {
           <div className="space-y-3 text-center md:text-left">
             <h4 className="text-white font-farmyieldiq-headline text-headline-lg">Stop reconciling, start managing.</h4>
             <p className="text-white/60 font-farmyieldiq-body">
-              One platform for layouts, plots, livestock, partners and your sales team.
+              One platform for layouts, plots, partners and your sales team.
             </p>
           </div>
           <a

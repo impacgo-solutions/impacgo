@@ -14,12 +14,13 @@ import {
   FaChartLine,
   FaLifeRing,
 } from "react-icons/fa";
-import { Heart } from "lucide-react";
+import { Heart, Users, Headphones } from "lucide-react";
 
 import POSHeader from "../components/POSHeader";
 import Footer from "../components/Footer";
 import ContactCard from "../components/ContactCard";
-import D365CRMHeroSection from "../components/D365CRMHeroSection";
+import PageHero, { HeroPanel } from "../components/PageHero";
+import financialimg from "../assets/financialimg.jpg";
 import SEO from "../components/SEO";
 import {
   createServiceSchema,
@@ -213,7 +214,45 @@ export default function D365CRM() {
       <POSHeader />
 
       <main className="flex-grow">
-        <D365CRMHeroSection />
+        <PageHero
+          backgroundStyle="linear-gradient(135deg, #831843 0%, #be185d 35%, #7c3aed 100%)"
+          image={financialimg}
+          imageAlt="Dynamics 365 CRM Implementation"
+          eyebrow="Sales · Marketing · Customer Service · Field Service"
+          eyebrowIcon={Heart}
+          title={
+            <>
+              Dynamics 365{" "}
+              <span className="bg-gradient-to-r from-pink-200 to-violet-200 bg-clip-text text-transparent">
+                CRM
+              </span>{" "}
+              Implementation — Global Specialists
+            </>
+          }
+          description="Specialist Microsoft Dynamics 365 Customer Engagement implementation for Indian sales, marketing, and customer service teams. D365 Sales, Customer Service, Marketing, and Field Service — connected to your D365 F&O backend for one unified customer view."
+          stats={[
+            { icon: Users, label: "Sales", value: "Pipeline · Forecast" },
+            { icon: Headphones, label: "Service", value: "Cases · SLAs" },
+            { icon: Heart, label: "Marketing", value: "Journeys · Lead Gen" },
+          ]}
+          primaryCta={{ label: "Get a Free D365 CRM Consultation", onClick: () => navigate("/contact") }}
+          secondaryCta={{
+            label: "See Our Process",
+            onClick: () => document.getElementById("d365crm-process")?.scrollIntoView({ behavior: "smooth" }),
+          }}
+          panel={
+            <HeroPanel
+              eyebrow="CRM Capabilities"
+              title="Dynamics 365 modules we implement"
+              items={[
+                { icon: Users, title: "D365 Sales", description: "Lead, opportunity, quote, forecast" },
+                { icon: Headphones, title: "D365 Customer Service", description: "Omnichannel cases, SLAs, knowledge base" },
+                { icon: Heart, title: "D365 Marketing & Field Service", description: "Journeys, segmentation, technician dispatch" },
+              ]}
+              footnote="All modules connect natively to D365 Finance & Operations for one unified customer view — from lead to order to service."
+            />
+          }
+        />
 
         <section className="bg-pink-50 border-y-2 border-pink-200 py-6">
           <div className="container mx-auto px-6 md:px-12">

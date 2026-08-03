@@ -6,16 +6,16 @@ import {
   FaChartLine,
   FaUserTie,
   FaPlaneDeparture,
-  FaFolderOpen,
+  FaSeedling,
   FaCheckCircle,
   FaCogs,
   FaRocket,
   FaShieldAlt,
 } from "react-icons/fa";
-import { GiCow } from "react-icons/gi";
 import POSHeader from "../components/POSHeader";
 import Footer from "../components/Footer";
 import ContactCard from "../components/ContactCard";
+import Reveal, { RevealItem } from "../components/Reveal";
 import farmYieldImg from "../assets/farmyieldiq-dashboard.png";
 import SEO from "../components/SEO";
 import { createServiceSchema, createFaqSchema, createBreadcrumbSchema } from "../components/schemas";
@@ -36,15 +36,15 @@ const features = [
     icon: <FaMapMarkedAlt className="text-emerald-700 text-3xl mb-4" />,
   },
   {
-    title: "Livestock Tracking",
+    title: "Per-Plot Crop Details",
     description:
-      "Per-farm cattle records — breed, age, milk production, health status, and lifecycle stage, with optional live camera feed access.",
-    icon: <GiCow className="text-emerald-700 text-3xl mb-4" />,
+      "Optional crop tracking on every plot — crop type and plant count, so plantation-style developments are documented alongside the land itself.",
+    icon: <FaSeedling className="text-emerald-700 text-3xl mb-4" />,
   },
   {
     title: "Partner Portfolios",
     description:
-      "Every customer's plots, cows, documents and payments in one profile — so partners always see the true status of what they hold.",
+      "Every customer's plots, documents and payments in one profile — so partners always see the true status of what they hold.",
     icon: <FaUsers className="text-emerald-700 text-3xl mb-4" />,
   },
   {
@@ -69,9 +69,9 @@ const features = [
 
 const benefits = [
   {
-    title: "Built for Agri-Land & Livestock",
+    title: "Built for Plotted-Land Developers",
     description:
-      "Designed around how plotted-land developers and livestock operators actually run day-to-day operations, not a generic CRM bolted on.",
+      "Designed around how plotted-land developers actually run day-to-day operations — sales, partners and land records — not a generic CRM bolted on.",
     icon: <FaCheckCircle className="text-green-600 text-3xl mb-4" />,
   },
   {
@@ -100,17 +100,17 @@ export default function FarmYieldIQ() {
     {
       question: "What does FarmYieldIQ actually manage?",
       answer:
-        "FarmYieldIQ is an operations platform for agri-land and livestock businesses. It manages land layouts, blocks and individual plots with pricing and payment status, per-farm livestock records, partner (customer) portfolios, an internal real-estate sales pipeline, employees, travel expenses, and a shared document vault.",
+        "FarmYieldIQ is an operations platform for plotted-land businesses. It manages land layouts, blocks and individual plots with pricing, payment and registration status, optional per-plot crop details, partner (customer) portfolios, an internal real-estate sales pipeline, employees, travel expenses, and a shared document vault.",
     },
     {
       question: "Is it for customers/investors, or for internal staff?",
       answer:
-        "FarmYieldIQ is an internal admin console used by your own team — sales staff, farm managers and administrators. Partners (your customers) are records managed inside it, including an optional live camera feed so partners can check on their plot or livestock themselves.",
+        "FarmYieldIQ is an internal admin console used by your own team — sales staff, farm managers and administrators. Partners (your customers) are records managed inside it, so your team always has an accurate view of what each customer holds.",
     },
     {
-      question: "Can it handle both real estate plots and livestock together?",
+      question: "Can it track crop details on individual plots?",
       answer:
-        "Yes — that mix is exactly what it's built for. Plots and cows can each be linked to the same partner, so one profile shows everything a customer holds with you.",
+        "Yes — each plot can carry optional cropping details, such as crop type and plant count, so plantation-style land developments are documented alongside the pricing and registration records.",
     },
     {
       question: "Does it cover my sales team and staff operations too?",
@@ -122,10 +122,10 @@ export default function FarmYieldIQ() {
   const faqSchema = createFaqSchema(faqs);
 
   const serviceSchema = createServiceSchema({
-    serviceName: "Farmland & Livestock Operations Software",
+    serviceName: "Farmland Plot Operations Software",
     description:
-      "Operations platform for agri-land and livestock businesses — layout, block and plot management, livestock tracking, partner portfolios, and an internal sales pipeline.",
-    serviceType: "Agricultural & Real Estate Management Software",
+      "Operations platform for plotted-land businesses — layout, block and plot management, partner portfolios, and an internal sales pipeline.",
+    serviceType: "Agricultural Real Estate Management Software",
     path: "/products/farm-yield-iq",
   });
 
@@ -138,9 +138,9 @@ export default function FarmYieldIQ() {
   return (
     <div>
       <SEO
-        title="Farmland & Livestock Operations Platform | FarmYieldIQ | Global Specialists"
-        description="FarmYieldIQ manages land layouts, blocks and plots, livestock records, partner portfolios and an internal sales pipeline — all from one operations dashboard."
-        keywords="farmland management software, livestock management software, plot management system, agri real estate software, dairy cattle tracking, sales pipeline CRM, FarmYieldIQ"
+        title="Farmland Plot Operations Platform | FarmYieldIQ | Global Specialists"
+        description="FarmYieldIQ manages land layouts, blocks and plots, partner portfolios and an internal sales pipeline — all from one operations dashboard."
+        keywords="farmland management software, plot management system, agri real estate software, land layout management, sales pipeline CRM, FarmYieldIQ"
         path="/products/farm-yield-iq"
         schema={[serviceSchema, faqSchema, breadcrumbSchema]}
       />
@@ -166,10 +166,10 @@ export default function FarmYieldIQ() {
                 </span>
               </div>
               <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-                Farmland &amp; Livestock Operations Platform
+                Farmland Plot Operations Platform
               </h1>
               <p className="text-lg md:text-xl text-white max-w-2xl">
-                One dashboard for land layouts, plots, livestock, partner portfolios,
+                One dashboard for land layouts, plots, partner portfolios,
                 and your internal sales team.
               </p>
             </div>
@@ -177,13 +177,14 @@ export default function FarmYieldIQ() {
 
           {/* Features */}
           <div className="mt-12">
-            <h3 className="text-3xl font-bold text-gray-800 mb-8 text-center">
+            <Reveal as="h3" className="text-3xl font-bold text-gray-800 mb-8 text-center">
               Key Features
-            </h3>
+            </Reveal>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
               {features.map((item, index) => (
-                <div
+                <RevealItem
                   key={index}
+                  index={index}
                   className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
                 >
                   {item.icon}
@@ -191,20 +192,21 @@ export default function FarmYieldIQ() {
                     {item.title}
                   </h4>
                   <p className="text-gray-700">{item.description}</p>
-                </div>
+                </RevealItem>
               ))}
             </div>
           </div>
 
           {/* Benefits */}
           <div className="mt-16">
-            <h3 className="text-3xl font-bold text-gray-800 mb-8 text-center">
+            <Reveal as="h3" className="text-3xl font-bold text-gray-800 mb-8 text-center">
               Why Choose FarmYieldIQ?
-            </h3>
+            </Reveal>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
               {benefits.map((item, index) => (
-                <div
+                <RevealItem
                   key={index}
+                  index={index}
                   className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
                 >
                   {item.icon}
@@ -212,15 +214,15 @@ export default function FarmYieldIQ() {
                     {item.title}
                   </h4>
                   <p className="text-gray-700">{item.description}</p>
-                </div>
+                </RevealItem>
               ))}
             </div>
           </div>
 
           {/* CTA */}
-          <div className="text-center mt-16">
+          <Reveal className="text-center mt-16">
             <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-              Ready to run your land, livestock and sales team from one place? This
+              Ready to run your land, plots and sales team from one place? This
               product is built and run as{" "}
               <span className="font-semibold text-emerald-700">FARMYIELDIQ</span>.
             </p>
@@ -244,7 +246,7 @@ export default function FarmYieldIQ() {
                 Open App / Log In
               </a>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 

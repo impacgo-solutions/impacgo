@@ -1,7 +1,7 @@
 const features = [
   { icon: 'layers', color: 'primary', label: 'Layouts & Blocks' },
   { icon: 'map', color: 'secondary', label: 'Plots & Payments' },
-  { icon: 'pets', color: 'tertiary', label: 'Livestock Tracking' },
+  { icon: 'eco', color: 'tertiary', label: 'Crop Details' },
   { icon: 'groups', color: 'primary', label: 'Partner Profiles' },
   { icon: 'trending_up', color: 'secondary', label: 'Sales Pipeline' },
   { icon: 'badge', color: 'tertiary', label: 'Employees & Roles' },
@@ -40,7 +40,7 @@ export default function FeaturesEcosystem() {
           Everything Your Ops Team Touches, In One Place
         </h2>
         <p className="text-farmyieldiq-on-surface-variant max-w-xl mx-auto font-farmyieldiq-body text-body-lg">
-          From onboarding a plot to closing a sale to checking on a cow — one dashboard connects it all.
+          From onboarding a plot to closing a sale to checking a partner's paperwork — one dashboard connects it all.
         </p>
       </div>
       <div className="max-w-container-max mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-x-4 gap-y-8 sm:gap-x-8 sm:gap-y-12 fyiq-reveal">

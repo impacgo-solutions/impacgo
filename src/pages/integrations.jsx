@@ -17,7 +17,8 @@ import {
 } from "react-icons/fa";
 import { MdOutlineEngineering, MdOutlineSupportAgent } from "react-icons/md";
 import POSHeader from "../components/POSHeader";
-import IntegrationsHeroSection from "../components/IntegrationsHeroSection";
+import PageHero from "../components/PageHero";
+import supplyChainImg from "../assets/supplychain.jpg";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import Footer from "../components/Footer";
@@ -192,7 +193,14 @@ const breadcrumbSchema = createBreadcrumbSchema([
 />
       <ScrollToTop />
       <POSHeader />
-      <IntegrationsHeroSection />
+      <PageHero
+        gradient="from-teal-900 via-cyan-800 to-blue-900"
+        image={supplyChainImg}
+        imageAlt="System Integrations"
+        title="Integrations & System Connectivity"
+        description="We connect ERP, MES, CRM, e-commerce, and third-party platforms with secure, real-time integrations built to scale — bridging legacy systems and modern cloud platforms seamlessly."
+        primaryCta={{ label: "Know More", onClick: () => navigate("/contact") }}
+      />
 
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-6 md:px-12">

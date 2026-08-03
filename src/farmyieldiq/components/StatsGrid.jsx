@@ -1,6 +1,6 @@
 const stats = [
   { value: 'Layout → Block → Plot', color: 'text-white', label: 'Real Estate Hierarchy' },
-  { value: 'Live', color: 'text-farmyieldiq-secondary-fixed', label: 'Herd Health & Milk Records' },
+  { value: 'Live', color: 'text-farmyieldiq-secondary-fixed', label: 'Payment & Registration Status' },
   { value: '360°', color: 'text-farmyieldiq-tertiary-fixed-dim', label: 'Partner Portfolio View' },
   { value: 'End-to-End', color: 'text-white', label: 'Sales Pipeline & Commissions' },
 ];

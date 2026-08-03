@@ -21,7 +21,7 @@ export default function FarmYieldIQApp() {
   return (
     <div className="bg-farmyieldiq-background text-farmyieldiq-on-background font-farmyieldiq-body selection:bg-farmyieldiq-primary-fixed selection:text-farmyieldiq-on-primary-fixed antialiased overflow-x-hidden">
       <Helmet>
-        <title>FarmYieldIQ | Farmland &amp; Livestock Operations Platform</title>
+        <title>FarmYieldIQ | Farmland Plot Operations Platform</title>
         {/* These fonts are only used on this sub-app, so they're declared
             here rather than in index.html — no reason to make every other
             page on the site pay for a font request it never uses. */}

@@ -5,9 +5,9 @@ const rows = [
     modern: 'Centralized plot ledger with live payment status',
   },
   {
-    feature: 'Livestock Records',
-    legacy: 'Paper logs per farm',
-    modern: 'Digital breed, health & milk-yield records',
+    feature: 'Plot & Crop Details',
+    legacy: 'Paper site records',
+    modern: 'Digital plot records with optional crop details',
   },
   {
     feature: 'Sales Follow-ups',
@@ -17,7 +17,7 @@ const rows = [
   {
     feature: 'Partner Trust',
     legacy: 'Phone calls for updates',
-    modern: 'Partner profile with documents & live feed',
+    modern: 'Partner profile with documents & payment history',
   },
   {
     feature: 'Expense Approvals',
@@ -32,7 +32,7 @@ export default function ComparisonTable() {
       <div className="max-w-container-max mx-auto">
         <div className="text-center mb-10 md:mb-20 fyiq-reveal">
           <h2 className="font-farmyieldiq-headline text-display-lg-mobile text-farmyieldiq-on-surface">The FarmYieldIQ Difference</h2>
-          <p className="text-farmyieldiq-on-surface-variant font-farmyieldiq-body">See what changes when land, livestock and sales share one system.</p>
+          <p className="text-farmyieldiq-on-surface-variant font-farmyieldiq-body">See what changes when land and sales share one system.</p>
         </div>
         <div className="overflow-x-auto rounded-2xl md:rounded-3xl border border-farmyieldiq-outline-variant/30 fyiq-sophisticated-shadow fyiq-reveal">
           <table className="w-full text-left border-collapse bg-white min-w-[640px]">

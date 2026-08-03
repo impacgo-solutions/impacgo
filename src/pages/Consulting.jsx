@@ -16,7 +16,8 @@ import {
 } from "react-icons/fa";
 import { MdOutlineEngineering, MdOutlineSupportAgent } from "react-icons/md";
 import POSHeader from "../components/POSHeader";
-import ConsultingHeroSection from "../components/ConsultingHeroSection";
+import PageHero from "../components/PageHero";
+import financialimg from "../assets/financialimg.jpg";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import Footer from "../components/Footer";
@@ -191,7 +192,14 @@ const breadcrumbSchema = createBreadcrumbSchema([
 />
       <ScrollToTop />
       <POSHeader />
-      <ConsultingHeroSection />
+      <PageHero
+        gradient="from-slate-900 via-slate-800 to-blue-900"
+        image={financialimg}
+        imageAlt="Consulting & Digital Transformation"
+        title="Consulting & Digital Transformation"
+        description="Strategic technology advisory — process redesign, ERP/MES readiness, change management, training, and end-to-end digital transformation journeys backed by 19+ years of domain expertise."
+        primaryCta={{ label: "Know More", onClick: () => navigate("/contact") }}
+      />
 
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-6 md:px-12">

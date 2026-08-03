@@ -6,7 +6,8 @@ import IndustriesSupported from "../components/IndestriesSupported";
 import ImplementationServices from "../components/ImplementationServices";
 import DevelopmentServices from "../components/DevelopmentServices";
 import AMS from "../components/AMS";
-import D365HeroSection from "../components/D365HeroSection";
+import PageHero from "../components/PageHero";
+import d3651 from "../assets/d3651.jpg";
 import { FaChartPie, FaRobot, FaSyncAlt, FaExpand, FaDollarSign, FaCog, FaClipboardCheck, FaChartLine , FaBalanceScale } from "react-icons/fa";
 import ContactCard from "../components/ContactCard"
 import ServiceSection from "./ServiceSection";
@@ -77,7 +78,14 @@ const breadcrumbSchema = createBreadcrumbSchema([
       
 
       <main className="flex-grow">
-      <D365HeroSection />
+      <PageHero
+        gradient="from-slate-900 via-blue-900 to-indigo-800"
+        image={d3651}
+        imageAlt="Dynamics 365 Solutions"
+        title="Transform Your Business with Dynamics 365 Finance and Operations"
+        description="A comprehensive ERP solution to streamline your financial and operational processes, enhance efficiency, and drive growth. Dynamics 365 Finance and Operations helps businesses improve decision-making and drive growth by streamlining financial and operational processes."
+        primaryCta={{ label: "Learn More", onClick: () => navigate("/contact") }}
+      />
 
          {/* Key Features Section */}
 <section className="py-16 bg-gray-100">

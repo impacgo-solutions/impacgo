@@ -11,20 +11,22 @@ import construction from "../assets/Construction.jpg";
 import farmYieldIq from "../assets/farmyieldiq-dashboard.png";
 import SEO from "../components/SEO";
 import { organizationSchema, localBusinessSchema } from "../components/schemas";
+import { erpModules } from "../data/erpModules";
 import emailjs from "@emailjs/browser";
 import {
   ChevronDown, CheckCircle, Mail, User, Phone, MessageSquare,
   Code2,          // ← only once here
   Plug, Database, Factory, Bot, Package, Lightbulb, Rocket,
-  Smartphone, Globe, Cpu, Workflow, BrainCircuit, Eye,
-  TrendingUp, GitBranch, ShieldCheck, Zap, HeartHandshake,
+  Smartphone, Globe, Workflow, BrainCircuit, Eye,
+  TrendingUp, ShieldCheck, Zap, HeartHandshake,
   Layers, Target, LifeBuoy, Tractor, ClipboardList, Building2,
   AlertTriangle, BarChart3, Sparkles, Heart,
 } from "lucide-react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import Reveal, { RevealItem } from "../components/Reveal";
 import pos from "../assets/pos.jpg";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import LocationMap from "../components/LocationMap";
 import ContactCard from "../components/ContactCard";
 import financial from "../assets/financialimg.jpg";
@@ -63,12 +65,11 @@ export default function HomePage() {
         <HeroSection />
         <IndustriesSection />
         <ServicesSection />
-        <SoftwareDevelopmentSection />
         <ERPImplementationSection />
-        <MoreServicesSection />
         <AIAutomationSection />
         {/* <AchievementsSection /> */}
         <ProductsSection />
+        <ERPProductsSection />
         <WhyChooseUsSection />
         {/* <ClientLogosSection /> */}
         <ContactSection />
@@ -207,17 +208,20 @@ function IndustriesSection() {
   return (
     <section id="industries" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">
-          Industries We Serve
-        </h2>
-        <p className="text-lg text-gray-600 mb-12 max-w-3xl mx-auto">
-          Impacgo Solutions delivers industry-specific ERP, automation, and digital transformation solutions for global enterprises — with deep India compliance expertise built in.
-        </p>
+        <Reveal>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Industries We Serve
+          </h2>
+          <p className="text-lg text-gray-600 mb-12 max-w-3xl mx-auto">
+            Impacgo Solutions delivers industry-specific ERP, automation, and digital transformation solutions for global enterprises — with deep India compliance expertise built in.
+          </p>
+        </Reveal>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {industries.map((industry) => (
-            <div
+          {industries.map((industry, index) => (
+            <RevealItem
               key={industry.name}
+              index={index}
               onClick={() => industry.path && navigate(industry.path)}
               className={`bg-white rounded-lg shadow-lg overflow-hidden transition duration-300 hover:scale-105 ${
                 industry.path ? "cursor-pointer" : ""
@@ -242,7 +246,7 @@ function IndustriesSection() {
                   </p>
                 )}
               </div>
-            </div>
+            </RevealItem>
           ))}
         </div>
       </div>
@@ -362,19 +366,20 @@ function ServicesSection() {
   return (
     <section id="services" className="py-20 bg-blue-50 scroll-mt-24">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
+        <Reveal className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Services</h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             Full-spectrum technology solutions — strategy to execution
           </p>
-        </div>
+        </Reveal>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {services.map((service) => {
+          {services.map((service, index) => {
   const Icon = service.icon;
   return (
-    <div
+    <RevealItem
       key={service.title}
+      index={index}
       role="button"
       tabIndex={0}
       aria-label={`Learn more about ${service.title}`}
@@ -441,97 +446,9 @@ function ServicesSection() {
           />
         </svg>
       </div>
-    </div>
+    </RevealItem>
   );
 })}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ---------------------- SOFTWARE DEVELOPMENT (Slide 3) ---------------------- */
-function SoftwareDevelopmentSection() {
-  const navigate = useNavigate();
-
-  const blocks = [
-    {
-      icon: Smartphone,
-      title: "Mobile Applications",
-      items: [
-        "iOS & Android native and cross-platform apps",
-        "React Native & Flutter development",
-        "Intuitive UI/UX design & prototyping",
-        "Offline-first architecture for field use",
-        "Real-time push notifications & sync",
-        "App Store & Play Store deployment",
-      ],
-    },
-    {
-      icon: Globe,
-      title: "Web Applications",
-      items: [
-        "Responsive portals, dashboards & e-commerce",
-        "React, Angular, Vue.js front-end development",
-        "Node.js, Python, .NET backend services",
-        "Progressive Web Apps (PWA)",
-        "Cloud-native Azure / AWS deployments",
-        "API-first and microservices architecture",
-      ],
-    },
-  ];
-
-  return (
-    <section id="software-development" className="py-20 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <p className="uppercase tracking-widest text-blue-600 font-semibold mb-2 text-sm">
-            Application Development
-          </p>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Mobile · Web · Custom Software
-          </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Built for scale, performance and your unique business workflows.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {blocks.map((block) => {
-            const Icon = block.icon;
-            return (
-              <div
-                key={block.title}
-                className="relative bg-gradient-to-br from-blue-50 to-white rounded-2xl shadow-lg p-8 border border-gray-100 hover:shadow-2xl transition-all duration-300"
-              >
-                <div className="flex items-center mb-6">
-                  <div className="w-14 h-14 rounded-xl bg-blue-600 flex items-center justify-center mr-4">
-                    <Icon className="h-7 w-7 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-800">
-                    {block.title}
-                  </h3>
-                </div>
-                <ul className="space-y-3">
-                  {block.items.map((item) => (
-                    <li key={item} className="flex items-start">
-                      <CheckCircle className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            );
-          })}
-        </div>
-
-        <div className="text-center mt-10">
-          <button
-            onClick={() => navigate("/services/app-development")}
-            className="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition-all"
-          >
-            Explore Software Development
-          </button>
         </div>
       </div>
     </section>
@@ -578,19 +495,20 @@ function ERPImplementationSection() {
   return (
     <section id="erp-implementation" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
+        <Reveal className="text-center mb-12">
           <p className="uppercase tracking-widest text-blue-600 font-semibold mb-2 text-sm">
             ERP Implementation
           </p>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             The right ERP for the right business size — implemented right
           </h2>
-        </div>
+        </Reveal>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {erps.map((erp) => (
-            <div
+          {erps.map((erp, index) => (
+            <RevealItem
               key={erp.title}
+              index={index}
               className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 flex flex-col"
             >
               <div
@@ -618,109 +536,8 @@ function ERPImplementationSection() {
                   Know More
                 </button>
               </div>
-            </div>
+            </RevealItem>
           ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ---------------------- MORE SERVICES (Slide 5) ---------------------- */
-function MoreServicesSection() {
-  const navigate = useNavigate();
-
-  const blocks = [
-    {
-      icon: Cpu,
-      title: "MES Implementation",
-      subtitle: "Manufacturing Execution Systems",
-      path: "/services/mes",
-      items: [
-        "Real-time production floor monitoring",
-        "Work order & job scheduling management",
-        "Quality control, inspection & traceability",
-        "OEE — Overall Equipment Effectiveness",
-        "Material & genealogy tracking",
-        "ERP integration for closed-loop manufacturing",
-      ],
-    },
-    {
-      icon: GitBranch,
-      title: "Integrations",
-      subtitle: "Seamless System Connectivity",
-      path: "/services/integrations",
-      items: [
-        "REST API & SOAP web service connectors",
-        "Third-party SaaS integrations",
-        "EDI / B2B data exchange pipelines",
-        "Real-time bidirectional data sync",
-        "Middleware & iPaaS (Azure Logic Apps)",
-        "Legacy system modernisation & bridging",
-      ],
-    },
-    {
-      icon: Lightbulb,
-      title: "Consulting Services",
-      subtitle: "Strategic Technology Advisory",
-      path: "/services/consulting",
-      items: [
-        "Business process analysis & redesign",
-        "Technology roadmap & architecture planning",
-        "ERP / MES readiness & gap assessment",
-        "Change management & user adoption",
-        "Training programmes & workshops",
-        "Ongoing post go-live hypercare support",
-      ],
-    },
-  ];
-
-  return (
-    <section id="more-services" className="py-20 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <p className="uppercase tracking-widest text-blue-600 font-semibold mb-2 text-sm">
-            More Services
-          </p>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Manufacturing execution, integrations and advisory services
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {blocks.map((block) => {
-            const Icon = block.icon;
-            return (
-              <div
-                key={block.title}
-                className="bg-gradient-to-br from-gray-50 to-white rounded-2xl shadow-md p-6 border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col"
-              >
-                <div className="w-12 h-12 rounded-lg bg-blue-600 flex items-center justify-center mb-4">
-                  <Icon className="h-6 w-6 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-800 mb-1">
-                  {block.title}
-                </h3>
-                <p className="text-sm text-blue-600 font-medium mb-4">
-                  {block.subtitle}
-                </p>
-                <ul className="space-y-2 mb-6 flex-1">
-                  {block.items.map((item) => (
-                    <li key={item} className="flex items-start text-sm">
-                      <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-                <button
-                  onClick={() => navigate(block.path)}
-                  className="self-start bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition-all text-sm"
-                >
-                  Know More
-                </button>
-              </div>
-            );
-          })}
         </div>
       </div>
     </section>
@@ -781,7 +598,7 @@ function AIAutomationSection() {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-12">
+        <Reveal className="text-center mb-12">
           <p className="uppercase tracking-widest text-purple-300 font-semibold mb-2 text-sm">
             AI & Automation
           </p>
@@ -789,14 +606,15 @@ function AIAutomationSection() {
             Intelligent solutions that automate, assist and amplify your
             business
           </h2>
-        </div>
+        </Reveal>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {items.map((item) => {
+          {items.map((item, index) => {
             const Icon = item.icon;
             return (
-              <div
+              <RevealItem
                 key={item.title}
+                index={index}
                 className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 hover:border-purple-400/40 transition-all duration-300"
               >
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center mb-4">
@@ -806,7 +624,7 @@ function AIAutomationSection() {
                 <p className="text-sm text-gray-300 leading-relaxed">
                   {item.description}
                 </p>
-              </div>
+              </RevealItem>
             );
           })}
         </div>
@@ -903,12 +721,12 @@ function ProductsSection() {
     },
     {
       icon: Layers,
-      name: "Farmland & Livestock Operations Platform (FARMYIELDIQ)",
-      description: "Unified operations for managed farmland plots and livestock portfolios.",
+      name: "Farmland Plot Operations Platform (FARMYIELDIQ)",
+      description: "Unified operations for managed farmland plots, partners and sales.",
       features: [
         "Layout, block & plot management with pricing and registration tracking",
-        "Livestock tracking — breed, health & milk records per farm",
-        "Partner portfolios with document vault & live feed access",
+        "Per-plot crop details — track crop type & plant count",
+        "Partner portfolios with document vault & payment tracking",
         "Real estate sales pipeline — leads, bookings & team hierarchy",
         "Employee, travel expense & partner request management",
         "Dashboard KPIs across partners, layouts, plots & documents",
@@ -958,19 +776,20 @@ function ProductsSection() {
   return (
     <section id="products" className="py-20 bg-white scroll-mt-24">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
+        <Reveal className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Products</h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             Purpose-built software products developed by Impacgo
           </p>
-        </div>
+        </Reveal>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {products.map((product) => {
+          {products.map((product, index) => {
             const Icon = product.icon;
             return (
-              <div
+              <RevealItem
                 key={product.name}
+                index={index}
                 className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100 flex flex-col"
               >
                 <div className="relative h-44 overflow-hidden">
@@ -1023,7 +842,87 @@ function ProductsSection() {
                     </button>
                   )}
                 </div>
-              </div>
+              </RevealItem>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------------- IMPACGO SUITE ---------------------- */
+// Card content stays "basic" here — module name, one-line description, a
+// handful of capability chips — the full pitch (workflows, module
+// breakdown, benefits, FAQ) lives on each module's own detail page at
+// /erp/:slug (src/pages/erp/ERPModuleDetail.jsx). Data is shared from
+// src/data/erpModules.js so the two never drift apart.
+function ERPProductsSection() {
+  const colorClasses = {
+    violet: "bg-violet-50 text-violet-600",
+    blue: "bg-blue-50 text-blue-600",
+    amber: "bg-amber-50 text-amber-600",
+    slate: "bg-slate-100 text-slate-600",
+    emerald: "bg-emerald-50 text-emerald-600",
+    orange: "bg-orange-50 text-orange-600",
+    teal: "bg-teal-50 text-teal-600",
+  };
+
+  return (
+    <section id="erp-products" className="py-20 bg-gray-50 scroll-mt-24">
+      <div className="container mx-auto px-4">
+        <Reveal className="text-center mb-12">
+          <span className="inline-block bg-amber-100 text-amber-800 text-xs font-bold px-4 py-1.5 rounded-full tracking-wide mb-4">
+            IN DEVELOPMENT
+          </span>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Impacgo Suite</h2>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            Our own suite of business applications — HR, Finance, Supply Chain, Manufacturing,
+            Planning and Retail — built as one connected system. Click a module for the full picture.
+          </p>
+        </Reveal>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {erpModules.map((mod, index) => {
+            const Icon = mod.icon;
+            return (
+              <RevealItem key={mod.name} index={index}>
+              <Link
+                id={`erp-${mod.slug}`}
+                to={`/erp/${mod.slug}`}
+                className="group block h-full bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-gray-200 p-6 scroll-mt-28 hover:-translate-y-1"
+              >
+                <div className="flex items-start justify-between mb-4">
+                  <div className={`h-12 w-12 rounded-xl flex items-center justify-center ${colorClasses[mod.color]}`}>
+                    <Icon className="h-6 w-6" />
+                  </div>
+                  <span className="text-[10px] font-bold uppercase tracking-wide bg-amber-100 text-amber-700 px-2.5 py-1 rounded-full">
+                    In Development
+                  </span>
+                </div>
+
+                <h3 className="text-lg font-bold text-gray-800">Impacgo {mod.name}</h3>
+                <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-3">
+                  {mod.tagline}
+                </p>
+                <p className="text-gray-600 text-sm mb-4">{mod.description}</p>
+
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {mod.capabilities.map((cap) => (
+                    <span
+                      key={cap}
+                      className="text-xs font-medium bg-gray-100 text-gray-700 px-2.5 py-1 rounded-full"
+                    >
+                      {cap}
+                    </span>
+                  ))}
+                </div>
+
+                <span className="inline-flex items-center gap-1 text-sm font-semibold text-blue-600 group-hover:gap-2 transition-all">
+                  Learn more <span aria-hidden="true">→</span>
+                </span>
+              </Link>
+              </RevealItem>
             );
           })}
         </div>
@@ -1076,7 +975,7 @@ function WhyChooseUsSection() {
   return (
     <section id="why-choose-us" className="py-20 bg-blue-50">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
+        <Reveal className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Why Choose Impacgo?
           </h2>
@@ -1084,14 +983,15 @@ function WhyChooseUsSection() {
             Impacgo doesn't just implement technology — we deliver outcomes
             your business can measure.
           </p>
-        </div>
+        </Reveal>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {items.map((item) => {
+          {items.map((item, index) => {
             const Icon = item.icon;
             return (
-              <div
+              <RevealItem
                 key={item.title}
+                index={index}
                 className="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 group"
               >
                 <div className="flex items-start">
@@ -1107,7 +1007,7 @@ function WhyChooseUsSection() {
                     </p>
                   </div>
                 </div>
-              </div>
+              </RevealItem>
             );
           })}
         </div>
@@ -1227,13 +1127,15 @@ function ContactSection() {
     <section id="contact" className="py-20 bg-blue-50 scroll-mt-24">
       <div className="container mx-auto px-4">
 
-        <div className="text-center mb-12">
+        <Reveal className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-blue-600">
             Let's Build Something Impactful. Together.
           </h2>
-        </div>
+        </Reveal>
 
-        <form
+        <Reveal
+          as="form"
+          delay={0.1}
           className="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-lg"
           onSubmit={handleSubmit}
         >
@@ -1362,7 +1264,7 @@ function ContactSection() {
               {errorMessage}
             </p>
           )}
-        </form>
+        </Reveal>
       </div>
     </section>
   );

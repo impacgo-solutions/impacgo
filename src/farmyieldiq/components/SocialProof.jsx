@@ -13,7 +13,7 @@ export default function SocialProof() {
       </div>
       <div className="max-w-container-max mx-auto text-center px-margin-mobile md:px-gutter relative z-10">
         <h3 className="text-white font-farmyieldiq-headline text-2xl md:text-3xl opacity-90 font-medium">
-          Built for teams who owe their partners full transparency on land, livestock and payments.
+          Built for teams who owe their partners full transparency on land, plots and payments.
         </h3>
       </div>
     </section>

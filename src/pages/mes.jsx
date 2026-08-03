@@ -16,7 +16,8 @@ import {
 } from "react-icons/fa";
 import { MdOutlineEngineering, MdOutlineSupportAgent } from "react-icons/md";
 import POSHeader from "../components/POSHeader";
-import MESHeroSection from "../components/MESHeroSection";
+import PageHero from "../components/PageHero";
+import manufacturingImg from "../assets/manufacturing.jpg";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import Footer from "../components/Footer";
@@ -191,7 +192,14 @@ const breadcrumbSchema = createBreadcrumbSchema([
 />
       <ScrollToTop />
       <POSHeader />
-      <MESHeroSection />
+      <PageHero
+        gradient="from-slate-900 via-slate-800 to-amber-900"
+        image={manufacturingImg}
+        imageAlt="Manufacturing Execution Systems"
+        title="Manufacturing Execution Systems (MES)"
+        description="Connect your shop floor to the top floor with real-time production visibility, OEE tracking, quality control, and closed-loop ERP integration — built for modern manufacturers."
+        primaryCta={{ label: "Know More", onClick: () => navigate("/contact") }}
+      />
 
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-6 md:px-12">

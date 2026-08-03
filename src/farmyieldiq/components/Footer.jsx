@@ -9,7 +9,7 @@ export default function Footer() {
             FarmYieldIQ
           </span>
           <p className="text-white/60 font-farmyieldiq-body text-sm leading-relaxed max-w-sm">
-            The operations platform for agri-land and livestock businesses — layouts, plots, livestock, partners
+            The operations platform for plotted-land businesses — layouts, plots, partners
             and sales, in one dashboard.
           </p>
         </div>
@@ -17,7 +17,7 @@ export default function Footer() {
           <h5 className="text-white text-xs font-black uppercase tracking-widest">Platform</h5>
           <ul className="space-y-4">
             <li><a className="text-white/60 hover:text-white transition-colors text-sm" href="/farmyieldiq/#features">Layouts &amp; Plots</a></li>
-            <li><a className="text-white/60 hover:text-white transition-colors text-sm" href="/farmyieldiq/#features">Livestock Tracking</a></li>
+            <li><a className="text-white/60 hover:text-white transition-colors text-sm" href="/farmyieldiq/#features">Crop Details</a></li>
             <li><a className="text-white/60 hover:text-white transition-colors text-sm" href="/farmyieldiq/#features">Sales Pipeline</a></li>
             <li><a className="text-white/60 hover:text-white transition-colors text-sm" href="/farmyieldiq/#features">Partner Documents</a></li>
           </ul>
@@ -41,7 +41,7 @@ export default function Footer() {
       </div>
       <div className="max-w-container-max mx-auto mt-12 md:mt-20 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
         <p className="text-[11px] text-white/50 font-medium tracking-wide uppercase">
-          © 2026 Impacgo FarmYieldIQ. Built for agri-land &amp; livestock operators.
+          © 2026 Impacgo FarmYieldIQ. Built for plotted-land operators.
         </p>
         <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 sm:gap-8 text-[11px] text-white/50 font-medium uppercase tracking-wider">
           <a className="hover:text-white transition-colors" href="#">Privacy Policy</a>

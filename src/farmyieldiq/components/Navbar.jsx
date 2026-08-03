@@ -55,7 +55,7 @@ export default function Navbar() {
               solid ? 'text-farmyieldiq-outline' : 'text-white/70'
             }`}
           >
-            Farmland &amp; Livestock Operations Platform
+            Farmland Plot Operations Platform
           </span>
         </div>
         <div className="hidden md:flex items-center gap-10">

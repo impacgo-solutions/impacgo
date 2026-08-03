@@ -10,25 +10,24 @@ export default function PartnerSpotlight() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center relative z-10">
               <div className="space-y-6 md:space-y-10">
                 <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-white/10 text-white font-farmyieldiq-body text-[11px] tracking-widest border border-white/20">
-                  <span className="material-symbols-outlined text-lg text-farmyieldiq-secondary-fixed">videocam</span>
+                  <span className="material-symbols-outlined text-lg text-farmyieldiq-secondary-fixed">visibility</span>
                   PARTNER TRANSPARENCY
                 </div>
                 <h2 className="font-farmyieldiq-headline text-display-lg-mobile lg:text-display-lg text-white">
-                  Give Every Partner a Live Window Into Their Asset
+                  Give Every Partner a Clear View of Their Portfolio
                 </h2>
                 <p className="text-white/80 font-farmyieldiq-body text-body-lg leading-relaxed">
-                  Partner profiles bring cows, plots, documents and payments into one view — with an optional live
-                  camera feed so partners can check on their livestock or plot themselves, instead of calling
-                  the office.
+                  Partner profiles bring plots, documents and payments into one view, so partners can check the
+                  status of what they hold themselves, instead of calling the office.
                 </p>
                 <div className="flex gap-8 sm:gap-12 pt-4 border-t border-white/10">
                   <div className="text-white">
-                    <span className="block text-3xl font-extrabold text-farmyieldiq-secondary-fixed">Cows · Plots</span>
+                    <span className="block text-3xl font-extrabold text-farmyieldiq-secondary-fixed">Plots</span>
                     <span className="text-xs uppercase tracking-widest opacity-60 font-farmyieldiq-body">Docs · Payments</span>
                   </div>
                   <div className="text-white">
-                    <span className="block text-3xl font-extrabold text-farmyieldiq-secondary-fixed">Live Feed</span>
-                    <span className="text-xs uppercase tracking-widest opacity-60 font-farmyieldiq-body">Per Partner Asset</span>
+                    <span className="block text-3xl font-extrabold text-farmyieldiq-secondary-fixed">Full History</span>
+                    <span className="text-xs uppercase tracking-widest opacity-60 font-farmyieldiq-body">Per Partner Plot</span>
                   </div>
                 </div>
                 <a

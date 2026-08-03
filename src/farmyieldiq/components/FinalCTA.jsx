@@ -6,8 +6,8 @@ const faqs = [
     a: 'Role-based access controls limit each employee to the modules and data their role covers, and every partner’s documents and payment history are kept in a dedicated profile.',
   },
   {
-    q: 'Can I manage both land plots and livestock in the same account?',
-    a: 'Yes — FarmYieldIQ is built for exactly that mix. Layouts, blocks and plots sit alongside per-farm cattle records, and both can be linked to the same partner.',
+    q: 'Can I track crop details alongside plot pricing?',
+    a: 'Yes — each plot can carry optional cropping details, such as crop type and plant count, right alongside its pricing, payment and registration status.',
   },
   {
     q: 'Does it handle my sales team, not just customers?',
@@ -46,10 +46,10 @@ export default function FinalCTA() {
         <div className="max-w-container-max mx-auto flex flex-col md:flex-row items-center justify-between gap-10 fyiq-reveal">
           <div className="text-center md:text-left space-y-3">
             <h2 className="font-farmyieldiq-headline text-display-lg-mobile lg:text-display-lg">
-              Ready to run land, livestock and sales from one place?
+              Ready to run land and sales from one place?
             </h2>
             <p className="font-farmyieldiq-body text-body-lg text-white/80">
-              Bring your layouts, plots, herd and team into FarmYieldIQ.
+              Bring your layouts, plots and team into FarmYieldIQ.
             </p>
           </div>
           <div className="flex flex-col gap-4 w-full md:w-auto">

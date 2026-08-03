@@ -7,13 +7,13 @@ const steps = [
   {
     number: 2,
     title: 'Onboard Team & Partners',
-    desc: 'Invite employees with role-based access, and add partner profiles for every customer holding a plot or cow.',
+    desc: 'Invite employees with role-based access, and add partner profiles for every customer holding a plot.',
     delay: '100ms',
   },
   {
     number: 3,
     title: 'Run Sales & Operations',
-    desc: 'Track leads through to bookings, log livestock and travel-expense activity, and manage it all from one dashboard.',
+    desc: 'Track leads through to bookings, log travel-expense activity, and manage it all from one dashboard.',
     delay: '200ms',
   },
 ];

@@ -8,16 +8,15 @@ export default function Hero() {
         <div className="lg:col-span-7 space-y-6 md:space-y-8 z-10">
           <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-farmyieldiq-primary-fixed font-farmyieldiq-body text-[11px] tracking-[0.2em] uppercase">
             <span className="w-1.5 h-1.5 rounded-full bg-farmyieldiq-secondary-fixed animate-pulse"></span>
-            Farmland &amp; Livestock Operations
+            Farmland Plot Operations
           </span>
           <h1 className="font-farmyieldiq-headline text-display-lg-mobile lg:text-display-lg text-white">
             Every Layout. Every Plot. <br />
-            <span className="text-farmyieldiq-secondary-fixed">Every Cow, Tracked.</span>
+            <span className="text-farmyieldiq-secondary-fixed">Every Sale, Tracked.</span>
           </h1>
           <p className="font-farmyieldiq-body text-body-lg text-white/80 max-w-xl leading-relaxed">
-            FarmYieldIQ is the operations platform for agri-land and livestock businesses — one dashboard for
-            layouts, blocks and plots, cattle health and milk records, partner portfolios, sales pipeline, and
-            your whole team.
+            FarmYieldIQ is the operations platform for plotted-land businesses — one dashboard for
+            layouts, blocks and plots, partner portfolios, sales pipeline, and your whole team.
           </p>
           <div className="flex flex-col sm:flex-row flex-wrap gap-4 pt-4">
             <a

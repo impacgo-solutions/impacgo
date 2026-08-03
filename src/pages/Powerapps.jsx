@@ -14,12 +14,13 @@ import {
   FaChartLine,
   FaLifeRing,
 } from "react-icons/fa";
-import { Zap } from "lucide-react";
+import { Zap, Smartphone, Layers } from "lucide-react";
 
 import POSHeader from "../components/POSHeader";
 import Footer from "../components/Footer";
 import ContactCard from "../components/ContactCard";
-import PowerAppsHeroSection from "../components/Powerappsherosection";
+import PageHero, { HeroPanel } from "../components/PageHero";
+import financialimg from "../assets/financialimg.jpg";
 import SEO from "../components/SEO";
 import {
   createServiceSchema,
@@ -215,7 +216,45 @@ export default function PowerApps() {
       <POSHeader />
 
       <main className="flex-grow">
-        <PowerAppsHeroSection />
+        <PageHero
+          backgroundStyle="linear-gradient(135deg, #5b21b6 0%, #6d28d9 35%, #2563eb 100%)"
+          image={financialimg}
+          imageAlt="Microsoft Power Apps Development"
+          eyebrow="Custom Apps in 4-8 Weeks · D365FO Connected"
+          eyebrowIcon={Zap}
+          title={
+            <>
+              Power Apps{" "}
+              <span className="bg-gradient-to-r from-cyan-300 to-purple-200 bg-clip-text text-transparent">
+                Development Partner
+              </span>{" "}
+              — Global Implementation Partner
+            </>
+          }
+          description="Custom canvas and model-driven Power Apps connected to Microsoft Dynamics 365 F&O, Dataverse, and your business systems. Build mobile-first apps for shop floor, field service, approvals, and inspections — without heavyweight custom development."
+          stats={[
+            { icon: Zap, label: "Delivery", value: "4-8 weeks" },
+            { icon: Smartphone, label: "Platform", value: "Web · Mobile" },
+            { icon: Layers, label: "Connected to", value: "D365 · M365" },
+          ]}
+          primaryCta={{ label: "Get a Free Power Apps Consultation", onClick: () => navigate("/contact") }}
+          secondaryCta={{
+            label: "See Our Process",
+            onClick: () => document.getElementById("powerapps-process")?.scrollIntoView({ behavior: "smooth" }),
+          }}
+          panel={
+            <HeroPanel
+              eyebrow="Common Use Cases"
+              title="What Indian enterprises build with Power Apps"
+              items={[
+                { icon: Smartphone, title: "Shop floor mobile apps", description: "Production reporting, quality checks" },
+                { icon: Layers, title: "Field service & inspection", description: "Offline-capable for site visits" },
+                { icon: Zap, title: "Approval workflow apps", description: "Purchase orders, expense claims" },
+              ]}
+              footnote="All apps connect to your D365FO, Dataverse, SharePoint, Teams, and 500+ third-party systems via Power Platform connectors."
+            />
+          }
+        />
 
         {/* ============ Speed Banner ============ */}
         <section className="bg-purple-50 border-y-2 border-purple-200 py-6">

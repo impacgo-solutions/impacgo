@@ -14,12 +14,13 @@ import {
   FaCodeBranch,
   FaRobot,
 } from "react-icons/fa";
-import { Zap } from "lucide-react";
+import { Zap, Workflow, GitBranch } from "lucide-react";
 
 import POSHeader from "../components/POSHeader";
 import Footer from "../components/Footer";
 import ContactCard from "../components/ContactCard";
-import PowerAutomateHeroSection from "../components/PowerAutomateHeroSection";
+import PageHero, { HeroPanel } from "../components/PageHero";
+import financialimg from "../assets/financialimg.jpg";
 import SEO from "../components/SEO";
 import {
   createServiceSchema,
@@ -215,7 +216,45 @@ export default function PowerAutomate() {
       <POSHeader />
 
       <main className="flex-grow">
-        <PowerAutomateHeroSection />
+        <PageHero
+          backgroundStyle="linear-gradient(135deg, #0e7490 0%, #0891b2 35%, #6d28d9 100%)"
+          image={financialimg}
+          imageAlt="Microsoft Power Automate Consulting"
+          eyebrow="Automate Workflows in Days, Not Months"
+          eyebrowIcon={Zap}
+          title={
+            <>
+              Power Automate{" "}
+              <span className="bg-gradient-to-r from-yellow-300 to-cyan-200 bg-clip-text text-transparent">
+                Consulting Partner
+              </span>{" "}
+              — Global Implementation Partner
+            </>
+          }
+          description="Eliminate manual approvals, email-based handoffs, and repetitive data entry. Build automated workflows connecting Dynamics 365, Microsoft 365, SharePoint, Teams, and 500+ third-party systems — with Power Automate, Microsoft's enterprise workflow automation platform."
+          stats={[
+            { icon: Zap, label: "Delivery", value: "2-6 weeks" },
+            { icon: Workflow, label: "Flow types", value: "Cloud · RPA" },
+            { icon: GitBranch, label: "Connectors", value: "500+" },
+          ]}
+          primaryCta={{ label: "Get a Free Automation Consultation", onClick: () => navigate("/contact") }}
+          secondaryCta={{
+            label: "See Our Process",
+            onClick: () => document.getElementById("powerautomate-process")?.scrollIntoView({ behavior: "smooth" }),
+          }}
+          panel={
+            <HeroPanel
+              eyebrow="Common Use Cases"
+              title="What Indian enterprises automate with Power Automate"
+              items={[
+                { icon: Workflow, title: "Purchase order approvals", description: "Multi-level approval flows for D365FO" },
+                { icon: GitBranch, title: "Cross-system data sync", description: "D365FO ↔ SharePoint ↔ Teams ↔ third-party SaaS" },
+                { icon: Zap, title: "Document & invoice automation", description: "AI Builder + Power Automate for PDFs" },
+              ]}
+              footnote="Cloud flows, automated flows, scheduled flows, instant flows, and desktop RPA — all natively connected to your Microsoft ecosystem."
+            />
+          }
+        />
 
         {/* ============ Speed Banner ============ */}
         <section className="bg-cyan-50 border-y-2 border-cyan-200 py-6">

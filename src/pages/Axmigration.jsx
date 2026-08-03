@@ -14,12 +14,13 @@ import {
   FaCogs,
   FaChartLine,
 } from "react-icons/fa";
-import { AlertTriangle } from "lucide-react";
+import { AlertTriangle, Calendar } from "lucide-react";
 
 import POSHeader from "../components/POSHeader";
 import Footer from "../components/Footer";
 import ContactCard from "../components/ContactCard";
-import AXMigrationHeroSection from "../components/Axmigrationherosection";
+import PageHero, { HeroPanel } from "../components/PageHero";
+import financialimg from "../assets/financialimg.jpg";
 import SEO from "../components/SEO";
 import {
   createServiceSchema,
@@ -223,7 +224,45 @@ export default function AXMigration() {
       <POSHeader />
 
       <main className="flex-grow">
-        <AXMigrationHeroSection />
+        <PageHero
+          backgroundStyle="linear-gradient(135deg, #1e3a8a 0%, #1e40af 35%, #4338ca 100%)"
+          image={financialimg}
+          imageAlt="AX 2012 to D365 Migration"
+          eyebrow="AX 2012 Support Ends January 2028"
+          eyebrowIcon={AlertTriangle}
+          title={
+            <>
+              AX 2012 to{" "}
+              <span className="bg-gradient-to-r from-cyan-300 to-blue-200 bg-clip-text text-transparent">
+                Dynamics 365 F&O
+              </span>{" "}
+              — Global Migration Specialists
+            </>
+          }
+          description="Microsoft extended support for AX 2012 R3 ends January 2028. Impacgo's specialist Microsoft Dynamics team has migrated enterprises from AX 2012 to D365 Finance and Operations with minimal disruption. Get a free migration readiness assessment."
+          stats={[
+            { icon: Calendar, label: "Deadline", value: "Jan 2028" },
+            { label: "Typical migration", value: "9-24 months" },
+            { label: "Assessment", value: "4-8 weeks" },
+          ]}
+          primaryCta={{ label: "Get Free Migration Assessment", onClick: () => navigate("/contact") }}
+          secondaryCta={{
+            label: "See Migration Process",
+            onClick: () => document.getElementById("ax-process")?.scrollIntoView({ behavior: "smooth" }),
+          }}
+          panel={
+            <HeroPanel
+              eyebrow="Why act now"
+              title="Starting 2026 gives you runway. Starting 2027 doesn't."
+              items={[
+                { number: 1, title: "Migration assessment", description: "4–8 weeks" },
+                { number: 2, title: "Partner procurement", description: "2–4 months" },
+                { number: 3, title: "Migration project", description: "9–24 months" },
+              ]}
+              footnote="No security patches. No GST/regulatory updates. No hotfixes after Jan 2028."
+            />
+          }
+        />
 
         {/* ============ Urgent Banner ============ */}
         <section className="bg-red-50 border-y-2 border-red-200 py-6">

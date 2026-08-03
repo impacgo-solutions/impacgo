@@ -16,7 +16,8 @@ import {
 } from "react-icons/fa";
 import { MdOutlineEngineering, MdOutlineSupportAgent } from "react-icons/md";
 import POSHeader from "../components/POSHeader";
-import ERPNextHeroSection from "../components/ERPNextHeroSection";
+import PageHero from "../components/PageHero";
+import financialimg from "../assets/financialimg.jpg";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import Footer from "../components/Footer";
@@ -191,7 +192,14 @@ const breadcrumbSchema = createBreadcrumbSchema([
 />
       <ScrollToTop />
       <POSHeader />
-      <ERPNextHeroSection />
+      <PageHero
+        gradient="from-emerald-900 via-green-800 to-teal-800"
+        image={financialimg}
+        imageAlt="ERPNext Implementation"
+        title="ERPNext — Open Source ERP Platform"
+        description="A complete, open source ERP platform purpose-built for small and mid-market businesses — accounting, CRM, inventory, HR, projects, and e-commerce in one system. Implemented right by Impacgo."
+        primaryCta={{ label: "Know More", onClick: () => navigate("/contact") }}
+      />
 
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-6 md:px-12">

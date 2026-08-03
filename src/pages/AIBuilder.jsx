@@ -14,12 +14,13 @@ import {
   FaChartLine,
   FaLifeRing,
 } from "react-icons/fa";
-import { Sparkles } from "lucide-react";
+import { Sparkles, BrainCircuit, FileText } from "lucide-react";
 
 import POSHeader from "../components/POSHeader";
 import Footer from "../components/Footer";
 import ContactCard from "../components/ContactCard";
-import AIBuilderHeroSection from "../components/AIBuilderHeroSection";
+import PageHero, { HeroPanel } from "../components/PageHero";
+import financialimg from "../assets/financialimg.jpg";
 import SEO from "../components/SEO";
 import {
   createServiceSchema,
@@ -215,7 +216,45 @@ export default function AIBuilder() {
       <POSHeader />
 
       <main className="flex-grow">
-        <AIBuilderHeroSection />
+        <PageHero
+          backgroundStyle="linear-gradient(135deg, #4c1d95 0%, #6d28d9 35%, #be185d 100%)"
+          image={financialimg}
+          imageAlt="Microsoft AI Builder Integration"
+          eyebrow="AI for Power Apps, Power Automate & D365"
+          eyebrowIcon={Sparkles}
+          title={
+            <>
+              AI Builder{" "}
+              <span className="bg-gradient-to-r from-yellow-200 to-pink-200 bg-clip-text text-transparent">
+                Integration Partner
+              </span>{" "}
+              — Global Specialists
+            </>
+          }
+          description="Embed Microsoft AI Builder into your Power Apps, Power Automate flows, and Dynamics 365 processes. Automate invoice extraction, document classification, sentiment analysis, prediction, and object detection — without a data science team or a deep learning bootcamp."
+          stats={[
+            { icon: Sparkles, label: "Delivery", value: "3-6 weeks" },
+            { icon: BrainCircuit, label: "AI Models", value: "Pre-built · Custom" },
+            { icon: FileText, label: "Top use case", value: "Invoice OCR" },
+          ]}
+          primaryCta={{ label: "Get a Free AI Builder Consultation", onClick: () => navigate("/contact") }}
+          secondaryCta={{
+            label: "See Our Process",
+            onClick: () => document.getElementById("aibuilder-process")?.scrollIntoView({ behavior: "smooth" }),
+          }}
+          panel={
+            <HeroPanel
+              eyebrow="Common Use Cases"
+              title="What Indian enterprises build with AI Builder"
+              items={[
+                { icon: FileText, title: "Invoice & PO data extraction", description: "Auto-create D365FO entries from PDFs" },
+                { icon: BrainCircuit, title: "Prediction models", description: "Churn, demand forecasting, lead scoring" },
+                { icon: Sparkles, title: "Text classification & sentiment", description: "Auto-categorise support tickets & feedback" },
+              ]}
+              footnote="Embedded directly into Power Apps screens and Power Automate flows — no separate ML platform, no data science team required."
+            />
+          }
+        />
 
         {/* ============ Pain-Point Banner ============ */}
         <section className="bg-violet-50 border-y-2 border-violet-200 py-6">

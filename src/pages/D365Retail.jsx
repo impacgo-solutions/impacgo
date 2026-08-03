@@ -14,12 +14,13 @@ import {
   FaChartLine,
   FaLifeRing,
 } from "react-icons/fa";
-import { Store } from "lucide-react";
+import { Store, ShoppingBag, CreditCard } from "lucide-react";
 
 import POSHeader from "../components/POSHeader";
 import Footer from "../components/Footer";
 import ContactCard from "../components/ContactCard";
-import D365RetailHeroSection from "../components/D365RetailHeroSection";
+import PageHero, { HeroPanel } from "../components/PageHero";
+import retailImg from "../assets/retail.jpg";
 import SEO from "../components/SEO";
 import {
   createServiceSchema,
@@ -213,7 +214,45 @@ export default function D365Retail() {
       <POSHeader />
 
       <main className="flex-grow">
-        <D365RetailHeroSection />
+        <PageHero
+          backgroundStyle="linear-gradient(135deg, #7f1d1d 0%, #c2410c 35%, #b45309 100%)"
+          image={retailImg}
+          imageAlt="D365 for Retail and Commerce"
+          eyebrow="Omnichannel POS · E-Commerce · Indian Retail"
+          eyebrowIcon={Store}
+          title={
+            <>
+              Dynamics 365 for{" "}
+              <span className="bg-gradient-to-r from-orange-200 to-yellow-200 bg-clip-text text-transparent">
+                Retail & Commerce
+              </span>{" "}
+              — Global Retail Specialists
+            </>
+          }
+          description="Specialist Microsoft Dynamics 365 Commerce implementation for Indian retailers. Omnichannel POS, e-commerce, store operations, inventory, merchandising, loyalty, and Indian compliance (GST, e-invoicing) — one unified retail platform across every store and online channel."
+          stats={[
+            { icon: Store, label: "Go-live", value: "6-10 months" },
+            { icon: CreditCard, label: "Channels", value: "In-store · Web · Mobile" },
+            { icon: ShoppingBag, label: "Scale", value: "Unlimited stores" },
+          ]}
+          primaryCta={{ label: "Free Retail Discovery Workshop", onClick: () => navigate("/contact") }}
+          secondaryCta={{
+            label: "See Our Process",
+            onClick: () => document.getElementById("d365retail-process")?.scrollIntoView({ behavior: "smooth" }),
+          }}
+          panel={
+            <HeroPanel
+              eyebrow="Retail Capabilities"
+              title="What we build for Indian retailers"
+              items={[
+                { icon: Store, title: "Omnichannel POS & store ops", description: "Cloud POS, modern POS, store inventory" },
+                { icon: ShoppingBag, title: "E-commerce & online storefronts", description: "D365 Commerce, Shopify, custom platforms" },
+                { icon: CreditCard, title: "Loyalty, promotions & pricing", description: "Customer programmes, coupons, dynamic pricing" },
+              ]}
+              footnote="GST, e-invoicing, e-way bills, multi-state retail compliance, and Indian payment gateway integration — fully configured."
+            />
+          }
+        />
 
         <section className="bg-orange-50 border-y-2 border-orange-200 py-6">
           <div className="container mx-auto px-6 md:px-12">

@@ -9,7 +9,7 @@ export const blogPosts = [
     datePublished: "2026-06-22",
     readTime: "12 min read",
   },
-  
+   
   // Power Automate for D365FO (Blog #6) -
   {
     slug: "power-automate-for-d365fo",
@@ -27,7 +27,7 @@ export const blogPosts = [
     excerpt: "Discover how Microsoft Power Apps extends D365FO with custom applications, process automation, and mobile solutions. Learn about integration methods, real-world use cases, key benefits, and best practices for successful Power Apps implementations.",
     category: "Power Platform",
     datePublished: "2026-06-18",
-    readTime: "12 min read",
+    readTime: "12 min read", 
   },
    // D365FO vs SAP vs Oracle NetSuite (Blog #4)
   {

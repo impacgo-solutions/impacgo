@@ -29,6 +29,7 @@ const AIAutomation = lazy(() => import("./pages/Aiautomation"));
 const DairyFarm = lazy(() => import("./pages/Dairyfarm"));
 const InventoryManagement = lazy(() => import("./pages/Inventorymanagement"));
 const FarmYieldIQ = lazy(() => import("./pages/FarmYieldIQ"));
+const ERPModuleDetail = lazy(() => import("./pages/erp/ERPModuleDetail"));
 const WorkTask = lazy(() => import("./pages/Worktask"));
 const ConstructionPlanner = lazy(() => import("./pages/Constructionplanner"));
 const AXMigration = lazy(() => import("./pages/Axmigration"));
@@ -187,6 +188,12 @@ function App() {
         <Route
           path="/products/farm-yield-iq"
           element={<FarmYieldIQ />}
+        />
+
+        {/* ---------------- IMPACGO SUITE ---------------- */}
+        <Route
+          path="/erp/:slug"
+          element={<ERPModuleDetail />}
         />
 
         <Route

@@ -14,12 +14,13 @@ import {
   FaChartLine,
   FaLifeRing,
 } from "react-icons/fa";
-import { Truck } from "lucide-react";
+import { Truck, Boxes, Globe } from "lucide-react";
 
 import POSHeader from "../components/POSHeader";
 import Footer from "../components/Footer";
 import ContactCard from "../components/ContactCard";
-import D365DistributionHeroSection from "../components/D365DistributionHeroSection";
+import PageHero, { HeroPanel } from "../components/PageHero";
+import supplyChainImg from "../assets/supplychain.jpg";
 import SEO from "../components/SEO";
 import {
   createServiceSchema,
@@ -216,7 +217,45 @@ export default function D365Distribution() {
       <POSHeader />
 
       <main className="flex-grow">
-        <D365DistributionHeroSection />
+        <PageHero
+          backgroundStyle="linear-gradient(135deg, #064e3b 0%, #047857 35%, #1e40af 100%)"
+          image={supplyChainImg}
+          imageAlt="D365 for Distribution and Wholesale"
+          eyebrow="WMS · Trade Agreements · Multi-Location · Indian Distribution"
+          eyebrowIcon={Truck}
+          title={
+            <>
+              Dynamics 365 for{" "}
+              <span className="bg-gradient-to-r from-emerald-300 to-cyan-200 bg-clip-text text-transparent">
+                Distribution & Wholesale
+              </span>{" "}
+              — Global Distribution Specialists
+            </>
+          }
+          description="Specialist Microsoft Dynamics 365 Finance & Operations implementation for Indian distributors, wholesalers, and trading companies. Advanced warehouse management, multi-location inventory, trade agreements, B2B portals, and full GST/TDS compliance."
+          stats={[
+            { icon: Boxes, label: "Go-live", value: "5-9 months" },
+            { icon: Globe, label: "Multi-site", value: "Unlimited" },
+            { icon: Truck, label: "Coverage", value: "B2B · B2C" },
+          ]}
+          primaryCta={{ label: "Free Distribution Discovery Workshop", onClick: () => navigate("/contact") }}
+          secondaryCta={{
+            label: "See Our Process",
+            onClick: () => document.getElementById("d365dist-process")?.scrollIntoView({ behavior: "smooth" }),
+          }}
+          panel={
+            <HeroPanel
+              eyebrow="Distribution Capabilities"
+              title="What we build on D365FO for Indian distributors"
+              items={[
+                { icon: Boxes, title: "Advanced warehouse management", description: "Multi-warehouse, bin tracking, wave picking" },
+                { icon: Truck, title: "Trade agreements & pricing", description: "Customer/vendor pricing, discounts, rebates" },
+                { icon: Globe, title: "B2B portals & e-commerce", description: "Customer self-service, order automation" },
+              ]}
+              footnote="GST, TDS, e-invoicing, e-way bills, multi-state branch transfers, and Indian distribution compliance — fully configured."
+            />
+          }
+        />
 
         {/* ============ Pain-Point Banner ============ */}
         <section className="bg-emerald-50 border-y-2 border-emerald-200 py-6">
