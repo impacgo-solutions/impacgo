@@ -72,6 +72,52 @@ export const localBusinessSchema = {
   },
 };
 
+// 2b. Person Schema — the founder, referenced from the About page and
+// available for any page that wants to establish "who is behind this" for
+// E-E-A-T purposes. Deliberately minimal — only facts already established
+// elsewhere on the site (organizationSchema above), nothing invented.
+export const founderSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Venkata Srikar Tantravahi",
+  jobTitle: "Founder",
+  worksFor: {
+    "@type": "Organization",
+    name: "Impacgo Solutions",
+    url: "https://www.impacgo.com",
+  },
+  url: "https://www.impacgo.com/about",
+};
+
+// 2c. Product / SoftwareApplication Schema — use one per product or Impacgo
+// ERP Suite module page. Distinct from createServiceSchema (which describes
+// a service Impacgo *performs*, like an implementation engagement) — this
+// describes a piece of software Impacgo *builds*.
+export const createProductSchema = ({
+  name,
+  description,
+  category,
+  path,
+  image,
+}) => ({
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name,
+  description,
+  applicationCategory: category || "BusinessApplication",
+  operatingSystem: "Web",
+  url: `https://www.impacgo.com${path}`,
+  ...(image ? { image: image.startsWith("http") ? image : `https://www.impacgo.com${image}` } : {}),
+  brand: {
+    "@type": "Organization",
+    name: "Impacgo Solutions",
+    url: "https://www.impacgo.com",
+  },
+  // Deliberately no `offers`/`availability` block — these are contact-based
+  // B2B products with no public self-serve pricing, so an InStock/PreOrder
+  // claim would just be a guess dressed up as structured data.
+});
+
 // 3. Service Schema — use one per service page
 export const createServiceSchema = ({
   serviceName,

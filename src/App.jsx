@@ -8,6 +8,7 @@ import { AnimatePresence, motion } from "framer-motion";
 // load. Every other route is code-split via lazy() so a visitor only
 // downloads the JS for the page they're actually on.
 const Pos = lazy(() => import("./pages/Pos"));
+const FAQ = lazy(() => import("./pages/FAQ"));
 
 // Core Services
 const D365 = lazy(() => import("./pages/D365"));
@@ -20,7 +21,6 @@ const AMS = lazy(() => import("./components/AMS"));
 const ContactUs = lazy(() => import("./components/ContactUs"));
 
 // Additional Services
-const ERPNext = lazy(() => import("./pages/erpnext"));
 const MES = lazy(() => import("./pages/mes"));
 const Integrations = lazy(() => import("./pages/integrations"));
 const Consulting = lazy(() => import("./pages/Consulting"));
@@ -125,11 +125,6 @@ function AnimatedRoutes() {
         />
 
         {/* ---------------- NEW SERVICES ---------------- */}
-        <Route
-          path="/services/erpnext"
-          element={<ERPNext />}
-        />
-
         <Route
           path="/services/mes"
           element={<MES />}
@@ -291,6 +286,12 @@ function AnimatedRoutes() {
         <Route
           path="/farmyieldiq/*"
           element={<FarmYieldIQApp />}
+        />
+
+        {/* ---------------- FAQ ---------------- */}
+        <Route
+          path="/faq"
+          element={<FAQ />}
         />
 
         {/* ---------------- CONTACT ---------------- */}

@@ -97,7 +97,7 @@ export default function ContactSection() {
     <div>
       <SEO
   title="Contact Impacgo Solutions | Microsoft Dynamics 365 Partner India"
-  description="Get in touch with Impacgo Solutions — Microsoft Dynamics 365 and Power Platform implementation partner in India. Free consultation for D365FO, ERPNext, MES, AI automation, and digital transformation."
+  description="Get in touch with Impacgo Solutions — Microsoft Dynamics 365 and Power Platform implementation partner in India. Free consultation for D365FO, Impacgo ERP, MES, AI automation, and digital transformation."
   keywords="contact Impacgo Solutions, D365FO consultation India, Microsoft partner contact India, ERP consultation Visakhapatnam"
   path="/contact"
 />

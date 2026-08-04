@@ -31,7 +31,7 @@ export default function Component() {
   },
   {
     question: "Can your POS integrate with ERP and inventory systems?",
-    answer: "Yes, all our POS solutions integrate seamlessly with Microsoft Dynamics 365, ERPNext, and other ERP systems for real-time inventory, sales, customer, and financial data sync across retail operations.",
+    answer: "Yes, all our POS solutions integrate seamlessly with Microsoft Dynamics 365, our own Impacgo ERP, and other ERP systems for real-time inventory, sales, customer, and financial data sync across retail operations.",
   },
   {
     question: "Do you support multi-store and omnichannel retail?",

@@ -18,7 +18,7 @@ import Footer from "../components/Footer";
 import ContactCard from "../components/ContactCard";
 import dairyImg from "../assets/dfms.webp";
 import SEO from "../components/SEO";
-import { createServiceSchema, createFaqSchema, createBreadcrumbSchema } from "../components/schemas";
+import { createServiceSchema, createFaqSchema, createBreadcrumbSchema, createProductSchema } from "../components/schemas";
 import Reveal, { RevealItem } from "../components/Reveal";
 
 const ScrollToTop = () => {
@@ -122,6 +122,14 @@ const serviceSchema = createServiceSchema({
   path: "/products/dairy-farm-management",
 });
 
+const productSchema = createProductSchema({
+  name: "CalveIQ — Dairy Farm Management System",
+  description:
+    "Complete farm management for modern dairy operations — milk production tracking, herd health, breeding, feed management, finance, and KPI dashboards.",
+  category: "BusinessApplication",
+  path: "/products/dairy-farm",
+});
+
 const breadcrumbSchema = createBreadcrumbSchema([
   { name: "Home", path: "/" },
   { name: "Products", path: "/products" },
@@ -136,7 +144,7 @@ const breadcrumbSchema = createBreadcrumbSchema([
   description="Cloud-based dairy farm management system for global dairy operations. Cattle tracking, milk production, breeding, health records, and financial reporting. India and global dairy farms."
   keywords="dairy farm management software, dairy farm system, cattle management software, milk production software, dairy farm cloud, dairy farm India, dairy management global"
   path="/products/dairy-farm"
-  schema={[serviceSchema, faqSchema, breadcrumbSchema]}
+  schema={[serviceSchema, productSchema, faqSchema, breadcrumbSchema]}
 />
       <ScrollToTop />
       <POSHeader alwaysSolid />

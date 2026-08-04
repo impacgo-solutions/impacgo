@@ -105,9 +105,9 @@ export default function ImplementationServices() {
   return (
     <div>
       <SEO
-  title="ERP Implementation Services | Microsoft Dynamics 365 & ERPNext | Global Specialists"
-  description="Specialist ERP implementation services worldwide. Microsoft Dynamics 365 F&O, ERPNext, and custom ERP deployment for manufacturing, distribution, retail, and services. India compliance built in."
-  keywords="ERP implementation services, Microsoft Dynamics implementation, ERPNext implementation, ERP partner, ERP consulting, ERP rollout, ERP implementation India, ERP implementation global"
+  title="ERP Implementation Services | Microsoft Dynamics 365 & Impacgo ERP | Global Specialists"
+  description="Specialist ERP implementation services worldwide. Microsoft Dynamics 365 F&O, our own Impacgo ERP, and custom ERP deployment for manufacturing, distribution, retail, and services. India compliance built in."
+  keywords="ERP implementation services, Microsoft Dynamics implementation, Impacgo ERP, ERP partner, ERP consulting, ERP rollout, ERP implementation India, ERP implementation global"
   path="/services/implementation"
   schema={[serviceSchema, breadcrumbSchema]}
 />

@@ -157,7 +157,7 @@ export default function AIAutomation() {
   },
   {
     question: "Can AI be integrated with my existing ERP or business systems?",
-    answer: "Yes, we specialise in embedding AI into existing Microsoft Dynamics 365, ERPNext, MES, and other business systems. Common integrations include AI Builder for invoice processing, predictive analytics on D365FO data, and chatbots connected to D365 CRM.",
+    answer: "Yes, we specialise in embedding AI into existing Microsoft Dynamics 365, Impacgo ERP, MES, and other business systems. Common integrations include AI Builder for invoice processing, predictive analytics on D365FO data, and chatbots connected to D365 CRM.",
   },
   {
     question: "How quickly can we see ROI from AI automation?",

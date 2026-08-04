@@ -18,7 +18,7 @@ import Footer from "../components/Footer";
 import ContactCard from "../components/ContactCard";
 import inventoryImg from "../assets/supplychain.webp";
 import SEO from "../components/SEO";
-import { createServiceSchema, createFaqSchema, createBreadcrumbSchema } from "../components/schemas";
+import { createServiceSchema, createFaqSchema, createBreadcrumbSchema, createProductSchema } from "../components/schemas";
 import Reveal, { RevealItem } from "../components/Reveal";
 
 const ScrollToTop = () => {
@@ -125,6 +125,14 @@ export default function InventoryManagement() {
     path: "/products/inventory-management",
   });
 
+  const productSchema = createProductSchema({
+    name: "StockLyte — Inventory Management System",
+    description:
+      "Real-time, multi-location inventory control tower with barcode/QR scanning, automated reorder points, vendor and purchase order management, and demand forecasting.",
+    category: "BusinessApplication",
+    path: "/products/inventory-management",
+  });
+
   const breadcrumbSchema = createBreadcrumbSchema([
     { name: "Home", path: "/" },
     { name: "Products", path: "/#products" },
@@ -138,7 +146,7 @@ export default function InventoryManagement() {
         description="Real-time, multi-location inventory management software. Barcode scanning, automated reorder points, purchase orders, and demand forecasting analytics."
         keywords="inventory management software, stock management system, multi-location inventory, warehouse management, barcode inventory scanning, StockLyte"
         path="/products/inventory-management"
-        schema={[serviceSchema, faqSchema, breadcrumbSchema]}
+        schema={[serviceSchema, productSchema, faqSchema, breadcrumbSchema]}
       />
       <ScrollToTop />
       <POSHeader alwaysSolid />

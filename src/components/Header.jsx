@@ -124,6 +124,7 @@ export default function Header() {
     { name: "Products", path: `${import.meta.env.BASE_URL}#products`, isRoute: false },
     { name: "Services", path: `${import.meta.env.BASE_URL}#services`, isRoute: false },
     { name: "Blog", path: "/blog", isRoute: true },
+    { name: "FAQ", path: "/faq", isRoute: true },
     { name: "Contact", path: `${import.meta.env.BASE_URL}#contact`, isRoute: false },
   ];
 

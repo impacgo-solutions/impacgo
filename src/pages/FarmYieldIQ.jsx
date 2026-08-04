@@ -19,7 +19,7 @@ import ContactCard from "../components/ContactCard";
 import Reveal, { RevealItem } from "../components/Reveal";
 import farmYieldImg from "../assets/farmyieldiq-dashboard.webp";
 import SEO from "../components/SEO";
-import { createServiceSchema, createFaqSchema, createBreadcrumbSchema } from "../components/schemas";
+import { createServiceSchema, createFaqSchema, createBreadcrumbSchema, createProductSchema } from "../components/schemas";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -130,6 +130,14 @@ export default function FarmYieldIQ() {
     path: "/products/farm-yield-iq",
   });
 
+  const productSchema = createProductSchema({
+    name: "FarmYieldIQ — Farmland Plot Operations Platform",
+    description:
+      "Operations platform for plotted-land businesses — layout, block and plot management with pricing and registration tracking, partner portfolios, and an internal real-estate sales pipeline.",
+    category: "BusinessApplication",
+    path: "/products/farm-yield-iq",
+  });
+
   const breadcrumbSchema = createBreadcrumbSchema([
     { name: "Home", path: "/" },
     { name: "Products", path: "/#products" },
@@ -143,7 +151,7 @@ export default function FarmYieldIQ() {
         description="FarmYieldIQ manages land layouts, blocks and plots, partner portfolios and an internal sales pipeline — all from one operations dashboard."
         keywords="farmland management software, plot management system, agri real estate software, land layout management, sales pipeline CRM, FarmYieldIQ"
         path="/products/farm-yield-iq"
-        schema={[serviceSchema, faqSchema, breadcrumbSchema]}
+        schema={[serviceSchema, productSchema, faqSchema, breadcrumbSchema]}
       />
       <ScrollToTop />
       <POSHeader alwaysSolid />

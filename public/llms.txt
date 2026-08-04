@@ -1,0 +1,52 @@
+# Impacgo Solutions
+
+> Microsoft Dynamics 365 Finance & Operations and Power Platform implementation partner for global enterprises, based in Visakhapatnam, India, with deep India compliance expertise (GST, e-invoicing). Impacgo also builds its own software products.
+
+## Services
+
+- [Dynamics 365 F&O Implementation](https://www.impacgo.com/services/d365)
+- [AX 2012 to D365 Migration](https://www.impacgo.com/services/ax-migration) — Microsoft AX 2012 extended support ends January 2028
+- [D365FO Development & Customisation](https://www.impacgo.com/services/d365-development)
+- [Dynamics 365 CRM](https://www.impacgo.com/services/d365-crm) — Sales, Customer Service, Marketing, Field Service
+- [Power Apps Development](https://www.impacgo.com/services/power-apps)
+- [Power Automate Consulting](https://www.impacgo.com/services/power-automate)
+- [Power BI Implementation](https://www.impacgo.com/services/power-bi)
+- [AI Builder Integration](https://www.impacgo.com/services/ai-builder)
+- [Application Development](https://www.impacgo.com/services/app-development) — web and mobile
+- [Integrations](https://www.impacgo.com/services/integrations)
+- [Manufacturing Execution Systems (MES)](https://www.impacgo.com/services/mes)
+- [AI & Automation](https://www.impacgo.com/services/ai-automation)
+- [Consulting & Digital Transformation](https://www.impacgo.com/services/consulting)
+- [POS Solutions](https://www.impacgo.com/services/pos)
+
+## Our own products
+
+- [CalveIQ](https://www.impacgo.com/products/dairy-farm) — dairy farm management system (milk production, herd health, breeding, feed, finance)
+- [StockLyte](https://www.impacgo.com/products/inventory-management) — real-time, multi-location inventory management
+- [FarmYieldIQ](https://www.impacgo.com/products/farm-yield-iq) — farmland plot operations platform
+- [Work Task Application](https://www.impacgo.com/products/work-task) — consultant/employee time tracking
+- [Construction Planner](https://www.impacgo.com/products/construction-planner) — AI-powered construction planning (in development)
+
+## Impacgo ERP Suite
+
+Our own in-house business platform, built as one connected system. Currently in active development.
+
+- [Impacgo HRMS](https://www.impacgo.com/erp/hrms) — workforce management
+- [Impacgo Finance](https://www.impacgo.com/erp/finance) — accounting & compliance across legal entities
+- [Impacgo Chain](https://www.impacgo.com/erp/chain) — supply chain management (CRM to logistics)
+- [Impacgo Make](https://www.impacgo.com/erp/make) — manufacturing
+- [Impacgo Plan](https://www.impacgo.com/erp/plan) — planning & MRP
+- [Impacgo Retail](https://www.impacgo.com/erp/retail) — POS & store operations
+- [Impacgo Project](https://www.impacgo.com/erp/project) — project & delivery management
+
+## Industries
+
+- [Manufacturing](https://www.impacgo.com/industries/manufacturing)
+- [Distribution](https://www.impacgo.com/industries/distribution)
+- [Retail & E-Commerce](https://www.impacgo.com/industries/retail)
+
+## More
+
+- [Blog](https://www.impacgo.com/blog) — Dynamics 365, AX migration, and Power Platform articles
+- [FAQ](https://www.impacgo.com/faq)
+- [Contact](https://www.impacgo.com/contact)

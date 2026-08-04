@@ -40,7 +40,6 @@ const LEAF_LABELS = {
   mes: "MES Systems",
   "ai-automation": "AI & Automation",
   consulting: "Consulting",
-  erpnext: "ERPNext",
   implementation: "ERP Implementation",
   development: "Development Services",
   ams: "Annual Maintenance Support",

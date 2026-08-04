@@ -45,19 +45,53 @@
     <meta name="theme-color" content="#2563eb" />
 
     <!-- Google tag (gtag.js) — dataLayer/gtag() are defined immediately so any
-         early tracking calls still queue correctly, but the actual script
-         fetch is deferred until after the page has loaded so it doesn't
-         compete with initial render. -->
+         early tracking calls still queue correctly. The actual GTM script AND
+         the Tawk.to chat widget were previously the two biggest main-thread
+         blockers on mobile (Lighthouse measured ~1.8s + ~0.65s of blocking
+         time from them, loading eagerly on every visit before a user had done
+         anything). Both are now deferred until the page is idle for a few
+         seconds OR the user actually interacts, whichever comes first — real
+         visitors get the same widgets within moments, but initial render is
+         no longer competing with them for the main thread. -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-Z9G4KKW4FM');
+
+      function loadDeferredScripts() {
+        var gtm = document.createElement('script');
+        gtm.async = true;
+        gtm.src = 'https://www.googletagmanager.com/gtag/js?id=G-Z9G4KKW4FM';
+        document.head.appendChild(gtm);
+
+        window.Tawk_API = window.Tawk_API || {};
+        window.Tawk_LoadStart = new Date();
+        var tawk = document.createElement('script');
+        tawk.async = true;
+        tawk.src = 'https://embed.tawk.to/6a13d5bc83cf321c3962e34c/1jpenlr2g';
+        tawk.charset = 'UTF-8';
+        tawk.setAttribute('crossorigin', '*');
+        document.body.appendChild(tawk);
+      }
+
+      var deferredScriptsLoaded = false;
+      var deferredFallbackTimer;
+      var deferredInteractionEvents = ['scroll', 'mousemove', 'touchstart', 'keydown', 'click'];
+      function triggerDeferredLoad() {
+        if (deferredScriptsLoaded) return;
+        deferredScriptsLoaded = true;
+        clearTimeout(deferredFallbackTimer);
+        deferredInteractionEvents.forEach(function (evt) {
+          window.removeEventListener(evt, triggerDeferredLoad);
+        });
+        loadDeferredScripts();
+      }
       window.addEventListener('load', function () {
-        var s = document.createElement('script');
-        s.async = true;
-        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-Z9G4KKW4FM';
-        document.head.appendChild(s);
+        deferredFallbackTimer = setTimeout(triggerDeferredLoad, 4000);
+        deferredInteractionEvents.forEach(function (evt) {
+          window.addEventListener(evt, triggerDeferredLoad, { once: true, passive: true });
+        });
       });
     </script>
   </head>
@@ -65,20 +99,5 @@
   <div id="root"></div>
 
   <script type="module" src="/src/main.jsx"></script>
-
-  <!--Start of Tawk.to Script-->
-  <script type="text/javascript">
-  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-  (function(){
-    var s1=document.createElement("script"),
-        s0=document.getElementsByTagName("script")[0];
-    s1.async=true;
-    s1.src='https://embed.tawk.to/6a13d5bc83cf321c3962e34c/1jpenlr2g';
-    s1.charset='UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
-  })();
-  </script>
-  <!--End of Tawk.to Script-->
 </body>
 </html>

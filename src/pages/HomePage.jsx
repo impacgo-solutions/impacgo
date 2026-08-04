@@ -71,7 +71,7 @@ export default function HomePage() {
         <ProductsSection />
         <ERPProductsSection />
         <WhyChooseUsSection />
-        <ClientLogosSection />
+        {/* <ClientLogosSection /> */}
         <ContactSection />
         <LocationMap />
         <ContactCard />
@@ -85,7 +85,7 @@ export default function HomePage() {
 function HeroSection() {
   const services = [
     "Microsoft Dynamics 365",
-    "ERPNext Implementation",
+    "Impacgo ERP",
     "Web & Mobile Applications",
     "MES Systems",
     "AI & Automation Solutions",
@@ -99,7 +99,7 @@ function HeroSection() {
     window.scrollTo({ top: 700, behavior: "smooth" });
   };
 
-  useEffect(() => {
+  useEffect(() => {      
     const interval = setInterval(() => {
       setIsVisible(false);
       setTimeout(() => {
@@ -323,7 +323,7 @@ function ServicesSection() {
     {
       icon: Database,
       title: "ERP Implementation",
-      description: "Microsoft D365 F&O and ERPNext for all business sizes",
+      description: "Microsoft D365 F&O and our own Impacgo ERP for every business size",
       path: "/services/d365",
     },
     {
@@ -390,7 +390,7 @@ function ServicesSection() {
       index={index}
       role="button"
       tabIndex={0}
-      aria-label={`Learn more about ${service.title}`}
+      aria-labelledby={`service-title-${index}`}
       onClick={() => navigate(service.path)}
       onKeyDown={(e) => handleKeyDown(e, service.path)}
       className={`group rounded-xl shadow-md p-6 cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border-2 flex flex-col items-center text-center focus:outline-none focus:ring-2 focus:ring-offset-2 relative ${
@@ -401,7 +401,7 @@ function ServicesSection() {
     >
       {/* Urgent badge for AX migration card */}
       {service.highlight && (
-        <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
+        <span className="absolute -top-2 -right-2 bg-red-700 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
           ⚡ Urgent
         </span>
       )}
@@ -424,7 +424,7 @@ function ServicesSection() {
       </div>
 
       {/* Title — centered */}
-      <h3 className="text-lg font-semibold mb-2 text-gray-800">
+      <h3 id={`service-title-${index}`} className="text-lg font-semibold mb-2 text-gray-800">
         {service.title}
       </h3>
 
@@ -501,18 +501,18 @@ function ERPImplementationSection() {
       ],
     },
     {
-      tag: "FOR SMEs & MID-MARKET",
-      title: "ERPNext",
-      subtitle: "Open Source ERP Platform",
+      tag: "IMPACGO'S OWN PLATFORM",
+      title: "Impacgo ERP",
+      subtitle: "One Connected Business Platform",
       gradient: "from-teal-500 to-green-600",
-      path: "/services/erpnext",
+      path: "/#erp-products",
       items: [
-        "Accounting & Finance",
-        "CRM & Sales",
-        "Inventory & Warehouse",
-        "HR & Payroll",
-        "Project Management",
-        "E-commerce & POS",
+        "Workforce Management (HRMS)",
+        "Accounting & Compliance",
+        "Supply Chain Management",
+        "Manufacturing",
+        "Planning & MRP",
+        "POS & Store Operations",
       ],
     },
   ];
@@ -555,7 +555,15 @@ function ERPImplementationSection() {
                   ))}
                 </ul>
                 <button
-                  onClick={() => navigate(erp.path)}
+                  onClick={() => {
+                    if (erp.path.startsWith("/#")) {
+                      document
+                        .getElementById(erp.path.slice(2))
+                        ?.scrollIntoView({ behavior: "smooth" });
+                    } else {
+                      navigate(erp.path);
+                    }
+                  }}
                   className="self-start bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition-all text-sm"
                 >
                   Know More
@@ -624,7 +632,7 @@ function AIAutomationSection() {
 
       <div className="container mx-auto px-4 relative z-10">
         <Reveal className="text-center mb-12">
-          <p className="uppercase tracking-widest text-purple-300 font-semibold mb-2 text-sm">
+          <p className="uppercase tracking-widest text-purple-200 font-semibold mb-2 text-sm">
             AI & Automation
           </p>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">

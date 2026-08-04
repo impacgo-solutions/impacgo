@@ -70,7 +70,7 @@ const mesFeatures = [
   {
     title: "ERP-MES Integration",
     description:
-      "Closed-loop manufacturing — bidirectional sync between ERP (D365 / ERPNext) and the shop floor MES system.",
+      "Closed-loop manufacturing — bidirectional sync between ERP (D365 / Impacgo ERP) and the shop floor MES system.",
     icon: FaSyncAlt,
   },
 ];
@@ -130,7 +130,7 @@ const implementationProcess = [
   {
     title: "ERP & Equipment Integration",
     description:
-      "Bidirectional ERP integration (D365 / ERPNext) and shop floor connectivity — PLCs, scanners, and IoT devices.",
+      "Bidirectional ERP integration (D365 / Impacgo ERP) and shop floor connectivity — PLCs, scanners, and IoT devices.",
     icon: FaCogs,
   },
   {
@@ -156,7 +156,7 @@ export default function MES() {
   },
   {
     question: "How does MES integrate with my existing ERP?",
-    answer: "Impacgo MES integrates bidirectionally with Microsoft Dynamics 365, ERPNext, SAP, and other ERPs via APIs and middleware. This creates closed-loop manufacturing where ERP sends work orders to MES and MES sends production data back to ERP in real-time.",
+    answer: "Impacgo MES integrates bidirectionally with Microsoft Dynamics 365, our own Impacgo ERP, SAP, and other ERPs via APIs and middleware. This creates closed-loop manufacturing where ERP sends work orders to MES and MES sends production data back to ERP in real-time.",
   },
   {
     question: "How long does MES implementation take?",

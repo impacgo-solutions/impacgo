@@ -6,7 +6,7 @@ import POSHeader from "../../components/POSHeader";
 import Footer from "../../components/Footer";
 import ContactCard from "../../components/ContactCard";
 import SEO from "../../components/SEO";
-import { createServiceSchema, createFaqSchema, createBreadcrumbSchema } from "../../components/schemas";
+import { createServiceSchema, createFaqSchema, createBreadcrumbSchema, createProductSchema } from "../../components/schemas";
 import { erpModules, getErpModule } from "../../data/erpModules";
 import Reveal, { RevealItem } from "../../components/Reveal";
 
@@ -175,6 +175,12 @@ export default function ERPModuleDetail() {
     serviceType: `${mod.tagline} Software`,
     path: `/erp/${mod.slug}`,
   });
+  const productSchema = createProductSchema({
+    name: `Impacgo ${mod.name}`,
+    description: mod.description,
+    category: "BusinessApplication",
+    path: `/erp/${mod.slug}`,
+  });
   const breadcrumbSchema = createBreadcrumbSchema([
     { name: "Home", path: "/" },
     { name: "Impacgo ERP Suite", path: "/#erp-products" },
@@ -188,7 +194,7 @@ export default function ERPModuleDetail() {
         description={`${mod.description} Part of the Impacgo ERP Suite — currently in active development.`}
         keywords={`Impacgo ERP Suite, Impacgo ${mod.name}, ${mod.tagline}, business management software, ${mod.capabilities.join(", ")}`}
         path={`/erp/${mod.slug}`}
-        schema={[serviceSchema, faqSchema, breadcrumbSchema]}
+        schema={[serviceSchema, productSchema, faqSchema, breadcrumbSchema]}
       />
       <ScrollToTop />
       <POSHeader />
