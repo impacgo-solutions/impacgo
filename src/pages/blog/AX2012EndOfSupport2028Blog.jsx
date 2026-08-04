@@ -94,7 +94,7 @@ export default function AX2012EndOfSupport2028Blog() {
 />
 
       <ScrollToTop />
-      <POSHeader />
+      <POSHeader alwaysSolid />
 
       <main className="flex-grow">
         {/* ============ Article Hero ============ */}

@@ -129,7 +129,7 @@ export default function PowerAppsD365FOBlog() {
  />
  
  <ScrollToTop />
- <POSHeader />
+ <POSHeader alwaysSolid />
  
  <main className="flex-grow">
  {/* ============ Hero Section ============ */}

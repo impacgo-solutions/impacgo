@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useParams, useNavigate, useLocation, Link } from "react-router-dom";
-import { CheckCircle2, ArrowLeft, ArrowRight, Mail } from "lucide-react";
+import { CheckCircle2, ArrowRight, Mail } from "lucide-react";
+import Breadcrumbs from "../../components/Breadcrumbs";
 import POSHeader from "../../components/POSHeader";
 import Footer from "../../components/Footer";
 import ContactCard from "../../components/ContactCard";
@@ -176,7 +177,7 @@ export default function ERPModuleDetail() {
   });
   const breadcrumbSchema = createBreadcrumbSchema([
     { name: "Home", path: "/" },
-    { name: "Impacgo Suite", path: "/#erp-products" },
+    { name: "Impacgo ERP Suite", path: "/#erp-products" },
     { name: `Impacgo ${mod.name}`, path: `/erp/${mod.slug}` },
   ]);
 
@@ -184,8 +185,8 @@ export default function ERPModuleDetail() {
     <div>
       <SEO
         title={`Impacgo ${mod.name} | ${mod.tagline} | Impacgo Solutions`}
-        description={`${mod.description} Part of the Impacgo Suite — currently in active development.`}
-        keywords={`Impacgo Suite, Impacgo ${mod.name}, ${mod.tagline}, business management software, ${mod.capabilities.join(", ")}`}
+        description={`${mod.description} Part of the Impacgo ERP Suite — currently in active development.`}
+        keywords={`Impacgo ERP Suite, Impacgo ${mod.name}, ${mod.tagline}, business management software, ${mod.capabilities.join(", ")}`}
         path={`/erp/${mod.slug}`}
         schema={[serviceSchema, faqSchema, breadcrumbSchema]}
       />
@@ -225,12 +226,7 @@ export default function ERPModuleDetail() {
         <div className="absolute -bottom-24 -right-24 h-96 w-96 rounded-full bg-white/10 blur-3xl pointer-events-none" aria-hidden="true" />
         <div className="absolute top-1/3 -left-16 h-64 w-64 rounded-full bg-black/10 blur-3xl pointer-events-none" aria-hidden="true" />
         <div className="container mx-auto px-4 relative z-10">
-          <Link
-            to="/#erp-products"
-            className="inline-flex items-center gap-2 text-white/70 hover:text-white text-sm font-medium mb-8 transition-colors"
-          >
-            <ArrowLeft className="h-4 w-4" /> Back to Impacgo Suite
-          </Link>
+          <Breadcrumbs bare className="mb-6" />
 
           <div className="flex flex-col md:flex-row md:items-center gap-8">
             <div className="h-20 w-20 rounded-2xl bg-white/15 backdrop-blur flex items-center justify-center flex-shrink-0">
@@ -239,7 +235,7 @@ export default function ERPModuleDetail() {
             <div>
               <div className="flex flex-wrap items-center gap-3 mb-3">
                 <span className="bg-white/15 backdrop-blur text-white text-xs font-bold px-3 py-1 rounded-full tracking-widest uppercase">
-                  Impacgo Suite
+                  Impacgo ERP Suite
                 </span>
                 <span className="bg-amber-400 text-amber-950 text-xs font-bold px-3 py-1 rounded-full tracking-widest uppercase">
                   In Development
@@ -470,7 +466,7 @@ export default function ERPModuleDetail() {
       <section className={`py-14 border-t border-gray-100 ${c.wash}`}>
         <div className="container mx-auto px-4">
           <h3 className="text-lg font-bold text-gray-800 mb-6 text-center">
-            Explore the Rest of the Impacgo Suite
+            Explore the Rest of the Impacgo ERP Suite
           </h3>
           <div className="flex flex-wrap justify-center gap-3">
             {otherModules.map((m, index) => {

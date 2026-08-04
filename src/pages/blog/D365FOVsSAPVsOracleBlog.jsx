@@ -95,7 +95,7 @@ export default function D365FOVsSAPVsOracleBlog() {
       />
  
       <ScrollToTop />
-      <POSHeader />
+      <POSHeader alwaysSolid />
  
       <main className="flex-grow">
         {/* HERO SECTION */}

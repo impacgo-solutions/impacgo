@@ -10,7 +10,7 @@ import { Menu, X, ChevronDown } from "lucide-react";
 // needs just the name+link, not the full card content (description,
 // features, images) that section owns.
 const ourProducts = [
-  { name: "Dairy Farm Management (CalveIQ)", path: "/products/dairy-farm" },
+  { name: "Dairy Farm Management (CALVIQ)", path: "/products/dairy-farm" },
   { name: "Inventory Management (StockLyte)", path: "/products/inventory-management" },
   { name: "FarmYieldIQ", path: "/products/farm-yield-iq" },
   { name: "Work Task Application", path: "/products/work-task" },
@@ -54,11 +54,27 @@ export default function Header() {
     closeTimer.current = setTimeout(() => setIsProductsOpen(false), 150);
   };
 
+  // Real mouse/trackpad devices get a mouseenter before this click ever
+  // fires, which already opened the panel — so the trigger just re-opens
+  // (a no-op) rather than toggling, which would otherwise flip it straight
+  // back shut. Touch devices (tablets, 2-in-1s at this md+ breakpoint) never
+  // fire mouseenter/mouseleave at all, so the click has to do the toggling
+  // itself or the panel could only ever be opened, never closed by tapping
+  // the trigger again.
+  const handleProductsTriggerClick = () => {
+    const hasHover =
+      typeof window !== "undefined" &&
+      window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+    if (hasHover) {
+      openProducts();
+    } else {
+      setIsProductsOpen((v) => !v);
+    }
+  };
+
   // Desktop dropdown also needs to close on an outside click (trackpad/touch
-  // taps don't fire a mouseleave the way a real mouse does), and the trigger
-  // button's onClick intentionally just opens rather than toggles — a click
-  // is preceded by a real mouseenter, which already opened it, so a toggle
-  // would immediately flip it straight back shut.
+  // taps don't fire a mouseleave the way a real mouse does), and on Escape
+  // for keyboard users.
   useEffect(() => {
     if (!isProductsOpen) return;
     const handleClickOutside = (e) => {
@@ -66,8 +82,15 @@ export default function Header() {
         setIsProductsOpen(false);
       }
     };
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") setIsProductsOpen(false);
+    };
     document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
   }, [isProductsOpen]);
 
   useEffect(() => {
@@ -140,7 +163,7 @@ export default function Header() {
           <nav className="hidden md:block">
             <ul className="flex items-center space-x-6">
               {navItems.map((item, index) => {
-                const linkClasses = `text-base lg:text-lg font-medium transition-colors duration-300 ${
+                const linkClasses = `relative text-base lg:text-lg font-medium transition-colors duration-300 after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full ${
                   isScrolled
                     ? "text-gray-800 hover:text-blue-600"
                     : "text-white hover:text-blue-200"
@@ -165,7 +188,7 @@ export default function Header() {
                       >
                         <button
                           type="button"
-                          onClick={openProducts}
+                          onClick={handleProductsTriggerClick}
                           aria-expanded={isProductsOpen}
                           className={`flex items-center gap-1 ${linkClasses}`}
                         >
@@ -213,7 +236,7 @@ export default function Header() {
 
                               <div className="border-l border-gray-100 pl-6">
                                 <p className="text-xs font-bold uppercase tracking-wider text-emerald-600 mb-3">
-                                  Impacgo Suite
+                                  Impacgo ERP Suite
                                   <span className="ml-1.5 align-middle text-[9px] font-bold bg-amber-100 text-amber-700 px-1.5 py-0.5 rounded-full normal-case tracking-normal">
                                     In Development
                                   </span>
@@ -236,7 +259,7 @@ export default function Header() {
                                   onClick={() => setIsProductsOpen(false)}
                                   className="inline-block mt-3 text-xs font-semibold text-emerald-600 hover:text-emerald-700"
                                 >
-                                  View all Impacgo Suite modules →
+                                  View all Impacgo ERP Suite modules →
                                 </a>
                               </div>
                             </motion.div>
@@ -262,6 +285,7 @@ export default function Header() {
 {!isMenuOpen && (
   <button
     onClick={() => setIsMenuOpen(true)}
+    aria-label="Open menu"
     className={`md:hidden transition-colors duration-300 ${
       isScrolled ? "text-black" : "text-white"
     }`}
@@ -304,6 +328,7 @@ export default function Header() {
 
           <button
             onClick={closeMenu}
+            aria-label="Close menu"
             className="text-gray-700 hover:text-red-500 transition"
           >
             <X size={30} />
@@ -368,7 +393,7 @@ export default function Header() {
                           </ul>
 
                           <p className="text-xs font-bold uppercase tracking-wider text-emerald-600 mb-2">
-                            Impacgo Suite <span className="text-[9px] font-bold bg-amber-100 text-amber-700 px-1.5 py-0.5 rounded-full normal-case">In Development</span>
+                            Impacgo ERP Suite <span className="text-[9px] font-bold bg-amber-100 text-amber-700 px-1.5 py-0.5 rounded-full normal-case">In Development</span>
                           </p>
                           <ul className="space-y-2">
                             {erpProducts.map((p) => (
@@ -413,7 +438,7 @@ export default function Header() {
             <a
               href={`${import.meta.env.BASE_URL}#contact`}
               onClick={closeMenu}
-              className="block w-full text-center bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl font-semibold transition"
+              className="block w-full text-center bg-blue-600 hover:bg-blue-700 active:scale-95 text-white py-3 rounded-xl font-semibold transition"
             >
               Get Started
             </a>

@@ -20,7 +20,8 @@ import POSHeader from "../components/POSHeader";
 import Footer from "../components/Footer";
 import ContactCard from "../components/ContactCard";
 import PageHero, { HeroPanel } from "../components/PageHero";
-import financialimg from "../assets/financialimg.jpg";
+import Reveal, { RevealItem } from "../components/Reveal";
+import financialimg from "../assets/financialimg.webp";
 import SEO from "../components/SEO";
 import {
   createServiceSchema,
@@ -286,7 +287,7 @@ export default function AXMigration() {
         {/* ============ Key Features ============ */}
         <section className="py-16 bg-gray-100">
           <div className="container mx-auto px-6 md:px-12">
-            <div className="text-center max-w-3xl mx-auto mb-12">
+            <Reveal className="text-center max-w-3xl mx-auto mb-12">
               <p className="uppercase tracking-widest text-blue-600 font-semibold mb-2 text-sm">
                 What's Included
               </p>
@@ -297,12 +298,13 @@ export default function AXMigration() {
                 End-to-end migration covering every layer of your AX 2012 environment —
                 code, data, configurations, integrations, and people.
               </p>
-            </div>
+            </Reveal>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {keyFeatures.map((feature, index) => (
-                <div
+                <RevealItem
                   key={index}
+                  index={index}
                   className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
                 >
                   {feature.icon}
@@ -310,7 +312,7 @@ export default function AXMigration() {
                     {feature.title}
                   </h3>
                   <p className="text-gray-600">{feature.description}</p>
-                </div>
+                </RevealItem>
               ))}
             </div>
           </div>
@@ -319,7 +321,7 @@ export default function AXMigration() {
         {/* ============ Why Choose Us ============ */}
         <section className="py-16 bg-white">
           <div className="container mx-auto px-6 md:px-12">
-            <div className="text-center max-w-3xl mx-auto mb-12">
+            <Reveal className="text-center max-w-3xl mx-auto mb-12">
               <p className="uppercase tracking-widest text-blue-600 font-semibold mb-2 text-sm">
                 Why Impacgo
               </p>
@@ -330,12 +332,13 @@ export default function AXMigration() {
                 Microsoft Dynamics specialists with deep India implementation experience —
                 not a generalist IT firm taking on a one-off project.
               </p>
-            </div>
+            </Reveal>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {whyChooseUs.map((benefit, index) => (
-                <div
+                <RevealItem
                   key={index}
+                  index={index}
                   className="bg-gray-100 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
                 >
                   {benefit.icon}
@@ -343,7 +346,7 @@ export default function AXMigration() {
                     {benefit.title}
                   </h3>
                   <p className="text-gray-600">{benefit.description}</p>
-                </div>
+                </RevealItem>
               ))}
             </div>
           </div>
@@ -352,7 +355,7 @@ export default function AXMigration() {
         {/* ============ Migration Process (zigzag timeline) ============ */}
         <section id="ax-process" className="py-16 bg-gray-50">
           <div className="container mx-auto px-6 md:px-12">
-            <div className="text-center max-w-3xl mx-auto mb-12">
+            <Reveal className="text-center max-w-3xl mx-auto mb-12">
               <p className="uppercase tracking-widest text-blue-600 font-semibold mb-2 text-sm">
                 Our Process
               </p>
@@ -362,15 +365,16 @@ export default function AXMigration() {
               <p className="text-lg text-gray-600">
                 A proven, phased methodology — assessment to go-live to hypercare.
               </p>
-            </div>
+            </Reveal>
 
             <div className="relative max-w-4xl mx-auto">
               {/* Vertical line */}
               <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-blue-200"></div>
 
               {processSteps.map((step, index) => (
-                <div
+                <RevealItem
                   key={index}
+                  index={index}
                   className={`relative flex flex-col md:flex-row items-center mb-12 ${
                     index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                   }`}
@@ -395,7 +399,7 @@ export default function AXMigration() {
                       <p className="text-gray-600">{step.description}</p>
                     </div>
                   </div>
-                </div>
+                </RevealItem>
               ))}
             </div>
           </div>
@@ -404,26 +408,27 @@ export default function AXMigration() {
         {/* ============ FAQ Section ============ */}
         <section className="py-16 bg-white">
           <div className="container mx-auto px-6 md:px-12 max-w-4xl">
-            <div className="text-center mb-12">
+            <Reveal className="text-center mb-12">
               <p className="uppercase tracking-widest text-blue-600 font-semibold mb-2 text-sm">
                 FAQ
               </p>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
                 AX 2012 Migration — Frequently Asked Questions
               </h2>
-            </div>
+            </Reveal>
 
             <div className="space-y-6">
               {faqs.map((faq, index) => (
-                <div
+                <RevealItem
                   key={index}
+                  index={index}
                   className="bg-gray-50 border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow"
                 >
                   <h3 className="text-lg font-bold text-gray-900 mb-3">
                     {faq.question}
                   </h3>
                   <p className="text-gray-700 leading-relaxed">{faq.answer}</p>
-                </div>
+                </RevealItem>
               ))}
             </div>
           </div>
@@ -431,7 +436,7 @@ export default function AXMigration() {
 
         {/* ============ CTA Section ============ */}
         <section className="py-20 bg-gradient-to-br from-blue-700 via-blue-600 to-indigo-700 text-white">
-          <div className="container mx-auto px-6 md:px-12 text-center max-w-3xl">
+          <Reveal className="container mx-auto px-6 md:px-12 text-center max-w-3xl">
             <div className="inline-flex items-center bg-red-500/20 border border-red-400/40 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
               <AlertTriangle className="h-4 w-4 text-red-300 mr-2" />
               <span className="text-sm font-semibold text-red-100">
@@ -462,7 +467,7 @@ export default function AXMigration() {
                 Learn About D365 F&O
               </button>
             </div>
-          </div>
+          </Reveal>
         </section>
       </main>
 

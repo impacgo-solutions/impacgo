@@ -13,10 +13,11 @@ import {
   FaShieldAlt,
 } from "react-icons/fa";
 import POSHeader from "../components/POSHeader";
+import Breadcrumbs from "../components/Breadcrumbs";
 import Footer from "../components/Footer";
 import ContactCard from "../components/ContactCard";
 import Reveal, { RevealItem } from "../components/Reveal";
-import farmYieldImg from "../assets/farmyieldiq-dashboard.png";
+import farmYieldImg from "../assets/farmyieldiq-dashboard.webp";
 import SEO from "../components/SEO";
 import { createServiceSchema, createFaqSchema, createBreadcrumbSchema } from "../components/schemas";
 
@@ -145,7 +146,10 @@ export default function FarmYieldIQ() {
         schema={[serviceSchema, faqSchema, breadcrumbSchema]}
       />
       <ScrollToTop />
-      <POSHeader />
+      <POSHeader alwaysSolid />
+      <div className="pt-16 md:pt-20">
+        <Breadcrumbs variant="dark" />
+      </div>
 
       <section className="py-16 bg-gradient-to-r from-emerald-50 to-amber-50">
         <div className="container mx-auto px-6 md:px-12">

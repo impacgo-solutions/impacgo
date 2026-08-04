@@ -94,7 +94,7 @@ const articleSchema = createArticleSchema({
 />
  
       <ScrollToTop />
-      <POSHeader />
+      <POSHeader alwaysSolid />
  
     <main className="flex-grow">
       {/* ============ Article Hero ============ */}

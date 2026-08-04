@@ -20,13 +20,14 @@ import POSHeader from "../components/POSHeader";
 import Footer from "../components/Footer";
 import ContactCard from "../components/ContactCard";
 import PageHero, { HeroPanel } from "../components/PageHero";
-import financialimg from "../assets/financialimg.jpg";
+import financialimg from "../assets/financialimg.webp";
 import SEO from "../components/SEO";
 import {
   createServiceSchema,
   createFaqSchema,
   createBreadcrumbSchema,
 } from "../components/schemas";
+import Reveal, { RevealItem } from "../components/Reveal";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -278,7 +279,7 @@ export default function D365Development() {
 
         <section className="py-16 bg-gray-100">
           <div className="container mx-auto px-6 md:px-12">
-            <div className="text-center max-w-3xl mx-auto mb-12">
+            <Reveal className="text-center max-w-3xl mx-auto mb-12">
               <p className="uppercase tracking-widest text-blue-600 font-semibold mb-2 text-sm">
                 What We Build
               </p>
@@ -290,12 +291,13 @@ export default function D365Development() {
                 reports, batch jobs, security — every type of D365FO
                 customisation you need.
               </p>
-            </div>
+            </Reveal>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {keyFeatures.map((feature, index) => (
-                <div
+                <RevealItem
                   key={index}
+                  index={index}
                   className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
                 >
                   {feature.icon}
@@ -303,7 +305,7 @@ export default function D365Development() {
                     {feature.title}
                   </h3>
                   <p className="text-gray-600">{feature.description}</p>
-                </div>
+                </RevealItem>
               ))}
             </div>
           </div>
@@ -311,7 +313,7 @@ export default function D365Development() {
 
         <section className="py-16 bg-white">
           <div className="container mx-auto px-6 md:px-12">
-            <div className="text-center max-w-3xl mx-auto mb-12">
+            <Reveal className="text-center max-w-3xl mx-auto mb-12">
               <p className="uppercase tracking-widest text-blue-600 font-semibold mb-2 text-sm">
                 Why Impacgo
               </p>
@@ -322,12 +324,13 @@ export default function D365Development() {
                 D365FO development specialists with proper engineering
                 discipline — not freelance over-layering.
               </p>
-            </div>
+            </Reveal>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {whyChooseUs.map((benefit, index) => (
-                <div
+                <RevealItem
                   key={index}
+                  index={index}
                   className="bg-gray-100 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
                 >
                   {benefit.icon}
@@ -335,7 +338,7 @@ export default function D365Development() {
                     {benefit.title}
                   </h3>
                   <p className="text-gray-600">{benefit.description}</p>
-                </div>
+                </RevealItem>
               ))}
             </div>
           </div>
@@ -343,7 +346,7 @@ export default function D365Development() {
 
         <section id="d365dev-process" className="py-16 bg-gray-50">
           <div className="container mx-auto px-6 md:px-12">
-            <div className="text-center max-w-3xl mx-auto mb-12">
+            <Reveal className="text-center max-w-3xl mx-auto mb-12">
               <p className="uppercase tracking-widest text-blue-600 font-semibold mb-2 text-sm">
                 Our Process
               </p>
@@ -354,14 +357,15 @@ export default function D365Development() {
                 Requirements to production — agile sprints, code reviews,
                 automated builds, hypercare.
               </p>
-            </div>
+            </Reveal>
 
             <div className="relative max-w-4xl mx-auto">
               <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-blue-200"></div>
 
               {processSteps.map((step, index) => (
-                <div
+                <RevealItem
                   key={index}
+                  index={index}
                   className={`relative flex flex-col md:flex-row items-center mb-12 ${
                     index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                   }`}
@@ -385,7 +389,7 @@ export default function D365Development() {
                       <p className="text-gray-600">{step.description}</p>
                     </div>
                   </div>
-                </div>
+                </RevealItem>
               ))}
             </div>
           </div>
@@ -393,33 +397,34 @@ export default function D365Development() {
 
         <section className="py-16 bg-white">
           <div className="container mx-auto px-6 md:px-12 max-w-4xl">
-            <div className="text-center mb-12">
+            <Reveal className="text-center mb-12">
               <p className="uppercase tracking-widest text-blue-600 font-semibold mb-2 text-sm">
                 FAQ
               </p>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
                 D365FO Development — Frequently Asked Questions
               </h2>
-            </div>
+            </Reveal>
 
             <div className="space-y-6">
               {faqs.map((faq, index) => (
-                <div
+                <RevealItem
                   key={index}
+                  index={index}
                   className="bg-gray-50 border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow"
                 >
                   <h3 className="text-lg font-bold text-gray-900 mb-3">
                     {faq.question}
                   </h3>
                   <p className="text-gray-700 leading-relaxed">{faq.answer}</p>
-                </div>
+                </RevealItem>
               ))}
             </div>
           </div>
         </section>
 
         <section className="py-20 bg-gradient-to-br from-slate-900 via-blue-800 to-cyan-700 text-white">
-          <div className="container mx-auto px-6 md:px-12 text-center max-w-3xl">
+          <Reveal className="container mx-auto px-6 md:px-12 text-center max-w-3xl">
             <div className="inline-flex items-center bg-cyan-500/20 border border-cyan-400/40 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
               <Code2 className="h-4 w-4 text-cyan-200 mr-2" />
               <span className="text-sm font-semibold text-cyan-100">
@@ -449,7 +454,7 @@ export default function D365Development() {
                 Explore D365FO Implementation
               </button>
             </div>
-          </div>
+          </Reveal>
         </section>
       </main>
 

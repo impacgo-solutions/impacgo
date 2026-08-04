@@ -3,7 +3,7 @@ import { FaCog, FaShieldAlt, FaChartLine, FaTools, FaLock, FaCloudUploadAlt, FaH
 import { useLocation,useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import POSHeader from '../components/POSHeader';
-import ams from "../assets/ams.jpg";
+import ams from "../assets/ams.webp";
 import ContactCard from "../components/ContactCard";
 import Footer from "../components/Footer";
 import SEO from "../components/SEO";
@@ -117,7 +117,7 @@ export default function AMS() {
   schema={[serviceSchema, breadcrumbSchema]}
 />
     <ScrollToTop />
-    <POSHeader />
+    <POSHeader alwaysSolid />
 
     <section className="py-16 bg-gradient-to-r from-gray-50 to-gray-100">
       <div className="container mx-auto px-6 md:px-12">

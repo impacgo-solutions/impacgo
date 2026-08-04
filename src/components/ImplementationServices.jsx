@@ -5,7 +5,7 @@ import POSHeader from "./POSHeader";
 import { useLocation,useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import ContactCard from "../components/ContactCard";
-import impl from "../assets/financialimg.jpg";
+import impl from "../assets/financialimg.webp";
 import SEO from "../components/SEO";
 import { createServiceSchema, createBreadcrumbSchema } from "../components/schemas";
 
@@ -112,7 +112,7 @@ export default function ImplementationServices() {
   schema={[serviceSchema, breadcrumbSchema]}
 />
     <ScrollToTop />
-    <POSHeader />
+    <POSHeader alwaysSolid />
       <section className="py-16 bg-gradient-to-r from-blue-50 to-indigo-50">
       <div className="container mx-auto px-6 md:px-12">
         {/* Overview Section */}

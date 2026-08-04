@@ -1,9 +1,10 @@
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown } from "lucide-react";
+import Breadcrumbs from "./Breadcrumbs";
 
 /**
  * Shared hero for every service/product page on the main site (NOT the
- * CalveIQ/StockLyte/FarmYieldIQ sub-apps, which intentionally keep their own
+ * Calviq/StockLyte/FarmYieldIQ sub-apps, which intentionally keep their own
  * design systems as distinct landing pages).
  *
  * Every one of these pages used to hand-roll its own hero — ~21 near-copies
@@ -49,8 +50,12 @@ export default function PageHero({
       <div className="absolute -top-20 -left-20 w-80 h-80 bg-white/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute -bottom-20 -right-20 w-96 h-96 bg-black/20 rounded-full blur-3xl pointer-events-none" />
 
+      <div className="relative container mx-auto px-6 md:px-12 pt-16 md:pt-20">
+        <Breadcrumbs bare />
+      </div>
+
       <div
-        className={`relative container mx-auto px-6 md:px-12 pt-32 pb-20 md:pt-40 md:pb-28 ${
+        className={`relative container mx-auto px-6 md:px-12 pt-2 pb-20 md:pt-4 md:pb-28 ${
           !hasPanel ? "flex flex-col items-center text-center" : ""
         }`}
       >
@@ -104,7 +109,7 @@ export default function PageHero({
               {primaryCta && (
                 <button
                   onClick={primaryCta.onClick}
-                  className="group inline-flex items-center justify-center bg-white text-slate-900 px-6 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300"
+                  className="group inline-flex items-center justify-center bg-white text-slate-900 px-6 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:scale-95 active:translate-y-0 transition-all duration-300"
                 >
                   {primaryCta.label}
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
@@ -113,7 +118,7 @@ export default function PageHero({
               {secondaryCta && (
                 <button
                   onClick={secondaryCta.onClick}
-                  className="inline-flex items-center justify-center border-2 border-white/30 text-white px-6 py-3 rounded-full font-semibold hover:bg-white/10 transition-all duration-300"
+                  className="inline-flex items-center justify-center border-2 border-white/30 text-white px-6 py-3 rounded-full font-semibold hover:bg-white/10 active:scale-95 transition-all duration-300"
                 >
                   {secondaryCta.label}
                 </button>

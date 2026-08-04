@@ -1,14 +1,14 @@
-import d365 from "../assets/d3651.jpg";
-import crm from "../assets/crm.jpg";
-import manufacturingImage from "../assets/manufacturing.jpg";
-import supplyChain from "../assets/supplychain.jpg";
-import retail from "../assets/retail.jpg";
-import bgimg from "../assets/background.jpg";
+import d365 from "../assets/d3651.webp";
+import crm from "../assets/crm.webp";
+import manufacturingImage from "../assets/manufacturing.webp";
+import supplyChain from "../assets/supplychain.webp";
+import retail from "../assets/retail.webp";
+import bgimg from "../assets/background.webp";
 import { useState, useEffect } from "react";
-import dfms from "../assets/dfms.jpg";
-import worktast from "../assets/worktask.jpg";
-import construction from "../assets/Construction.jpg";
-import farmYieldIq from "../assets/farmyieldiq-dashboard.png";
+import dfms from "../assets/dfms.webp";
+import worktast from "../assets/worktask.webp";
+import construction from "../assets/Construction.webp";
+import farmYieldIq from "../assets/farmyieldiq-dashboard.webp";
 import SEO from "../components/SEO";
 import { organizationSchema, localBusinessSchema } from "../components/schemas";
 import { erpModules } from "../data/erpModules";
@@ -25,12 +25,12 @@ import {
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Reveal, { RevealItem } from "../components/Reveal";
-import pos from "../assets/pos.jpg";
+import pos from "../assets/pos.webp";
 import { useNavigate, Link } from "react-router-dom";
 import LocationMap from "../components/LocationMap";
 import ContactCard from "../components/ContactCard";
-import financial from "../assets/financialimg.jpg";
-import health from "../assets/healthcare.jpg";
+import financial from "../assets/financialimg.webp";
+import health from "../assets/healthcare.webp";
 import resonac from "../assets/clients/Resonac.webp";
 import hitechi from "../assets/clients/hitechi.webp";
 import ironingboy from "../assets/clients/ironingboy.webp";   
@@ -71,7 +71,7 @@ export default function HomePage() {
         <ProductsSection />
         <ERPProductsSection />
         <WhyChooseUsSection />
-        {/* <ClientLogosSection /> */}
+        <ClientLogosSection />
         <ContactSection />
         <LocationMap />
         <ContactCard />
@@ -148,7 +148,7 @@ function HeroSection() {
         </p>
 
         <button
-          className="bg-white text-blue-600 px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-100 transition-colors duration-300"
+          className="bg-white text-blue-600 px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-100 active:scale-95 transition-all duration-300"
           onClick={scrollToPosition}
         >
           Learn More
@@ -257,8 +257,11 @@ function IndustriesSection() {
 /* ---------------------- OUR SERVICES (Slide 2) ---------------------- */
 /* Each card navigates to its respective service detail page */
 /* ---------------------- OUR SERVICES (Slide 2) ---------------------- */
+const SERVICES_VISIBLE_COUNT = 8;
+
 function ServicesSection() {
   const navigate = useNavigate();
+  const [showAllServices, setShowAllServices] = useState(false);
 
   const services = [
     {
@@ -363,6 +366,11 @@ function ServicesSection() {
     }
   };
 
+  const hiddenCount = services.length - SERVICES_VISIBLE_COUNT;
+  const visibleServices = showAllServices
+    ? services
+    : services.slice(0, SERVICES_VISIBLE_COUNT);
+
   return (
     <section id="services" className="py-20 bg-blue-50 scroll-mt-24">
       <div className="container mx-auto px-4">
@@ -374,7 +382,7 @@ function ServicesSection() {
         </Reveal>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {services.map((service, index) => {
+          {visibleServices.map((service, index) => {
   const Icon = service.icon;
   return (
     <RevealItem
@@ -450,6 +458,23 @@ function ServicesSection() {
   );
 })}
         </div>
+
+        {hiddenCount > 0 && (
+          <div className="text-center mt-10">
+            <button
+              type="button"
+              onClick={() => setShowAllServices((v) => !v)}
+              className="inline-flex items-center gap-2 bg-white border-2 border-blue-200 text-blue-600 px-6 py-3 rounded-full font-semibold hover:border-blue-500 hover:bg-blue-50 transition-all duration-300"
+            >
+              {showAllServices ? "Show Less" : `Show ${hiddenCount} More Services`}
+              <ChevronDown
+                className={`h-5 w-5 transition-transform duration-300 ${
+                  showAllServices ? "rotate-180" : ""
+                }`}
+              />
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );
@@ -851,7 +876,7 @@ function ProductsSection() {
   );
 }
 
-/* ---------------------- IMPACGO SUITE ---------------------- */
+/* ---------------------- IMPACGO ERP SUITE ---------------------- */
 // Card content stays "basic" here — module name, one-line description, a
 // handful of capability chips — the full pitch (workflows, module
 // breakdown, benefits, FAQ) lives on each module's own detail page at
@@ -875,7 +900,7 @@ function ERPProductsSection() {
           <span className="inline-block bg-amber-100 text-amber-800 text-xs font-bold px-4 py-1.5 rounded-full tracking-wide mb-4">
             IN DEVELOPMENT
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Impacgo Suite</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Impacgo ERP Suite</h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             Our own suite of business applications — HR, Finance, Supply Chain, Manufacturing,
             Planning and Retail — built as one connected system. Click a module for the full picture.
@@ -902,7 +927,7 @@ function ERPProductsSection() {
                 </div>
 
                 <h3 className="text-lg font-bold text-gray-800">Impacgo {mod.name}</h3>
-                <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-3">
+                <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3">
                   {mod.tagline}
                 </p>
                 <p className="text-gray-600 text-sm mb-4">{mod.description}</p>
@@ -1027,28 +1052,31 @@ function ClientLogosSection() {
   return (
     <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-6">
+        <Reveal className="text-center mb-6">
           <p className="text-3xl md:text-4xl font-bold text-gray-800 mb-1">
             Our Clients
           </p>
           <h3 className="text-gray-600 text-sm md:text-base">
             Trusted by Leading Global Enterprises
           </h3>
-        </div>
+        </Reveal>
 
         <div className="flex md:flex-wrap items-center justify-start md:justify-center gap-x-10 overflow-x-auto md:overflow-visible scrollbar-hide px-2">
-          {clients.map((client) => (
-            <div
+          {clients.map((client, index) => (
+            <RevealItem
               key={client.name}
-              className="flex-shrink-0 flex items-center justify-center"
+              index={index}
+              className="flex-shrink-0 flex items-center justify-center h-7"
             >
               <img
                 src={client.logo}
                 alt={client.name}
                 loading="lazy"
-                className="max-h-6 md:max-h-5 lg:max-h-7 w-auto object-contain opacity-80 hover:opacity-100 transition duration-300"
+                width="120"
+                height="28"
+                className="h-6 md:h-5 lg:h-7 w-auto object-contain opacity-80 hover:opacity-100 transition duration-300"
               />
-            </div>
+            </RevealItem>
           ))}
         </div>
       </div>
@@ -1142,12 +1170,13 @@ function ContactSection() {
 
           {/* Name */}
           <div className="mb-6">
-            <label className="flex items-center mb-2 text-gray-700">
+            <label htmlFor="contact-name" className="flex items-center mb-2 text-gray-700">
               <User className="mr-2 text-blue-600" />
               Name
             </label>
 
             <input
+              id="contact-name"
               type="text"
               name="name"
               placeholder="Enter your name"
@@ -1161,12 +1190,13 @@ function ContactSection() {
 
           {/* Email */}
           <div className="mb-6">
-            <label className="flex items-center mb-2 text-gray-700">
+            <label htmlFor="contact-email" className="flex items-center mb-2 text-gray-700">
               <Mail className="mr-2 text-blue-600" />
               Email
             </label>
 
             <input
+              id="contact-email"
               type="email"
               name="email"
               placeholder="Enter your email"
@@ -1180,12 +1210,13 @@ function ContactSection() {
 
           {/* Phone */}
           <div className="mb-6">
-            <label className="flex items-center mb-2 text-gray-700">
+            <label htmlFor="contact-phone" className="flex items-center mb-2 text-gray-700">
               <Phone className="mr-2 text-blue-600" />
               Phone
             </label>
 
             <input
+              id="contact-phone"
               type="tel"
               name="phone"
               placeholder="Enter your phone number"
@@ -1198,12 +1229,13 @@ function ContactSection() {
 
           {/* Message */}
           <div className="mb-6">
-            <label className="flex items-center mb-2 text-gray-700">
+            <label htmlFor="contact-message" className="flex items-center mb-2 text-gray-700">
               <MessageSquare className="mr-2 text-blue-600" />
               Message
             </label>
 
             <textarea
+              id="contact-message"
               name="message"
               rows="4"
               placeholder="Write your message here..."

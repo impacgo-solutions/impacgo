@@ -7,12 +7,13 @@ import ImplementationServices from "../components/ImplementationServices";
 import DevelopmentServices from "../components/DevelopmentServices";
 import AMS from "../components/AMS";
 import PageHero from "../components/PageHero";
-import d3651 from "../assets/d3651.jpg";
+import d3651 from "../assets/d3651.webp";
 import { FaChartPie, FaRobot, FaSyncAlt, FaExpand, FaDollarSign, FaCog, FaClipboardCheck, FaChartLine , FaBalanceScale } from "react-icons/fa";
 import ContactCard from "../components/ContactCard"
 import ServiceSection from "./ServiceSection";
 import SEO from "../components/SEO";
 import { createServiceSchema, createFaqSchema, createBreadcrumbSchema } from "../components/schemas";
+import Reveal, { RevealItem } from "../components/Reveal";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -90,7 +91,9 @@ const breadcrumbSchema = createBreadcrumbSchema([
          {/* Key Features Section */}
 <section className="py-16 bg-gray-100">
   <div className="container mx-auto px-6 md:px-12">
-    <h2 className="text-3xl font-bold text-gray-900 my-6 text-center">Key Features</h2>
+    <Reveal>
+      <h2 className="text-3xl font-bold text-gray-900 my-6 text-center">Key Features</h2>
+    </Reveal>
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
       {[
         { 
@@ -124,8 +127,9 @@ const breadcrumbSchema = createBreadcrumbSchema([
           icon: <FaCog className="text-blue-500 text-4xl mb-4" />,
         },
       ].map((feature, index) => (
-        <div
+        <RevealItem
           key={index}
+          index={index}
           className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
         >
           {feature.icon}
@@ -133,7 +137,7 @@ const breadcrumbSchema = createBreadcrumbSchema([
             {feature.title}
           </h3>
           <p className="text-gray-600">{feature.description}</p>
-        </div>
+        </RevealItem>
       ))}
     </div>
   </div>
@@ -142,7 +146,9 @@ const breadcrumbSchema = createBreadcrumbSchema([
 {/* Benefits Section */}
 <section className="py-16 bg-white">
   <div className="container mx-auto px-6 md:px-12">
-    <h2 className="text-3xl font-bold text-gray-900 mb-6">Why Choose Us ?</h2>
+    <Reveal>
+      <h2 className="text-3xl font-bold text-gray-900 mb-6">Why Choose Us ?</h2>
+    </Reveal>
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
       {[
         {
@@ -171,8 +177,9 @@ const breadcrumbSchema = createBreadcrumbSchema([
           icon: <FaBalanceScale className="text-green-500 text-4xl mb-4" />,
         },
       ].map((benefit, index) => (
-        <div
+        <RevealItem
           key={index}
+          index={index}
           className="bg-gray-100 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
         >
           {benefit.icon}
@@ -180,7 +187,7 @@ const breadcrumbSchema = createBreadcrumbSchema([
             {benefit.title}
           </h3>
           <p className="text-gray-600">{benefit.description}</p>
-        </div>
+        </RevealItem>
       ))}
     </div>
   </div>
@@ -192,7 +199,7 @@ const breadcrumbSchema = createBreadcrumbSchema([
 
       <ServiceSection />
       <section className="py-20 bg-gradient-to-br from-blue-600 to-blue-500 text-white">
-          <div className="container mx-auto px-6 md:px-12 text-center">
+          <Reveal className="container mx-auto px-6 md:px-12 text-center">
             <h2 className="text-3xl font-bold mb-6">
               Get Started with Dynamics 365 Finance and Operations
             </h2>
@@ -205,7 +212,7 @@ const breadcrumbSchema = createBreadcrumbSchema([
             onClick={()=>{navigate('/contact')}}>
               Contact Us
             </button>
-          </div>
+          </Reveal>
         </section>
 
       {/* <ImplementationServices />

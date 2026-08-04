@@ -102,14 +102,14 @@ export default function ContactSection() {
   path="/contact"
 />
       <ScrollToTop />
-      <POSHeader />
+      <POSHeader alwaysSolid />
 
       <section id="contact" className="py-20 bg-blue-50 min-h-screen">
         <div className="container mx-auto px-4 pt-16">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-blue-600">
+            <h1 className="text-3xl md:text-4xl font-bold mb-4 text-blue-600">
               Contact Us
-            </h2>
+            </h1>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Have a question or want to discuss a project? Fill out the form
               below and we'll get back to you as soon as possible.
@@ -122,11 +122,12 @@ export default function ContactSection() {
           >
             {/* Name */}
             <div className="mb-6">
-              <label className="flex items-center mb-2 text-gray-700">
+              <label htmlFor="contactus-name" className="flex items-center mb-2 text-gray-700">
                 <User className="mr-2 text-blue-600" size={20} />
                 Name
               </label>
               <input
+                id="contactus-name"
                 type="text"
                 name="name"
                 className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 disabled:bg-gray-100 disabled:cursor-not-allowed"
@@ -140,11 +141,12 @@ export default function ContactSection() {
 
             {/* Email */}
             <div className="mb-6">
-              <label className="flex items-center mb-2 text-gray-700">
+              <label htmlFor="contactus-email" className="flex items-center mb-2 text-gray-700">
                 <Mail className="mr-2 text-blue-600" size={20} />
                 Email
               </label>
               <input
+                id="contactus-email"
                 type="email"
                 name="email"
                 className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 disabled:bg-gray-100 disabled:cursor-not-allowed"
@@ -158,12 +160,13 @@ export default function ContactSection() {
 
             {/* Phone (optional) */}
             <div className="mb-6">
-              <label className="flex items-center mb-2 text-gray-700">
+              <label htmlFor="contactus-phone" className="flex items-center mb-2 text-gray-700">
                 <Phone className="mr-2 text-blue-600" size={20} />
                 Phone{" "}
-                <span className="text-sm text-gray-400 ml-2">(optional)</span>
+                <span className="text-sm text-gray-500 ml-2">(optional)</span>
               </label>
               <input
+                id="contactus-phone"
                 type="tel"
                 name="phone"
                 className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 disabled:bg-gray-100 disabled:cursor-not-allowed"
@@ -176,11 +179,12 @@ export default function ContactSection() {
 
             {/* Message */}
             <div className="mb-6">
-              <label className="flex items-center mb-2 text-gray-700">
+              <label htmlFor="contactus-message" className="flex items-center mb-2 text-gray-700">
                 <MessageSquare className="mr-2 text-blue-600" size={20} />
                 Message
               </label>
               <textarea
+                id="contactus-message"
                 name="message"
                 className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 disabled:bg-gray-100 disabled:cursor-not-allowed"
                 rows="4"

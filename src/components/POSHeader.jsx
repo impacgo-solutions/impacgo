@@ -3,16 +3,21 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
-export default function POSHeader() {
-  const [isScrolled, setIsScrolled] = useState(false);
+// `alwaysSolid` is for pages whose content starts light/white right at the
+// top (no dark hero behind the header) — without it, the default
+// transparent-until-scroll header renders white text over a light
+// background and is unreadable until the user scrolls past 50px.
+export default function POSHeader({ alwaysSolid = false }) {
+  const [isScrolled, setIsScrolled] = useState(alwaysSolid);
 
   useEffect(() => {
+    if (alwaysSolid) return;
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [alwaysSolid]);
 
   return (
     <div>

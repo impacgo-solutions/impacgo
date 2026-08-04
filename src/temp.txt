@@ -85,19 +85,19 @@
 
 
 //////////////////////////
-import d365 from "../assets/d3651.jpg";
-import crm from "../assets/crm.jpg"
-import ManfacturingImage from "../assets/manufacturing.jpg";
-import SupplyChain from "../assets/supplychain.jpg";
-import Retail from "../assets/retail.jpg";
-import bgimg from "../assets/background.jpg"
+import d365 from "../assets/d3651.webp";
+import crm from "../assets/crm.webp"
+import ManfacturingImage from "../assets/manufacturing.webp";
+import SupplyChain from "../assets/supplychain.webp";
+import Retail from "../assets/retail.webp";
+import bgimg from "../assets/background.webp"
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { ChevronDown, CheckCircle } from 'lucide-react'
 import { Mail, User, MessageSquare } from 'lucide-react';
 import Header from "../components/Header"
 import Footer from "../components/Footer";
-import pos from "../assets/pos.jpg"
+import pos from "../assets/pos.webp"
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 

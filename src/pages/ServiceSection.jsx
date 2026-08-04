@@ -1,8 +1,8 @@
 import { useNavigate } from 'react-router-dom';
-import bgimg from '../assets/posbg.jpg'; 
-import financial from '../assets/financialimg.jpg'
-import devep from "../assets/devp.png"
-import ams from "../assets/ams.jpg"
+import bgimg from '../assets/posbg.webp'; 
+import financial from '../assets/financialimg.webp'
+import devep from "../assets/devp.webp"
+import ams from "../assets/ams.webp"
 
 function ServiceSection() {
   const services = [

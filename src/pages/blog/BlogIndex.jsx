@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { Calendar, Clock, ArrowRight, Tag } from "lucide-react";
 
 import POSHeader from "../../components/POSHeader";
+import Breadcrumbs from "../../components/Breadcrumbs";
 import Footer from "../../components/Footer";
 import ContactCard from "../../components/ContactCard";
 import SEO from "../../components/SEO";
@@ -50,6 +51,7 @@ export default function BlogIndex() {
           <div className="absolute -bottom-20 -left-20 w-96 h-96 bg-indigo-400/20 rounded-full blur-3xl pointer-events-none"></div>
 
           <div className="container mx-auto px-6 md:px-12 relative">
+            <Breadcrumbs bare className="mb-6" />
             <p className="uppercase tracking-widest text-blue-200 font-semibold mb-3 text-sm">
               Insights & Guides
             </p>

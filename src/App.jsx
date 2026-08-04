@@ -1,6 +1,7 @@
 import { lazy, Suspense } from "react";
 import HomePage from "./pages/HomePage";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion";
 
 // HomePage is the most-visited route, so it's bundled into the main chunk
 // (imported above, not lazy) to avoid an extra network round-trip on first
@@ -77,11 +78,24 @@ function PageLoadingFallback() {
   );
 }
 
-function App() {
+// Fades the outgoing page out and the incoming page in on every route
+// change. `location` is passed to `Routes` explicitly (rather than letting
+// it read the router's current location itself) so the outgoing route
+// keeps rendering its old element during its exit animation instead of
+// immediately switching to the new one.
+function AnimatedRoutes() {
+  const location = useLocation();
+
   return (
-    <BrowserRouter basename={import.meta.env.BASE_URL}>
-      <Suspense fallback={<PageLoadingFallback />}>
-      <Routes>
+    <AnimatePresence mode="wait" initial={false}>
+      <motion.div
+        key={location.pathname}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.2, ease: "easeInOut" }}
+      >
+        <Routes location={location}>
 
         {/* ---------------- HOME ---------------- */}
         <Route path="/" element={<HomePage />} />
@@ -190,7 +204,7 @@ function App() {
           element={<FarmYieldIQ />}
         />
 
-        {/* ---------------- IMPACGO SUITE ---------------- */}
+        {/* ---------------- IMPACGO ERP SUITE ---------------- */}
         <Route
           path="/erp/:slug"
           element={<ERPModuleDetail />}
@@ -291,7 +305,17 @@ function App() {
           element={<Navigate to="/" replace />}
         />
 
-      </Routes>
+        </Routes>
+      </motion.div>
+    </AnimatePresence>
+  );
+}
+
+function App() {
+  return (
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
+      <Suspense fallback={<PageLoadingFallback />}>
+        <AnimatedRoutes />
       </Suspense>
     </BrowserRouter>
   );

@@ -2,13 +2,14 @@ import { FaCheckCircle, FaRocket, FaUsers, FaCogs, FaLightbulb } from "react-ico
 import { MdOutlineCampaign, MdOutlineSupportAgent, MdOutlineEngineering } from "react-icons/md";
 import POSHeader from "../components/POSHeader";
 import PageHero from "../components/PageHero";
-import crmImg from "../assets/crm.jpg";
+import crmImg from "../assets/crm.webp";
 import { useLocation,useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import Footer from '../components/Footer';
 import ContactCard from "../components/ContactCard";
 import SEO from "../components/SEO";
 import { createServiceSchema, createFaqSchema, createBreadcrumbSchema } from "../components/schemas";
+import Reveal, { RevealItem } from "../components/Reveal";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -192,13 +193,14 @@ const breadcrumbSchema = createBreadcrumbSchema([
       <div className="container mx-auto px-6 md:px-12">
         {/* CRM Features */}
         <div className="mb-16">
-  <h3 className="text-3xl font-bold text-center text-gray-800 mb-8">
+  <Reveal as="h3" className="text-3xl font-bold text-center text-gray-800 mb-8">
     Key Features
-  </h3>
+  </Reveal>
   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
     {crmFeatures.map((feature, index) => (
-      <div
+      <RevealItem
         key={index}
+        index={index}
         className="bg-white p-6 rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 flex items-start space-x-4"
       >
         <div className="flex items-center justify-center bg-blue-50 p-4 rounded-full">
@@ -210,7 +212,7 @@ const breadcrumbSchema = createBreadcrumbSchema([
           </h4>
           <p className="text-gray-600 text-base">{feature.description}</p>
         </div>
-      </div>
+      </RevealItem>
     ))}
   </div>
 </div>
@@ -218,13 +220,14 @@ const breadcrumbSchema = createBreadcrumbSchema([
 
         {/* Benefits */}
         <div className="mb-16">
-  <h3 className="text-3xl font-bold text-gray-800 text-center mb-8">
+  <Reveal as="h3" className="text-3xl font-bold text-gray-800 text-center mb-8">
     Why Choose Us ?
-  </h3>
+  </Reveal>
   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
     {crmBenefits.map((benefit, index) => (
-      <div
+      <RevealItem
         key={index}
+        index={index}
         className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 flex items-start space-x-6"
       >
         <div className="flex justify-center items-center bg-gradient-to-r from-blue-600 to-indigo-600 p-4 rounded-full shadow-lg">
@@ -234,7 +237,7 @@ const breadcrumbSchema = createBreadcrumbSchema([
           <h4 className="text-xl font-semibold text-gray-800 mb-2">{benefit.title}</h4>
           <p className="text-base text-gray-600 leading-relaxed">{benefit.description}</p>
         </div>
-      </div>
+      </RevealItem>
     ))}
   </div>
 </div>
@@ -243,9 +246,9 @@ const breadcrumbSchema = createBreadcrumbSchema([
 
         {/* Implementation Process */}
         <div className="relative py-16 bg-gray-50">
-          <h3 className="text-5xl font-semibold text-gray-800 mb-10 text-center tracking-wide uppercase">
+          <Reveal as="h3" className="text-5xl font-semibold text-gray-800 mb-10 text-center tracking-wide uppercase">
             Web & Mobile Application Development Process
-          </h3>
+          </Reveal>
 
           <div className="relative flex flex-col items-center">
             {/* Vertical Line */}
@@ -253,8 +256,9 @@ const breadcrumbSchema = createBreadcrumbSchema([
 
             {/* Steps */}
             {implementationProcess.map((step, index) => (
-              <div
+              <RevealItem
                 key={index}
+                index={index}
                 className={`relative flex items-center w-full md:w-3/4 mb-12 ${index % 2 === 0 ? "flex-row-reverse" : "flex-row"}`}
               >
                 {/* Content Box */}
@@ -278,13 +282,13 @@ const breadcrumbSchema = createBreadcrumbSchema([
                   )}
                 </div>
                 {/* <div className="p-9 text-2xl font-extrabold text-blue-600 m-2">Step {index+1}</div> */}
-              </div>
+              </RevealItem>
             ))}
           </div>
         </div>
 
         {/* Call-to-Action */}
-        <div className="text-center mt-16">
+        <Reveal className="text-center mt-16">
           <p className="text-3xl font-extrabold text-gray-900 mb-8 max-w-2xl mx-auto">
             Ready to build powerful web and mobile applications for your business?
           </p>
@@ -292,7 +296,7 @@ const breadcrumbSchema = createBreadcrumbSchema([
           onClick={()=>{navigate('/contact')}}>
             Get Started
           </button>
-        </div>
+        </Reveal>
       </div>
     </section>
     <ContactCard />

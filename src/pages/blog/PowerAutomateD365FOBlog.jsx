@@ -93,7 +93,7 @@ export default function PowerAutomateD365FOBlog() {
             />
 
             <ScrollToTop />
-            <POSHeader />
+            <POSHeader alwaysSolid />
 
             <main className="flex-grow">
                 {/* ============ Article Hero ============ */}

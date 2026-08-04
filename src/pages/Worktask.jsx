@@ -13,11 +13,13 @@ import {
   FaUsers,
 } from "react-icons/fa";
 import POSHeader from "../components/POSHeader";
+import Breadcrumbs from "../components/Breadcrumbs";
 import Footer from "../components/Footer";
 import ContactCard from "../components/ContactCard";
-import workTaskImg from "../assets/worktask.jpg";
+import workTaskImg from "../assets/worktask.webp";
 import SEO from "../components/SEO";
 import { createServiceSchema, createFaqSchema, createBreadcrumbSchema } from "../components/schemas";
+import Reveal, { RevealItem } from "../components/Reveal";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -135,7 +137,10 @@ const breadcrumbSchema = createBreadcrumbSchema([
   schema={[serviceSchema, faqSchema, breadcrumbSchema]}
 />
       <ScrollToTop />
-      <POSHeader />
+      <POSHeader alwaysSolid />
+      <div className="pt-16 md:pt-20">
+        <Breadcrumbs variant="dark" />
+      </div>
 
       <section className="py-16 bg-gradient-to-r from-blue-50 to-indigo-50">
         <div className="container mx-auto px-6 md:px-12">
@@ -163,13 +168,14 @@ const breadcrumbSchema = createBreadcrumbSchema([
 
           {/* Features */}
           <div className="mt-12">
-            <h3 className="text-3xl font-bold text-gray-800 mb-8 text-center">
+            <Reveal as="h3" className="text-3xl font-bold text-gray-800 mb-8 text-center">
               Key Features
-            </h3>
+            </Reveal>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
               {features.map((item, index) => (
-                <div
+                <RevealItem
                   key={index}
+                  index={index}
                   className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
                 >
                   {item.icon}
@@ -177,20 +183,21 @@ const breadcrumbSchema = createBreadcrumbSchema([
                     {item.title}
                   </h4>
                   <p className="text-gray-700">{item.description}</p>
-                </div>
+                </RevealItem>
               ))}
             </div>
           </div>
 
           {/* Benefits */}
           <div className="mt-16">
-            <h3 className="text-3xl font-bold text-gray-800 mb-8 text-center">
+            <Reveal as="h3" className="text-3xl font-bold text-gray-800 mb-8 text-center">
               Why Choose Work Task?
-            </h3>
+            </Reveal>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
               {benefits.map((item, index) => (
-                <div
+                <RevealItem
                   key={index}
+                  index={index}
                   className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
                 >
                   {item.icon}
@@ -198,7 +205,7 @@ const breadcrumbSchema = createBreadcrumbSchema([
                     {item.title}
                   </h4>
                   <p className="text-gray-700">{item.description}</p>
-                </div>
+                </RevealItem>
               ))}
             </div>
           </div>

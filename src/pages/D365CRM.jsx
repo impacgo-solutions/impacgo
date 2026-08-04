@@ -20,13 +20,14 @@ import POSHeader from "../components/POSHeader";
 import Footer from "../components/Footer";
 import ContactCard from "../components/ContactCard";
 import PageHero, { HeroPanel } from "../components/PageHero";
-import financialimg from "../assets/financialimg.jpg";
+import financialimg from "../assets/financialimg.webp";
 import SEO from "../components/SEO";
 import {
   createServiceSchema,
   createFaqSchema,
   createBreadcrumbSchema,
 } from "../components/schemas";
+import Reveal, { RevealItem } from "../components/Reveal";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -278,7 +279,7 @@ export default function D365CRM() {
 
         <section className="py-16 bg-gray-100">
           <div className="container mx-auto px-6 md:px-12">
-            <div className="text-center max-w-3xl mx-auto mb-12">
+            <Reveal className="text-center max-w-3xl mx-auto mb-12">
               <p className="uppercase tracking-widest text-pink-600 font-semibold mb-2 text-sm">
                 CRM Capabilities
               </p>
@@ -290,12 +291,13 @@ export default function D365CRM() {
                 module of the D365 Customer Engagement suite, connected to
                 your ERP.
               </p>
-            </div>
+            </Reveal>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {keyFeatures.map((feature, index) => (
-                <div
+                <RevealItem
                   key={index}
+                  index={index}
                   className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
                 >
                   {feature.icon}
@@ -303,7 +305,7 @@ export default function D365CRM() {
                     {feature.title}
                   </h3>
                   <p className="text-gray-600">{feature.description}</p>
-                </div>
+                </RevealItem>
               ))}
             </div>
           </div>
@@ -311,7 +313,7 @@ export default function D365CRM() {
 
         <section className="py-16 bg-white">
           <div className="container mx-auto px-6 md:px-12">
-            <div className="text-center max-w-3xl mx-auto mb-12">
+            <Reveal className="text-center max-w-3xl mx-auto mb-12">
               <p className="uppercase tracking-widest text-pink-600 font-semibold mb-2 text-sm">
                 Why Impacgo
               </p>
@@ -323,12 +325,13 @@ export default function D365CRM() {
                 and D365 CRM — so you get one unified customer view from lead
                 to invoice.
               </p>
-            </div>
+            </Reveal>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {whyChooseUs.map((benefit, index) => (
-                <div
+                <RevealItem
                   key={index}
+                  index={index}
                   className="bg-gray-100 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
                 >
                   {benefit.icon}
@@ -336,7 +339,7 @@ export default function D365CRM() {
                     {benefit.title}
                   </h3>
                   <p className="text-gray-600">{benefit.description}</p>
-                </div>
+                </RevealItem>
               ))}
             </div>
           </div>
@@ -344,7 +347,7 @@ export default function D365CRM() {
 
         <section id="d365crm-process" className="py-16 bg-gray-50">
           <div className="container mx-auto px-6 md:px-12">
-            <div className="text-center max-w-3xl mx-auto mb-12">
+            <Reveal className="text-center max-w-3xl mx-auto mb-12">
               <p className="uppercase tracking-widest text-pink-600 font-semibold mb-2 text-sm">
                 Our Process
               </p>
@@ -355,14 +358,15 @@ export default function D365CRM() {
                 Agile, sprint-based delivery — your sales and service teams
                 see working CRM every 2-4 weeks, not 6 months in.
               </p>
-            </div>
+            </Reveal>
 
             <div className="relative max-w-4xl mx-auto">
               <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-pink-200"></div>
 
               {processSteps.map((step, index) => (
-                <div
+                <RevealItem
                   key={index}
+                  index={index}
                   className={`relative flex flex-col md:flex-row items-center mb-12 ${
                     index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                   }`}
@@ -386,7 +390,7 @@ export default function D365CRM() {
                       <p className="text-gray-600">{step.description}</p>
                     </div>
                   </div>
-                </div>
+                </RevealItem>
               ))}
             </div>
           </div>
@@ -394,33 +398,34 @@ export default function D365CRM() {
 
         <section className="py-16 bg-white">
           <div className="container mx-auto px-6 md:px-12 max-w-4xl">
-            <div className="text-center mb-12">
+            <Reveal className="text-center mb-12">
               <p className="uppercase tracking-widest text-pink-600 font-semibold mb-2 text-sm">
                 FAQ
               </p>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
                 Dynamics 365 CRM — Frequently Asked Questions
               </h2>
-            </div>
+            </Reveal>
 
             <div className="space-y-6">
               {faqs.map((faq, index) => (
-                <div
+                <RevealItem
                   key={index}
+                  index={index}
                   className="bg-gray-50 border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow"
                 >
                   <h3 className="text-lg font-bold text-gray-900 mb-3">
                     {faq.question}
                   </h3>
                   <p className="text-gray-700 leading-relaxed">{faq.answer}</p>
-                </div>
+                </RevealItem>
               ))}
             </div>
           </div>
         </section>
 
         <section className="py-20 bg-gradient-to-br from-pink-700 via-rose-600 to-violet-700 text-white">
-          <div className="container mx-auto px-6 md:px-12 text-center max-w-3xl">
+          <Reveal className="container mx-auto px-6 md:px-12 text-center max-w-3xl">
             <div className="inline-flex items-center bg-pink-500/20 border border-pink-400/40 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
               <Heart className="h-4 w-4 text-pink-200 mr-2" />
               <span className="text-sm font-semibold text-pink-100">
@@ -450,7 +455,7 @@ export default function D365CRM() {
                 Explore D365 F&O
               </button>
             </div>
-          </div>
+          </Reveal>
         </section>
       </main>
 

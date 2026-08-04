@@ -1,6 +1,6 @@
 import { Users, DollarSign, Truck, Factory, Workflow, ShoppingCart, FolderKanban } from "lucide-react";
 
-// Single source of truth for the Impacgo Suite — used by both the
+// Single source of truth for the Impacgo ERP Suite — used by both the
 // homepage summary cards (ERPProductsSection) and the per-module detail
 // pages (src/pages/erp/ERPModuleDetail.jsx). Content is grounded in the
 // actual working prototypes (not invented): module names, groupings and
@@ -103,7 +103,7 @@ export const erpModules = [
       {
         question: "Is Impacgo HRMS available today?",
         answer:
-          "HRMS is an active, in-development module of the Impacgo Suite. We're onboarding early-access partners who want a say in the roadmap — reach out and we'll walk you through where it stands and what's next.",
+          "HRMS is an active, in-development module of the Impacgo ERP Suite. We're onboarding early-access partners who want a say in the roadmap — reach out and we'll walk you through where it stands and what's next.",
       },
       {
         question: "Can it handle payroll for multiple states or entities?",
@@ -632,7 +632,7 @@ export const erpModules = [
       {
         question: "Is Impacgo Project available today?",
         answer:
-          "Project is an active, in-development module of the Impacgo Suite. We're onboarding early-access project teams to validate the Kanban, Gantt and budget-tracking workflows on real engagements — reach out and we'll walk you through where it stands.",
+          "Project is an active, in-development module of the Impacgo ERP Suite. We're onboarding early-access project teams to validate the Kanban, Gantt and budget-tracking workflows on real engagements — reach out and we'll walk you through where it stands.",
       },
       {
         question: "Does it handle billable time and timesheets?",
