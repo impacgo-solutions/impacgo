@@ -24,8 +24,29 @@ import { spawn } from "node:child_process";
 import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import puppeteer from "puppeteer";
+import puppeteerCore from "puppeteer-core";
+import chromium from "@sparticuz/chromium";
 
 const PORT = 4173;
+
+// Vercel's build container is a minimal Linux image with none of the shared
+// libraries (libnspr4, libnss3, etc.) a normal desktop Chromium needs to even
+// start — `puppeteer`'s bundled Chromium download fails there with
+// "error while loading shared libraries: libnspr4.so". @sparticuz/chromium
+// ships a Chromium build specifically compiled to run in that kind of
+// restricted serverless/CI Linux environment, so it's used only when
+// actually building on Vercel; local dev (and the local GitHub Pages build)
+// keeps using the full `puppeteer` package, which already works fine there.
+async function launchBrowser() {
+  if (process.env.VERCEL) {
+    return puppeteerCore.launch({
+      args: chromium.args,
+      executablePath: await chromium.executablePath(),
+      headless: chromium.headless,
+    });
+  }
+  return puppeteer.launch({ headless: "new" });
+}
 const DIST_DIR = path.resolve("dist");
 
 // Every real, content-bearing route on the site. Deep interactive sub-routes
@@ -135,7 +156,7 @@ async function main() {
     throw err;
   }
 
-  const browser = await puppeteer.launch({ headless: "new" });
+  const browser = await launchBrowser();
   const page = await browser.newPage();
 
   page.on("pageerror", (err) => console.error(`[prerender]   pageerror: ${err.message}`));
