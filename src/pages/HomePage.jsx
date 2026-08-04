@@ -71,7 +71,7 @@ export default function HomePage() {
         <ProductsSection />
         <ERPProductsSection />
         <WhyChooseUsSection />
-        <ClientLogosSection />
+        {/* <ClientLogosSection /> */}
         <ContactSection />
         <LocationMap />
         <ContactCard />
