@@ -62,41 +62,23 @@
     </script>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+  <div id="root"></div>
 
-    <!--Start of Tawk.to Script-->
-    <script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    // The Tawk dashboard has an automated trigger that pops the widget open
-    // (greeting + quick-reply shortcuts) a moment after the page loads —
-    // that's what was interrupting visitors. Tawk doesn't expose a flag to
-    // disable just that trigger from here (it's a dashboard-side setting, see
-    // Administration > Shortcuts / Automated Triggers), so instead: force the
-    // widget closed the instant it tries to auto-open, but only within a
-    // short window after load. No real visitor clicks a chat icon within a
-    // couple of seconds of a page appearing, so this reliably swallows the
-    // automatic trigger while leaving genuine clicks (which happen later)
-    // completely untouched.
-    var tawkLoadedAt = null;
-    Tawk_API.onLoad = function () {
-      tawkLoadedAt = Date.now();
-      Tawk_API.minimize();
-    };
-    Tawk_API.onChatMaximized = function () {
-      if (tawkLoadedAt !== null && Date.now() - tawkLoadedAt < 8000) {
-        Tawk_API.minimize();
-      }
-    };
-    (function(){
-    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+  <script type="module" src="/src/main.jsx"></script>
+
+  <!--Start of Tawk.to Script-->
+  <script type="text/javascript">
+  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+  (function(){
+    var s1=document.createElement("script"),
+        s0=document.getElementsByTagName("script")[0];
     s1.async=true;
     s1.src='https://embed.tawk.to/6a13d5bc83cf321c3962e34c/1jpenlr2g';
     s1.charset='UTF-8';
     s1.setAttribute('crossorigin','*');
     s0.parentNode.insertBefore(s1,s0);
-    })();
-    </script>
-    <!--End of Tawk.to Script-->
-  </body>
+  })();
+  </script>
+  <!--End of Tawk.to Script-->
+</body>
 </html>
