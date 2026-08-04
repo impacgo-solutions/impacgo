@@ -1,4 +1,4 @@
-import POSHeader from "../components/POSHeader";
+import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { useEffect } from "react";
 import { useLocation,useNavigate } from "react-router-dom";
@@ -74,7 +74,7 @@ const breadcrumbSchema = createBreadcrumbSchema([
   schema={[serviceSchema, faqSchema, breadcrumbSchema]}
 />
       <ScrollToTop />
-      <POSHeader />
+      <Header />
 
       
 
@@ -130,7 +130,7 @@ const breadcrumbSchema = createBreadcrumbSchema([
         <RevealItem
           key={index}
           index={index}
-          className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+          className="bg-white/70 backdrop-blur-xl border border-white/60 p-6 rounded-2xl shadow-glass hover:shadow-glass-lg hover:bg-white/90 hover:-translate-y-1 transition-all duration-300"
         >
           {feature.icon}
           <h3 className="text-xl font-semibold text-gray-800 mb-4">
@@ -180,7 +180,7 @@ const breadcrumbSchema = createBreadcrumbSchema([
         <RevealItem
           key={index}
           index={index}
-          className="bg-gray-100 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+          className="bg-white/60 backdrop-blur-xl border border-white/50 p-6 rounded-2xl shadow-glass hover:shadow-glass-lg hover:bg-white/85 hover:-translate-y-1 transition-all duration-300"
         >
           {benefit.icon}
           <h3 className="text-xl font-semibold text-green-600 mb-4">

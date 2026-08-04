@@ -100,6 +100,7 @@ const ROUTES = [
   "/stocklyte",
   "/farmyieldiq",
   "/faq",
+  "/about",
   "/contact",
 ];
 

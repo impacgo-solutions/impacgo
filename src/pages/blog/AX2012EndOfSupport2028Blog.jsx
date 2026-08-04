@@ -9,7 +9,7 @@ import {
   CheckCircle,
 } from "lucide-react";
 
-import POSHeader from "../../components/POSHeader";
+import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import ContactCard from "../../components/ContactCard";
 import SEO from "../../components/SEO";
@@ -94,7 +94,7 @@ export default function AX2012EndOfSupport2028Blog() {
 />
 
       <ScrollToTop />
-      <POSHeader alwaysSolid />
+      <Header alwaysSolid />
 
       <main className="flex-grow">
         {/* ============ Article Hero ============ */}

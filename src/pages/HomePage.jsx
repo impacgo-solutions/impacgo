@@ -23,6 +23,7 @@ import {
   AlertTriangle, BarChart3, Sparkles, Heart,
 } from "lucide-react";
 import Header from "../components/Header";
+import SectionBlobs from "../components/SectionBlobs";
 import Footer from "../components/Footer";
 import Reveal, { RevealItem } from "../components/Reveal";
 import pos from "../assets/pos.webp";
@@ -206,8 +207,9 @@ function IndustriesSection() {
   ];
 
   return (
-    <section id="industries" className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4 text-center">
+    <section id="industries" className="relative py-20 bg-gray-50 overflow-hidden">
+      <SectionBlobs colorA="bg-blue-300/30" colorB="bg-emerald-300/25" />
+      <div className="relative z-10 container mx-auto px-4 text-center">
         <Reveal>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Industries We Serve
@@ -223,7 +225,8 @@ function IndustriesSection() {
               key={industry.name}
               index={index}
               onClick={() => industry.path && navigate(industry.path)}
-              className={`bg-white rounded-lg shadow-lg overflow-hidden transition duration-300 hover:scale-105 ${
+              whileHover={{ y: -6 }}
+              className={`bg-white/70 backdrop-blur-xl border border-white/60 shadow-glass hover:shadow-glass-lg hover:bg-white/90 rounded-2xl overflow-hidden transition-all duration-300 ${
                 industry.path ? "cursor-pointer" : ""
               }`}
             >
@@ -273,6 +276,62 @@ function ServicesSection() {
       highlight: true,
     },
     {
+  icon: Heart,
+  title: "Dynamics 365 CRM",
+  description: "D365 Sales, Customer Service, Marketing & Field Service — natively connected to D365 F&O",
+  path: "/services/d365-crm",
+},
+    {
+      icon: Database,
+      title: "ERP Implementation",
+      description: "Microsoft D365 F&O and our own Impacgo ERP for every business size",
+      path: "/services/d365",
+    },
+    {
+      icon: Factory,
+      title: "MES Systems",
+      description: "Manufacturing Execution System deployment & support",
+      path: "/services/mes",
+    },
+    {
+      icon: Bot,
+      title: "AI & Automation",
+      description: "Intelligent automation, AI chatbots & process efficiency",
+      path: "/services/ai-automation",
+    },
+    {
+      icon: Package,
+      title: "Product Development",
+      description:
+        "End-to-end custom product ideation, design and development",
+      path: "/services/app-development",
+    },
+    {
+  icon: Code2,
+  title: "D365FO Development & Customisation",
+  description: "X++ extensions, custom forms, integrations & ALM with Azure DevOps — upgrade-safe D365FO code",
+  path: "/services/d365-development",
+},
+
+    {
+      icon: Plug,
+      title: "Integrations",
+      description: "Seamless API & system integrations across platforms",
+      path: "/services/integrations",
+    },
+    {
+      icon: Lightbulb,
+      title: "Consulting",
+      description: "Strategic technology advisory & transformation services",
+      path: "/services/consulting",
+    },
+    {
+      icon: Rocket,
+      title: "Digital Transformation",
+      description: "End-to-end business modernisation journeys",
+      path: "/services/consulting",
+    },
+    {
     icon: Smartphone,
     title: "Power Apps Development",
     description: "Custom canvas & model-driven apps connected to D365FO — delivered in 4-8 weeks",
@@ -302,61 +361,8 @@ function ServicesSection() {
   description: "Mobile & Web Apps built for scale and performance",
   path: "/services/app-development",
 },
-    {
-  icon: Code2,
-  title: "D365FO Development & Customisation",
-  description: "X++ extensions, custom forms, integrations & ALM with Azure DevOps — upgrade-safe D365FO code",
-  path: "/services/d365-development",
-},
-{
-  icon: Heart,
-  title: "Dynamics 365 CRM",
-  description: "D365 Sales, Customer Service, Marketing & Field Service — natively connected to D365 F&O",
-  path: "/services/d365-crm",
-},
-    {
-      icon: Plug,
-      title: "Integrations",
-      description: "Seamless API & system integrations across platforms",
-      path: "/services/integrations",
-    },
-    {
-      icon: Database,
-      title: "ERP Implementation",
-      description: "Microsoft D365 F&O and our own Impacgo ERP for every business size",
-      path: "/services/d365",
-    },
-    {
-      icon: Factory,
-      title: "MES Systems",
-      description: "Manufacturing Execution System deployment & support",
-      path: "/services/mes",
-    },
-    {
-      icon: Bot,
-      title: "AI & Automation",
-      description: "Intelligent automation, AI chatbots & process efficiency",
-      path: "/services/ai-automation",
-    },
-    {
-      icon: Package,
-      title: "Product Development",
-      description:
-        "End-to-end custom product ideation, design and development",
-      path: "/services/app-development",
-    },
-    {
-      icon: Lightbulb,
-      title: "Consulting",
-      description: "Strategic technology advisory & transformation services",
-      path: "/services/consulting",
-    },
-    {
-      icon: Rocket,
-      title: "Digital Transformation",
-      description: "End-to-end business modernisation journeys",
-      path: "/services/consulting",
-    },
+    
+    
   ];
 
   const handleKeyDown = (e, path) => {
@@ -372,8 +378,9 @@ function ServicesSection() {
     : services.slice(0, SERVICES_VISIBLE_COUNT);
 
   return (
-    <section id="services" className="py-20 bg-blue-50 scroll-mt-24">
-      <div className="container mx-auto px-4">
+    <section id="services" className="relative py-20 bg-blue-50 scroll-mt-24 overflow-hidden">
+      <SectionBlobs colorA="bg-indigo-300/30" colorB="bg-blue-300/25" flip />
+      <div className="relative z-10 container mx-auto px-4">
         <Reveal className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Services</h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
@@ -393,10 +400,10 @@ function ServicesSection() {
       aria-labelledby={`service-title-${index}`}
       onClick={() => navigate(service.path)}
       onKeyDown={(e) => handleKeyDown(e, service.path)}
-      className={`group rounded-xl shadow-md p-6 cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border-2 flex flex-col items-center text-center focus:outline-none focus:ring-2 focus:ring-offset-2 relative ${
+      className={`group rounded-2xl backdrop-blur-xl shadow-glass p-6 cursor-pointer hover:shadow-glass-lg hover:-translate-y-1 transition-all duration-300 border-2 flex flex-col items-center text-center focus:outline-none focus:ring-2 focus:ring-offset-2 relative ${
         service.highlight
-          ? "bg-gradient-to-br from-red-50 to-orange-50 border-red-400 hover:border-red-600 focus:ring-red-500"
-          : "bg-white border-transparent hover:border-blue-500 focus:ring-blue-500"
+          ? "bg-gradient-to-br from-red-50/80 to-orange-50/80 border-red-400 hover:border-red-600 focus:ring-red-500"
+          : "bg-white/70 border-transparent hover:bg-white/90 hover:border-blue-500 focus:ring-blue-500"
       }`}
     >
       {/* Urgent badge for AX migration card */}
@@ -534,7 +541,8 @@ function ERPImplementationSection() {
             <RevealItem
               key={erp.title}
               index={index}
-              className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 flex flex-col"
+              whileHover={{ y: -6 }}
+              className="bg-white/70 backdrop-blur-xl rounded-2xl shadow-glass overflow-hidden hover:shadow-glass-lg hover:bg-white/90 transition-all duration-300 border border-white/60 flex flex-col"
             >
               <div
                 className={`bg-gradient-to-r ${erp.gradient} p-6 text-white`}
@@ -648,7 +656,8 @@ function AIAutomationSection() {
               <RevealItem
                 key={item.title}
                 index={index}
-                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 hover:border-purple-400/40 transition-all duration-300"
+                whileHover={{ y: -6 }}
+                className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 hover:bg-white/10 hover:border-purple-400/40 shadow-glass-dark transition-all duration-300"
               >
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center mb-4">
                   <Icon className="h-6 w-6 text-white" />
@@ -807,8 +816,9 @@ function ProductsSection() {
   ];
 
   return (
-    <section id="products" className="py-20 bg-white scroll-mt-24">
-      <div className="container mx-auto px-4">
+    <section id="products" className="relative py-20 bg-white scroll-mt-24 overflow-hidden">
+      <SectionBlobs colorA="bg-emerald-300/25" colorB="bg-blue-300/25" flip />
+      <div className="relative z-10 container mx-auto px-4">
         <Reveal className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Products</h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
@@ -823,7 +833,8 @@ function ProductsSection() {
               <RevealItem
                 key={product.name}
                 index={index}
-                className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100 flex flex-col"
+                whileHover={{ y: -6 }}
+                className="bg-white/70 backdrop-blur-xl rounded-2xl shadow-glass overflow-hidden hover:shadow-glass-lg hover:bg-white/90 transition-all duration-300 border border-white/60 flex flex-col"
               >
                 <div className="relative h-44 overflow-hidden">
                   <img
@@ -861,7 +872,7 @@ function ProductsSection() {
                     ))}
                   </ul>
                   <button
-                    className="mt-auto bg-blue-600 text-white py-2 px-4 rounded-full hover:bg-blue-700 transition-all"
+                    className="mt-auto bg-blue-600 text-white py-2 px-4 rounded-full hover:bg-blue-700 active:scale-95 transition-all"
                     onClick={() => navigate(product.path)}
                   >
                     Know More
@@ -902,8 +913,9 @@ function ERPProductsSection() {
   };
 
   return (
-    <section id="erp-products" className="py-20 bg-gray-50 scroll-mt-24">
-      <div className="container mx-auto px-4">
+    <section id="erp-products" className="relative py-20 bg-gray-50 scroll-mt-24 overflow-hidden">
+      <SectionBlobs colorA="bg-amber-300/25" colorB="bg-teal-300/25" />
+      <div className="relative z-10 container mx-auto px-4">
         <Reveal className="text-center mb-12">
           <span className="inline-block bg-amber-100 text-amber-800 text-xs font-bold px-4 py-1.5 rounded-full tracking-wide mb-4">
             IN DEVELOPMENT
@@ -923,7 +935,7 @@ function ERPProductsSection() {
               <Link
                 id={`erp-${mod.slug}`}
                 to={`/erp/${mod.slug}`}
-                className="group block h-full bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-gray-200 p-6 scroll-mt-28 hover:-translate-y-1"
+                className="group block h-full bg-white/70 backdrop-blur-xl rounded-2xl shadow-glass hover:shadow-glass-lg hover:bg-white/90 transition-all duration-300 border border-white/60 hover:border-white/80 p-6 scroll-mt-28 hover:-translate-y-1"
               >
                 <div className="flex items-start justify-between mb-4">
                   <div className={`h-12 w-12 rounded-xl flex items-center justify-center ${colorClasses[mod.color]}`}>
@@ -1006,8 +1018,9 @@ function WhyChooseUsSection() {
   ];
 
   return (
-    <section id="why-choose-us" className="py-20 bg-blue-50">
-      <div className="container mx-auto px-4">
+    <section id="why-choose-us" className="relative py-20 bg-blue-50 overflow-hidden">
+      <SectionBlobs colorA="bg-teal-300/25" colorB="bg-blue-300/30" />
+      <div className="relative z-10 container mx-auto px-4">
         <Reveal className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Why Choose Impacgo?
@@ -1025,7 +1038,8 @@ function WhyChooseUsSection() {
               <RevealItem
                 key={item.title}
                 index={index}
-                className="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 group"
+                whileHover={{ y: -6 }}
+                className="bg-white/70 backdrop-blur-xl border border-white/60 rounded-2xl p-6 shadow-glass hover:shadow-glass-lg hover:bg-white/90 transition-all duration-300 group"
               >
                 <div className="flex items-start">
                   <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center mr-4 flex-shrink-0 group-hover:scale-110 transition-transform">
@@ -1160,8 +1174,9 @@ function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-blue-50 scroll-mt-24">
-      <div className="container mx-auto px-4">
+    <section id="contact" className="relative py-20 bg-blue-50 scroll-mt-24 overflow-hidden">
+      <SectionBlobs colorA="bg-blue-300/30" colorB="bg-indigo-300/25" flip />
+      <div className="relative z-10 container mx-auto px-4">
 
         <Reveal className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-blue-600">
@@ -1172,7 +1187,7 @@ function ContactSection() {
         <Reveal
           as="form"
           delay={0.1}
-          className="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-lg"
+          className="max-w-lg mx-auto bg-white/70 backdrop-blur-xl border border-white/60 p-8 rounded-2xl shadow-glass"
           onSubmit={handleSubmit}
         >
 
@@ -1192,7 +1207,7 @@ function ContactSection() {
               onChange={handleChange}
               required
               disabled={status === "sending"}
-              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 bg-white/60 backdrop-blur-sm border border-white/80 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white/90 transition-all duration-300"
             />
           </div>
 
@@ -1212,7 +1227,7 @@ function ContactSection() {
               onChange={handleChange}
               required
               disabled={status === "sending"}
-              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 bg-white/60 backdrop-blur-sm border border-white/80 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white/90 transition-all duration-300"
             />
           </div>
 
@@ -1231,7 +1246,7 @@ function ContactSection() {
               value={formData.phone}
               onChange={handleChange}
               disabled={status === "sending"}
-              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 bg-white/60 backdrop-blur-sm border border-white/80 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white/90 transition-all duration-300"
             />
           </div>
 
@@ -1251,7 +1266,7 @@ function ContactSection() {
               onChange={handleChange}
               required
               disabled={status === "sending"}
-              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 bg-white/60 backdrop-blur-sm border border-white/80 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white/90 transition-all duration-300"
             />
           </div>
 
@@ -1259,7 +1274,7 @@ function ContactSection() {
           <button
             type="submit"
             disabled={status === "sending"}
-            className="w-full bg-blue-600 text-white px-4 py-3 rounded-lg hover:bg-blue-700 transition"
+            className="w-full bg-blue-600 text-white px-4 py-3 rounded-xl hover:bg-blue-700 active:scale-95 transition-all disabled:opacity-60 disabled:active:scale-100"
           >
             {status === "sending"
               ? "Sending..."

@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import POSHeader from "../components/POSHeader";
+import Header from "../components/Header";
 import PageHero from "../components/PageHero";
+import SectionBlobs from "../components/SectionBlobs";
 import Footer from "../components/Footer";
 import ContactCard from "../components/ContactCard";
 import SEO from "../components/SEO";
@@ -74,7 +75,7 @@ export default function FAQ() {
         schema={[faqSchema, breadcrumbSchema]}
       />
       <ScrollToTop />
-      <POSHeader alwaysSolid />
+      <Header alwaysSolid />
 
       <PageHero
         gradient="from-slate-900 via-blue-900 to-indigo-900"
@@ -82,8 +83,9 @@ export default function FAQ() {
         description="Answers about our Microsoft Dynamics 365 and Power Platform services, our own Impacgo ERP Suite, and how to get started."
       />
 
-      <section className="py-16 md:py-20 bg-white">
-        <div className="container mx-auto px-4 max-w-3xl">
+      <section className="relative py-16 md:py-20 bg-white overflow-hidden">
+        <SectionBlobs colorA="bg-blue-300/25" colorB="bg-indigo-300/20" />
+        <div className="relative z-10 container mx-auto px-4 max-w-3xl">
           <Reveal as="h2" className="text-2xl md:text-3xl font-bold text-gray-800 mb-10 text-center">
             General
           </Reveal>
@@ -94,7 +96,7 @@ export default function FAQ() {
                 index={index}
                 step={0.08}
                 as="details"
-                className="group bg-gray-50 rounded-xl border border-gray-100 shadow-sm overflow-hidden"
+                className="group bg-white/70 backdrop-blur-xl rounded-xl border border-white/60 shadow-glass-sm hover:shadow-glass hover:bg-white/90 transition-all duration-300 overflow-hidden"
               >
                 <summary className="cursor-pointer list-none px-6 py-4 font-semibold text-gray-800 flex items-center justify-between gap-4">
                   {faq.question}
@@ -124,7 +126,7 @@ export default function FAQ() {
                     index={index}
                     step={0.06}
                     as="details"
-                    className="group bg-gray-50 rounded-xl border border-gray-100 shadow-sm overflow-hidden"
+                    className="group bg-white/70 backdrop-blur-xl rounded-xl border border-white/60 shadow-glass-sm hover:shadow-glass hover:bg-white/90 transition-all duration-300 overflow-hidden"
                   >
                     <summary className="cursor-pointer list-none px-6 py-4 font-semibold text-gray-800 flex items-center justify-between gap-4">
                       {faq.question}

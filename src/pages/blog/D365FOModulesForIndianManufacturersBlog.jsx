@@ -12,7 +12,7 @@ import {
   Database,
 } from "lucide-react";
 
-import POSHeader from "../../components/POSHeader";
+import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import ContactCard from "../../components/ContactCard";
 import SEO from "../../components/SEO";
@@ -113,7 +113,7 @@ export default function D365FOModulesForIndianManufacturersBlog() {
       />
 
       <ScrollToTop />
-      <POSHeader />
+      <Header />
 
       <main className="flex-grow">
         {/* ============ Hero Section ============ */}

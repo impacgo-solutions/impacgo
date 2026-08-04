@@ -75,7 +75,7 @@ export default function IndustriesSupported() {
           {industries.map((industry, index) => (
             <div
               key={index}
-              className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
+              className="bg-white/70 backdrop-blur-xl border border-white/60 p-8 rounded-2xl shadow-glass hover:shadow-glass-lg hover:bg-white/90 hover:-translate-y-1 transition-all duration-300"
             >
               <div className="flex items-center mb-6">
                 <div className="mr-4 text-blue-600">{industry.icon}</div>

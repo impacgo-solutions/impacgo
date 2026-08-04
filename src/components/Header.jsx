@@ -37,8 +37,14 @@ const erpProducts = [
   { name: "Impacgo Project", path: "/erp/project" },
 ];
 
-export default function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
+// `alwaysSolid` is for pages whose content starts light/white right at the
+// top (no dark hero behind the header) — without it, the default
+// transparent-until-scroll header renders dark text/logo over a light
+// background and is unreadable until the user scrolls past 50px. Was the
+// reason a separate, nav-incomplete Header component existed; this prop
+// lets every page use the same full header instead.
+export default function Header({ alwaysSolid = false }) {
+  const [isScrolled, setIsScrolled] = useState(alwaysSolid);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isProductsOpen, setIsProductsOpen] = useState(false);
   const [isMobileProductsOpen, setIsMobileProductsOpen] = useState(false);
@@ -98,7 +104,9 @@ export default function Header() {
       setIsScrolled(window.scrollY > 50);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    if (!alwaysSolid) {
+      window.addEventListener("scroll", handleScroll);
+    }
 
     // Prevent body scroll when menu is open
     if (isMenuOpen) {
@@ -111,7 +119,7 @@ export default function Header() {
       window.removeEventListener("scroll", handleScroll);
       document.body.style.overflow = "auto";
     };
-  }, [isMenuOpen]);
+  }, [isMenuOpen, alwaysSolid]);
 
   // Navigation items
   // Products/Services/Contact are plain <a> tags (not React Router Links),
@@ -121,6 +129,7 @@ export default function Header() {
   // Router's basename automatically.
   const navItems = [
     { name: "Home", path: "/", isRoute: true },
+    { name: "About", path: "/about", isRoute: true },
     { name: "Products", path: `${import.meta.env.BASE_URL}#products`, isRoute: false },
     { name: "Services", path: `${import.meta.env.BASE_URL}#services`, isRoute: false },
     { name: "Blog", path: "/blog", isRoute: true },
@@ -138,7 +147,7 @@ export default function Header() {
       <header
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
           isScrolled
-            ? "bg-white shadow-md py-2"
+            ? "bg-white shadow-glass-sm border-b border-gray-100 py-2"
             : "bg-transparent py-3"
         }`}
       >
@@ -207,7 +216,7 @@ export default function Header() {
                               animate={{ opacity: 1, y: 0 }}
                               exit={{ opacity: 0, y: 8 }}
                               transition={{ duration: 0.15 }}
-                              className="absolute right-0 mt-3 w-[560px] max-w-[90vw] bg-white rounded-2xl shadow-2xl border border-gray-100 p-6 grid grid-cols-2 gap-6 text-left"
+                              className="absolute right-0 mt-3 w-[560px] max-w-[90vw] bg-white rounded-2xl shadow-glass-lg border border-gray-100 p-6 grid grid-cols-2 gap-6 text-left"
                             >
                               <div>
                                 <p className="text-xs font-bold uppercase tracking-wider text-blue-600 mb-3">
@@ -317,7 +326,7 @@ export default function Header() {
         animate={{ x: 0 }}
         exit={{ x: "-100%" }}
         transition={{ duration: 0.3 }}
-        className="fixed top-0 left-0 h-full w-[280px] bg-white shadow-2xl z-50 md:hidden flex flex-col"
+        className="fixed top-0 left-0 h-full w-[280px] bg-white shadow-glass-lg z-50 md:hidden flex flex-col"
       >
         {/* TOP SECTION */}
         <div className="flex items-center justify-between p-5 border-b flex-shrink-0">

@@ -9,6 +9,7 @@ import { AnimatePresence, motion } from "framer-motion";
 // downloads the JS for the page they're actually on.
 const Pos = lazy(() => import("./pages/Pos"));
 const FAQ = lazy(() => import("./pages/FAQ"));
+const About = lazy(() => import("./pages/About"));
 
 // Core Services
 const D365 = lazy(() => import("./pages/D365"));
@@ -292,6 +293,12 @@ function AnimatedRoutes() {
         <Route
           path="/faq"
           element={<FAQ />}
+        />
+
+        {/* ---------------- ABOUT ---------------- */}
+        <Route
+          path="/about"
+          element={<About />}
         />
 
         {/* ---------------- CONTACT ---------------- */}

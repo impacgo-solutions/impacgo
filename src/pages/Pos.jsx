@@ -4,7 +4,7 @@ import PageHero from '../components/PageHero';
 import Footer from '../components/Footer';
 import { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import POSHeader from '../components/POSHeader';
+import Header from '../components/Header';
 import maintain from "../assets/maintain.webp";
 import posimg from "../assets/posimg.webp"
 import ContactCard from "../components/ContactCard";
@@ -63,7 +63,7 @@ const breadcrumbSchema = createBreadcrumbSchema([
   schema={[serviceSchema, faqSchema, breadcrumbSchema]}
 />
     <ScrollToTop />
-      <POSHeader />
+      <Header />
 
       <main className="flex-grow">
         <PageHero

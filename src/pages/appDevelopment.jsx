@@ -1,6 +1,6 @@
 import { FaCheckCircle, FaRocket, FaUsers, FaCogs, FaLightbulb } from "react-icons/fa";
 import { MdOutlineCampaign, MdOutlineSupportAgent, MdOutlineEngineering } from "react-icons/md";
-import POSHeader from "../components/POSHeader";
+import Header from "../components/Header";
 import PageHero from "../components/PageHero";
 import crmImg from "../assets/crm.webp";
 import { useLocation,useNavigate } from 'react-router-dom';
@@ -179,7 +179,7 @@ const breadcrumbSchema = createBreadcrumbSchema([
   schema={[serviceSchema, faqSchema, breadcrumbSchema]}
 />
       <ScrollToTop />
-    <POSHeader />
+    <Header />
     <PageHero
       gradient="from-blue-900 via-sky-800 to-cyan-800"
       image={crmImg}
@@ -201,7 +201,7 @@ const breadcrumbSchema = createBreadcrumbSchema([
       <RevealItem
         key={index}
         index={index}
-        className="bg-white p-6 rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 flex items-start space-x-4"
+        className="bg-white/70 backdrop-blur-xl border border-white/60 p-6 rounded-2xl shadow-glass hover:shadow-glass-lg hover:bg-white/90 hover:-translate-y-1 transition-all duration-300 flex items-start space-x-4"
       >
         <div className="flex items-center justify-center bg-blue-50 p-4 rounded-full">
           <feature.icon className="text-blue-600 text-4xl" />
@@ -228,7 +228,7 @@ const breadcrumbSchema = createBreadcrumbSchema([
       <RevealItem
         key={index}
         index={index}
-        className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 flex items-start space-x-6"
+        className="bg-white/70 backdrop-blur-xl border border-white/60 p-6 rounded-2xl shadow-glass hover:shadow-glass-lg hover:bg-white/90 hover:-translate-y-1 transition-all duration-300 flex items-start space-x-6"
       >
         <div className="flex justify-center items-center bg-gradient-to-r from-blue-600 to-indigo-600 p-4 rounded-full shadow-lg">
           <benefit.icon className="text-white text-3xl" />
@@ -263,7 +263,7 @@ const breadcrumbSchema = createBreadcrumbSchema([
               >
                 {/* Content Box */}
                 <div
-                  className={`bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 z-10 ${
+                  className={`bg-white/70 backdrop-blur-xl border border-white/60 p-8 rounded-2xl shadow-glass hover:shadow-glass-lg hover:bg-white/90 hover:-translate-y-1 transition-all duration-300 z-10 ${
                     index % 2 === 0 ? "text-right" : "text-left"
                   } w-full sm:w-3/4 md:w-1/2`}
                 >

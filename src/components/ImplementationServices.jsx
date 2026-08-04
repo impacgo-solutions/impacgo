@@ -1,7 +1,7 @@
 import React from "react";
 import { FaClipboardList, FaCogs, FaDatabase, FaPlug, FaCheckCircle, FaChalkboardTeacher, FaHandHoldingHeart } from "react-icons/fa";
 import Footer from "./Footer";
-import POSHeader from "./POSHeader";
+import Header from "./Header";
 import { useLocation,useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import ContactCard from "../components/ContactCard";
@@ -112,7 +112,7 @@ export default function ImplementationServices() {
   schema={[serviceSchema, breadcrumbSchema]}
 />
     <ScrollToTop />
-    <POSHeader alwaysSolid />
+    <Header alwaysSolid />
       <section className="py-16 bg-gradient-to-r from-blue-50 to-indigo-50">
       <div className="container mx-auto px-6 md:px-12">
         {/* Overview Section */}
@@ -152,7 +152,7 @@ export default function ImplementationServices() {
       >
         {/* Content Box */}
         <div
-          className={`bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 z-10 ${
+          className={`bg-white/70 backdrop-blur-xl border border-white/60 p-8 rounded-2xl shadow-glass hover:shadow-glass-lg hover:bg-white/90 hover:-translate-y-1 transition-all duration-300 z-10 ${
             index % 2 === 0 ? "text-right" : "text-left"
           } w-full sm:w-3/4 md:w-1/2`}
         >
@@ -183,7 +183,7 @@ export default function ImplementationServices() {
             {benefits.map((benefit, index) => (
               <div
                 key={index}
-                className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
+                className="bg-white/70 backdrop-blur-xl border border-white/60 p-8 rounded-2xl shadow-glass hover:shadow-glass-lg hover:bg-white/90 hover:-translate-y-1 transition-all duration-300"
               >
                 <div className="flex items-center mb-6">
                   <div className="mr-4 text-green-600">{benefit.icon}</div>

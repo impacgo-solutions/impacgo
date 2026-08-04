@@ -80,7 +80,7 @@ export const founderSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Venkata Srikar Tantravahi",
-  jobTitle: "Founder",
+  jobTitle: "Founder & CEO",
   worksFor: {
     "@type": "Organization",
     name: "Impacgo Solutions",

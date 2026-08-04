@@ -18,6 +18,7 @@ export default function Reveal({
   as = "div",
   delay = 0,
   y = 24,
+  scale = 0.97,
   duration = 0.6,
   once = true,
   amount = 0.2,
@@ -38,8 +39,8 @@ export default function Reveal({
 
   return (
     <MotionTag
-      initial={{ opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, y, scale }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once, amount }}
       transition={{ duration, delay, ease: [0.22, 1, 0.36, 1] }}
       className={className}

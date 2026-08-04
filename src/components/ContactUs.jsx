@@ -12,7 +12,7 @@ import {
 
 import ContactCard from "./ContactCard";
 import Footer from "./Footer";
-import POSHeader from "./POSHeader";
+import Header from "./Header";
 import SEO from "../components/SEO";
 
 
@@ -102,7 +102,7 @@ export default function ContactSection() {
   path="/contact"
 />
       <ScrollToTop />
-      <POSHeader alwaysSolid />
+      <Header alwaysSolid />
 
       <section id="contact" className="py-20 bg-blue-50 min-h-screen">
         <div className="container mx-auto px-4 pt-16">
@@ -117,7 +117,7 @@ export default function ContactSection() {
           </div>
 
           <form
-            className="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-lg"
+            className="max-w-lg mx-auto bg-white/70 backdrop-blur-xl border border-white/60 p-8 rounded-2xl shadow-glass"
             onSubmit={handleSubmit}
           >
             {/* Name */}
@@ -130,7 +130,7 @@ export default function ContactSection() {
                 id="contactus-name"
                 type="text"
                 name="name"
-                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 disabled:bg-gray-100 disabled:cursor-not-allowed"
+                className="w-full p-3 bg-white/60 backdrop-blur-sm border border-white/80 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white/90 transition-all duration-300 disabled:bg-gray-100 disabled:cursor-not-allowed"
                 placeholder="Enter your name"
                 value={formData.name}
                 onChange={handleChange}
@@ -149,7 +149,7 @@ export default function ContactSection() {
                 id="contactus-email"
                 type="email"
                 name="email"
-                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 disabled:bg-gray-100 disabled:cursor-not-allowed"
+                className="w-full p-3 bg-white/60 backdrop-blur-sm border border-white/80 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white/90 transition-all duration-300 disabled:bg-gray-100 disabled:cursor-not-allowed"
                 placeholder="Enter your email"
                 value={formData.email}
                 onChange={handleChange}
@@ -169,7 +169,7 @@ export default function ContactSection() {
                 id="contactus-phone"
                 type="tel"
                 name="phone"
-                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 disabled:bg-gray-100 disabled:cursor-not-allowed"
+                className="w-full p-3 bg-white/60 backdrop-blur-sm border border-white/80 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white/90 transition-all duration-300 disabled:bg-gray-100 disabled:cursor-not-allowed"
                 placeholder="Enter your phone number"
                 value={formData.phone}
                 onChange={handleChange}
@@ -186,7 +186,7 @@ export default function ContactSection() {
               <textarea
                 id="contactus-message"
                 name="message"
-                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 disabled:bg-gray-100 disabled:cursor-not-allowed"
+                className="w-full p-3 bg-white/60 backdrop-blur-sm border border-white/80 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white/90 transition-all duration-300 disabled:bg-gray-100 disabled:cursor-not-allowed"
                 rows="4"
                 placeholder="Write your message here..."
                 value={formData.message}
@@ -200,7 +200,7 @@ export default function ContactSection() {
             <button
               type="submit"
               disabled={status === "sending"}
-              className="w-full bg-blue-600 text-white px-4 py-3 rounded-lg hover:bg-blue-700 transition-colors duration-300 shadow-md disabled:bg-blue-400 disabled:cursor-not-allowed flex items-center justify-center"
+              className="w-full bg-blue-600 text-white px-4 py-3 rounded-xl hover:bg-blue-700 active:scale-95 transition-all duration-300 shadow-md disabled:bg-blue-400 disabled:cursor-not-allowed disabled:active:scale-100 flex items-center justify-center"
             >
               {status === "sending" ? (
                 <>

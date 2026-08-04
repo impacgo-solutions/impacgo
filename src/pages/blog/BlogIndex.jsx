@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Calendar, Clock, ArrowRight, Tag } from "lucide-react";
 
-import POSHeader from "../../components/POSHeader";
+import Header from "../../components/Header";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import Footer from "../../components/Footer";
 import ContactCard from "../../components/ContactCard";
@@ -42,7 +42,7 @@ export default function BlogIndex() {
 />
 
       <ScrollToTop />
-      <POSHeader />
+      <Header />
 
       <main className="flex-grow">
         {/* ============ Hero ============ */}

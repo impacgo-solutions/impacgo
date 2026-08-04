@@ -46,9 +46,10 @@ export default function PageHero({
         />
       )}
 
-      {/* Decorative blur orbs — consistent depth treatment everywhere */}
-      <div className="absolute -top-20 -left-20 w-80 h-80 bg-white/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-20 -right-20 w-96 h-96 bg-black/20 rounded-full blur-3xl pointer-events-none" />
+      {/* Decorative blur orbs — consistent depth treatment everywhere, with a
+          slow drift animation for a subtler "alive" glass feel */}
+      <div className="absolute -top-20 -left-20 w-80 h-80 bg-white/10 rounded-full blur-3xl pointer-events-none animate-glass-drift" />
+      <div className="absolute -bottom-20 -right-20 w-96 h-96 bg-black/20 rounded-full blur-3xl pointer-events-none animate-glass-drift-slow" />
 
       <div className="relative container mx-auto px-6 md:px-12 pt-16 md:pt-20">
         <Breadcrumbs bare />
@@ -73,7 +74,7 @@ export default function PageHero({
             className="text-white"
           >
             {eyebrow && (
-              <div className="inline-flex items-center bg-white/10 border border-white/25 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
+              <div className="inline-flex items-center bg-white/10 border border-white/25 backdrop-blur-xl shadow-glass-dark rounded-full px-4 py-2 mb-6">
                 {EyebrowIcon && <EyebrowIcon className="h-4 w-4 text-amber-300 mr-2 flex-shrink-0" />}
                 <span className="text-sm font-semibold text-white/90">{eyebrow}</span>
               </div>
@@ -118,7 +119,7 @@ export default function PageHero({
               {secondaryCta && (
                 <button
                   onClick={secondaryCta.onClick}
-                  className="inline-flex items-center justify-center border-2 border-white/30 text-white px-6 py-3 rounded-full font-semibold hover:bg-white/10 active:scale-95 transition-all duration-300"
+                  className="inline-flex items-center justify-center bg-white/5 backdrop-blur-md border-2 border-white/30 text-white px-6 py-3 rounded-full font-semibold hover:bg-white/15 hover:border-white/50 active:scale-95 transition-all duration-300"
                 >
                   {secondaryCta.label}
                 </button>
@@ -160,7 +161,7 @@ export default function PageHero({
  * stays consistent too rather than each page re-implementing it. */
 export function HeroPanel({ eyebrow, title, items, footnote, accent = "text-amber-300" }) {
   return (
-    <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 shadow-2xl">
+    <div className="bg-white/10 backdrop-blur-2xl border border-white/20 rounded-3xl p-8 shadow-glass-dark hover:border-white/30 transition-colors duration-300">
       {eyebrow && (
         <p className={`uppercase tracking-widest text-xs font-semibold mb-2 ${accent}`}>{eyebrow}</p>
       )}
@@ -169,8 +170,11 @@ export function HeroPanel({ eyebrow, title, items, footnote, accent = "text-ambe
         {items.map((item) => {
           const ItemIcon = item.icon;
           return (
-            <div key={item.title} className="flex items-start">
-              <div className="bg-white/10 text-white rounded-lg w-10 h-10 flex items-center justify-center mr-4 flex-shrink-0 font-bold">
+            <div
+              key={item.title}
+              className="flex items-start rounded-xl p-2 -m-2 hover:bg-white/5 transition-colors duration-300"
+            >
+              <div className="bg-white/10 backdrop-blur-md border border-white/10 text-white rounded-lg w-10 h-10 flex items-center justify-center mr-4 flex-shrink-0 font-bold">
                 {ItemIcon ? <ItemIcon className="h-5 w-5" /> : item.number}
               </div>
               <div>

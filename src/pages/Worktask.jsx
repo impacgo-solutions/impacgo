@@ -12,7 +12,7 @@ import {
   FaCheckCircle,
   FaUsers,
 } from "react-icons/fa";
-import POSHeader from "../components/POSHeader";
+import Header from "../components/Header";
 import Breadcrumbs from "../components/Breadcrumbs";
 import Footer from "../components/Footer";
 import ContactCard from "../components/ContactCard";
@@ -137,7 +137,7 @@ const breadcrumbSchema = createBreadcrumbSchema([
   schema={[serviceSchema, faqSchema, breadcrumbSchema]}
 />
       <ScrollToTop />
-      <POSHeader alwaysSolid />
+      <Header alwaysSolid />
       <div className="pt-16 md:pt-20">
         <Breadcrumbs variant="dark" />
       </div>
@@ -176,7 +176,7 @@ const breadcrumbSchema = createBreadcrumbSchema([
                 <RevealItem
                   key={index}
                   index={index}
-                  className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
+                  className="bg-white/70 backdrop-blur-xl border border-white/60 p-8 rounded-2xl shadow-glass hover:shadow-glass-lg hover:bg-white/90 hover:-translate-y-1 transition-all duration-300"
                 >
                   {item.icon}
                   <h4 className="text-xl font-semibold text-blue-600 mb-4">
@@ -198,7 +198,7 @@ const breadcrumbSchema = createBreadcrumbSchema([
                 <RevealItem
                   key={index}
                   index={index}
-                  className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
+                  className="bg-white/70 backdrop-blur-xl border border-white/60 p-8 rounded-2xl shadow-glass hover:shadow-glass-lg hover:bg-white/90 hover:-translate-y-1 transition-all duration-300"
                 >
                   {item.icon}
                   <h4 className="text-xl font-semibold text-green-600 mb-4">

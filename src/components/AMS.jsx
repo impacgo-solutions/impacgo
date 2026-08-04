@@ -2,7 +2,7 @@ import React from "react";
 import { FaCog, FaShieldAlt, FaChartLine, FaTools, FaLock, FaCloudUploadAlt, FaHeadset } from "react-icons/fa";
 import { useLocation,useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
-import POSHeader from '../components/POSHeader';
+import Header from '../components/Header';
 import ams from "../assets/ams.webp";
 import ContactCard from "../components/ContactCard";
 import Footer from "../components/Footer";
@@ -117,7 +117,7 @@ export default function AMS() {
   schema={[serviceSchema, breadcrumbSchema]}
 />
     <ScrollToTop />
-    <POSHeader alwaysSolid />
+    <Header alwaysSolid />
 
     <section className="py-16 bg-gradient-to-r from-gray-50 to-gray-100">
       <div className="container mx-auto px-6 md:px-12">
@@ -147,7 +147,7 @@ export default function AMS() {
             {amsOfferings.map((offering, index) => (
               <div
                 key={index}
-                className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
+                className="bg-white/70 backdrop-blur-xl border border-white/60 p-8 rounded-2xl shadow-glass hover:shadow-glass-lg hover:bg-white/90 hover:-translate-y-1 transition-all duration-300"
               >
                 {offering.icon}
                 <h4 className="text-xl font-semibold text-blue-600 mb-4">
@@ -168,7 +168,7 @@ export default function AMS() {
             {amsBenefits.map((benefit, index) => (
               <div
                 key={index}
-                className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
+                className="bg-white/70 backdrop-blur-xl border border-white/60 p-8 rounded-2xl shadow-glass hover:shadow-glass-lg hover:bg-white/90 hover:-translate-y-1 transition-all duration-300"
               >
                 {benefit.icon}
                 <h4 className="text-xl font-semibold text-green-600 mb-4">

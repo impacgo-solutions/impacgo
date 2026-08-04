@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useParams, useNavigate, useLocation, Link } from "react-router-dom";
 import { CheckCircle2, ArrowRight, Mail } from "lucide-react";
 import Breadcrumbs from "../../components/Breadcrumbs";
-import POSHeader from "../../components/POSHeader";
+import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import ContactCard from "../../components/ContactCard";
 import SEO from "../../components/SEO";
@@ -197,7 +197,7 @@ export default function ERPModuleDetail() {
         schema={[serviceSchema, productSchema, faqSchema, breadcrumbSchema]}
       />
       <ScrollToTop />
-      <POSHeader />
+      <Header />
 
       {/* HERO */}
       <section
@@ -372,7 +372,8 @@ export default function ERPModuleDetail() {
               <RevealItem
                 key={group.category}
                 index={index}
-                className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-md border border-gray-100 p-6 hover:shadow-lg transition-shadow"
+                whileHover={{ y: -6 }}
+                className="bg-white/70 backdrop-blur-xl rounded-2xl shadow-glass border border-white/60 p-6 hover:shadow-glass-lg hover:bg-white/90 transition-all duration-300"
               >
                 <h3 className="font-bold text-gray-800 mb-4">{group.category}</h3>
                 <ul className="space-y-2.5">
@@ -406,7 +407,8 @@ export default function ERPModuleDetail() {
               <RevealItem
                 key={b.title}
                 index={index}
-                className="bg-white/90 backdrop-blur-sm p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
+                whileHover={{ y: -6 }}
+                className="bg-white/70 backdrop-blur-xl p-6 rounded-2xl border border-white/60 shadow-glass-sm hover:shadow-glass hover:bg-white/90 transition-all duration-300"
               >
                 <div className={`h-10 w-10 rounded-lg ${c.light} ${c.text} flex items-center justify-center mb-4 font-bold`}>
                   <CheckCircle2 className="h-5 w-5" />
@@ -433,7 +435,7 @@ export default function ERPModuleDetail() {
                 index={index}
                 step={0.1}
                 as="details"
-                className="group bg-white/90 backdrop-blur-sm rounded-xl border border-gray-100 shadow-sm overflow-hidden"
+                className="group bg-white/70 backdrop-blur-xl rounded-xl border border-white/60 shadow-glass-sm hover:shadow-glass hover:bg-white/90 transition-all duration-300 overflow-hidden"
               >
                 <summary className="cursor-pointer list-none px-6 py-4 font-semibold text-gray-800 flex items-center justify-between gap-4">
                   {faq.question}

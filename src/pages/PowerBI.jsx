@@ -16,7 +16,7 @@ import {
 } from "react-icons/fa";
 import { TrendingUp, BarChart3, Database } from "lucide-react";
 
-import POSHeader from "../components/POSHeader";
+import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ContactCard from "../components/ContactCard";
 import PageHero, { HeroPanel } from "../components/PageHero";
@@ -214,7 +214,7 @@ export default function PowerBI() {
 />
 
       <ScrollToTop />
-      <POSHeader />
+      <Header />
 
       <main className="flex-grow">
         <PageHero
@@ -301,7 +301,7 @@ export default function PowerBI() {
                 <RevealItem
                   key={index}
                   index={index}
-                  className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+                  className="bg-white/70 backdrop-blur-xl border border-white/60 p-6 rounded-2xl shadow-glass hover:shadow-glass-lg hover:bg-white/90 hover:-translate-y-1 transition-all duration-300"
                 >
                   {feature.icon}
                   <h3 className="text-xl font-semibold text-gray-800 mb-4">
@@ -335,7 +335,7 @@ export default function PowerBI() {
                 <RevealItem
                   key={index}
                   index={index}
-                  className="bg-gray-100 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+                  className="bg-white/60 backdrop-blur-xl border border-white/50 p-6 rounded-2xl shadow-glass hover:shadow-glass-lg hover:bg-white/85 hover:-translate-y-1 transition-all duration-300"
                 >
                   {benefit.icon}
                   <h3 className="text-xl font-semibold text-green-600 mb-4">
@@ -386,7 +386,7 @@ export default function PowerBI() {
                       index % 2 === 0 ? "md:pr-12 md:text-right" : "md:pl-12"
                     }`}
                   >
-                    <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                    <div className="bg-white/70 backdrop-blur-xl border border-white/60 p-6 rounded-2xl shadow-glass hover:shadow-glass-lg hover:bg-white/90 hover:-translate-y-1 transition-all duration-300">
                       <div className="md:hidden inline-block w-10 h-10 rounded-full bg-amber-600 text-white font-bold text-sm items-center justify-center mb-3 flex">
                         {step.step}
                       </div>

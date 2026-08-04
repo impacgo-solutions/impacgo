@@ -47,6 +47,7 @@ Our own in-house business platform, built as one connected system. Currently in 
 
 ## More
 
+- [About](https://www.impacgo.com/about) — company story, founder, and clients
 - [Blog](https://www.impacgo.com/blog) — Dynamics 365, AX migration, and Power Platform articles
 - [FAQ](https://www.impacgo.com/faq)
 - [Contact](https://www.impacgo.com/contact)

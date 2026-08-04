@@ -217,6 +217,26 @@ export default {
         'body-lg': ['18px', { lineHeight: '28px', fontWeight: '400' }],
         'label-sm': ['12px', { lineHeight: '16px', fontWeight: '500' }],
       },
+
+      // ---- Main-site glassmorphism design tokens (GlassCard, Header,
+      // PageHero) — namespaced under "glass-" so they never collide with
+      // the Calviq/StockLyte/FarmYieldIQ tokens above. ----
+      boxShadow: {
+        'glass-sm': '0 4px 16px rgba(15, 23, 42, 0.06)',
+        glass: '0 8px 32px rgba(15, 23, 42, 0.08)',
+        'glass-lg': '0 16px 48px rgba(15, 23, 42, 0.14)',
+        'glass-dark': '0 8px 32px rgba(0, 0, 0, 0.25)',
+      },
+      keyframes: {
+        'glass-drift': {
+          '0%, 100%': { transform: 'translate(0, 0) scale(1)' },
+          '50%': { transform: 'translate(20px, -20px) scale(1.05)' },
+        },
+      },
+      animation: {
+        'glass-drift': 'glass-drift 10s ease-in-out infinite',
+        'glass-drift-slow': 'glass-drift 14s ease-in-out infinite reverse',
+      },
     },
   },
   plugins: [],
