@@ -11,13 +11,13 @@ export default function FeatureDeepDive() {
               Command Center Dashboard
             </h3>
             <p className="text-stocklyte-on-surface-variant text-lg mb-10 leading-relaxed font-light">
-              The ultimate source of truth for global operations. Monitor sub-second inventory delta and stock
-              health across thousands of endpoints from a single pane of glass.
+              One source of truth for every location. Monitor stock health and inventory movement across
+              all your warehouses and stores from a single dashboard.
             </p>
             <ul className="space-y-5">
               <li className="flex items-center gap-3">
                 <Icon name="check_circle" className="text-stocklyte-secondary text-xl" />
-                <span className="font-medium">Live global inventory valuation metrics</span>
+                <span className="font-medium">Live inventory valuation across every location</span>
               </li>
               <li className="flex items-center gap-3">
                 <Icon name="check_circle" className="text-stocklyte-secondary text-xl" />
@@ -25,7 +25,7 @@ export default function FeatureDeepDive() {
               </li>
               <li className="flex items-center gap-3">
                 <Icon name="check_circle" className="text-stocklyte-secondary text-xl" />
-                <span className="font-medium">Real-time geospatial supply chain mapping</span>
+                <span className="font-medium">Real-time, multi-location stock visibility</span>
               </li>
             </ul>
           </div>
@@ -41,10 +41,10 @@ export default function FeatureDeepDive() {
         {/* Feature 2 */}
         <div className="flex flex-col lg:flex-row-reverse items-center gap-24 reveal-up">
           <div className="lg:w-1/2">
-            <h3 className="font-stocklyte-headline text-4xl sm:text-5xl font-bold mb-8 tracking-tight">Zero-Latency Scanning</h3>
+            <h3 className="font-stocklyte-headline text-4xl sm:text-5xl font-bold mb-8 tracking-tight">Built for Fast-Moving Warehouses</h3>
             <p className="text-stocklyte-on-surface-variant text-lg mb-10 leading-relaxed font-light">
-              Unmatched scanning speed for high-throughput environments. Our proprietary computer vision engine
-              handles degraded labels and low-light conditions with 99.99% accuracy.
+              Designed for high-throughput environments, with scanning that stays reliable even on degraded labels
+              or in low-light conditions.
             </p>
             <div className="p-6 glass rounded-2xl border-gradient font-stocklyte-data text-xs leading-relaxed command-shadow">
               <div className="flex justify-between border-b border-stocklyte-outline-variant/30 pb-3 mb-4">
@@ -62,7 +62,7 @@ export default function FeatureDeepDive() {
                   DST: <span className="text-stocklyte-on-surface font-bold">NODE_01_BAY_Z</span>
                 </div>
                 <div>
-                  LAT: <span className="text-stocklyte-tertiary">0.024ms</span>
+                  LAT: <span className="text-stocklyte-tertiary">12ms</span>
                 </div>
               </div>
             </div>

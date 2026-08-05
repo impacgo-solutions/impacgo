@@ -34,8 +34,8 @@ export default function ProblemSection() {
       <div className="max-w-container-max mx-auto text-center mb-12 md:mb-20 reveal-up">
         <h2 className="font-headline-lg text-display-lg-mobile text-on-surface mb-4">Escape the Manual Record Trap</h2>
         <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
-          Paper logs aren't just slow—they hide the inefficiencies that eat your profit. CALVIQ brings industrial-grade
-          visibility to every barn.
+          Paper logs aren't just slow—they hide the inefficiencies that eat your profit. CALVIQ brings clear,
+          real-time visibility to every barn.
         </p>
       </div>
       <div className="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
@@ -58,7 +58,7 @@ export default function ProblemSection() {
           <div className="space-y-3 text-center md:text-left">
             <h4 className="text-white font-headline-lg text-headline-lg">Stop guessing, start growing.</h4>
             <p className="text-outline-variant font-body-md">
-              Join 2,400+ progressive farms modernizing their operations today.
+              Be among the first progressive farms modernizing their operations with CALVIQ.
             </p>
           </div>
           <button className="shimmer-btn whitespace-nowrap w-full md:w-auto px-10 py-4 bg-secondary text-on-primary font-bold rounded-xl hover:opacity-90 transition-all shadow-xl shadow-secondary/20 active:scale-95">

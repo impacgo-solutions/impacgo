@@ -7,8 +7,8 @@ const APP_LOGIN_URL = 'https://calviq.impacgo.com/#/login';
 const initialForm = {
   firstName: '',
   lastName: '',
-  organizationName: '',
-  email: '',
+  organizationName: '', 
+  email: '',   
   phone: '',
   password: '',
   confirmPassword: '',

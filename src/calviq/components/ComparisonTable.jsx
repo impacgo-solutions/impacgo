@@ -22,7 +22,7 @@ const rows = [
   {
     feature: 'Data Security',
     legacy: 'Low (Physical Damage)',
-    modern: 'Bank-Grade Cloud Encryption',
+    modern: 'Encrypted Cloud Backup',
   },
 ];
 
@@ -32,7 +32,7 @@ export default function ComparisonTable() {
       <div className="max-w-container-max mx-auto">
         <div className="text-center mb-10 md:mb-20 reveal-up">
           <h2 className="font-headline-lg text-display-lg-mobile text-on-surface">The Digital Advantage</h2>
-          <p className="text-on-surface-variant font-body-md">See why 2,400+ farmers upgraded from spreadsheets.</p>
+          <p className="text-on-surface-variant font-body-md">See why farms are upgrading from paper and spreadsheets.</p>
         </div>
         <div className="overflow-x-auto rounded-2xl md:rounded-3xl border border-outline-variant/30 sophisticated-shadow reveal-up">
           <table className="w-full text-left border-collapse bg-white min-w-[640px]">

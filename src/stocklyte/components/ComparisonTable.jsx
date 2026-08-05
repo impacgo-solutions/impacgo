@@ -1,8 +1,8 @@
 const ROWS = [
-  { capability: 'Ledger Accuracy', oldWay: 'Estimated / Batch', stocklyte: 'Sub-second Absolute' },
-  { capability: 'Network Scale', oldWay: 'Single Store Focus', stocklyte: 'Infinite Elastic Nodes' },
+  { capability: 'Ledger Accuracy', oldWay: 'Estimated / Batch', stocklyte: 'Real-Time & Precise' },
+  { capability: 'Network Scale', oldWay: 'Single Store Focus', stocklyte: 'Built to Add Locations Easily' },
   { capability: 'System Integration', oldWay: 'Manual CSV Import', stocklyte: 'Bi-directional Native API' },
-  { capability: 'Field Durability', oldWay: 'Hardware Dependent', stocklyte: 'Device Agnostic Vision' },
+  { capability: 'Field Durability', oldWay: 'Hardware Dependent', stocklyte: 'Works on Standard Devices' },
 ]
 
 export default function ComparisonTable() {

@@ -2,17 +2,17 @@ import Icon from './Icon.jsx'
 
 const FAQS = [
   {
-    q: 'Implementation Velocity?',
-    a: 'Enterprise deployment typically averages 24-48 hours. Our automated migration engine handles multi-store SKU datasets with zero downtime.',
+    q: 'How long does implementation take?',
+    a: 'We work with you to migrate your existing multi-store SKU data and get your team onboarded with minimal disruption to day-to-day operations.',
     open: true,
   },
   {
-    q: 'Shadow-Sync Capabilities?',
-    a: 'StockLyte features a resilient local-first architecture. Scans in connectivity dead-zones are cryptographically cached and auto-synced upon reconnection.',
+    q: 'Does it work with poor or no connectivity?',
+    a: 'StockLyte is built with a local-first architecture — scans taken in low or no connectivity are cached on the device and sync automatically once connection is restored.',
   },
   {
-    q: 'Multi-Node Scalability?',
-    a: 'Our backend is built on an elastic cloud-native infrastructure, supporting virtually infinite warehouse nodes, storefronts, and virtual stock locations.',
+    q: 'Can it scale as we add locations?',
+    a: 'Yes — the platform is built on cloud-native infrastructure designed to add new warehouses, storefronts, and stock locations as your business grows.',
   },
 ]
 

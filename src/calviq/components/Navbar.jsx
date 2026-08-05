@@ -73,7 +73,7 @@ export default function Navbar() {
             to="/calviq/signup"
             className="shimmer-btn px-6 py-2.5 font-label-md text-label-md rounded-lg bg-primary text-on-primary shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all active:scale-95"
           >
-            Book a Demo
+            Start Free Trial
           </Link>
         </div>
 
@@ -116,7 +116,7 @@ export default function Navbar() {
               to="/calviq/signup"
               className="w-full text-center px-6 py-3 font-label-md text-label-md font-bold rounded-lg bg-primary text-on-primary shadow-lg shadow-primary/20 active:scale-95 transition-all"
             >
-              Book a Demo
+              Start Free Trial
             </Link>
           </div>
         </div>

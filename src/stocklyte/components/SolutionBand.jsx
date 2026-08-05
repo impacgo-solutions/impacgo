@@ -1,10 +1,12 @@
 import Icon from './Icon.jsx'
 
+// "SOC2 Verified" removed — that's a specific, formal third-party audit
+// certification, not a claim to make without having actually earned it.
 const ITEMS = [
-  { icon: 'hub', label: 'Unified Nodes' },
-  { icon: 'sync', label: 'Live Ledger' },
-  { icon: 'verified_user', label: 'SOC2 Verified' },
-  { icon: 'api', label: 'ERP Native' },
+  { icon: 'hub', label: 'Multi-Location Sync' },
+  { icon: 'sync', label: 'Real-Time Updates' },
+  { icon: 'lock', label: 'Encrypted Data' },
+  // { icon: 'api', label: 'ERP Native' },
 ]
 
 export default function SolutionBand() {

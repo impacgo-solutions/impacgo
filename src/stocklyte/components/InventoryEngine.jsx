@@ -1,29 +1,23 @@
 import Icon from './Icon.jsx'
 
 const TILES = [
-  { icon: 'dashboard', title: 'Command Center', desc: 'Aggregated real-time visualization of global stock health.' },
+  { icon: 'dashboard', title: 'Command Center', desc: 'Aggregated real-time visualization of stock health across every location.' },
   {
     icon: 'barcode_scanner',
     title: 'Precision Scanning',
-    desc: 'Enterprise-grade SKU scanning via standard mobile hardware.',
+    desc: 'Fast, reliable SKU scanning via standard mobile hardware — no special devices needed.',
   },
   {
     icon: 'move_up',
     title: 'Intelligent Routing',
     desc: 'Dynamic stock rebalancing based on regional demand signals.',
   },
-  { icon: 'analytics', title: 'ML Forecasting', desc: 'Predictive replenishment cycles using proprietary algorithms.' },
-  {
-    icon: 'inventory_2',
-    title: 'Matrix Control',
-    desc: 'Deep variant management across size, color, and batch IDs.',
-  },
-  { icon: 'groups', title: 'Security RBAC', desc: 'Military-grade granular permissions for all personnel layers.' },
-  { icon: 'history', title: 'Immutable Audit', desc: 'Cryptographically signed logs for every single system event.' },
+  { icon: 'groups', title: 'Role-Based Access', desc: 'Granular, role-based permissions for every team member.' },
+  { icon: 'history', title: 'Audit Trail', desc: 'A detailed, timestamped log of every inventory change.' },
   {
     icon: 'description',
     title: 'Automated Reports',
-    desc: 'Scheduled operational intelligence sent directly to stakeholders.',
+    desc: 'Scheduled operational reports sent directly to stakeholders.',
   },
 ]
 
@@ -34,7 +28,7 @@ export default function InventoryEngine() {
         <h2 className="font-stocklyte-headline text-4xl md:text-6xl font-bold text-center mb-24 tracking-tight reveal-up">
           The Inventory Engine
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 reveal-up">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 reveal-up">
           {TILES.map((tile) => (
             <div
               key={tile.title}

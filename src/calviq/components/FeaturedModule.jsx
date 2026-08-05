@@ -63,10 +63,10 @@ export default function FeaturedModule() {
             </div>
             <div className="pt-6">
               <div className="p-6 bg-primary/5 border-l-4 border-primary rounded-r-2xl transition-all hover:bg-primary/10">
-                <p className="font-body-md text-body-md italic text-on-surface-variant">
-                  "CALVIQ reduced our daily administrative time from 2 hours to just 15 minutes. The ROI was immediate."
+                <p className="font-body-md text-body-md text-on-surface-variant">
+                  Built to turn hours of daily herd paperwork into a few minutes of mobile check-ins —
+                  so your team spends less time on records and more time on the farm.
                 </p>
-                <span className="mt-4 block font-label-md text-primary">— Verma Dairy Exports</span>
               </div>
             </div>
           </div>

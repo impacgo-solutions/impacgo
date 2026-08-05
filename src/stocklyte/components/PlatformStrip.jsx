@@ -1,8 +1,11 @@
+// Deliberately qualitative, not fabricated scale/uptime numbers — StockLyte
+// is a new product, so this leads with what's actually true about the
+// platform today instead of invented usage stats.
 const STATS = [
-  { value: '50M+', label: 'SKUs Tracked Daily' },
-  { value: '99.99%', label: 'Uptime SLA Guaranteed' },
-  { value: 'AES-256', label: 'Military Encryption' },
-  { value: 'Zero-Sync', label: 'Global Latency' },
+  { value: 'Real-Time', label: 'Inventory Sync Everywhere' },
+  { value: 'Multi-Location', label: 'One Unified Dashboard' },
+  { value: 'Cloud-Native', label: 'Modern Architecture' },
+  { value: 'Built to Scale', label: 'Grows With Your Business' },
 ]
 
 export default function PlatformStrip() {

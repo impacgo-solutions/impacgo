@@ -1,8 +1,11 @@
+// Deliberately qualitative, not fabricated customer-count/performance
+// numbers — CalviQ is a new product, so this leads with what's actually
+// true about the platform today instead of invented usage stats.
 const stats = [
-  { value: '15%', suffix: '↑', color: 'text-secondary-fixed', label: 'Avg. Yield Increase' },
-  { value: '2,400+', color: 'text-white', label: 'Farms Digitized' },
-  { value: '18m', color: 'text-tertiary-fixed-dim', label: 'Daily Time Saved' },
-  { value: '99.9%', color: 'text-white', label: 'Uptime Reliability' },
+  { value: 'Every Herd Size', color: 'text-secondary-fixed', label: 'From Small Farms to Co-ops' },
+  { value: 'Offline-Ready', color: 'text-white', label: 'Works in the Field' },
+  { value: 'Mobile-First', color: 'text-tertiary-fixed-dim', label: 'Built for the Barn, Not the Office' },
+  { value: 'One System', color: 'text-white', label: 'Herd, Health & Finance Together' },
 ];
 
 export default function StatsGrid() {

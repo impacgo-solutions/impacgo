@@ -19,7 +19,7 @@ export default function Hero() {
           </h1>
           <p className="font-body-lg text-body-lg text-outline-variant/80 max-w-xl leading-relaxed">
             The modern operating system for your dairy farm. Centralize herd tracking, automate production logs, and
-            leverage AI for precision health—all in one enterprise-grade dashboard.
+            leverage AI for precision health—all in one easy-to-use dashboard.
           </p>
           <div className="flex flex-col sm:flex-row flex-wrap gap-4 pt-4">
             <Link
