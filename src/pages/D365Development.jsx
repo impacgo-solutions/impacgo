@@ -80,7 +80,7 @@ export default function D365Development() {
 
   const breadcrumbSchema = createBreadcrumbSchema([
     { name: "Home", path: "/" },
-    { name: "Services", path: "/services" },
+    { name: "Services", path: "/#services" },
     { name: "D365FO Development", path: "/services/d365-development" },
   ]);
 

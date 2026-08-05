@@ -86,7 +86,7 @@ export default function AXMigration() {
 
   const breadcrumbSchema = createBreadcrumbSchema([
     { name: "Home", path: "/" },
-    { name: "Services", path: "/services" },
+    { name: "Services", path: "/#services" },
     {
       name: "AX 2012 to D365FO Migration",
       path: "/services/ax-migration",

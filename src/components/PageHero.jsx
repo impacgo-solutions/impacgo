@@ -42,7 +42,7 @@ export default function PageHero({
         <img
           src={image}
           alt={imageAlt}
-          className="absolute inset-0 w-full h-full object-cover opacity-15"
+          className="absolute inset-0 w-full h-full object-cover opacity-10"
         />
       )}
 

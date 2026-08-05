@@ -81,7 +81,7 @@ export default function PowerBI() {
 
   const breadcrumbSchema = createBreadcrumbSchema([
     { name: "Home", path: "/" },
-    { name: "Services", path: "/services" },
+    { name: "Services", path: "/#services" },
     { name: "Power BI Implementation", path: "/services/power-bi" },
   ]);
 

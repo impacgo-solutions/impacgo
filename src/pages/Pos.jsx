@@ -50,7 +50,7 @@ const faqSchema = createFaqSchema(faqs);
 
 const breadcrumbSchema = createBreadcrumbSchema([
   { name: "Home", path: "/" },
-  { name: "Services", path: "/services" },
+  { name: "Services", path: "/#services" },
   { name: "POS Solutions", path: "/services/pos" },
 ]);
   return (

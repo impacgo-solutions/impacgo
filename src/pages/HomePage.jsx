@@ -69,8 +69,7 @@ export default function HomePage() {
         <ERPImplementationSection />
         <AIAutomationSection />
         {/* <AchievementsSection /> */}
-        <ProductsSection />
-        <ERPProductsSection />
+        <ProductsAndERPSection />
         <WhyChooseUsSection />
         {/* <ClientLogosSection /> */}
         <ContactSection />
@@ -235,7 +234,8 @@ function IndustriesSection() {
                   src={industry.image}
                   alt={industry.name}
                   loading="lazy"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover img-fade"
+                  onLoad={(e) => e.currentTarget.classList.add("img-fade-loaded")}
                 />
               </div>
               <div className="p-6">
@@ -721,8 +721,35 @@ function AchievementsSection() {
 }
 
 /* ---------------------- OUR PRODUCTS (Slide 6) ---------------------- */
-function ProductsSection() {
+// Merged "Our Products" + "Impacgo ERP Suite" into one section with a
+// toggle, instead of two full stacked sections repeating the same heading
+// boilerplate. Both panels are ALWAYS rendered in the DOM — only visibility
+// is toggled via a CSS class, never conditional unmounting — so crawlers/AI
+// tools that don't run JS (and the static prerender step) still see both
+// product categories' full content regardless of which tab is active by
+// default. Only the *visual* toggle is JS-driven, for human visitors.
+// Both "Our Products" and "Impacgo ERP Suite" show a short preview by
+// default and expand independently — deliberately NOT a toggle/tab that
+// hides one behind the other. A tab a visitor never clicks means they never
+// see what's behind it; a passive scroller sees both previews guaranteed,
+// same as before this section existed, just shorter.
+const PRODUCTS_PREVIEW_COUNT = 3;
+const MODULES_PREVIEW_COUNT = 3;
+
+function ProductsAndERPSection() {
   const navigate = useNavigate();
+  const [showAllProducts, setShowAllProducts] = useState(false);
+  const [showAllModules, setShowAllModules] = useState(false);
+
+  const colorClasses = {
+    violet: "bg-violet-50 text-violet-600",
+    blue: "bg-blue-50 text-blue-600",
+    amber: "bg-amber-50 text-amber-600",
+    slate: "bg-slate-100 text-slate-600",
+    emerald: "bg-emerald-50 text-emerald-600",
+    orange: "bg-orange-50 text-orange-600",
+    teal: "bg-teal-50 text-teal-600",
+  };
 
   const products = [
     {
@@ -732,14 +759,11 @@ function ProductsSection() {
       features: [
         "Milk production tracking per animal & session",
         "Herd & animal health / veterinary records",
-        "Breeding, reproduction & calving management",
-        "Feed & nutrition inventory management",
         "Finance, milk sales invoicing & reporting",
-        "KPI dashboards & production analytics",
       ],
       image: dfms,
       path: "/products/dairy-farm",
-      landingPage: { path: "/calviq", label: "Explore Calviq" },
+      landingPage: { path: "/calviq", label: "Explore CALVIQ" },
       tag: null,
       gradient: "from-green-500 to-emerald-600",
     },
@@ -750,10 +774,7 @@ function ProductsSection() {
       features: [
         "Real-time stock tracking across every location",
         "Automated reorder points & low-stock alerts",
-        "Barcode / QR scanning for fast stock movement",
-        "Vendor & purchase order management",
         "Multi-warehouse & multi-location visibility",
-        "Analytics dashboards & demand forecasting",
       ],
       image: supplyChain,
       path: "/products/inventory-management",
@@ -767,11 +788,8 @@ function ProductsSection() {
       description: "Unified operations for managed farmland plots, partners and sales.",
       features: [
         "Layout, block & plot management with pricing and registration tracking",
-        "Per-plot crop details — track crop type & plant count",
         "Partner portfolios with document vault & payment tracking",
         "Real estate sales pipeline — leads, bookings & team hierarchy",
-        "Employee, travel expense & partner request management",
-        "Dashboard KPIs across partners, layouts, plots & documents",
       ],
       image: farmYieldIq,
       path: "/products/farm-yield-iq",
@@ -785,11 +803,8 @@ function ProductsSection() {
       description: "Consultant & employee time tracking, project-based.",
       features: [
         "Project creation & team assignment",
-        "Task management with status tracking",
         "Daily timesheet & work session logging",
         "Consultant utilisation & billable hours",
-        "Project-wise effort & productivity reports",
-        "Manager approval workflows & audit trail",
       ],
       image: worktast,
       path: "/products/work-task",
@@ -803,10 +818,7 @@ function ProductsSection() {
       features: [
         "Floor plan processing & section identification",
         "Automated consolidated cost estimation",
-        "Material requirement calculation & optimisation",
-        "Dynamic timeline with market trend analysis",
         "Real-time impact analysis on scope, cost & schedule",
-        "Data-driven insights for informed decisions",
       ],
       image: construction,
       path: "/products/construction-planner",
@@ -816,38 +828,52 @@ function ProductsSection() {
   ];
 
   return (
-    <section id="products" className="relative py-20 bg-white scroll-mt-24 overflow-hidden">
+    <section
+      id="products"
+      className="relative py-20 bg-white scroll-mt-24 overflow-hidden"
+    >
+      {/* Zero-height anchor so "/#erp-products" links (header dropdown,
+          module pages) still resolve to this now-merged section. */}
       <SectionBlobs colorA="bg-emerald-300/25" colorB="bg-blue-300/25" flip />
       <div className="relative z-10 container mx-auto px-4">
-        <Reveal className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Products</h2>
+        <Reveal className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">What We Build</h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Purpose-built software products developed by Impacgo
+            Purpose-built software products, and our own in-house Impacgo ERP Suite — built by
+            Impacgo, for real operational gaps.
           </p>
         </Reveal>
 
+        {/* OUR PRODUCTS — every card always in the DOM; only cards beyond
+            the preview count are visually hidden (className, not removed
+            from the tree), so search/AI crawlers still see all of them
+            regardless of whether "Show More" was ever clicked. */}
+        <div className="mb-20">
+        <h3 className="text-2xl font-bold text-gray-800 text-center mb-8">Our Products</h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {products.map((product, index) => {
             const Icon = product.icon;
+            const isPreviewHidden = index >= PRODUCTS_PREVIEW_COUNT && !showAllProducts;
             return (
               <RevealItem
                 key={product.name}
-                index={index}
+                index={Math.min(index, PRODUCTS_PREVIEW_COUNT)}
                 whileHover={{ y: -6 }}
-                className="bg-white/70 backdrop-blur-xl rounded-2xl shadow-glass overflow-hidden hover:shadow-glass-lg hover:bg-white/90 transition-all duration-300 border border-white/60 flex flex-col"
+                className={`bg-white/70 backdrop-blur-xl rounded-2xl shadow-glass overflow-hidden hover:shadow-glass-lg hover:bg-white/90 transition-all duration-300 border border-white/60 flex flex-col ${isPreviewHidden ? "hidden" : ""}`}
               >
-                <div className="relative h-44 overflow-hidden">
+                <div className="relative h-32 overflow-hidden">
                   <img
                     src={product.image}
                     alt={product.name}
                     loading="lazy"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover img-fade"
+                    onLoad={(e) => e.currentTarget.classList.add("img-fade-loaded")}
                   />
                   <div
                     className={`absolute inset-0 bg-gradient-to-br ${product.gradient} opacity-70`}
                   ></div>
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <Icon className="h-16 w-16 text-white" />
+                    <Icon className="h-12 w-12 text-white" />
                   </div>
                   {product.tag && (
                     <span className="absolute top-3 right-3 bg-yellow-400 text-yellow-900 text-xs font-bold px-3 py-1 rounded-full shadow">
@@ -860,10 +886,10 @@ function ProductsSection() {
                   <h3 className="text-xl font-bold mb-2 text-gray-800">
                     {product.name}
                   </h3>
-                  <p className="text-gray-600 mb-4 text-sm">
+                  <p className="text-gray-600 mb-3 text-sm">
                     {product.description}
                   </p>
-                  <ul className="space-y-2 mb-6 flex-1">
+                  <ul className="space-y-1.5 mb-4 flex-1">
                     {product.features.map((feat) => (
                       <li key={feat} className="flex items-start text-sm">
                         <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
@@ -879,7 +905,7 @@ function ProductsSection() {
                   </button>
                   {product.landingPage && (
                     <button
-                      className="mt-2 border border-blue-600 text-blue-600 py-2 px-4 rounded-full hover:bg-blue-50 transition-all"
+                      className="mt-2 text-blue-600 font-semibold text-sm hover:text-blue-800 underline underline-offset-4 transition-colors"
                       onClick={() => navigate(product.landingPage.path)}
                     >
                       {product.landingPage.label}
@@ -890,48 +916,46 @@ function ProductsSection() {
             );
           })}
         </div>
-      </div>
-    </section>
-  );
-}
+        {products.length > PRODUCTS_PREVIEW_COUNT && (
+          <div className="text-center mt-8">
+            <button
+              onClick={() => setShowAllProducts((v) => !v)}
+              className="inline-flex items-center gap-2 bg-white border-2 border-blue-200 text-blue-600 px-6 py-3 rounded-full font-semibold hover:border-blue-500 hover:bg-blue-50 transition-all duration-300"
+            >
+              {showAllProducts ? "Show Less" : `Show ${products.length - PRODUCTS_PREVIEW_COUNT} More Products`}
+              <ChevronDown
+                className={`h-5 w-5 transition-transform duration-300 ${showAllProducts ? "rotate-180" : ""}`}
+              />
+            </button>
+          </div>
+        )}
+        </div>
 
-/* ---------------------- IMPACGO ERP SUITE ---------------------- */
-// Card content stays "basic" here — module name, one-line description, a
-// handful of capability chips — the full pitch (workflows, module
-// breakdown, benefits, FAQ) lives on each module's own detail page at
-// /erp/:slug (src/pages/erp/ERPModuleDetail.jsx). Data is shared from
-// src/data/erpModules.js so the two never drift apart.
-function ERPProductsSection() {
-  const colorClasses = {
-    violet: "bg-violet-50 text-violet-600",
-    blue: "bg-blue-50 text-blue-600",
-    amber: "bg-amber-50 text-amber-600",
-    slate: "bg-slate-100 text-slate-600",
-    emerald: "bg-emerald-50 text-emerald-600",
-    orange: "bg-orange-50 text-orange-600",
-    teal: "bg-teal-50 text-teal-600",
-  };
-
-  return (
-    <section id="erp-products" className="relative py-20 bg-gray-50 scroll-mt-24 overflow-hidden">
-      <SectionBlobs colorA="bg-amber-300/25" colorB="bg-teal-300/25" />
-      <div className="relative z-10 container mx-auto px-4">
-        <Reveal className="text-center mb-12">
+        {/* IMPACGO ERP SUITE — same "always in the DOM, preview + Show More"
+            pattern as Our Products above. Card content stays "basic" here —
+            module name, one-line description, a handful of capability chips
+            — the full pitch (workflows, module breakdown, benefits, FAQ)
+            lives on each module's own detail page at /erp/:slug
+            (src/pages/erp/ERPModuleDetail.jsx). Data is shared from
+            src/data/erpModules.js so the two never drift apart. */}
+        <div>
+        <div id="erp-products" className="text-center mb-8 scroll-mt-24">
           <span className="inline-block bg-amber-100 text-amber-800 text-xs font-bold px-4 py-1.5 rounded-full tracking-wide mb-4">
             IN DEVELOPMENT
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Impacgo ERP Suite</h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <h3 className="text-2xl font-bold text-gray-800 mb-3">Impacgo ERP Suite</h3>
+          <p className="text-gray-500 text-sm max-w-2xl mx-auto">
             Our own suite of business applications — HR, Finance, Supply Chain, Manufacturing,
             Planning and Retail — built as one connected system. Click a module for the full picture.
           </p>
-        </Reveal>
+        </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {erpModules.map((mod, index) => {
             const Icon = mod.icon;
+            const isPreviewHidden = index >= MODULES_PREVIEW_COUNT && !showAllModules;
             return (
-              <RevealItem key={mod.name} index={index}>
+              <RevealItem key={mod.name} index={Math.min(index, MODULES_PREVIEW_COUNT)} className={isPreviewHidden ? "hidden" : ""}>
               <Link
                 id={`erp-${mod.slug}`}
                 to={`/erp/${mod.slug}`}
@@ -971,6 +995,20 @@ function ERPProductsSection() {
             );
           })}
         </div>
+        {erpModules.length > MODULES_PREVIEW_COUNT && (
+          <div className="text-center mt-8">
+            <button
+              onClick={() => setShowAllModules((v) => !v)}
+              className="inline-flex items-center gap-2 bg-white border-2 border-emerald-200 text-emerald-600 px-6 py-3 rounded-full font-semibold hover:border-emerald-500 hover:bg-emerald-50 transition-all duration-300"
+            >
+              {showAllModules ? "Show Less" : `Show ${erpModules.length - MODULES_PREVIEW_COUNT} More Modules`}
+              <ChevronDown
+                className={`h-5 w-5 transition-transform duration-300 ${showAllModules ? "rotate-180" : ""}`}
+              />
+            </button>
+          </div>
+        )}
+        </div>
       </div>
     </section>
   );
@@ -978,39 +1016,54 @@ function ERPProductsSection() {
 
 /* ---------------------- WHY CHOOSE US (Slide 8) ---------------------- */
 function WhyChooseUsSection() {
+  const iconColorClasses = {
+    blue: "from-blue-500 to-blue-600",
+    amber: "from-amber-500 to-amber-600",
+    emerald: "from-emerald-500 to-emerald-600",
+    violet: "from-violet-500 to-violet-600",
+    orange: "from-orange-500 to-orange-600",
+    teal: "from-teal-500 to-teal-600",
+  };
+
   const items = [
     {
       icon: ShieldCheck,
+      color: "blue",
       title: "Domain Expertise",
       description:
         "Deep experience across manufacturing, dairy, services and distribution verticals.",
     },
     {
       icon: Zap,
+      color: "amber",
       title: "Rapid Delivery",
       description:
         "Agile methodology — fast go-live with minimal disruption to your operations.",
     },
     {
       icon: HeartHandshake,
+      color: "emerald",
       title: "Trusted Partner",
       description:
         "Long-term relationships built on transparency, honesty and measurable outcomes.",
     },
     {
       icon: Layers,
+      color: "violet",
       title: "Full-Stack Capability",
       description:
         "Custom software to ERP to MES — one team covers your entire technology stack.",
     },
     {
       icon: Target,
+      color: "orange",
       title: "ROI Focused",
       description:
         "Every engagement is designed to deliver clear, measurable return on investment.",
     },
     {
       icon: LifeBuoy,
+      color: "teal",
       title: "Dedicated Support",
       description:
         "Post go-live hypercare, training programmes and continuous improvement services.",
@@ -1031,7 +1084,7 @@ function WhyChooseUsSection() {
           </p>
         </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
           {items.map((item, index) => {
             const Icon = item.icon;
             return (
@@ -1039,17 +1092,19 @@ function WhyChooseUsSection() {
                 key={item.title}
                 index={index}
                 whileHover={{ y: -6 }}
-                className="bg-white/70 backdrop-blur-xl border border-white/60 rounded-2xl p-6 shadow-glass hover:shadow-glass-lg hover:bg-white/90 transition-all duration-300 group"
+                className="bg-white/70 backdrop-blur-xl border border-white/60 rounded-2xl p-4 sm:p-6 shadow-glass hover:shadow-glass-lg hover:bg-white/90 transition-all duration-300 group"
               >
-                <div className="flex items-start">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center mr-4 flex-shrink-0 group-hover:scale-110 transition-transform">
-                    <Icon className="h-6 w-6 text-white" />
+                <div className="flex flex-col sm:flex-row items-start">
+                  <div
+                    className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br ${iconColorClasses[item.color]} flex items-center justify-center mb-3 sm:mb-0 sm:mr-4 flex-shrink-0 group-hover:scale-110 transition-transform`}
+                  >
+                    <Icon className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-gray-800 mb-2">
+                    <h3 className="text-base sm:text-lg font-bold text-gray-800 mb-1.5 sm:mb-2">
                       {item.title}
                     </h3>
-                    <p className="text-sm text-gray-600 leading-relaxed">
+                    <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
                       {item.description}
                     </p>
                   </div>

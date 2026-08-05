@@ -128,7 +128,7 @@ export default function About() {
           </RevealItem>
           <RevealItem index={1} as="p" className="text-gray-600 leading-relaxed">
             Alongside client implementation work, we've built our own software products where we
-            saw gaps that off-the-shelf tools didn't fill well — from CalveIQ for dairy farm
+            saw gaps that off-the-shelf tools didn't fill well — from CALVIQ for dairy farm
             management to StockLyte for real-time inventory control, and now the{" "}
             <strong>Impacgo ERP Suite</strong>, our own connected business platform, currently in
             active development across HR, Finance, Supply Chain, Manufacturing, Planning, Retail
@@ -226,7 +226,7 @@ export default function About() {
               },
               {
                 title: "Our Own Products",
-                description: "CalveIQ, StockLyte, FarmYieldIQ, Work Task and Construction Planner — built by us, for real operational gaps.",
+                description: "CALVIQ, StockLyte, FarmYieldIQ, Work Task and Construction Planner — built by us, for real operational gaps.",
                 href: `${import.meta.env.BASE_URL}#products`,
               },
               {

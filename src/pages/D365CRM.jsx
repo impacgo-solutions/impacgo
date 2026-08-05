@@ -80,7 +80,7 @@ export default function D365CRM() {
 
   const breadcrumbSchema = createBreadcrumbSchema([
     { name: "Home", path: "/" },
-    { name: "Services", path: "/services" },
+    { name: "Services", path: "/#services" },
     { name: "Dynamics 365 CRM", path: "/services/d365-crm" },
   ]);
 

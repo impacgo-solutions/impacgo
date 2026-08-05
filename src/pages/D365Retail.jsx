@@ -80,7 +80,7 @@ export default function D365Retail() {
 
   const breadcrumbSchema = createBreadcrumbSchema([
     { name: "Home", path: "/" },
-    { name: "Industries", path: "/industries" },
+    { name: "Industries", path: "/#industries" },
     { name: "Retail", path: "/industries/retail" },
   ]);
 

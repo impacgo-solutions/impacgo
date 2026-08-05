@@ -21,7 +21,7 @@
 
 ## Our own products
 
-- [CalveIQ](https://www.impacgo.com/products/dairy-farm) — dairy farm management system (milk production, herd health, breeding, feed, finance)
+- [CALVIQ](https://www.impacgo.com/products/dairy-farm) — dairy farm management system (milk production, herd health, breeding, feed, finance)
 - [StockLyte](https://www.impacgo.com/products/inventory-management) — real-time, multi-location inventory management
 - [FarmYieldIQ](https://www.impacgo.com/products/farm-yield-iq) — farmland plot operations platform
 - [Work Task Application](https://www.impacgo.com/products/work-task) — consultant/employee time tracking

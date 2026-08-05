@@ -248,7 +248,7 @@ export default function InventoryManagement() {
               </button>
               <a
                 href="https://stocklyte.impacgo.com/"
-                className="border-2 border-gray-300 text-gray-700 px-6 py-3 rounded-lg text-lg font-semibold hover:bg-gray-50 transition duration-300"
+                className="text-gray-600 font-semibold hover:text-gray-900 underline underline-offset-4 transition-colors duration-300 px-2 py-3"
               >
                 Open App / Log In
               </a>

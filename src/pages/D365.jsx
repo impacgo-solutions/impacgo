@@ -61,7 +61,7 @@ const faqSchema = createFaqSchema(faqs);
 
 const breadcrumbSchema = createBreadcrumbSchema([
   { name: "Home", path: "/" },
-  { name: "Services", path: "/services" },
+  { name: "Services", path: "/#services" },
   { name: "Dynamics 365 F&O", path: "/services/d365" },
 ]);
   return (

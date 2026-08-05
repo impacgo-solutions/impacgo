@@ -23,23 +23,19 @@
     <link rel="icon" type="image/svg+xml" href="/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Default SEO (overridden per-page by <SEO /> component) -->
+    <!-- Fallback title only — react-helmet-async doesn't adopt/replace tags
+         that were already static in this file before it mounts, it only
+         manages tags it renders itself. So a static description/OG/Twitter
+         block here would sit ALONGSIDE (not replaced by) every page's own
+         <SEO /> tags rather than being superseded by them — duplicate meta
+         tags that could confuse which description a crawler picks up.
+         <title> is safe to keep: the DOM only ever has one <title> element,
+         and Helmet does correctly manage that singleton. Every real route is
+         prerendered with its own correct full tag set anyway (see
+         scripts/prerender.mjs), so there's no meaningful gap here for
+         crawlers — only an instant of pre-hydration fallback for a live
+         browser, which title alone covers fine. -->
     <title>Impacgo Solutions | Microsoft Dynamics 365 & Power Platform Partner | Global Specialists</title>
-    <meta name="description" content="Microsoft Dynamics 365 Finance & Operations and Power Platform implementation partner for global enterprises. Specialising in D365FO, AX 2012 migration, Power Apps, Power Automate, Power BI, and AI Builder. Deep India compliance expertise. Multi-country rollouts." />
-
-    <!-- Default Open Graph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.impacgo.com" />
-    <meta property="og:title" content="Impacgo Solutions | Microsoft Dynamics 365 Partner | Global Specialists" />
-    <meta property="og:description" content="Microsoft Dynamics 365 and Power Platform implementation specialists for global enterprises. D365FO, AX 2012 migration, Power Platform, and AI Builder services. Deep India compliance expertise built in." />
-    <meta property="og:site_name" content="Impacgo Solutions" />
-    <meta property="og:image" content="https://www.impacgo.com/logo.png" />
-    
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Impacgo Solutions | Microsoft Dynamics 365 Partner | Global" />
-<meta name="twitter:description" content="Microsoft Dynamics 365 and Power Platform implementation specialists for global enterprises." />
 
     <!-- Theme color -->
     <meta name="theme-color" content="#2563eb" />

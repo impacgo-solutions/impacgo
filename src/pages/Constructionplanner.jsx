@@ -123,7 +123,7 @@ const faqSchema = createFaqSchema(faqs);
 
 const breadcrumbSchema = createBreadcrumbSchema([
   { name: "Home", path: "/" },
-  { name: "Products", path: "/products" },
+  { name: "Products", path: "/#products" },
   { name: "Construction Planner", path: "/products/construction-planner" },
 ]);
 

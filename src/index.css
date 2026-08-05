@@ -1,3 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Smooth-scroll for in-page anchor navigation (nav dropdown "View all
+   products →" links, breadcrumb section jumps, etc.) — skipped entirely for
+   users who've asked for reduced motion, since forced smooth-scroll can
+   actually cause discomfort for vestibular disorders rather than feeling
+   like polish. */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Subtle fade-in once an image finishes loading, instead of popping in
+   abruptly — pairs with the `loading="lazy"` already used on most content
+   images. Opt-in via the `img-fade` class rather than a global `img`
+   selector, so it never touches the Calviq/StockLyte/FarmYieldIQ sub-apps'
+   own image handling. */
+.img-fade {
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+}
+.img-fade.img-fade-loaded {
+  opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .img-fade {
+    opacity: 1;
+    transition: none;
+  }
+}

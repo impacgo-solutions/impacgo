@@ -81,7 +81,7 @@ export default function PowerAutomate() {
 
   const breadcrumbSchema = createBreadcrumbSchema([
     { name: "Home", path: "/" },
-    { name: "Services", path: "/services" },
+    { name: "Services", path: "/#services" },
     { name: "Power Automate Consulting", path: "/services/power-automate" },
   ]);
 

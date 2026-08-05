@@ -50,7 +50,7 @@ async function launchBrowser() {
 const DIST_DIR = path.resolve("dist");
 
 // Every real, content-bearing route on the site. Deep interactive sub-routes
-// inside the CalveIQ/StockLyte/FarmYieldIQ sub-apps (signup, book-demo, etc.)
+// inside the CALVIQ/StockLyte/FarmYieldIQ sub-apps (signup, book-demo, etc.)
 // are intentionally left out — those are transactional flows, not pages an
 // AI answer or search result should be citing anyway. Keep this in sync with
 // src/App.jsx's route list.

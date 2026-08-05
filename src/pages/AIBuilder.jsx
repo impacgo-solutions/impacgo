@@ -81,7 +81,7 @@ export default function AIBuilder() {
 
   const breadcrumbSchema = createBreadcrumbSchema([
     { name: "Home", path: "/" },
-    { name: "Services", path: "/services" },
+    { name: "Services", path: "/#services" },
     { name: "AI Builder Integration", path: "/services/ai-builder" },
   ]);
 

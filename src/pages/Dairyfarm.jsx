@@ -119,11 +119,11 @@ const serviceSchema = createServiceSchema({
   description:
     "AI-powered dairy farm management software for herd tracking, milk production, breeding, feed management, and farm analytics.",
   serviceType: "Dairy Farm Management Software",
-  path: "/products/dairy-farm-management",
+  path: "/products/dairy-farm",
 });
 
 const productSchema = createProductSchema({
-  name: "CalveIQ — Dairy Farm Management System",
+  name: "CALVIQ — Dairy Farm Management System",
   description:
     "Complete farm management for modern dairy operations — milk production tracking, herd health, breeding, feed management, finance, and KPI dashboards.",
   category: "BusinessApplication",
@@ -132,8 +132,8 @@ const productSchema = createProductSchema({
 
 const breadcrumbSchema = createBreadcrumbSchema([
   { name: "Home", path: "/" },
-  { name: "Products", path: "/products" },
-  { name: "Dairy Farm Management", path: "/products/dairy-farm-management" },
+  { name: "Products", path: "/#products" },
+  { name: "Dairy Farm Management", path: "/products/dairy-farm" },
 ]);
 
   return (
@@ -242,11 +242,11 @@ const breadcrumbSchema = createBreadcrumbSchema([
                 className="border-2 border-emerald-600 text-emerald-700 px-6 py-3 rounded-lg text-lg font-semibold hover:bg-emerald-50 transition duration-300"
                 onClick={() => navigate("/calviq")}
               >
-                View Calviq Landing Page
+                View CALVIQ Landing Page
               </button>
               <a
                 href="https://calviq.impacgo.com/#/login"
-                className="border-2 border-gray-300 text-gray-700 px-6 py-3 rounded-lg text-lg font-semibold hover:bg-gray-50 transition duration-300"
+                className="text-gray-600 font-semibold hover:text-gray-900 underline underline-offset-4 transition-colors duration-300 px-2 py-3"
               >
                 Open App / Log In
               </a>

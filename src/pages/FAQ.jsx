@@ -35,7 +35,7 @@ const generalFaqs = [
   {
     question: "Does Impacgo build its own software products?",
     answer:
-      "Yes. Alongside our Microsoft Dynamics 365 and Power Platform consulting, we build CalveIQ (dairy farm management), StockLyte (inventory management), FarmYieldIQ (farmland plot operations), and the Impacgo ERP Suite — our own in-house business platform covering HR, Finance, Supply Chain, Manufacturing, Planning and Retail.",
+      "Yes. Alongside our Microsoft Dynamics 365 and Power Platform consulting, we build CALVIQ (dairy farm management), StockLyte (inventory management), FarmYieldIQ (farmland plot operations), and the Impacgo ERP Suite — our own in-house business platform covering HR, Finance, Supply Chain, Manufacturing, Planning and Retail.",
   },
   {
     question: "Is the Impacgo ERP Suite available today?",
@@ -105,15 +105,15 @@ export default function FAQ() {
                 <div className="px-6 pb-5 text-gray-600 text-sm leading-relaxed">{faq.answer}</div>
               </RevealItem>
             ))}
-          </div>
+          </div> // 
 
           <Reveal as="h2" className="text-2xl md:text-3xl font-bold text-gray-800 mb-4 text-center">
             Impacgo ERP Suite
           </Reveal>
           <p className="text-center text-gray-500 text-sm mb-10">
             Module-specific questions — see each module's own page for the full picture.
-          </p>
-
+          </p> 
+   
           {erpModules.map((mod) => (
             <div key={mod.slug} className="mb-12">
               <h3 className="text-lg font-bold text-gray-800 mb-4">
