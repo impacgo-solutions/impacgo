@@ -129,7 +129,7 @@ export default function Header({ alwaysSolid = false }) {
   // Router's basename automatically.
   const navItems = [
     { name: "Home", path: "/", isRoute: true },
-    { name: "About", path: "/about", isRoute: true },
+    // { name: "About", path: "/about", isRoute: true },
     { name: "Products", path: `${import.meta.env.BASE_URL}#products`, isRoute: false },
     { name: "Services", path: `${import.meta.env.BASE_URL}#services`, isRoute: false },
     { name: "Blog", path: "/blog", isRoute: true },
