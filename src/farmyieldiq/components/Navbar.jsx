@@ -82,12 +82,12 @@ export default function Navbar() {
           >
             Log In
           </a>
-          <a
-            href={EXTERNAL_APP_URL}
+          <Link
+            to="/farmyieldiq/signup"
             className="fyiq-shimmer-btn px-6 py-2.5 font-farmyieldiq-body text-label-md rounded-lg bg-farmyieldiq-primary text-farmyieldiq-on-primary shadow-lg shadow-farmyieldiq-primary/20 hover:shadow-xl hover:bg-farmyieldiq-secondary transition-all active:scale-95"
           >
             Start Free Trial
-          </a>
+          </Link>
         </div>
 
         <button
@@ -121,12 +121,12 @@ export default function Navbar() {
             >
               Log In
             </a>
-            <a
-              href={EXTERNAL_APP_URL}
+            <Link
+              to="/farmyieldiq/signup"
               className="w-full text-center px-6 py-3 font-farmyieldiq-body text-label-md font-bold rounded-lg bg-farmyieldiq-primary text-farmyieldiq-on-primary shadow-lg shadow-farmyieldiq-primary/20 active:scale-95 transition-all"
             >
               Start Free Trial
-            </a>
+            </Link>
           </div>
         </div>
       </div>

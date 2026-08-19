@@ -1,4 +1,4 @@
-import { EXTERNAL_APP_URL } from './Navbar';
+import { Link } from 'react-router-dom';
 
 const faqs = [
   {
@@ -53,12 +53,12 @@ export default function FinalCTA() {
             </p>
           </div>
           <div className="flex flex-col gap-4 w-full md:w-auto">
-            <a
-              href={EXTERNAL_APP_URL}
+            <Link
+              to="/farmyieldiq/signup"
               className="fyiq-shimmer-btn text-center px-10 py-4 bg-farmyieldiq-secondary text-white rounded-2xl font-bold text-lg shadow-2xl hover:-translate-y-1 transition-all active:scale-95"
             >
               Start Free Trial
-            </a>
+            </Link>
             <a
               href="/contact"
               className="text-center px-10 py-4 border-2 border-white/30 rounded-2xl font-bold text-lg hover:bg-white/10 transition-all active:scale-95"

@@ -1,5 +1,5 @@
+import { Link } from 'react-router-dom';
 import heroDashboard from '../assets/images/hero-dashboard-mockup.png';
-import { EXTERNAL_APP_URL } from './Navbar';
 
 export default function Hero() {
   return (
@@ -19,12 +19,12 @@ export default function Hero() {
             layouts, blocks and plots, partner portfolios, sales pipeline, and your whole team.
           </p>
           <div className="flex flex-col sm:flex-row flex-wrap gap-4 pt-4">
-            <a
-              href={EXTERNAL_APP_URL}
+            <Link
+              to="/farmyieldiq/signup"
               className="fyiq-shimmer-btn text-center px-8 py-4 font-farmyieldiq-body text-label-md font-bold rounded-xl bg-farmyieldiq-secondary text-white shadow-2xl shadow-farmyieldiq-secondary/40 hover:-translate-y-1 transition-all active:scale-95"
             >
               Start Free Trial
-            </a>
+            </Link>
             <a
               href="/contact"
               className="text-center px-8 py-4 font-farmyieldiq-body text-label-md font-bold rounded-xl border border-white/20 text-white hover:bg-white/5 transition-all active:scale-95"

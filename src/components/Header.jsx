@@ -34,7 +34,7 @@ const erpProducts = [
   { name: "Impacgo Make", path: "/erp/make" },
   { name: "Impacgo Plan", path: "/erp/plan" },
   { name: "Impacgo Retail", path: "/erp/retail" },
-  { name: "Impacgo Project", path: "/erp/project" },
+  { name: "Impacgo Project", path: "/erp/project" },  
 ];
 
 // `alwaysSolid` is for pages whose content starts light/white right at the
@@ -129,7 +129,7 @@ export default function Header({ alwaysSolid = false }) {
   // Router's basename automatically.
   const navItems = [
     { name: "Home", path: "/", isRoute: true },
-    // { name: "About", path: "/about", isRoute: true },
+    { name: "About", path: "/about", isRoute: true },
     { name: "Products", path: `${import.meta.env.BASE_URL}#products`, isRoute: false },
     { name: "Services", path: `${import.meta.env.BASE_URL}#services`, isRoute: false },
     { name: "Blog", path: "/blog", isRoute: true },
@@ -269,7 +269,7 @@ export default function Header({ alwaysSolid = false }) {
                                   onClick={() => setIsProductsOpen(false)}
                                   className="inline-block mt-3 text-xs font-semibold text-emerald-600 hover:text-emerald-700"
                                 >
-                                  View all Impacgo ERP Suite modules →
+                                  View all Impacgo ERP Suite modules →  
                                 </a>
                               </div>
                             </motion.div>

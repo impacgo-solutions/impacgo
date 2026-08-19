@@ -5,6 +5,7 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 // see the comment there for why.
 import Navbar from './components/Navbar.jsx';
 import Home from './pages/Home.jsx';
+import SignUp from './pages/SignUp.jsx';
 import { createProductSchema, createBreadcrumbSchema, organizationSchema } from '../components/schemas';
 
 // Matches the ScrollToTop pattern used elsewhere in the site (Calviq,
@@ -85,6 +86,7 @@ export default function FarmYieldIQApp() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/signup" element={<SignUp />} />
       </Routes>
     </div>
   );
