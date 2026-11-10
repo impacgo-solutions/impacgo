@@ -145,6 +145,7 @@ const breadcrumbSchema = createBreadcrumbSchema([
                   alt="Annual Maintenance Support"
                   width="800"
                   height="600"
+                  loading="lazy"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -179,6 +180,7 @@ const breadcrumbSchema = createBreadcrumbSchema([
                   alt="POS system in retail store"
                   width="800"
                   height="600"
+                  loading="lazy"
                   className="w-full h-full object-cover"
                 />
               </div>

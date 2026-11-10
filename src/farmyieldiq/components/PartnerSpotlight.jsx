@@ -1,4 +1,4 @@
-import heroDashboard from '../assets/images/hero-dashboard-mockup.png';
+import heroDashboard from '../assets/images/hero-dashboard-mockup.webp';
 
 export default function PartnerSpotlight() {
   return (
@@ -43,6 +43,7 @@ export default function PartnerSpotlight() {
                     alt="FarmYieldIQ partner profile dashboard"
                     className="w-full rounded-xl shadow-inner brightness-90 group-hover:brightness-100 transition-all duration-700"
                     src={heroDashboard}
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                 </div>

@@ -34,6 +34,7 @@ export default function FeatureDeepDive() {
               alt="StockLyte Visual Intelligence Panel"
               className="rounded-2xl w-full shadow-2xl"
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMJyGxGRKjdOJbAkm4Uimp4LmueFi35vYC0gupq6QAwWIksqVAwqObwuN5sGLZX8eG_1Gt0pajs-gq8p7kb8IlWzNhdhMa-7NqXTHJsbuFz0cNpZaI6sj7zDA75kG6ONIvx45NaQxhWAmVfzjmFpVhdaWICKGMoJguuGcBgdCWuPHTiyRuVzFZKYZafdGKuUwaZA4XFiR3-hfUPK9ctZiyqGbbM4mKfFpkKv_E0dpAVTeqURGkDqVqkjF3XF8ojO-gWvyosl2mgL6N"
+              loading="lazy"
             />
           </div>
         </div>
@@ -71,6 +72,7 @@ export default function FeatureDeepDive() {
             <img
               alt="Precision Scanning Interface"
               className="rounded-2xl w-full shadow-2xl"
+              loading="lazy"
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5GgLJ5g6xinSinIHwkgEusxFIeyFjxUdA_2YIBdWJTsNzZg1dVLx39jeDzjAS-qTn5_CTL0gIq2Puw_XJLTxe-7HE1h2Burjndm7ttPUBcJVgWxUTDF3bqN8QE3NNvTMP15gAZeVPI1hyUhDVdvs5h-ovGeuD6esw4GWbzDFp_4jvGYuhSbh-FxxCfygG3SXgqJpeszmti_dwyXhh52-PM0jYjePVZpFSLy4SmUDLPhPI9O5tPBN9Rt5-vp_ecSkYF8KteoOSsOWq"
             />
           </div>

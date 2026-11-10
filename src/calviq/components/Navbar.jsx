@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import useNavScroll from '../hooks/useNavScroll';
+import BrandHomeLink from '../../components/BrandHomeLink';
 
 const EXTERNAL_LOGIN_URL = 'https://calviq.impacgo.com/#/login';
 
@@ -36,12 +37,16 @@ export default function Navbar() {
     >
       <div className="max-w-container-max mx-auto flex justify-between items-center px-margin-mobile md:px-gutter py-4 md:py-5 transition-all duration-300">
         <div className="flex items-center gap-6 min-w-0">
-          <Link
-            to="/calviq"
-            className="font-headline-md text-headline-md font-extrabold text-primary tracking-tight shrink-0"
-          >
-            CALVIQ
-          </Link>
+          <div className="flex items-center gap-2 shrink-0">
+            <BrandHomeLink className="text-label-md text-outline hover:text-primary" />
+            <span className="text-outline/50" aria-hidden="true">/</span>
+            <Link
+              to="/calviq"
+              className="font-headline-md text-headline-md font-extrabold text-primary tracking-tight"
+            >
+              CALVIQ
+            </Link>
+          </div>
           <div className="hidden lg:block h-6 w-px bg-outline-variant"></div>
           <span className="hidden lg:block font-label-md text-label-md text-outline tracking-wide whitespace-nowrap">
             Dairy Farm Management System

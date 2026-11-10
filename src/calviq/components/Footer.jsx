@@ -1,5 +1,34 @@
 import { Link } from 'react-router-dom';
 
+// Every footer link points at a real page or section — the platform items all
+// live in the Features section of the CALVIQ landing page.
+const FOOTER_COLUMNS = [
+  {
+    title: 'Platform',
+    links: [
+      { label: 'Herd Registry', to: '/calviq/#features' },
+      { label: 'Milk Production', to: '/calviq/#features' },
+      { label: 'AI BCS Scoring', to: '/calviq/#features' },
+      { label: 'Pricing', to: '/calviq/#pricing' },
+    ],
+  },
+  {
+    title: 'Company',
+    links: [
+      { label: 'About Impacgo', to: '/about' },
+      { label: 'CALVIQ Blog', to: '/blog/calviq-dairy-farm-management' },
+      { label: 'Book a Demo', to: '/calviq/demo' },
+      { label: 'Contact Support', to: '/contact' },
+    ],
+  },
+];
+
+const SOCIAL_LINKS = [
+  { label: 'Impacgo website', icon: 'language', href: '/' },
+  { label: 'Impacgo on LinkedIn', icon: 'share', href: 'https://www.linkedin.com/company/impacgo-solutions-private-limited/', external: true },
+  { label: 'Email us', icon: 'mail', href: 'mailto:info@impacgo.com' },
+];
+
 export default function Footer() {
   return (
     <footer id="contact" className="w-full pt-16 md:pt-section-gap pb-10 md:pb-12 px-margin-mobile md:px-gutter bg-dark-base text-surface-bright overflow-hidden">
@@ -11,67 +40,34 @@ export default function Footer() {
             infrastructure.
           </p>
           <div className="flex gap-4">
-            <div className="w-11 h-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary hover:scale-110 transition-all cursor-pointer">
-              <span className="material-symbols-outlined text-lg">language</span>
-            </div>
-            <div className="w-11 h-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary hover:scale-110 transition-all cursor-pointer">
-              <span className="material-symbols-outlined text-lg">share</span>
-            </div>
-            <div className="w-11 h-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary hover:scale-110 transition-all cursor-pointer">
-              <span className="material-symbols-outlined text-lg">mail</span>
-            </div>
+            {SOCIAL_LINKS.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                aria-label={item.label}
+                title={item.label}
+                {...(item.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                className="w-11 h-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary hover:scale-110 transition-all"
+              >
+                <span className="material-symbols-outlined text-lg">{item.icon}</span>
+              </a>
+            ))}
           </div>
         </div>
-        <div className="lg:col-span-2 space-y-6">
-          <h5 className="text-white text-xs font-black uppercase tracking-widest">Platform</h5>
-          <ul className="space-y-4">
-            <li>
-              <a className="text-outline-variant hover:text-white transition-colors text-sm" href="#">
-                Herd Registry
-              </a>
-            </li>
-            <li>
-              <a className="text-outline-variant hover:text-white transition-colors text-sm" href="#">
-                Milk Production
-              </a>
-            </li>
-            <li>
-              <a className="text-outline-variant hover:text-white transition-colors text-sm" href="#">
-                AI BCS Scoring
-              </a>
-            </li>
-            <li>
-              <a className="text-outline-variant hover:text-white transition-colors text-sm" href="#">
-                Farm Finance
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div className="lg:col-span-2 space-y-6">
-          <h5 className="text-white text-xs font-black uppercase tracking-widest">Company</h5>
-          <ul className="space-y-4">
-            <li>
-              <a className="text-outline-variant hover:text-white transition-colors text-sm" href="#">
-                Our Vision
-              </a>
-            </li>
-            <li>
-              <a className="text-outline-variant hover:text-white transition-colors text-sm" href="#">
-                Careers
-              </a>
-            </li>
-            <li>
-              <a className="text-outline-variant hover:text-white transition-colors text-sm" href="#">
-                Agri-Tech Blog
-              </a>
-            </li>
-            <li>
-              <a className="text-outline-variant hover:text-white transition-colors text-sm" href="#">
-                Contact Support
-              </a>
-            </li>
-          </ul>
-        </div>
+        {FOOTER_COLUMNS.map((col) => (
+          <div key={col.title} className="lg:col-span-2 space-y-6">
+            <h5 className="text-white text-xs font-black uppercase tracking-widest">{col.title}</h5>
+            <ul className="space-y-4">
+              {col.links.map((link) => (
+                <li key={link.label}>
+                  <Link className="text-outline-variant hover:text-white transition-colors text-sm" to={link.to}>
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
         <div className="lg:col-span-4 space-y-8">
           <h5 className="text-white text-xs font-black uppercase tracking-widest">Mobile Apps</h5>
           <div className="grid grid-cols-2 lg:grid-cols-1 gap-4">
@@ -111,15 +107,12 @@ export default function Footer() {
           © 2026 impacgo CALVIQ Global. Accelerating the Modern Farm Revolution.
         </p>
         <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 sm:gap-8 text-[11px] text-outline-variant font-medium uppercase tracking-wider">
-          <a className="hover:text-white transition-colors" href="#">
+          <Link className="hover:text-white transition-colors" to="/privacy">
             Privacy Policy
-          </a>
-          <a className="hover:text-white transition-colors" href="#">
+          </Link>
+          <Link className="hover:text-white transition-colors" to="/terms">
             Terms of Service
-          </a>
-          <a className="hover:text-white transition-colors" href="#">
-            Global Security
-          </a>
+          </Link>
         </div>
       </div>
     </footer>

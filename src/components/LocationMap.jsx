@@ -12,6 +12,7 @@ const LocationMap = () => {
         <img
           src={map}
           alt="Click to view on Google Maps"
+          loading="lazy"
           className="
             w-full
             h-[500px]
@@ -20,7 +21,13 @@ const LocationMap = () => {
             lg:h-[600px]
             object-cover
             cursor-pointer
-            rounded-lg
+            rounded-2xl
+            shadow-glass-lg
+            border
+            border-white/60
+            hover:shadow-xl
+            transition-shadow
+            duration-300
           "
         />
       </a>

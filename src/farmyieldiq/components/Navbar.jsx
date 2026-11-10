@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import useNavScroll from '../hooks/useNavScroll';
+import BrandHomeLink from '../../components/BrandHomeLink';
 
 export const EXTERNAL_APP_URL = 'https://farmyieldiq.impacgo.com/';
 
@@ -41,14 +42,20 @@ export default function Navbar() {
     >
       <div className="max-w-container-max mx-auto flex justify-between items-center px-margin-mobile md:px-gutter py-4 md:py-5 transition-all duration-300">
         <div className="flex items-center gap-6 min-w-0">
-          <Link
-            to="/farmyieldiq"
-            className={`font-farmyieldiq-headline text-headline-md font-extrabold tracking-tight shrink-0 transition-colors ${
-              solid ? 'text-farmyieldiq-primary' : 'text-white'
-            }`}
-          >
-            FarmYieldIQ
-          </Link>
+          <div className="flex items-center gap-2 shrink-0">
+            <BrandHomeLink
+              className={`text-label-md ${solid ? 'text-farmyieldiq-outline hover:text-farmyieldiq-primary' : 'text-white/60 hover:text-white'}`}
+            />
+            <span className={solid ? 'text-farmyieldiq-outline/50' : 'text-white/30'} aria-hidden="true">/</span>
+            <Link
+              to="/farmyieldiq"
+              className={`font-farmyieldiq-headline text-headline-md font-extrabold tracking-tight transition-colors ${
+                solid ? 'text-farmyieldiq-primary' : 'text-white'
+              }`}
+            >
+              FarmYieldIQ
+            </Link>
+          </div>
           <div className={`hidden lg:block h-6 w-px transition-colors ${solid ? 'bg-farmyieldiq-outline-variant' : 'bg-white/30'}`}></div>
           <span
             className={`hidden lg:block font-farmyieldiq-body text-label-md tracking-wide whitespace-nowrap transition-colors ${

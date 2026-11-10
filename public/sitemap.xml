@@ -205,6 +205,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.impacgo.com/products/health-vault</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.impacgo.com/products/work-task</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
@@ -229,6 +235,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.impacgo.com/healthvault</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.impacgo.com/products/construction-planner</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
@@ -243,8 +255,8 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.impacgo.com/blog/ax-2012-end-of-support-2028-india</loc>
-    <lastmod>2026-05-19</lastmod>
+    <loc>https://www.impacgo.com/blog/ax-2012-end-of-support-india</loc>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -284,6 +296,36 @@
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
+  <url>
+    <loc>https://www.impacgo.com/blog/calviq-dairy-farm-management</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.impacgo.com/blog/d365-for-distribution-wholesale-businesses</loc>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.impacgo.com/blog/copilot-in-dynamics-365-finance-operations</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.impacgo.com/blog/gst-e-invoicing-in-dynamics-365-finance-operations</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.impacgo.com/blog/ax-2012-to-d365-finance-operations-upgrade-checklist</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
 
   <!-- FAQ -->
   <url>
@@ -309,4 +351,16 @@
     <priority>0.6</priority>
   </url>
 
+  <url>
+    <loc>https://www.impacgo.com/privacy</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.impacgo.com/terms</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
 </urlset>

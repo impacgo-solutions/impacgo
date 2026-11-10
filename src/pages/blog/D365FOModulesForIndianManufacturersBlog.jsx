@@ -577,7 +577,7 @@ export default function D365FOModulesForIndianManufacturersBlog() {
                 </div>
               </Link>
               <Link
-                to="/blog/ax-2012-end-of-support-2028-india"
+                to="/blog/ax-2012-end-of-support-india"
                 className="bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden group"
               >
                 <div className="h-40 bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center">
@@ -588,11 +588,10 @@ export default function D365FOModulesForIndianManufacturersBlog() {
                     AX Migration
                   </span>
                   <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600">
-                    AX 2012 End of Support 2028
+                    AX 2012 Is Out of Support
                   </h3>
                   <p className="text-sm text-gray-600">
-                    Microsoft's end of support deadline for AX 2012 is January 2028.
-                    Here's what enterprises need to plan for.
+                    Microsoft ended AX 2012 support in January 2023. Here's what that means and how to plan your move.
                   </p>
                 </div>
               </Link>

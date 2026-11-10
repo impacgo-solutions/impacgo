@@ -44,6 +44,7 @@ function ServiceSection() {
               <img
                 src={service.image}
                 alt={service.name}
+                loading="lazy"
                 className="w-full h-48 object-cover mb-4 rounded"
               />
               <h3 className="text-2xl font-semibold mb-2">{service.name}</h3>

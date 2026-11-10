@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import Logo from './Logo.jsx'
 import Icon from './Icon.jsx'
+import BrandHomeLink from '../../components/BrandHomeLink'
 
 const LINKS = [
   { label: 'Product', href: '#product' },
@@ -37,9 +38,13 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+          <div className="flex items-center gap-2 shrink-0">
+            <BrandHomeLink className="text-sm text-stocklyte-on-surface-variant hover:text-stocklyte-primary" />
+            <span className="text-stocklyte-on-surface-variant/40" aria-hidden="true">/</span>
+          </div>
           <Logo />
-          <span className="font-stocklyte-headline text-xl font-bold tracking-tight">StockLyte</span>
+          <span className="font-stocklyte-headline text-xl font-bold tracking-tight truncate">StockLyte</span>
         </div>
 
         <div className="hidden lg:flex items-center gap-10">
@@ -55,9 +60,13 @@ export default function Navbar() {
         </div>
 
         <div className="flex items-center gap-4">
+          {/* Matches its sibling product navbars (CALVIQ, FarmYieldIQ,
+              HealthVault): CTA hides behind the hamburger on mobile rather
+              than fighting the breadcrumb + logo for space in an
+              already-tight row — it's repeated in the mobile dropdown below. */}
           <Link
             to="/stocklyte/signup"
-            className="shimmer-btn bg-stocklyte-primary text-stocklyte-on-primary text-sm font-bold px-5 py-2.5 rounded-lg shadow-lg hover:brightness-110 transition-all command-shadow"
+            className="hidden lg:inline-flex shimmer-btn bg-stocklyte-primary text-stocklyte-on-primary text-sm font-bold px-5 py-2.5 rounded-lg shadow-lg hover:brightness-110 transition-all command-shadow"
           >
             Get Started
           </Link>
@@ -83,6 +92,13 @@ export default function Navbar() {
               {link.label}
             </a>
           ))}
+          <Link
+            to="/stocklyte/signup"
+            className="shimmer-btn w-full text-center bg-stocklyte-primary text-stocklyte-on-primary text-sm font-bold px-5 py-3 rounded-lg shadow-lg hover:brightness-110 transition-all command-shadow"
+            onClick={() => setOpen(false)}
+          >
+            Get Started
+          </Link>
         </div>
       )}
     </nav>

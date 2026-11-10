@@ -39,6 +39,7 @@ export default function UseCases() {
                 alt={c.alt}
                 className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
                 src={c.src}
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-stocklyte-background via-stocklyte-background/40 to-transparent"></div>
               <div className="absolute bottom-0 p-8">

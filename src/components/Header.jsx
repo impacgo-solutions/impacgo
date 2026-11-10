@@ -9,10 +9,22 @@ import { Menu, X, ChevronDown } from "lucide-react";
 // every page load of the homepage regardless of scroll position, so it
 // needs just the name+link, not the full card content (description,
 // features, images) that section owns.
+//
+// Products with their own dedicated landing sub-app (CALVIQ, StockLyte,
+// FarmYieldIQ, HealthVault) link straight there instead of their shorter
+// /products/:slug SEO/detail page — someone clicking a specific named
+// product from this compact nav list has already shown clear intent, and
+// routing them through the detail page first would just be an extra hop to
+// the real pitch. Those detail pages aren't orphaned by this: the homepage
+// "Our Products" cards still link to them via "Know More", which is what
+// keeps them properly linked for SEO. Work Task and Construction Planner
+// have no dedicated landing sub-app, so they still point at their
+// /products/:slug page — that IS their real page.
 const ourProducts = [
-  { name: "Dairy Farm Management (CALVIQ)", path: "/products/dairy-farm" },
-  { name: "Inventory Management (StockLyte)", path: "/products/inventory-management" },
-  { name: "FarmYieldIQ", path: "/products/farm-yield-iq" },
+  { name: "Dairy Farm Management (CALVIQ)", path: "/calviq" },
+  { name: "Inventory Management (StockLyte)", path: "/stocklyte" },
+  { name: "FarmYieldIQ", path: "/farmyieldiq" },
+  { name: "Family Health Records (HealthVault)", path: "/healthvault" },
   { name: "Work Task Application", path: "/products/work-task" },
   { name: "Construction Planner", path: "/products/construction-planner" },
 ];
@@ -129,7 +141,7 @@ export default function Header({ alwaysSolid = false }) {
   // Router's basename automatically.
   const navItems = [
     { name: "Home", path: "/", isRoute: true },
-    { name: "About", path: "/about", isRoute: true },
+    { name: "About Us", path: "/about", isRoute: true },
     { name: "Products", path: `${import.meta.env.BASE_URL}#products`, isRoute: false },
     { name: "Services", path: `${import.meta.env.BASE_URL}#services`, isRoute: false },
     { name: "Blog", path: "/blog", isRoute: true },
@@ -332,7 +344,7 @@ export default function Header({ alwaysSolid = false }) {
         <div className="flex items-center justify-between p-5 border-b flex-shrink-0">
           <img
             src={logo}
-            alt="logo"
+            alt="Impacgo Solutions Logo"
             className="h-8 object-contain"
           />
 

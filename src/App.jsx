@@ -10,6 +10,9 @@ import { AnimatePresence, motion } from "framer-motion";
 const Pos = lazy(() => import("./pages/Pos"));
 const FAQ = lazy(() => import("./pages/FAQ"));
 const About = lazy(() => import("./pages/About"));
+const Privacy = lazy(() => import("./pages/Privacy"));
+const Terms = lazy(() => import("./pages/Terms"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 // Core Services
 const D365 = lazy(() => import("./pages/D365"));
@@ -34,15 +37,21 @@ const FarmYieldIQ = lazy(() => import("./pages/FarmYieldIQ"));
 const ERPModuleDetail = lazy(() => import("./pages/erp/ERPModuleDetail"));
 const WorkTask = lazy(() => import("./pages/Worktask"));
 const ConstructionPlanner = lazy(() => import("./pages/Constructionplanner"));
+const HealthVault = lazy(() => import("./pages/HealthVault"));
 const AXMigration = lazy(() => import("./pages/Axmigration"));
 
 // Blog Pages
 const BlogIndex = lazy(() => import("./pages/blog/BlogIndex"));
-const AX2012EndOfSupport2028Blog = lazy(() => import("./pages/blog/AX2012EndOfSupport2028Blog"));
+const AX2012EndOfSupportBlog = lazy(() => import("./pages/blog/AX2012EndOfSupportBlog"));
 const D365FOImplementationTimelineBlog = lazy(() => import("./pages/blog/D365foimplementationtimelineblog"));
 const PowerAppsD365FOBlog = lazy(() => import("./pages/blog/PowerAppsD365FOBlog"));
 const PowerAutomateD365FOBlog = lazy(() => import("./pages/blog/PowerAutomateD365FOBlog"));
 const D365FOModulesForIndianManufacturersBlog = lazy(() => import("./pages/blog/D365FOModulesForIndianManufacturersBlog"));
+const CalviqDairyFarmManagementBlog = lazy(() => import("./pages/blog/CalviqDairyFarmManagementBlog"));
+const D365DistributionGuideBlog = lazy(() => import("./pages/blog/D365DistributionGuideBlog"));
+const CopilotD365FOBlog = lazy(() => import("./pages/blog/CopilotD365FOBlog"));
+const GSTEInvoicingD365FOBlog = lazy(() => import("./pages/blog/GSTEInvoicingD365FOBlog"));
+const AX2012UpgradeChecklistBlog = lazy(() => import("./pages/blog/AX2012UpgradeChecklistBlog"));
 
 // Power Platform Pages
 const PowerApps = lazy(() => import("./pages/Powerapps"));
@@ -70,6 +79,9 @@ const StockLyteApp = lazy(() => import("./stocklyte/StockLyteApp"));
 
 // FarmYieldIQ Landing Page (dedicated sub-app) — same treatment
 const FarmYieldIQApp = lazy(() => import("./farmyieldiq/FarmYieldIQApp"));
+
+// HealthVault Landing Page (dedicated sub-app) — same treatment
+const HealthVaultApp = lazy(() => import("./healthvault/HealthVaultApp"));
 
 function PageLoadingFallback() {
   return (
@@ -216,6 +228,11 @@ function AnimatedRoutes() {
           element={<ConstructionPlanner />}
         />
 
+        <Route
+          path="/products/health-vault"
+          element={<HealthVault />}
+        />
+
         {/* ---------------- INDUSTRIES ---------------- */}
         <Route
           path="/industries/manufacturing"
@@ -239,8 +256,13 @@ function AnimatedRoutes() {
         />
 
         <Route
+          path="/blog/ax-2012-end-of-support-india"
+          element={<AX2012EndOfSupportBlog />}
+        />
+        {/* Old address (had an incorrect 2028 date) — keep links working */}
+        <Route
           path="/blog/ax-2012-end-of-support-2028-india"
-          element={<AX2012EndOfSupport2028Blog />}
+          element={<Navigate to="/blog/ax-2012-end-of-support-india" replace />}
         />
 
         <Route 
@@ -271,6 +293,26 @@ function AnimatedRoutes() {
     element={<D365FOModulesForIndianManufacturersBlog />}
   />
 </Route>
+        <Route
+          path="/blog/calviq-dairy-farm-management"
+          element={<CalviqDairyFarmManagementBlog />}
+        />
+        <Route
+          path="/blog/d365-for-distribution-wholesale-businesses"
+          element={<D365DistributionGuideBlog />}
+        />
+        <Route
+          path="/blog/copilot-in-dynamics-365-finance-operations"
+          element={<CopilotD365FOBlog />}
+        />
+        <Route
+          path="/blog/gst-e-invoicing-in-dynamics-365-finance-operations"
+          element={<GSTEInvoicingD365FOBlog />}
+        />
+        <Route
+          path="/blog/ax-2012-to-d365-finance-operations-upgrade-checklist"
+          element={<AX2012UpgradeChecklistBlog />}
+        />
         {/* ---------------- CALVIQ LANDING PAGE ---------------- */}
         <Route
           path="/calviq/*"
@@ -289,6 +331,12 @@ function AnimatedRoutes() {
           element={<FarmYieldIQApp />}
         />
 
+        {/* ---------------- HEALTHVAULT LANDING PAGE ---------------- */}
+        <Route
+          path="/healthvault/*"
+          element={<HealthVaultApp />}
+        />
+
         {/* ---------------- FAQ ---------------- */}
         <Route
           path="/faq"
@@ -301,6 +349,17 @@ function AnimatedRoutes() {
           element={<About />}
         />
 
+        {/* ---------------- LEGAL ---------------- */}
+        <Route
+          path="/privacy"
+          element={<Privacy />}
+        />
+
+        <Route
+          path="/terms"
+          element={<Terms />}
+        />
+
         {/* ---------------- CONTACT ---------------- */}
         <Route
           path="/contact"
@@ -310,7 +369,7 @@ function AnimatedRoutes() {
         {/* ---------------- FALLBACK ---------------- */}
         <Route
           path="*"
-          element={<Navigate to="/" replace />}
+          element={<NotFound />}
         />
 
         </Routes>

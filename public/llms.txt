@@ -5,7 +5,7 @@
 ## Services
 
 - [Dynamics 365 F&O Implementation](https://www.impacgo.com/services/d365)
-- [AX 2012 to D365 Migration](https://www.impacgo.com/services/ax-migration) — Microsoft AX 2012 extended support ends January 2028
+- [AX 2012 to D365 Migration](https://www.impacgo.com/services/ax-migration) — Microsoft AX 2012 R3 extended support ended 10 January 2023
 - [D365FO Development & Customisation](https://www.impacgo.com/services/d365-development)
 - [Dynamics 365 CRM](https://www.impacgo.com/services/d365-crm) — Sales, Customer Service, Marketing, Field Service
 - [Power Apps Development](https://www.impacgo.com/services/power-apps)

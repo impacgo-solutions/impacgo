@@ -13,6 +13,7 @@ import './index.css'
 import './calviq/calviq.css'
 import './stocklyte/stocklyte.css'
 import './farmyieldiq/farmyieldiq.css'
+import './healthvault/healthvault.css'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
