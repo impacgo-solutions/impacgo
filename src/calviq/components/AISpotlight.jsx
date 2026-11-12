@@ -48,6 +48,7 @@ export default function AISpotlight() {
                     alt="AI BCS visualization"
                     className="w-full rounded-xl shadow-inner brightness-90 group-hover:brightness-100 transition-all duration-700"
                     src={aiBcsVisualization}
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                   <div className="absolute top-3 left-3 sm:top-8 sm:left-8 bg-secondary px-3 py-1.5 sm:px-5 sm:py-2 rounded-lg sm:rounded-xl shadow-xl border border-white/20 animate-bounce">

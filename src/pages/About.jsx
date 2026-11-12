@@ -26,6 +26,7 @@ import {
   Award,
 } from "lucide-react";
 import founderPhoto from "../assets/founder-srikar-tantravahi.webp";
+import { ERP_SITE_URL } from "../config/erp";
 // Uncomment when real client logos/results are ready to publish here again.
 // import resonac from "../assets/clients/Resonac.webp";
 // import hitechi from "../assets/clients/hitechi.webp";
@@ -52,33 +53,33 @@ const aboutPageSchema = {
 const whyItems = [
   {
     icon: ShieldCheck,
-    title: "Domain Expertise",
-    description: "Deep experience across manufacturing, dairy, services and distribution verticals.",
-  },
-  {
-    icon: Zap,
-    title: "Rapid Delivery",
-    description: "Agile methodology — fast go-live with minimal disruption to your operations.",
+    title: "India Compliance, Built In",
+    description: "GST, e-invoicing and statutory reporting configured correctly from day one — not patched in after go-live.",
   },
   {
     icon: HeartHandshake,
-    title: "Trusted Partner",
-    description: "Long-term relationships built on transparency, honesty and measurable outcomes.",
+    title: "Industry Know-How",
+    description: "Hands-on experience across manufacturing, dairy and agriculture, distribution and professional services. We speak the language of your operations.",
+  },
+  {
+    icon: Zap,
+    title: "Fast, Low-Risk Delivery",
+    description: "Phased, agile rollouts that keep your business running smoothly while we take you live.",
   },
   {
     icon: Layers,
-    title: "Full-Stack Capability",
-    description: "Custom software to ERP to MES — one team covers your entire technology stack.",
+    title: "One Team, End to End",
+    description: "ERP, Power Platform and custom applications delivered by a single, accountable team.",
   },
   {
     icon: Target,
-    title: "ROI Focused",
-    description: "Every engagement is designed to deliver clear, measurable return on investment.",
+    title: "Measurable Results",
+    description: "Every engagement begins with agreed business goals and ends with outcomes you can measure.",
   },
   {
     icon: LifeBuoy,
-    title: "Dedicated Support",
-    description: "Post go-live hypercare, training programmes and continuous improvement services.",
+    title: "Support Beyond Go-Live",
+    description: "Hypercare, user training and continuous improvement, so your system keeps getting better over time.",
   },
 ];
 
@@ -91,14 +92,14 @@ const whyItems = [
 export default function About() {
   const breadcrumbSchema = createBreadcrumbSchema([
     { name: "Home", path: "/" },
-    { name: "About", path: "/about" },
+    { name: "About Us", path: "/about" },
   ]);
 
   return (
     <div>
       <SEO
-        title="About Impacgo Solutions | Microsoft Dynamics 365 Partner Founded 2020"
-        description="Impacgo Solutions is a Visakhapatnam-based Microsoft Dynamics 365 Finance & Operations and Power Platform implementation partner, founded in 2020, serving global enterprises with deep India compliance expertise."
+        title="About Us | Impacgo Solutions — Microsoft Dynamics 365 Partner Since 2020"
+        description="Impacgo Solutions is a Microsoft Dynamics 365 Finance & Operations and Power Platform partner headquartered in Visakhapatnam, India. Since 2020 we have helped businesses in India and worldwide implement, upgrade and get more from their ERP — with India compliance built in."
         keywords="About Impacgo Solutions, Impacgo Solutions founder, Impacgo Solutions Visakhapatnam, Microsoft Dynamics 365 partner company, Impacgo history"
         path="/about"
         schema={[aboutPageSchema, organizationSchema, founderSchema, breadcrumbSchema]}
@@ -109,8 +110,8 @@ export default function About() {
       <PageHero
         gradient="from-slate-900 via-blue-900 to-indigo-900"
         eyebrow="Founded 2020 · Visakhapatnam, India"
-        title="About Impacgo Solutions"
-        description="A Microsoft Dynamics 365 Finance & Operations and Power Platform implementation partner for global enterprises — and a builder of our own software products alongside that work."
+        title="We Make Microsoft Dynamics 365 Work for Your Business"
+        description="Impacgo Solutions is a Microsoft Dynamics 365 and Power Platform partner headquartered in Visakhapatnam, India. We help organizations in India and around the world implement, upgrade and get more from their ERP — and we build our own software products for the industries we know best."
       />
 
       {/* ---------------- OUR STORY ---------------- */}
@@ -121,18 +122,25 @@ export default function About() {
             Our Story
           </Reveal>
           <RevealItem index={0} as="p" className="text-gray-600 leading-relaxed mb-4">
-            Impacgo Solutions was founded in March 2020 in Visakhapatnam, India, with a clear
-            focus: help enterprises implement Microsoft Dynamics 365 Finance &amp; Operations and
-            the Power Platform properly — with the operational rigor and India-specific compliance
-            expertise (GST, e-invoicing) that global, multi-country rollouts actually need.
+            We founded Impacgo Solutions in March 2020 in Visakhapatnam, India, on one simple
+            belief: an ERP project only succeeds when the system fits the way the business
+            actually runs. Too many Dynamics 365 rollouts go live on schedule and still fall
+            short — particularly in India, where GST, e-invoicing and statutory reporting add
+            real complexity.
           </RevealItem>
-          <RevealItem index={1} as="p" className="text-gray-600 leading-relaxed">
-            Alongside client implementation work, we've built our own software products where we
-            saw gaps that off-the-shelf tools didn't fill well — from CALVIQ for dairy farm
-            management to StockLyte for real-time inventory control, and now the{" "}
-            <strong>Impacgo ERP Suite</strong>, our own connected business platform, currently in
-            active development across HR, Finance, Supply Chain, Manufacturing, Planning, Retail
-            and Project modules.
+          <RevealItem index={1} as="p" className="text-gray-600 leading-relaxed mb-4">
+            So we built a team that combines deep Microsoft Dynamics 365 Finance &amp; Operations
+            and Power Platform expertise with hands-on knowledge of Indian compliance. Our clients
+            get a single partner who understands both the global platform and the local rules —
+            from first workshop to long after go-live.
+          </RevealItem>
+          <RevealItem index={2} as="p" className="text-gray-600 leading-relaxed">
+            Our client work kept revealing the same gaps, so we began building products to close
+            them: CALVIQ for dairy farm management, StockLyte for real-time inventory control,
+            FarmYieldIQ for plotted-land businesses, and now the{" "}
+            <strong>Impacgo ERP Suite</strong> — a connected business platform in active
+            development across HR, Finance, Supply Chain, Manufacturing, Planning, Retail and
+            Projects.
           </RevealItem>
         </div>
       </section>
@@ -162,9 +170,10 @@ export default function About() {
                 <img
                   src={founderPhoto}
                   alt="Venkata Srikar Tantravahi, Founder & CEO of Impacgo Solutions"
-                  width="350"
-                  height="467"
-                  className="relative w-64 md:w-72 aspect-[3/4] object-cover rounded-[1.75rem] shadow-glass-lg border-4 border-white"
+                  width="400"
+                  height="400"
+                  loading="lazy"
+                  className="relative w-64 md:w-72 aspect-square object-cover rounded-[1.75rem] shadow-glass-lg border-4 border-white bg-white"
                 />
                 <div className="absolute -bottom-4 -right-4 bg-white rounded-2xl shadow-glass px-4 py-2 border border-gray-100">
                   <p className="text-xs font-bold text-gray-800 whitespace-nowrap">Venkata Srikar</p>
@@ -179,10 +188,11 @@ export default function About() {
               <p className="text-blue-600 font-semibold mb-4">Founder & CEO, Impacgo Solutions</p>
 
               <p className="text-gray-600 leading-relaxed mb-5">
-                Founded Impacgo Solutions in 2020 to build a Microsoft Dynamics 365 and Power
-                Platform practice with genuine India compliance depth, and to give the company
-                room to build its own products alongside client work — including the Impacgo ERP
-                Suite.
+                Srikar founded Impacgo Solutions in 2020 to build a Microsoft Dynamics 365 practice
+                that pairs international delivery standards with genuine depth in Indian
+                compliance. He leads the company's client delivery and product strategy — including
+                the development of the Impacgo ERP Suite — with a focus on solutions that create
+                lasting, measurable value for every client.
               </p>
 
               <div className="flex flex-wrap justify-center md:justify-start gap-3 mb-6">
@@ -203,7 +213,7 @@ export default function About() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-blue-600 text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-blue-700 active:scale-95 transition-all duration-300 shadow-md"
               >
-                <Linkedin className="h-4 w-4" /> Connect on LinkedIn
+                <Linkedin className="h-4 w-4" /> Follow Impacgo on LinkedIn
               </a>
             </div>
           </RevealItem>
@@ -221,18 +231,18 @@ export default function About() {
             {[
               {
                 title: "Microsoft Dynamics 365 & Power Platform",
-                description: "D365FO implementation, AX 2012 migration, Power Apps, Power Automate, Power BI and AI Builder.",
+                description: "D365 Finance & Operations implementation, AX 2012 upgrades, Power Apps, Power Automate, Power BI and AI Builder — delivered end to end, from discovery to hypercare.",
                 href: `${import.meta.env.BASE_URL}#services`,
               },
               {
-                title: "Our Own Products",
-                description: "CALVIQ, StockLyte, FarmYieldIQ, Work Task and Construction Planner — built by us, for real operational gaps.",
+                title: "Industry Products",
+                description: "CALVIQ, StockLyte, FarmYieldIQ, Work Task and Construction Planner — purpose-built to solve real operational challenges we've seen in the field.",
                 href: `${import.meta.env.BASE_URL}#products`,
               },
               {
                 title: "Impacgo ERP Suite",
-                description: "Our own in-house business platform — HR, Finance, Supply Chain, Manufacturing, Planning and Retail — in active development.",
-                href: `${import.meta.env.BASE_URL}#erp-products`,
+                description: "Our connected business platform spanning HR, Finance, Supply Chain, Manufacturing, Planning, Retail and Projects.",
+                href: ERP_SITE_URL,
               },
             ].map((item, index) => (
               <RevealItem
@@ -258,7 +268,7 @@ export default function About() {
           <Reveal className="text-center mb-12">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">Why Clients Work With Us</h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Impacgo doesn't just implement technology — we deliver outcomes your business can measure.
+              We measure success by what changes in your business after go-live — not just by the go-live date.
             </p>
           </Reveal>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -320,7 +330,10 @@ export default function About() {
         <div className="relative z-10 container mx-auto px-4 max-w-4xl">
           <Reveal className="text-center mb-8">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">Where We're Based</h2>
-            <p className="text-gray-600">Visakhapatnam, Andhra Pradesh, India — serving global enterprises.</p>
+            <p className="text-gray-600">
+              Headquartered in Visakhapatnam, Andhra Pradesh — delivering projects remotely and
+              on-site for clients worldwide.
+            </p>
           </Reveal>
           <RevealItem index={0}>
             <LocationMap />

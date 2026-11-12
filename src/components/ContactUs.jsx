@@ -1,4 +1,4 @@
-import { useNavigate, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import {
   Mail,
@@ -35,14 +35,11 @@ export default function ContactSection() {
 
   const handleSubmit = async (e) => {
   e.preventDefault();
-  console.log("🟦 1. Submit clicked. Form data:", formData);
 
   setStatus("sending");
   setErrorMessage("");
 
   try {
-    console.log("🟦 2. Calling Web3Forms with key:", WEB3FORMS_ACCESS_KEY);
-
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
       headers: {
@@ -60,23 +57,17 @@ export default function ContactSection() {
       }),
     });
 
-    console.log("🟦 3. Response received. Status:", response.status, "OK:", response.ok);
-
     const data = await response.json();
-    console.log("🟦 4. Response body:", data);
 
     if (response.ok && data.success) {
-      console.log("✅ SUCCESS");
       setStatus("success");
       setFormData({ name: "", email: "", phone: "", message: "" });
       setTimeout(() => setStatus(""), 6000);
     } else {
-      console.log("❌ Web3Forms returned an error:", data.message);
       setStatus("error");
       setErrorMessage(data.message || "Something went wrong. Please try again.");
     }
-  } catch (error) {
-    console.error("❌ NETWORK / FETCH ERROR:", error);
+  } catch {
     setStatus("error");
     setErrorMessage(
       "Failed to send message. Please check your internet connection or email us directly."
@@ -244,10 +235,14 @@ export default function ContactSection() {
                   <p className="text-sm text-red-700 mt-1">
                     {errorMessage} You can also email us directly at{" "}
                     <a
-                      href="mailto:bhushanedd@gmail.com"
+                      href="mailto:info@impacgo.com"
                       className="underline font-medium"
                     >
-                      bhushanedd@gmail.com
+                      info@impacgo.com
+                    </a>{" "}
+                    or call{" "}
+                    <a href="tel:+919966477499" className="underline font-medium">
+                      +91 99664 77499
                     </a>
                   </p>
                 </div>

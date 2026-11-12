@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 // Same production base URL the StockLyte admin app itself uses ('https://stocklyte.impacgo.com/api/v1').
 const API_URL = 'https://stocklyte.impacgo.com/api/v1/auth/signup';
@@ -83,6 +84,11 @@ export default function SignUp() {
   };
 
   return (
+    <>
+      {/* Own tab title (the sub-app's Helmet sets the landing page's); canonical stays on the landing page. */}
+      <Helmet>
+        <title>Sign up | StockLyte Inventory Management | Impacgo Solutions</title>
+      </Helmet>
     <section className="bg-stocklyte-background min-h-[100svh] pt-32 pb-16 px-6 flex items-center justify-center grid-pattern">
       <div className="w-full max-w-2xl relative z-10">
         <div className="text-center mb-8 md:mb-10">
@@ -272,5 +278,6 @@ export default function SignUp() {
         </p>
       </div>
     </section>
+    </>
   );
 }

@@ -1,4 +1,3 @@
-import React from "react";
 import { FaCog, FaShieldAlt, FaChartLine, FaTools, FaLock, FaCloudUploadAlt, FaHeadset } from "react-icons/fa";
 import { useLocation,useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';

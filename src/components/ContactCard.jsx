@@ -1,4 +1,3 @@
-import React from 'react';
 import { FaFacebook, FaTwitter, FaLinkedinIn } from 'react-icons/fa';
 
 const ContactCard = () => {
@@ -6,8 +5,12 @@ const ContactCard = () => {
     <div className="text-center p-1 mx-auto max-w-md bg-white/70 backdrop-blur-xl shadow-glass border border-white/60 rounded-2xl overflow-hidden mt-10">
       <div className="p-6">
         <h2 className="text-2xl font-semibold text-gray-800">IMPACGO SOLUTIONS</h2>
-        <p className="mt-2 text-gray-600">info@impacgo.com</p>
-        <p className="text-gray-600">+91-9866323418</p>
+        <p className="mt-2 text-gray-600">
+          <a href="mailto:info@impacgo.com" className="hover:text-blue-600 transition-colors">info@impacgo.com</a>
+        </p>
+        <p className="text-gray-600">
+          <a href="tel:+919966477499" className="hover:text-blue-600 transition-colors">+91 99664 77499</a>
+        </p>
         <p className="mt-2 text-gray-600">No 9-29-19, Gupta Villa, Third Floor, Balaji Nagar</p>
         <p className="text-gray-600">Visakhapatnam - 530003</p>
       </div>

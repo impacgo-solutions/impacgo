@@ -1,6 +1,56 @@
 export const blogPosts = [
 
-  // D365FO Modules for Indian Manufacturers (Blog #7) - NEWEST
+  // GST E-Invoicing in D365FO (Blog #11) - NEWEST
+  {
+    slug: "gst-e-invoicing-in-dynamics-365-finance-operations",
+    title: "GST E-Invoicing in Dynamics 365 Finance & Operations: A Practical Setup Guide for 2026",
+    excerpt: "The ₹5 crore threshold, the 30-day IRP reporting rule, and how to set up e-invoicing and e-way bills in Dynamics 365 Finance & Operations step by step — plus the pitfalls that cause rejections in live environments.",
+    category: "GST Compliance",
+    datePublished: "2026-11-10",
+    readTime: "9 min read",
+  },
+
+  // AX 2012 to D365FO Upgrade Checklist (Blog #12)
+  {
+    slug: "ax-2012-to-d365-finance-operations-upgrade-checklist",
+    title: "AX 2012 to Dynamics 365 Finance & Operations: A Step-by-Step Upgrade Checklist",
+    excerpt: "A four-phase checklist for moving from Dynamics AX 2012 to Dynamics 365 Finance & Operations — supported versions, upgrade vs re-implementation, customizations, integrations, data upgrade and cutover.",
+    category: "AX 2012 Migration",
+    datePublished: "2026-11-10",
+    readTime: "10 min read",
+  },
+
+  // Copilot in D365FO (Blog #10)
+  {
+    slug: "copilot-in-dynamics-365-finance-operations",
+    title: "Microsoft Copilot in Dynamics 365 F&O: What It Actually Does in 2026",
+    excerpt: "A practical look at what Microsoft Copilot actually does inside Dynamics 365 Finance and Operations today — AI-assisted collections, variance analysis, and natural-language queries — and where it stops short of replacing reporting or automation.",
+    category: "D365FO + AI",
+    datePublished: "2026-08-11",
+    readTime: "10 min read",
+  },
+
+  // D365 for Distribution & Wholesale (Blog #9)
+  {
+    slug: "d365-for-distribution-wholesale-businesses",
+    title: "Dynamics 365 F&O for Distribution & Wholesale Businesses: A Complete Guide",
+    excerpt: "How Microsoft Dynamics 365 Finance and Operations handles multi-warehouse inventory, trade agreement pricing, B2B integrations, and Indian GST compliance for distributors and wholesalers.",
+    category: "D365FO Distribution",
+    datePublished: "2026-07-21",
+    readTime: "11 min read",
+  },
+
+  // Calviq Dairy Farm Management (Blog #8)
+  {
+    slug: "calviq-dairy-farm-management",
+    title: "Calviq: How QR-Based Cattle Tracking Is Modernizing Dairy Farm Management",
+    excerpt: "How Calviq replaces paper herd registers with QR-based cattle tracking — giving every cow a digital identity for milk production, health records, and breeding history, accessible from a phone in the field.",
+    category: "Calviq",
+    datePublished: "2026-07-14",
+    readTime: "9 min read",
+  },
+
+  // D365FO Modules for Indian Manufacturers (Blog #7)
   {
     slug: "d365fo-modules-for-indian-manufacturers",
     title: "D365FO Modules for Indian Manufacturers: Complete Guide for 2026",
@@ -60,9 +110,9 @@ export const blogPosts = [
 
   // AX 2012 End of Support
   {
-    slug: "ax-2012-end-of-support-2028-india",
-    title: "AX 2012 End of Support in 2028 — What Every Indian Enterprise Needs to Know Now",
-    excerpt: "Microsoft has announced end of support for Dynamics AX 2012 by January 2028. Here's the complete migration guide for Indian enterprises...",
+    slug: "ax-2012-end-of-support-india",
+    title: "AX 2012 Is Out of Support: What Indian Enterprises Need to Do Now",
+    excerpt: "Microsoft ended extended support for Dynamics AX 2012 R3 on 10 January 2023. What running unsupported AX 2012 means for security and GST compliance — and how Indian enterprises should plan the move to D365 Finance & Operations.",
     category: "AX 2012 Migration",
     datePublished: "2026-05-18",
     readTime: "8 min read",

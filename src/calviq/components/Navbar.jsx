@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import useNavScroll from '../hooks/useNavScroll';
+import BrandHomeLink from '../../components/BrandHomeLink';
 
 const EXTERNAL_LOGIN_URL = 'https://calviq.impacgo.com/#/login';
 
@@ -11,10 +12,54 @@ const navLinks = [
   { label: 'Contact', href: '/calviq/#contact' },
 ];
 
+const SECTION_IDS = navLinks.map((l) => l.href.split('#')[1]);
+
+// Which nav section is currently on screen (only on the CALVIQ landing page —
+// sign-up / demo pages have none). A section counts once its top has
+// scrolled up past the fixed navbar; null while still at the hero.
+function useActiveSection(enabled) {
+  const [active, setActive] = useState(null);
+  useEffect(() => {
+    if (!enabled) {
+      setActive(null);
+      return undefined;
+    }
+    const NAV_OFFSET = 140;
+    const update = () => {
+      // At the very bottom, the last section (Contact) can't scroll up past
+      // the navbar, so pick the lowest section that's in view instead.
+      const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
+      const limit = atBottom ? window.innerHeight : NAV_OFFSET;
+      let current = null;
+      let best = -Infinity;
+      for (const id of SECTION_IDS) {
+        const el = document.getElementById(id);
+        if (!el) continue;
+        const top = el.getBoundingClientRect().top;
+        if (top <= limit && top > best) {
+          best = top;
+          current = id;
+        }
+      }
+      setActive(current);
+    };
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    return () => {
+      window.removeEventListener('scroll', update);
+      window.removeEventListener('resize', update);
+    };
+  }, [enabled]);
+  return active;
+}
+
 export default function Navbar() {
   const scrolled = useNavScroll();
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
+  const activeSection = useActiveSection(location.pathname.replace(/\/$/, '') === '/calviq');
+  const isActive = (link) => link.href.split('#')[1] === activeSection;
 
   useEffect(() => {
     setMenuOpen(false);
@@ -36,24 +81,29 @@ export default function Navbar() {
     >
       <div className="max-w-container-max mx-auto flex justify-between items-center px-margin-mobile md:px-gutter py-4 md:py-5 transition-all duration-300">
         <div className="flex items-center gap-6 min-w-0">
-          <Link
-            to="/calviq"
-            className="font-headline-md text-headline-md font-extrabold text-primary tracking-tight shrink-0"
-          >
-            CALVIQ
-          </Link>
+          <div className="flex items-center gap-2 shrink-0">
+            <BrandHomeLink className="text-label-md text-outline hover:text-primary" />
+            <span className="text-outline/50" aria-hidden="true">/</span>
+            <Link
+              to="/calviq"
+              className="font-headline-md text-headline-md font-extrabold text-primary tracking-tight"
+            >
+              CALVIQ
+            </Link>
+          </div>
           <div className="hidden lg:block h-6 w-px bg-outline-variant"></div>
           <span className="hidden lg:block font-label-md text-label-md text-outline tracking-wide whitespace-nowrap">
             Dairy Farm Management System
           </span>
         </div>
         <div className="hidden md:flex items-center gap-10">
-          {navLinks.map((link, i) => (
+          {navLinks.map((link) => (
             <Link
               key={link.label}
               to={link.href}
+              aria-current={isActive(link) ? 'location' : undefined}
               className={
-                i === 0
+                isActive(link)
                   ? "font-label-md text-label-md text-primary font-bold relative after:content-[''] after:absolute after:bottom-[-25px] after:left-0 after:w-full after:h-0.5 after:bg-primary"
                   : 'font-label-md text-label-md text-on-surface-variant hover:text-primary transition-all'
               }
@@ -94,12 +144,13 @@ export default function Navbar() {
         }`}
       >
         <div className="px-margin-mobile py-4 flex flex-col divide-y divide-outline-variant/20">
-          {navLinks.map((link, i) => (
+          {navLinks.map((link) => (
             <Link
               key={link.label}
               to={link.href}
+              aria-current={isActive(link) ? 'location' : undefined}
               className={`py-4 font-label-md text-base ${
-                i === 0 ? 'text-primary font-bold' : 'text-on-surface-variant'
+                isActive(link) ? 'text-primary font-bold' : 'text-on-surface-variant'
               }`}
             >
               {link.label}

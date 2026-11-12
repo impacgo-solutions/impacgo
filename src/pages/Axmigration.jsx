@@ -45,13 +45,13 @@ export default function AXMigration() {
     {
       question: "When does Microsoft AX 2012 support end?",
       answer:
-        "Microsoft ended mainstream support for Dynamics AX 2012 R3 in October 2021. Extended support ends in January 2028. After January 2028, Microsoft will no longer provide security patches, regulatory updates (including GST and TDS rule changes for Indian businesses), or hotfixes for AX 2012 — making it a compliance and security risk to continue running.",
+        "Microsoft ended mainstream support for Dynamics AX 2012 R3 in October 2021. Extended support ended on 10 January 2023. Since then, Microsoft no longer provides security patches, regulatory updates (including GST and TDS rule changes for Indian businesses), or hotfixes for AX 2012 — making it a growing compliance and security risk to continue running.",
     },
     {
       question:
         "How long does an AX 2012 to D365 Finance and Operations migration take?",
       answer:
-        "A straightforward AX 2012 migration with minimal customisations typically takes 9 to 12 months. A heavily customised AX 2012 environment with multiple integrated systems and 10+ years of transaction data can take 18 to 24 months. The migration assessment alone takes 4-8 weeks. Starting your migration project in 2026 leaves comfortable runway before the January 2028 deadline; starting in 2027 does not.",
+        "A straightforward AX 2012 migration with minimal customisations typically takes 9 to 12 months. A heavily customised AX 2012 environment with multiple integrated systems and 10+ years of transaction data can take 18 to 24 months. The migration assessment alone takes 4-8 weeks.",
     },
     {
       question:
@@ -67,9 +67,9 @@ export default function AXMigration() {
     },
     {
       question:
-        "Why should we start AX migration planning now if go-live is two years away?",
+        "Why should we start AX migration planning now?",
       answer:
-        "The full migration cycle takes longer than most companies expect: migration assessment (4-8 weeks) + partner procurement and contracting (2-4 months) + actual migration project (9-24 months). Starting in 2026 gives you runway to complete migration before January 2028 with time for stabilisation, regression testing, and user adoption. Starting in 2027 forces a rushed migration with no buffer for unexpected issues — a serious risk for enterprises running critical financial and operational processes on AX 2012.",
+        "The full migration cycle takes longer than most companies expect: migration assessment (4-8 weeks) + partner procurement and contracting (2-4 months) + actual migration project (9-24 months). Because AX 2012 is already out of support, every month of delay means more time on an unpatched, non-compliant system. Starting the assessment now gives you a planned, well-tested migration instead of a rushed one — essential for enterprises running critical financial and operational processes on AX 2012.",
     },
   ];
 
@@ -77,7 +77,7 @@ export default function AXMigration() {
     serviceName:
       "AX 2012 to Microsoft Dynamics 365 Finance and Operations Migration",
     description:
-      "Expert AX 2012 to D365 Finance and Operations migration services in India. Code upgrade, data migration, and reimplementation services for Indian enterprises before the January 2028 support deadline. Free migration readiness assessment.",
+      "Expert AX 2012 to D365 Finance and Operations migration services in India. Code upgrade, data migration, and reimplementation services for Indian enterprises still running AX 2012 after Microsoft's January 2023 end of support. Free migration readiness assessment.",
     serviceType: "ERP Migration",
     path: "/services/ax-migration",
   });
@@ -214,9 +214,9 @@ export default function AXMigration() {
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
       <SEO
-  title="AX 2012 to D365 Migration Partner | End of Support 2028 | Global Migration Specialists"
-  description="Specialist Microsoft Dynamics AX 2012 to D365 Finance & Operations migration services for global enterprises. Beat the January 2028 end-of-support deadline. Deep India compliance expertise (GST, e-invoicing, TDS). Multi-country rollout experience. Free migration assessment."
-  keywords="AX 2012 migration partner, Dynamics AX to D365 migration, AX 2012 end of support 2028, Dynamics AX 2012 R3 migration, D365FO migration services, AX 2012 to cloud migration, AX 2012 upgrade specialist, Microsoft Dynamics migration partner, AX 2012 migration India, AX 2012 migration consultant India, Dynamics 365 finance operations migration"
+  title="AX 2012 to D365 Migration Partner | AX 2012 End of Support | Global Migration Specialists"
+  description="Specialist Microsoft Dynamics AX 2012 to D365 Finance & Operations migration services for global enterprises. AX 2012 has been out of support since January 2023 — move safely to D365. Deep India compliance expertise (GST, e-invoicing, TDS). Multi-country rollout experience. Free migration assessment."
+  keywords="AX 2012 migration partner, Dynamics AX to D365 migration, AX 2012 end of support, AX 2012 unsupported, Dynamics AX 2012 R3 migration, D365FO migration services, AX 2012 to cloud migration, AX 2012 upgrade specialist, Microsoft Dynamics migration partner, AX 2012 migration India, AX 2012 migration consultant India, Dynamics 365 finance operations migration"
   path="/services/ax-migration"
   schema={[serviceSchema, faqSchema, breadcrumbSchema]}
 />
@@ -229,7 +229,7 @@ export default function AXMigration() {
           backgroundStyle="linear-gradient(135deg, #1e3a8a 0%, #1e40af 35%, #4338ca 100%)"
           image={financialimg}
           imageAlt="AX 2012 to D365 Migration"
-          eyebrow="AX 2012 Support Ends January 2028"
+          eyebrow="AX 2012 Out of Support Since January 2023"
           eyebrowIcon={AlertTriangle}
           title={
             <>
@@ -240,9 +240,9 @@ export default function AXMigration() {
               — Global Migration Specialists
             </>
           }
-          description="Microsoft extended support for AX 2012 R3 ends January 2028. Impacgo's specialist Microsoft Dynamics team has migrated enterprises from AX 2012 to D365 Finance and Operations with minimal disruption. Get a free migration readiness assessment."
+          description="Microsoft extended support for AX 2012 R3 ended in January 2023. Impacgo's specialist Microsoft Dynamics team has migrated enterprises from AX 2012 to D365 Finance and Operations with minimal disruption. Get a free migration readiness assessment."
           stats={[
-            { icon: Calendar, label: "Deadline", value: "Jan 2028" },
+            { icon: Calendar, label: "Support ended", value: "Jan 2023" },
             { label: "Typical migration", value: "9-24 months" },
             { label: "Assessment", value: "4-8 weeks" },
           ]}
@@ -254,13 +254,13 @@ export default function AXMigration() {
           panel={
             <HeroPanel
               eyebrow="Why act now"
-              title="Starting 2026 gives you runway. Starting 2027 doesn't."
+              title="Every month on unsupported AX 2012 adds risk."
               items={[
                 { number: 1, title: "Migration assessment", description: "4–8 weeks" },
                 { number: 2, title: "Partner procurement", description: "2–4 months" },
                 { number: 3, title: "Migration project", description: "9–24 months" },
               ]}
-              footnote="No security patches. No GST/regulatory updates. No hotfixes after Jan 2028."
+              footnote="No security patches, GST/regulatory updates or hotfixes since January 2023."
             />
           }
         />
@@ -271,8 +271,8 @@ export default function AXMigration() {
             <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-center md:text-left">
               <AlertTriangle className="h-8 w-8 text-red-600 flex-shrink-0" />
               <p className="text-red-900 text-base md:text-lg">
-                <span className="font-bold">Microsoft AX 2012 R3 extended support ends January 2028.</span>{" "}
-                After that date — no security patches, no GST/regulatory updates, no hotfixes.{" "}
+                <span className="font-bold">Microsoft AX 2012 R3 extended support ended on 10 January 2023.</span>{" "}
+                Since then — no security patches, no GST/regulatory updates, no hotfixes.{" "}
                 <button
                   onClick={() => navigate("/contact")}
                   className="underline font-semibold hover:text-red-700"
@@ -440,14 +440,14 @@ export default function AXMigration() {
             <div className="inline-flex items-center bg-red-500/20 border border-red-400/40 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
               <AlertTriangle className="h-4 w-4 text-red-300 mr-2" />
               <span className="text-sm font-semibold text-red-100">
-                Time-Sensitive: Jan 2028 Deadline
+                AX 2012 Out of Support Since 2023
               </span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Get Your Free AX 2012 Migration Readiness Assessment
             </h2>
             <p className="text-lg text-blue-100 mb-8">
-              Don't wait until 2027 to start planning. Get a no-obligation
+              Don't wait any longer to start planning. Get a no-obligation
               migration readiness assessment from Impacgo's Microsoft Dynamics
               specialists. We'll review your AX 2012 environment, recommend
               the right migration approach, and outline a realistic timeline

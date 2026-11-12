@@ -1,5 +1,3 @@
-import d365 from "../assets/d3651.webp";
-import crm from "../assets/crm.webp";
 import manufacturingImage from "../assets/manufacturing.webp";
 import supplyChain from "../assets/supplychain.webp";
 import retail from "../assets/retail.webp";
@@ -20,21 +18,26 @@ import {
   Smartphone, Globe, Workflow, BrainCircuit, Eye,
   TrendingUp, ShieldCheck, Zap, HeartHandshake,
   Layers, Target, LifeBuoy, Tractor, ClipboardList, Building2,
-  AlertTriangle, BarChart3, Sparkles, Heart,
+  AlertTriangle, BarChart3, Sparkles, Heart, HeartPulse, ShoppingCart,
 } from "lucide-react";
 import Header from "../components/Header";
 import SectionBlobs from "../components/SectionBlobs";
 import Footer from "../components/Footer";
 import Reveal, { RevealItem } from "../components/Reveal";
-import pos from "../assets/pos.webp";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import LocationMap from "../components/LocationMap";
 import ContactCard from "../components/ContactCard";
 import financial from "../assets/financialimg.webp";
 import health from "../assets/healthcare.webp";
 import resonac from "../assets/clients/Resonac.webp";
 import hitechi from "../assets/clients/hitechi.webp";
-import ironingboy from "../assets/clients/ironingboy.webp";   
+import ironingboy from "../assets/clients/ironingboy.webp";
+import pms from "../assets/clients/pms.webp";
+import etor from "../assets/clients/etor.webp";
+// TEMP-HIDDEN: Rosti logo — uncomment together with the Rosti entry in ClientLogosSection.
+// import rosti from "../assets/clients/rosti.webp";
+import daxonet from "../assets/clients/daxonet.webp";
+import { ERP_SITE_URL, erpModuleUrl } from "../config/erp";
 
 export default function HomePage() {
   // Header nav items like "Products"/"Services" link to "/#products" etc.
@@ -68,12 +71,12 @@ export default function HomePage() {
         <ServicesSection />
         <ERPImplementationSection />
         <AIAutomationSection />
-        {/* <AchievementsSection /> */}
         <ProductsAndERPSection />
         <WhyChooseUsSection />
-        {/* <ClientLogosSection /> */}
+        {/* <AchievementsSection /> */}
+        <ClientLogosSection />
         <ContactSection />
-        <LocationMap />
+        <LocationSection />
         <ContactCard />
       </main>
       <Footer />
@@ -95,8 +98,12 @@ function HeroSection() {
   const [currentService, setCurrentService] = useState(services[0]);
   const [isVisible, setIsVisible] = useState(true);
 
+  // Scroll to the first section below the hero (it fills the screen, so a
+  // fixed pixel offset stopped short on taller displays).
   const scrollToPosition = () => {
-    window.scrollTo({ top: 700, behavior: "smooth" });
+    const next = document.getElementById("industries");
+    if (next) next.scrollIntoView({ behavior: "smooth", block: "start" });
+    else window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
   };
 
   useEffect(() => {      
@@ -120,7 +127,6 @@ function HeroSection() {
       <img
         src={bgimg}
         alt="Business Team"
-        fetchPriority="high"
         className="absolute inset-0 w-full h-full object-cover opacity-20"
       />
 
@@ -142,16 +148,16 @@ function HeroSection() {
         </h1>
 
         <p className="text-xl md:text-2xl mb-8 max-w-3xl">
-          Your Technology Partner — From Strategy to Execution. We deliver
-          customer-focused services with complete transparency and strong
-          business ethics.
+          Your technology partner from strategy to go-live — Microsoft
+          Dynamics 365, AI and our own Impacgo ERP, delivered with complete
+          transparency.
         </p>
 
         <button
           className="bg-white text-blue-600 px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-100 active:scale-95 transition-all duration-300"
           onClick={scrollToPosition}
         >
-          Learn More
+          Explore Our Solutions
         </button>
       </div>
 
@@ -177,7 +183,7 @@ function IndustriesSection() {
       name: "Trading & Distribution",
       description: "Multi-site trading operations, inventory control, and ERP-integrated distribution networks.",
       image: supplyChain,
-      path: "/industries/distribution", // No page yet
+      path: "/industries/distribution",
     },
    {
   name: "Retail & E-Commerce",
@@ -223,28 +229,52 @@ function IndustriesSection() {
             <RevealItem
               key={industry.name}
               index={index}
+              {...(industry.path
+                ? {
+                    role: "button",
+                    tabIndex: 0,
+                    "aria-labelledby": `industry-title-${index}`,
+                    onKeyDown: (e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        navigate(industry.path);
+                      }
+                    },
+                  }
+                : {})}
               onClick={() => industry.path && navigate(industry.path)}
-              whileHover={{ y: -6 }}
-              className={`bg-white/70 backdrop-blur-xl border border-white/60 shadow-glass hover:shadow-glass-lg hover:bg-white/90 rounded-2xl overflow-hidden transition-all duration-300 ${
-                industry.path ? "cursor-pointer" : ""
+              whileHover={industry.path ? { y: -6 } : undefined}
+              className={`bg-white/70 backdrop-blur-xl border border-white/60 shadow-glass rounded-2xl overflow-hidden transition-all duration-300 ${
+                industry.path
+                  ? "cursor-pointer hover:shadow-glass-lg hover:bg-white/90 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                  : "opacity-90"
               }`}
             >
-              <div className="relative h-48">
+              {/* object-contain, not object-cover — every source illustration
+                  already sits on its own white background, so shrinking the
+                  whole image to fit (never cropping it) leaves no visible
+                  seam against this white container: no more losing content
+                  off the edges the way object-cover's crop did (up to 57% of
+                  the square 1:1 images). h-48 + p-3 sizes the image itself
+                  larger than the first pass (h-40 + p-4 read as too small),
+                  while still landing well short of the original 484px card
+                  height. */}
+              <div className="relative h-48 bg-white p-3">
                 <img
                   src={industry.image}
                   alt={industry.name}
                   loading="lazy"
-                  className="w-full h-full object-cover img-fade"
+                  className="w-full h-full object-contain img-fade"
                   onLoad={(e) => e.currentTarget.classList.add("img-fade-loaded")}
                 />
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2">
+              <div className="p-4">
+                <h3 id={`industry-title-${index}`} className="text-lg font-semibold mb-1">
                   {industry.name}
                 </h3>
-                <p className="text-gray-600">{industry.description}</p>
+                <p className="text-gray-600 line-clamp-2 text-sm">{industry.description}</p>
                 {industry.path && (
-                  <p className="text-blue-600 text-sm font-medium mt-3">
+                  <p className="text-blue-600 text-sm font-medium mt-2">
                     Learn more →
                   </p>
                 )}
@@ -262,6 +292,28 @@ function IndustriesSection() {
 /* ---------------------- OUR SERVICES (Slide 2) ---------------------- */
 const SERVICES_VISIBLE_COUNT = 8;
 
+// Every card previously used the same blue icon badge (except the one red
+// "Urgent" highlight), which read as flat/monochrome next to the colorful
+// Industries, ERP, and AI & Automation sections around it. This gives each
+// service its own light, professional accent (kept to Tailwind's -100/-600
+// pairing throughout — no dark fills) instead of a full card-color redesign,
+// so the grid gains variety without losing the clean white-card look.
+// Written as complete literal class strings (not built from a color name at
+// render time) because Tailwind's JIT only picks up classes it can find
+// verbatim in the source text.
+const SERVICE_ACCENTS = {
+  indigo: { badgeBg: "bg-indigo-100 group-hover:bg-indigo-600", iconColor: "text-indigo-600 group-hover:text-white", linkColor: "text-indigo-600" },
+  blue: { badgeBg: "bg-blue-100 group-hover:bg-blue-600", iconColor: "text-blue-600 group-hover:text-white", linkColor: "text-blue-600" },
+  violet: { badgeBg: "bg-violet-100 group-hover:bg-violet-600", iconColor: "text-violet-600 group-hover:text-white", linkColor: "text-violet-600" },
+  teal: { badgeBg: "bg-teal-100 group-hover:bg-teal-600", iconColor: "text-teal-600 group-hover:text-white", linkColor: "text-teal-600" },
+  emerald: { badgeBg: "bg-emerald-100 group-hover:bg-emerald-600", iconColor: "text-emerald-600 group-hover:text-white", linkColor: "text-emerald-600" },
+  amber: { badgeBg: "bg-amber-100 group-hover:bg-amber-600", iconColor: "text-amber-600 group-hover:text-white", linkColor: "text-amber-600" },
+  rose: { badgeBg: "bg-rose-100 group-hover:bg-rose-600", iconColor: "text-rose-600 group-hover:text-white", linkColor: "text-rose-600" },
+  cyan: { badgeBg: "bg-cyan-100 group-hover:bg-cyan-600", iconColor: "text-cyan-600 group-hover:text-white", linkColor: "text-cyan-600" },
+  purple: { badgeBg: "bg-purple-100 group-hover:bg-purple-600", iconColor: "text-purple-600 group-hover:text-white", linkColor: "text-purple-600" },
+  orange: { badgeBg: "bg-orange-100 group-hover:bg-orange-600", iconColor: "text-orange-600 group-hover:text-white", linkColor: "text-orange-600" },
+};
+
 function ServicesSection() {
   const navigate = useNavigate();
   const [showAllServices, setShowAllServices] = useState(false);
@@ -271,7 +323,7 @@ function ServicesSection() {
       icon: AlertTriangle,
       title: "AX 2012 → D365 Migration",
       description:
-        "Migrate before the January 2028 Microsoft deadline — board-mandated upgrade for AX 2012 users",
+        "AX 2012 has been out of Microsoft support since January 2023 — move to D365 F&O safely, with minimal disruption",
       path: "/services/ax-migration",
       highlight: true,
     },
@@ -280,24 +332,28 @@ function ServicesSection() {
   title: "Dynamics 365 CRM",
   description: "D365 Sales, Customer Service, Marketing & Field Service — natively connected to D365 F&O",
   path: "/services/d365-crm",
+  accent: "indigo",
 },
     {
       icon: Database,
       title: "ERP Implementation",
       description: "Microsoft D365 F&O and our own Impacgo ERP for every business size",
       path: "/services/d365",
+      accent: "blue",
     },
     {
       icon: Factory,
       title: "MES Systems",
       description: "Manufacturing Execution System deployment & support",
       path: "/services/mes",
+      accent: "violet",
     },
     {
       icon: Bot,
       title: "AI & Automation",
       description: "Intelligent automation, AI chatbots & process efficiency",
       path: "/services/ai-automation",
+      accent: "teal",
     },
     {
       icon: Package,
@@ -305,12 +361,14 @@ function ServicesSection() {
       description:
         "End-to-end custom product ideation, design and development",
       path: "/services/app-development",
+      accent: "emerald",
     },
     {
   icon: Code2,
   title: "D365FO Development & Customisation",
   description: "X++ extensions, custom forms, integrations & ALM with Azure DevOps — upgrade-safe D365FO code",
   path: "/services/d365-development",
+  accent: "amber",
 },
 
     {
@@ -318,51 +376,85 @@ function ServicesSection() {
       title: "Integrations",
       description: "Seamless API & system integrations across platforms",
       path: "/services/integrations",
+      accent: "rose",
     },
     {
       icon: Lightbulb,
       title: "Consulting",
       description: "Strategic technology advisory & transformation services",
       path: "/services/consulting",
+      accent: "cyan",
     },
     {
       icon: Rocket,
       title: "Digital Transformation",
       description: "End-to-end business modernisation journeys",
       path: "/services/consulting",
+      accent: "purple",
     },
     {
     icon: Smartphone,
     title: "Power Apps Development",
     description: "Custom canvas & model-driven apps connected to D365FO — delivered in 4-8 weeks",
     path: "/services/power-apps",
+    accent: "orange",
   },
   {
     icon: Workflow,
     title: "Power Automate Consulting",
     description: "Approval workflows, document automation & RPA — connecting D365, M365, and 500+ systems",
     path: "/services/power-automate",
+    accent: "indigo",
   },
   {
     icon: BarChart3,
     title: "Power BI Implementation",
     description: "Live dashboards on D365FO — replace Excel month-end reports with real-time analytics",
     path: "/services/power-bi",
+    accent: "blue",
   },
   {
     icon: Sparkles,
     title: "AI Builder Integration",
     description: "Invoice OCR, prediction models & sentiment AI embedded into your Power Platform workflows",
     path: "/services/ai-builder",
+    accent: "violet",
   },
     {
   icon: Globe,
   title: "Application Development",
   description: "Mobile & Web Apps built for scale and performance",
   path: "/services/app-development",
+  accent: "teal",
 },
-    
-    
+    {
+      icon: ShoppingCart,
+      title: "POS Solutions",
+      description: "Cloud POS and D365 Commerce integration — payments, inventory sync, and omnichannel retail",
+      path: "/services/pos",
+      accent: "emerald",
+    },
+    {
+      icon: ClipboardList,
+      title: "ERP Implementation Methodology",
+      description: "Structured discovery-to-go-live rollout for D365 F&O and Impacgo ERP deployments",
+      path: "/services/implementation",
+      accent: "amber",
+    },
+    {
+      icon: Layers,
+      title: "Custom Software Development",
+      description: "Custom ERP extensions, web apps, and integrations built around your exact processes",
+      path: "/services/development",
+      accent: "rose",
+    },
+    {
+      icon: LifeBuoy,
+      title: "Application Managed Services (AMS)",
+      description: "SLA-backed post-go-live support, enhancements, and performance tuning for your D365 environment",
+      path: "/services/ams",
+      accent: "cyan",
+    },
   ];
 
   const handleKeyDown = (e, path) => {
@@ -391,6 +483,7 @@ function ServicesSection() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {visibleServices.map((service, index) => {
   const Icon = service.icon;
+  const accent = SERVICE_ACCENTS[service.accent] || SERVICE_ACCENTS.blue;
   return (
     <RevealItem
       key={service.title}
@@ -418,14 +511,14 @@ function ServicesSection() {
         className={`w-14 h-14 rounded-full flex items-center justify-center mb-4 transition-colors duration-300 ${
           service.highlight
             ? "bg-red-100 group-hover:bg-red-600"
-            : "bg-blue-100 group-hover:bg-blue-600"
+            : accent.badgeBg
         }`}
       >
         <Icon
           className={`h-7 w-7 transition-colors duration-300 ${
             service.highlight
               ? "text-red-600 group-hover:text-white"
-              : "text-blue-600 group-hover:text-white"
+              : accent.iconColor
           }`}
         />
       </div>
@@ -443,7 +536,7 @@ function ServicesSection() {
       {/* Click affordance — centered */}
       <div
         className={`flex items-center justify-center text-sm font-medium mt-auto ${
-          service.highlight ? "text-red-600" : "text-blue-600"
+          service.highlight ? "text-red-600" : accent.linkColor
         }`}
       >
         <span>Learn more</span>
@@ -512,7 +605,8 @@ function ERPImplementationSection() {
       title: "Impacgo ERP",
       subtitle: "One Connected Business Platform",
       gradient: "from-teal-500 to-green-600",
-      path: "/#erp-products",
+      // Opens the Impacgo ERP site (separate app at /erp-suite — full page load).
+      path: ERP_SITE_URL,
       items: [
         "Workforce Management (HRMS)",
         "Accounting & Compliance",
@@ -520,13 +614,15 @@ function ERPImplementationSection() {
         "Manufacturing",
         "Planning & MRP",
         "POS & Store Operations",
+        "Project & Delivery Management",
       ],
     },
   ];
 
   return (
-    <section id="erp-implementation" className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4">
+    <section id="erp-implementation" className="relative py-20 bg-gray-50 overflow-hidden">
+      <SectionBlobs colorA="bg-green-300/25" colorB="bg-blue-300/20" flip />
+      <div className="relative z-10 container mx-auto px-4">
         <Reveal className="text-center mb-12">
           <p className="uppercase tracking-widest text-blue-600 font-semibold mb-2 text-sm">
             ERP Implementation
@@ -568,6 +664,9 @@ function ERPImplementationSection() {
                       document
                         .getElementById(erp.path.slice(2))
                         ?.scrollIntoView({ behavior: "smooth" });
+                    } else if (erp.path === ERP_SITE_URL) {
+                      // Separate app: must be a full page load, not a router navigation.
+                      window.location.assign(erp.path);
                     } else {
                       navigate(erp.path);
                     }
@@ -685,12 +784,17 @@ function AIAutomationSection() {
 }
 
 /* ---------------------- ACHIEVEMENTS ---------------------- */
+// Figures supplied directly by Impacgo — not derived from other copy on the
+// site, since e.g. "20+ Years Experience" reflects the team's combined
+// industry background rather than Impacgo Solutions' own incorporation date
+// (see About page's "Founded 2020").
+// Not rendered right now — kept so the section can be switched back on.
+// eslint-disable-next-line no-unused-vars
 function AchievementsSection() {
   const achievements = [
-    { value: "20+", label: "Years of Experience" },
-    { value: "15+", label: "Global Implementations" },
-    { value: "8+", label: "Countries Served" },
-    { value: "10+", label: "Industries Supported" },
+    { value: "20+", label: "Years Experience" },
+    { value: "50+", label: "Projects Delivered" },
+    { value: "15+", label: "Happy Clients" },
   ];
 
   return (
@@ -700,7 +804,7 @@ function AchievementsSection() {
           Our Achievements
         </h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-3xl mx-auto text-center">
           {achievements.map((item) => (
             <div
               key={item.label}
@@ -735,6 +839,12 @@ function AchievementsSection() {
 // same as before this section existed, just shorter.
 const PRODUCTS_PREVIEW_COUNT = 3;
 const MODULES_PREVIEW_COUNT = 3;
+
+// TEMP-HIDDEN: the Impacgo ERP Suite module grid under "What We Build".
+// Impacgo ERP is already covered on the homepage by the "ERP Implementation"
+// card (its Know More opens the ERP site) and by the header's Products link,
+// so the grid was a repeat. Set to true to show it again.
+const SHOW_ERP_SUITE_BLOCK = false;
 
 function ProductsAndERPSection() {
   const navigate = useNavigate();
@@ -798,6 +908,21 @@ function ProductsAndERPSection() {
       gradient: "from-emerald-600 to-amber-600",
     },
     {
+      icon: HeartPulse,
+      name: "Family Health Records Platform (HEALTHVAULT)",
+      description: "Digital health vault with AI insights for the whole family.",
+      features: [
+        "OCR-scanned prescriptions, reports & scans — auto-filed per member",
+        "AI health insights, risk analysis & personalized recommendations",
+        "Family profiles, vitals tracking, reminders & emergency QR card",
+      ],
+      image: health,
+      path: "/products/health-vault",
+      landingPage: { path: "/healthvault", label: "Explore HealthVault" },
+      tag: "📱 Mobile App",
+      gradient: "from-blue-600 to-teal-500",
+    },
+    {
       icon: ClipboardList,
       name: "Work Task Application",
       description: "Consultant & employee time tracking, project-based.",
@@ -839,8 +964,8 @@ function ProductsAndERPSection() {
         <Reveal className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">What We Build</h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Purpose-built software products, and our own in-house Impacgo ERP Suite — built by
-            Impacgo, for real operational gaps.
+            Purpose-built software for real operational challenges — focused apps for dairy,
+            inventory, farmland and family health, and the Impacgo ERP Suite to run your entire business.
           </p>
         </Reveal>
 
@@ -849,7 +974,10 @@ function ProductsAndERPSection() {
             from the tree), so search/AI crawlers still see all of them
             regardless of whether "Show More" was ever clicked. */}
         <div className="mb-20">
-        <h3 className="text-2xl font-bold text-gray-800 text-center mb-8">Our Products</h3>
+        {/* Sub-heading only needed to separate the products from the ERP Suite grid. */}
+        {SHOW_ERP_SUITE_BLOCK && (
+          <h3 className="text-2xl font-bold text-gray-800 text-center mb-8">Our Products</h3>
+        )}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {products.map((product, index) => {
             const Icon = product.icon;
@@ -931,22 +1059,64 @@ function ProductsAndERPSection() {
         )}
         </div>
 
+        {/* IMPACGO ERP SUITE callout — one compact banner that introduces the
+            suite and sends visitors to the ERP site (a separate app at
+            /erp-suite, so plain <a> links / full page loads). Uses the same
+            card, teal-green header, chips and buttons as the rest of the page. */}
+        <Reveal className="mt-14">
+          <div className="bg-white/70 backdrop-blur-xl rounded-2xl shadow-glass overflow-hidden hover:shadow-glass-lg hover:bg-white/90 transition-all duration-300 border border-white/60 grid grid-cols-1 md:grid-cols-5">
+            <div className="bg-gradient-to-r from-teal-500 to-green-600 p-6 md:p-8 text-white md:col-span-2 flex flex-col justify-center">
+              <span className="inline-block w-fit bg-white/20 backdrop-blur-sm text-xs font-semibold px-3 py-1 rounded-full mb-3 tracking-wider">
+                IMPACGO'S OWN PLATFORM
+              </span>
+              <h3 className="text-2xl md:text-3xl font-bold">Impacgo ERP Suite</h3>
+              <p className="text-white/90 mt-1">One connected platform to run your entire business</p>
+            </div>
+            <div className="p-6 md:p-8 md:col-span-3 flex flex-col justify-center">
+              <p className="text-gray-600 mb-4">
+                Seven modules that work from one shared set of data — so every department plans,
+                works and reports in one place instead of across separate tools and spreadsheets.
+              </p>
+              <div className="flex flex-wrap gap-2 mb-6">
+                {["HR & Payroll", "Finance", "Supply Chain", "Manufacturing", "Planning & MRP", "Retail & POS", "Projects"].map((m) => (
+                  <span key={m} className="text-xs font-medium bg-gray-100 text-gray-700 px-2.5 py-1 rounded-full">
+                    {m}
+                  </span>
+                ))}
+              </div>
+              <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+                <a
+                  href={ERP_SITE_URL}
+                  className="inline-flex items-center gap-2 bg-blue-600 text-white py-2 px-6 rounded-full hover:bg-blue-700 active:scale-95 transition-all"
+                >
+                  Explore Impacgo ERP <span aria-hidden="true">→</span>
+                </a>
+                <a
+                  href={`${ERP_SITE_URL}/demo`}
+                  className="text-blue-600 font-semibold text-sm hover:text-blue-800 underline underline-offset-4 transition-colors"
+                >
+                  Book a free demo
+                </a>
+              </div>
+            </div>
+          </div>
+        </Reveal>
+
         {/* IMPACGO ERP SUITE — same "always in the DOM, preview + Show More"
             pattern as Our Products above. Card content stays "basic" here —
             module name, one-line description, a handful of capability chips
             — the full pitch (workflows, module breakdown, benefits, FAQ)
             lives on each module's own detail page at /erp/:slug
             (src/pages/erp/ERPModuleDetail.jsx). Data is shared from
-            src/data/erpModules.js so the two never drift apart. */}
+            src/data/erpModules.js so the two never drift apart.
+            Hidden for now — see SHOW_ERP_SUITE_BLOCK above. */}
+        {SHOW_ERP_SUITE_BLOCK && (
         <div>
         <div id="erp-products" className="text-center mb-8 scroll-mt-24">
-          <span className="inline-block bg-amber-100 text-amber-800 text-xs font-bold px-4 py-1.5 rounded-full tracking-wide mb-4">
-            IN DEVELOPMENT
-          </span>
           <h3 className="text-2xl font-bold text-gray-800 mb-3">Impacgo ERP Suite</h3>
           <p className="text-gray-500 text-sm max-w-2xl mx-auto">
             Our own suite of business applications — HR, Finance, Supply Chain, Manufacturing,
-            Planning and Retail — built as one connected system. Click a module for the full picture.
+            Planning, Retail and Projects — built as one connected system. Choose a module to explore it.
           </p>
         </div>
 
@@ -956,18 +1126,16 @@ function ProductsAndERPSection() {
             const isPreviewHidden = index >= MODULES_PREVIEW_COUNT && !showAllModules;
             return (
               <RevealItem key={mod.name} index={Math.min(index, MODULES_PREVIEW_COUNT)} className={isPreviewHidden ? "hidden" : ""}>
-              <Link
+              {/* Plain <a>: the ERP site is a separate app (see src/config/erp.js). */}
+              <a
                 id={`erp-${mod.slug}`}
-                to={`/erp/${mod.slug}`}
+                href={erpModuleUrl(mod.slug)}
                 className="group block h-full bg-white/70 backdrop-blur-xl rounded-2xl shadow-glass hover:shadow-glass-lg hover:bg-white/90 transition-all duration-300 border border-white/60 hover:border-white/80 p-6 scroll-mt-28 hover:-translate-y-1"
               >
                 <div className="flex items-start justify-between mb-4">
                   <div className={`h-12 w-12 rounded-xl flex items-center justify-center ${colorClasses[mod.color]}`}>
                     <Icon className="h-6 w-6" />
                   </div>
-                  <span className="text-[10px] font-bold uppercase tracking-wide bg-amber-100 text-amber-700 px-2.5 py-1 rounded-full">
-                    In Development
-                  </span>
                 </div>
 
                 <h3 className="text-lg font-bold text-gray-800">Impacgo {mod.name}</h3>
@@ -990,7 +1158,7 @@ function ProductsAndERPSection() {
                 <span className="inline-flex items-center gap-1 text-sm font-semibold text-blue-600 group-hover:gap-2 transition-all">
                   Learn more <span aria-hidden="true">→</span>
                 </span>
-              </Link>
+              </a>
               </RevealItem>
             );
           })}
@@ -1009,6 +1177,7 @@ function ProductsAndERPSection() {
           </div>
         )}
         </div>
+        )}
       </div>
     </section>
   );
@@ -1124,12 +1293,39 @@ function ClientLogosSection() {
     { name: "Resonac", logo: resonac },
     { name: "Hitachi", logo: hitechi },
     { name: "Ironing Boy", logo: ironingboy },
+    { name: "Perfect Model Solutions", logo: pms },
+    { name: "ETOR", logo: etor },
+    // TEMP-HIDDEN: uncomment this + the rosti import at the top to restore.
+    // { name: "Rosti", logo: rosti },
+    { name: "Daxonet", logo: daxonet },
   ];
 
+  // Rendered twice back-to-back to form the marquee track (see .logo-marquee
+  // CSS in index.css) — the animation slides the track left by exactly the
+  // width of one copy, so the loop point is invisible. The second copy is
+  // aria-hidden since it's a visual duplicate, not new content for screen
+  // readers / crawlers.
+  const renderLogos = (isDuplicate) =>
+    clients.map((client) => (
+      <div
+        key={`${client.name}-${isDuplicate ? "dup" : "orig"}`}
+        aria-hidden={isDuplicate || undefined}
+        className="flex-shrink-0 flex items-center justify-center h-14 px-8 md:px-10"
+      >
+        <img
+          src={client.logo}
+          alt={isDuplicate ? "" : client.name}
+          loading="lazy"
+          className="h-8 md:h-10 w-auto max-w-[140px] object-contain opacity-75 hover:opacity-100 transition duration-300"
+        />
+      </div>
+    ));
+
   return (
-    <section className="py-16 bg-gray-50">
-      <div className="container mx-auto px-4">
-        <Reveal className="text-center mb-6">
+    <section className="relative py-16 bg-gray-50 overflow-hidden">
+      <SectionBlobs colorA="bg-purple-300/20" colorB="bg-teal-300/20" />
+      <div className="relative z-10 container mx-auto px-4">
+        <Reveal className="text-center mb-10">
           <p className="text-3xl md:text-4xl font-bold text-gray-800 mb-1">
             Our Clients
           </p>
@@ -1137,24 +1333,12 @@ function ClientLogosSection() {
             Trusted by Leading Global Enterprises
           </h3>
         </Reveal>
+      </div>
 
-        <div className="flex md:flex-wrap items-center justify-start md:justify-center gap-x-10 overflow-x-auto md:overflow-visible scrollbar-hide px-2">
-          {clients.map((client, index) => (
-            <RevealItem
-              key={client.name}
-              index={index}
-              className="flex-shrink-0 flex items-center justify-center h-7"
-            >
-              <img
-                src={client.logo}
-                alt={client.name}
-                loading="lazy"
-                width="120"
-                height="28"
-                className="h-6 md:h-5 lg:h-7 w-auto object-contain opacity-80 hover:opacity-100 transition duration-300"
-              />
-            </RevealItem>
-          ))}
+      <div className="relative z-10 logo-marquee">
+        <div className="logo-marquee-track">
+          {renderLogos(false)}
+          {renderLogos(true)}
         </div>
       </div>
     </section>
@@ -1375,6 +1559,28 @@ function ContactSection() {
             </p>
           )}
         </Reveal>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------------- LOCATION ---------------------- */
+// Same contained/padded/rounded treatment as the LocationMap on the About
+// page (src/pages/About.jsx) — previously this was dropped in raw between
+// <main> children with no section, container, or padding, so the map sat
+// edge-to-edge and broke the padded-card rhythm every other section follows.
+function LocationSection() {
+  return (
+    <section className="relative py-16 md:py-20 bg-gray-50 overflow-hidden">
+      <SectionBlobs colorA="bg-blue-300/20" colorB="bg-indigo-300/20" />
+      <div className="relative z-10 container mx-auto px-4 max-w-4xl">
+        <Reveal className="text-center mb-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">Where We're Based</h2>
+          <p className="text-gray-600">Visakhapatnam, Andhra Pradesh, India — serving global enterprises.</p>
+        </Reveal>
+        <RevealItem index={0}>
+          <LocationMap />
+        </RevealItem>
       </div>
     </section>
   );

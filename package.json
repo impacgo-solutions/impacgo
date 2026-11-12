@@ -6,9 +6,15 @@
   "homepage": "https://impacgo-solutions.github.io/impacgo",
   "scripts": {
     "dev": "vite",
+    "dev:all": "node scripts/dev-all.mjs",
+    "dev:erp": "npm --prefix erp run dev",
+    "build:erp": "npm --prefix erp run build",
+    "lint:erp": "npm --prefix erp run lint",
+    "setup": "npm install && npm --prefix erp install",
     "build": "vite build",
     "postbuild": "node scripts/prerender.mjs",
     "preview": "vite preview",
+    "lint": "eslint .",
     "optimize-images": "node scripts/optimize-images.mjs",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"

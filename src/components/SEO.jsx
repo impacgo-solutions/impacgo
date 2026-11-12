@@ -20,6 +20,7 @@ export default function SEO({
   image = "/logo.png",
   schema,
   type = "website",
+  noindex = false,
 }) {
   const siteUrl = "https://www.impacgo.com";
   const fullUrl = `${siteUrl}${path}`;
@@ -50,8 +51,15 @@ export default function SEO({
       <meta name="twitter:image" content={fullImage} />
 
       {/* Robots */}
-      <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-      <meta name="googlebot" content="index, follow" />
+      <meta
+        name="robots"
+        content={
+          noindex
+            ? "noindex, nofollow"
+            : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+        }
+      />
+      <meta name="googlebot" content={noindex ? "noindex, nofollow" : "index, follow"} />
 
       {/* Language & Geo (helps with India-specific ranking) */}
       <meta httpEquiv="Content-Language" content="en-IN" />

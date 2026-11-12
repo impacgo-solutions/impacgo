@@ -1,18 +1,35 @@
+import { Link } from 'react-router-dom'
 import Logo from './Logo.jsx'
 import Icon from './Icon.jsx'
 
+// Every footer link points at a real section of the StockLyte page or a real
+// Impacgo page. Section links (#...) stay as plain anchors; routes use Link.
 const COLUMNS = [
   {
-    title: 'Systems',
-    links: ['Command Center', 'Vision App', 'Native APIs', 'Pricing'],
+    title: 'Product',
+    links: [
+      { label: 'Overview', href: '#product' },
+      { label: 'Features', href: '#features' },
+      { label: 'Security', href: '#security' },
+      { label: 'Solutions', href: '#solutions' },
+    ],
   },
   {
-    title: 'Resources',
-    links: ['Documentation', 'Case Studies', 'Security Hub', 'Changelog'],
+    title: 'Company',
+    links: [
+      // TEMP-HIDDEN: About page is hidden — uncomment when the /about route is restored.
+      // { label: 'About Impacgo', to: '/about' },
+      { label: 'Blog', to: '/blog' },
+      { label: 'Contact', to: '/contact' },
+      { label: 'Get Started', to: '/stocklyte/signup' },
+    ],
   },
   {
-    title: 'Governance',
-    links: ['Privacy', 'Terms of Ops', 'Uptime SLA', 'Compliance'],
+    title: 'Legal',
+    links: [
+      { label: 'Privacy Policy', to: '/privacy' },
+      { label: 'Terms of Service', to: '/terms' },
+    ],
   },
 ]
 
@@ -33,15 +50,27 @@ export default function Footer() {
             <div className="flex gap-4">
               <a
                 className="size-10 glass rounded-xl flex items-center justify-center hover:text-stocklyte-primary transition-colors border-gradient"
-                href="#"
+                href="/"
+                aria-label="Impacgo website"
+                title="Impacgo website"
               >
                 <Icon name="public" className="text-sm" />
               </a>
               <a
                 className="size-10 glass rounded-xl flex items-center justify-center hover:text-stocklyte-primary transition-colors border-gradient"
-                href="#"
+                href="mailto:info@impacgo.com"
+                aria-label="Email us"
+                title="Email us"
               >
                 <Icon name="alternate_email" className="text-sm" />
+              </a>
+              <a
+                className="size-10 glass rounded-xl flex items-center justify-center hover:text-stocklyte-primary transition-colors border-gradient"
+                href="tel:+919966477499"
+                aria-label="Call us: +91 99664 77499"
+                title="Call us: +91 99664 77499"
+              >
+                <Icon name="call" className="text-sm" />
               </a>
             </div>
           </div>
@@ -53,10 +82,16 @@ export default function Footer() {
               </h5>
               <ul className="space-y-5 text-stocklyte-on-surface-variant text-sm font-medium">
                 {col.links.map((link) => (
-                  <li key={link}>
-                    <a className="hover:text-stocklyte-primary transition-colors" href="#">
-                      {link}
-                    </a>
+                  <li key={link.label}>
+                    {link.to ? (
+                      <Link className="hover:text-stocklyte-primary transition-colors" to={link.to}>
+                        {link.label}
+                      </Link>
+                    ) : (
+                      <a className="hover:text-stocklyte-primary transition-colors" href={link.href}>
+                        {link.label}
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -65,14 +100,7 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-8 pt-12 border-t border-stocklyte-outline-variant/5 text-[10px] text-stocklyte-on-surface-variant font-stocklyte-data tracking-widest uppercase">
-          <p>&copy; {new Date().getFullYear()} StockLyte impacgo. (A Global Ledger Entity)</p>
-          <div className="flex items-center gap-8">
-            <span>Region: GLOBAL_AWS_01</span>
-            <span className="flex items-center gap-2 text-stocklyte-secondary">
-              <span className="size-2 bg-stocklyte-secondary rounded-full animate-pulse"></span>
-              Status: Nominal
-            </span>
-          </div>
+          <p>&copy; {new Date().getFullYear()} StockLyte by Impacgo Solutions. All rights reserved.</p>
         </div>
       </div>
     </footer>

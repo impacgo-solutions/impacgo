@@ -5,7 +5,7 @@
 ## Services
 
 - [Dynamics 365 F&O Implementation](https://www.impacgo.com/services/d365)
-- [AX 2012 to D365 Migration](https://www.impacgo.com/services/ax-migration) — Microsoft AX 2012 extended support ends January 2028
+- [AX 2012 to D365 Migration](https://www.impacgo.com/services/ax-migration) — Microsoft AX 2012 R3 extended support ended 10 January 2023
 - [D365FO Development & Customisation](https://www.impacgo.com/services/d365-development)
 - [Dynamics 365 CRM](https://www.impacgo.com/services/d365-crm) — Sales, Customer Service, Marketing, Field Service
 - [Power Apps Development](https://www.impacgo.com/services/power-apps)
@@ -29,15 +29,17 @@
 
 ## Impacgo ERP Suite
 
-Our own in-house business platform, built as one connected system. Currently in active development.
+Our own in-house business platform, built as one connected system. Impacgo HRMS, Finance, Chain, Make and Retail are available today — book a free demo at https://www.impacgo.com/erp-suite/demo.
 
-- [Impacgo HRMS](https://www.impacgo.com/erp/hrms) — workforce management
-- [Impacgo Finance](https://www.impacgo.com/erp/finance) — accounting & compliance across legal entities
-- [Impacgo Chain](https://www.impacgo.com/erp/chain) — supply chain management (CRM to logistics)
-- [Impacgo Make](https://www.impacgo.com/erp/make) — manufacturing
-- [Impacgo Plan](https://www.impacgo.com/erp/plan) — planning & MRP
-- [Impacgo Retail](https://www.impacgo.com/erp/retail) — POS & store operations
-- [Impacgo Project](https://www.impacgo.com/erp/project) — project & delivery management
+- [Impacgo ERP — overview](https://www.impacgo.com/erp-suite) — the full ERP suite site
+- [Book a free Impacgo ERP demo](https://www.impacgo.com/erp-suite/demo)
+- [Impacgo HRMS](https://www.impacgo.com/erp-suite#module-hrms) — workforce management
+- [Impacgo Finance](https://www.impacgo.com/erp-suite#module-finance) — accounting & compliance across legal entities
+- [Impacgo Chain](https://www.impacgo.com/erp-suite#module-chain) — supply chain management (CRM to logistics)
+- [Impacgo Make](https://www.impacgo.com/erp-suite#module-make) — manufacturing
+- [Impacgo Plan](https://www.impacgo.com/erp-suite#module-plan) — planning & MRP
+- [Impacgo Retail](https://www.impacgo.com/erp-suite#module-retail) — POS & store operations
+- [Impacgo Project](https://www.impacgo.com/erp-suite#module-project) — project & delivery management
 
 ## Industries
 
@@ -47,7 +49,9 @@ Our own in-house business platform, built as one connected system. Currently in 
 
 ## More
 
+<!-- TEMP-HIDDEN: restore when the /about route is restored.
 - [About](https://www.impacgo.com/about) — company story, founder, and clients
+-->
 - [Blog](https://www.impacgo.com/blog) — Dynamics 365, AX migration, and Power Platform articles
 - [FAQ](https://www.impacgo.com/faq)
-- [Contact](https://www.impacgo.com/contact)
+- [Contact](https://www.impacgo.com/contact) — email info@impacgo.com, phone +91 99664 77499

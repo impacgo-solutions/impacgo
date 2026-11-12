@@ -44,8 +44,8 @@ export default function Footer() {
           © 2026 Impacgo FarmYieldIQ. Built for plotted-land operators.
         </p>
         <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 sm:gap-8 text-[11px] text-white/50 font-medium uppercase tracking-wider">
-          <a className="hover:text-white transition-colors" href="#">Privacy Policy</a>
-          <a className="hover:text-white transition-colors" href="#">Terms of Service</a>
+          <a className="hover:text-white transition-colors" href="/privacy">Privacy Policy</a>
+          <a className="hover:text-white transition-colors" href="/terms">Terms of Service</a>
         </div>
       </div>
     </footer>

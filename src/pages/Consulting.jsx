@@ -12,7 +12,6 @@ import {
   FaHandshake,
   FaSearch,
   FaCogs,
-  FaTools,
 } from "react-icons/fa";
 import { MdOutlineEngineering, MdOutlineSupportAgent } from "react-icons/md";
 import Header from "../components/Header";
@@ -77,7 +76,7 @@ const consultingFeatures = [
 
 const consultingBenefits = [
   {
-    title: "19+ Years Experience",
+    title: "20+ Years Experience",
     description:
       "Senior consultants with deep manufacturing, distribution, and services domain experience.",
     icon: FaUsers,
@@ -156,7 +155,7 @@ export default function Consulting() {
   },
   {
     question: "How experienced are your consultants?",
-    answer: "Our senior consultants bring 19+ years of combined experience across manufacturing, distribution, retail, healthcare, and financial services. We have led ERP implementations, digital transformations, and AI adoption journeys across global enterprises.",
+    answer: "Our senior consultants bring 20+ years of combined experience across manufacturing, distribution, retail, healthcare, and financial services. We have led ERP implementations, digital transformations, and AI adoption journeys across global enterprises.",
   },
   {
     question: "Do you provide change management for digital transformations?",
@@ -198,7 +197,7 @@ const breadcrumbSchema = createBreadcrumbSchema([
         image={financialimg}
         imageAlt="Consulting & Digital Transformation"
         title="Consulting & Digital Transformation"
-        description="Strategic technology advisory — process redesign, ERP/MES readiness, change management, training, and end-to-end digital transformation journeys backed by 19+ years of domain expertise."
+        description="Strategic technology advisory — process redesign, ERP/MES readiness, change management, training, and end-to-end digital transformation journeys backed by 20+ years of domain expertise."
         primaryCta={{ label: "Know More", onClick: () => navigate("/contact") }}
       />
 

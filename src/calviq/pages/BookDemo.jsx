@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import emailjs from '@emailjs/browser';
+import { Helmet } from 'react-helmet-async';
 
 const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
@@ -46,6 +47,11 @@ export default function BookDemo() {
   };
 
   return (
+    <>
+      {/* Own tab title (the sub-app's Helmet sets the landing page's); canonical stays on the landing page. */}
+      <Helmet>
+        <title>Book a demo | CALVIQ Dairy Farm Management | Impacgo Solutions</title>
+      </Helmet>
     <section className="bg-background-alt min-h-[100svh] pt-28 pb-16 md:pt-40 md:pb-24 px-margin-mobile md:px-gutter flex items-center justify-center">
       <div className="w-full max-w-xl">
         <div className="text-center mb-8 md:mb-10">
@@ -158,5 +164,6 @@ export default function BookDemo() {
         </p>
       </div>
     </section>
+    </>
   );
 }

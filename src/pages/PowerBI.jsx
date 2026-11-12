@@ -10,7 +10,6 @@ import {
   FaShieldAlt,
   FaClock,
   FaCogs,
-  FaLifeRing,
   FaChartLine,
   FaMobileAlt,
 } from "react-icons/fa";

@@ -35,12 +35,12 @@ const generalFaqs = [
   {
     question: "Does Impacgo build its own software products?",
     answer:
-      "Yes. Alongside our Microsoft Dynamics 365 and Power Platform consulting, we build CALVIQ (dairy farm management), StockLyte (inventory management), FarmYieldIQ (farmland plot operations), and the Impacgo ERP Suite — our own in-house business platform covering HR, Finance, Supply Chain, Manufacturing, Planning and Retail.",
+      "Yes. Alongside our Microsoft Dynamics 365 and Power Platform consulting, we build CALVIQ (dairy farm management), StockLyte (inventory management), FarmYieldIQ (farmland plot operations), and the Impacgo ERP Suite — our own in-house business platform covering HR, Finance, Supply Chain, Manufacturing, Planning, Retail and Projects.",
   },
   {
     question: "Is the Impacgo ERP Suite available today?",
     answer:
-      "The Impacgo ERP Suite is an active, in-development product — we're onboarding early-access partners across its HR, Finance, Supply Chain, Manufacturing, Planning, Retail, and Project modules. Reach out to find out where a specific module stands.",
+      "Yes. Impacgo HRMS, Finance, Chain (supply chain), Make (manufacturing) and Retail are available today, each as its own app. Book a free demo on the Impacgo ERP page and our team will walk you through the modules that fit your business and set up your access.",
   },
   {
     question: "Where is Impacgo based, and do you work with clients outside India?",
@@ -105,7 +105,7 @@ export default function FAQ() {
                 <div className="px-6 pb-5 text-gray-600 text-sm leading-relaxed">{faq.answer}</div>
               </RevealItem>
             ))}
-          </div> // 
+          </div>
 
           <Reveal as="h2" className="text-2xl md:text-3xl font-bold text-gray-800 mb-4 text-center">
             Impacgo ERP Suite

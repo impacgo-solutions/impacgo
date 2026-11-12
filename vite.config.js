@@ -12,5 +12,25 @@ export default defineConfig(({ command }) => {
   return {
     plugins: [react()],
     base: isGhPagesBuild ? '/impacgo/' : '/',
+    server: {
+      // The header's "Products" link opens the Impacgo ERP site, a Next.js app
+      // in this repo's erp/ folder (basePath "/erp-suite"). Run both with
+      // `npm run dev:all` (or `npm run dev:erp` in another terminal): the ERP
+      // listens on port 3001 and this forwards every /erp-suite request —
+      // pages, assets, and Next's HMR websocket — to it, so it behaves
+      // exactly like production (vercel.json rewrite).
+      proxy: {
+        '/erp-suite': {
+          target: process.env.ERP_DEV_URL || 'http://localhost:3001',
+          changeOrigin: true,
+          ws: true,
+        },
+        // Next's dev error overlay calls this without the basePath.
+        '/__nextjs_original-stack-frames': {
+          target: process.env.ERP_DEV_URL || 'http://localhost:3001',
+          changeOrigin: true,
+        },
+      },
+    },
   };
 })

@@ -11,7 +11,6 @@ import {
   FaClock,
   FaCogs,
   FaChartLine,
-  FaLifeRing,
   FaCloudUploadAlt,
 } from "react-icons/fa";
 import { Code2, GitBranch, Terminal } from "lucide-react";

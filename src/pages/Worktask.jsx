@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import {
   FaProjectDiagram,
@@ -10,7 +10,6 @@ import {
   FaRocket,
   FaCogs,
   FaCheckCircle,
-  FaUsers,
 } from "react-icons/fa";
 import Header from "../components/Header";
 import Breadcrumbs from "../components/Breadcrumbs";

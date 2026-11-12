@@ -12,6 +12,7 @@ export default function FeaturedModule() {
                 alt="Scanning cattle with mobile app"
                 className="w-full h-auto rounded-2xl"
                 src={qrScanCattle}
+                loading="lazy"
               />
               <div className="absolute -bottom-6 -right-2 sm:-bottom-8 sm:-right-8 bg-secondary p-4 sm:p-8 rounded-2xl shadow-2xl text-on-primary max-w-[200px] sm:max-w-[280px] transition-transform hover:scale-105 duration-300">
                 <span className="font-headline-md text-base sm:text-headline-md block mb-1 sm:mb-2">Scan &amp; Go</span>

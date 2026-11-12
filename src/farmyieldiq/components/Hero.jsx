@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import heroDashboard from '../assets/images/hero-dashboard-mockup.png';
+import heroDashboard from '../assets/images/hero-dashboard-mockup.webp';
 
 export default function Hero() {
   return (

@@ -9,7 +9,11 @@ import { AnimatePresence, motion } from "framer-motion";
 // downloads the JS for the page they're actually on.
 const Pos = lazy(() => import("./pages/Pos"));
 const FAQ = lazy(() => import("./pages/FAQ"));
-const About = lazy(() => import("./pages/About"));
+// TEMP-HIDDEN: About page — uncomment together with the /about <Route> below.
+// const About = lazy(() => import("./pages/About"));
+const Privacy = lazy(() => import("./pages/Privacy"));
+const Terms = lazy(() => import("./pages/Terms"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 // Core Services
 const D365 = lazy(() => import("./pages/D365"));
@@ -31,18 +35,27 @@ const AIAutomation = lazy(() => import("./pages/Aiautomation"));
 const DairyFarm = lazy(() => import("./pages/Dairyfarm"));
 const InventoryManagement = lazy(() => import("./pages/Inventorymanagement"));
 const FarmYieldIQ = lazy(() => import("./pages/FarmYieldIQ"));
-const ERPModuleDetail = lazy(() => import("./pages/erp/ERPModuleDetail"));
+// Old /erp/:slug module pages redirect to the Impacgo ERP site (/erp-suite).
+// The previous detail page (pages/erp/ERPModuleDetail.jsx) is kept in the
+// repo, unused, in case it's needed again.
+const ERPModuleRedirect = lazy(() => import("./pages/erp/ERPModuleRedirect"));
 const WorkTask = lazy(() => import("./pages/Worktask"));
 const ConstructionPlanner = lazy(() => import("./pages/Constructionplanner"));
+const HealthVault = lazy(() => import("./pages/HealthVault"));
 const AXMigration = lazy(() => import("./pages/Axmigration"));
 
 // Blog Pages
 const BlogIndex = lazy(() => import("./pages/blog/BlogIndex"));
-const AX2012EndOfSupport2028Blog = lazy(() => import("./pages/blog/AX2012EndOfSupport2028Blog"));
+const AX2012EndOfSupportBlog = lazy(() => import("./pages/blog/AX2012EndOfSupportBlog"));
 const D365FOImplementationTimelineBlog = lazy(() => import("./pages/blog/D365foimplementationtimelineblog"));
 const PowerAppsD365FOBlog = lazy(() => import("./pages/blog/PowerAppsD365FOBlog"));
 const PowerAutomateD365FOBlog = lazy(() => import("./pages/blog/PowerAutomateD365FOBlog"));
 const D365FOModulesForIndianManufacturersBlog = lazy(() => import("./pages/blog/D365FOModulesForIndianManufacturersBlog"));
+const CalviqDairyFarmManagementBlog = lazy(() => import("./pages/blog/CalviqDairyFarmManagementBlog"));
+const D365DistributionGuideBlog = lazy(() => import("./pages/blog/D365DistributionGuideBlog"));
+const CopilotD365FOBlog = lazy(() => import("./pages/blog/CopilotD365FOBlog"));
+const GSTEInvoicingD365FOBlog = lazy(() => import("./pages/blog/GSTEInvoicingD365FOBlog"));
+const AX2012UpgradeChecklistBlog = lazy(() => import("./pages/blog/AX2012UpgradeChecklistBlog"));
 
 // Power Platform Pages
 const PowerApps = lazy(() => import("./pages/Powerapps"));
@@ -70,6 +83,9 @@ const StockLyteApp = lazy(() => import("./stocklyte/StockLyteApp"));
 
 // FarmYieldIQ Landing Page (dedicated sub-app) — same treatment
 const FarmYieldIQApp = lazy(() => import("./farmyieldiq/FarmYieldIQApp"));
+
+// HealthVault Landing Page (dedicated sub-app) — same treatment
+const HealthVaultApp = lazy(() => import("./healthvault/HealthVaultApp"));
 
 function PageLoadingFallback() {
   return (
@@ -203,7 +219,7 @@ function AnimatedRoutes() {
         {/* ---------------- IMPACGO ERP SUITE ---------------- */}
         <Route
           path="/erp/:slug"
-          element={<ERPModuleDetail />}
+          element={<ERPModuleRedirect />}
         />
 
         <Route
@@ -214,6 +230,11 @@ function AnimatedRoutes() {
         <Route
           path="/products/construction-planner"
           element={<ConstructionPlanner />}
+        />
+
+        <Route
+          path="/products/health-vault"
+          element={<HealthVault />}
         />
 
         {/* ---------------- INDUSTRIES ---------------- */}
@@ -239,8 +260,13 @@ function AnimatedRoutes() {
         />
 
         <Route
+          path="/blog/ax-2012-end-of-support-india"
+          element={<AX2012EndOfSupportBlog />}
+        />
+        {/* Old address (had an incorrect 2028 date) — keep links working */}
+        <Route
           path="/blog/ax-2012-end-of-support-2028-india"
-          element={<AX2012EndOfSupport2028Blog />}
+          element={<Navigate to="/blog/ax-2012-end-of-support-india" replace />}
         />
 
         <Route 
@@ -271,6 +297,26 @@ function AnimatedRoutes() {
     element={<D365FOModulesForIndianManufacturersBlog />}
   />
 </Route>
+        <Route
+          path="/blog/calviq-dairy-farm-management"
+          element={<CalviqDairyFarmManagementBlog />}
+        />
+        <Route
+          path="/blog/d365-for-distribution-wholesale-businesses"
+          element={<D365DistributionGuideBlog />}
+        />
+        <Route
+          path="/blog/copilot-in-dynamics-365-finance-operations"
+          element={<CopilotD365FOBlog />}
+        />
+        <Route
+          path="/blog/gst-e-invoicing-in-dynamics-365-finance-operations"
+          element={<GSTEInvoicingD365FOBlog />}
+        />
+        <Route
+          path="/blog/ax-2012-to-d365-finance-operations-upgrade-checklist"
+          element={<AX2012UpgradeChecklistBlog />}
+        />
         {/* ---------------- CALVIQ LANDING PAGE ---------------- */}
         <Route
           path="/calviq/*"
@@ -289,6 +335,12 @@ function AnimatedRoutes() {
           element={<FarmYieldIQApp />}
         />
 
+        {/* ---------------- HEALTHVAULT LANDING PAGE ---------------- */}
+        <Route
+          path="/healthvault/*"
+          element={<HealthVaultApp />}
+        />
+
         {/* ---------------- FAQ ---------------- */}
         <Route
           path="/faq"
@@ -296,9 +348,22 @@ function AnimatedRoutes() {
         />
 
         {/* ---------------- ABOUT ---------------- */}
+        {/* TEMP-HIDDEN: uncomment this route + the About import at the top to restore.
         <Route
           path="/about"
           element={<About />}
+        />
+        */}
+
+        {/* ---------------- LEGAL ---------------- */}
+        <Route
+          path="/privacy"
+          element={<Privacy />}
+        />
+
+        <Route
+          path="/terms"
+          element={<Terms />}
         />
 
         {/* ---------------- CONTACT ---------------- */}
@@ -310,7 +375,7 @@ function AnimatedRoutes() {
         {/* ---------------- FALLBACK ---------------- */}
         <Route
           path="*"
-          element={<Navigate to="/" replace />}
+          element={<NotFound />}
         />
 
         </Routes>

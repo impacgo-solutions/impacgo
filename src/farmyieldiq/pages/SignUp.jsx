@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { EXTERNAL_APP_URL } from '../components/Navbar';
+import { Helmet } from 'react-helmet-async';
 
 // Same production base URL + route the FarmYieldIQ admin app itself uses
 // (lib/admin/core/api_service.dart baseUrl + POST /auth/register).
@@ -80,6 +81,11 @@ export default function SignUp() {
   };
 
   return (
+    <>
+      {/* Own tab title (the sub-app's Helmet sets the landing page's); canonical stays on the landing page. */}
+      <Helmet>
+        <title>Sign up | FarmYieldIQ | Impacgo Solutions</title>
+      </Helmet>
     <section className="bg-farmyieldiq-background min-h-[100svh] pt-28 pb-16 md:pt-40 md:pb-24 px-margin-mobile md:px-gutter flex items-center justify-center">
       <div className="w-full max-w-2xl">
         <div className="text-center mb-8 md:mb-10">
@@ -247,5 +253,6 @@ export default function SignUp() {
         </p>
       </div>
     </section>
+    </>
   );
 }
