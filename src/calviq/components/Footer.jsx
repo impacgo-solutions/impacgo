@@ -15,7 +15,8 @@ const FOOTER_COLUMNS = [
   {
     title: 'Company',
     links: [
-      { label: 'About Impacgo', to: '/about' },
+      // TEMP-HIDDEN: About page is hidden — uncomment when the /about route is restored.
+      // { label: 'About Impacgo', to: '/about' },
       { label: 'CALVIQ Blog', to: '/blog/calviq-dairy-farm-management' },
       { label: 'Book a Demo', to: '/calviq/demo' },
       { label: 'Contact Support', to: '/contact' },
@@ -27,6 +28,7 @@ const SOCIAL_LINKS = [
   { label: 'Impacgo website', icon: 'language', href: '/' },
   { label: 'Impacgo on LinkedIn', icon: 'share', href: 'https://www.linkedin.com/company/impacgo-solutions-private-limited/', external: true },
   { label: 'Email us', icon: 'mail', href: 'mailto:info@impacgo.com' },
+  { label: 'Call us: +91 99664 77499', icon: 'call', href: 'tel:+919966477499' },
 ];
 
 export default function Footer() {

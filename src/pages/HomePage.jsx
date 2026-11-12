@@ -1,5 +1,3 @@
-import d365 from "../assets/d3651.webp";
-import crm from "../assets/crm.webp";
 import manufacturingImage from "../assets/manufacturing.webp";
 import supplyChain from "../assets/supplychain.webp";
 import retail from "../assets/retail.webp";
@@ -26,8 +24,7 @@ import Header from "../components/Header";
 import SectionBlobs from "../components/SectionBlobs";
 import Footer from "../components/Footer";
 import Reveal, { RevealItem } from "../components/Reveal";
-import pos from "../assets/pos.webp";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import LocationMap from "../components/LocationMap";
 import ContactCard from "../components/ContactCard";
 import financial from "../assets/financialimg.webp";
@@ -37,8 +34,10 @@ import hitechi from "../assets/clients/hitechi.webp";
 import ironingboy from "../assets/clients/ironingboy.webp";
 import pms from "../assets/clients/pms.webp";
 import etor from "../assets/clients/etor.webp";
-import rosti from "../assets/clients/rosti.webp";
+// TEMP-HIDDEN: Rosti logo — uncomment together with the Rosti entry in ClientLogosSection.
+// import rosti from "../assets/clients/rosti.webp";
 import daxonet from "../assets/clients/daxonet.webp";
+import { ERP_SITE_URL, erpModuleUrl } from "../config/erp";
 
 export default function HomePage() {
   // Header nav items like "Products"/"Services" link to "/#products" etc.
@@ -99,8 +98,12 @@ function HeroSection() {
   const [currentService, setCurrentService] = useState(services[0]);
   const [isVisible, setIsVisible] = useState(true);
 
+  // Scroll to the first section below the hero (it fills the screen, so a
+  // fixed pixel offset stopped short on taller displays).
   const scrollToPosition = () => {
-    window.scrollTo({ top: 700, behavior: "smooth" });
+    const next = document.getElementById("industries");
+    if (next) next.scrollIntoView({ behavior: "smooth", block: "start" });
+    else window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
   };
 
   useEffect(() => {      
@@ -145,16 +148,16 @@ function HeroSection() {
         </h1>
 
         <p className="text-xl md:text-2xl mb-8 max-w-3xl">
-          Your Technology Partner — From Strategy to Execution. We deliver
-          customer-focused services with complete transparency and strong
-          business ethics.
+          Your technology partner from strategy to go-live — Microsoft
+          Dynamics 365, AI and our own Impacgo ERP, delivered with complete
+          transparency.
         </p>
 
         <button
           className="bg-white text-blue-600 px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-100 active:scale-95 transition-all duration-300"
           onClick={scrollToPosition}
         >
-          Learn More
+          Explore Our Solutions
         </button>
       </div>
 
@@ -602,7 +605,8 @@ function ERPImplementationSection() {
       title: "Impacgo ERP",
       subtitle: "One Connected Business Platform",
       gradient: "from-teal-500 to-green-600",
-      path: "/#erp-products",
+      // Opens the Impacgo ERP site (separate app at /erp-suite — full page load).
+      path: ERP_SITE_URL,
       items: [
         "Workforce Management (HRMS)",
         "Accounting & Compliance",
@@ -610,6 +614,7 @@ function ERPImplementationSection() {
         "Manufacturing",
         "Planning & MRP",
         "POS & Store Operations",
+        "Project & Delivery Management",
       ],
     },
   ];
@@ -659,6 +664,9 @@ function ERPImplementationSection() {
                       document
                         .getElementById(erp.path.slice(2))
                         ?.scrollIntoView({ behavior: "smooth" });
+                    } else if (erp.path === ERP_SITE_URL) {
+                      // Separate app: must be a full page load, not a router navigation.
+                      window.location.assign(erp.path);
                     } else {
                       navigate(erp.path);
                     }
@@ -780,6 +788,8 @@ function AIAutomationSection() {
 // site, since e.g. "20+ Years Experience" reflects the team's combined
 // industry background rather than Impacgo Solutions' own incorporation date
 // (see About page's "Founded 2020").
+// Not rendered right now — kept so the section can be switched back on.
+// eslint-disable-next-line no-unused-vars
 function AchievementsSection() {
   const achievements = [
     { value: "20+", label: "Years Experience" },
@@ -829,6 +839,12 @@ function AchievementsSection() {
 // same as before this section existed, just shorter.
 const PRODUCTS_PREVIEW_COUNT = 3;
 const MODULES_PREVIEW_COUNT = 3;
+
+// TEMP-HIDDEN: the Impacgo ERP Suite module grid under "What We Build".
+// Impacgo ERP is already covered on the homepage by the "ERP Implementation"
+// card (its Know More opens the ERP site) and by the header's Products link,
+// so the grid was a repeat. Set to true to show it again.
+const SHOW_ERP_SUITE_BLOCK = false;
 
 function ProductsAndERPSection() {
   const navigate = useNavigate();
@@ -948,8 +964,8 @@ function ProductsAndERPSection() {
         <Reveal className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">What We Build</h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Purpose-built software products, and our own in-house Impacgo ERP Suite — built by
-            Impacgo, for real operational gaps.
+            Purpose-built software for real operational challenges — focused apps for dairy,
+            inventory, farmland and family health, and the Impacgo ERP Suite to run your entire business.
           </p>
         </Reveal>
 
@@ -958,7 +974,10 @@ function ProductsAndERPSection() {
             from the tree), so search/AI crawlers still see all of them
             regardless of whether "Show More" was ever clicked. */}
         <div className="mb-20">
-        <h3 className="text-2xl font-bold text-gray-800 text-center mb-8">Our Products</h3>
+        {/* Sub-heading only needed to separate the products from the ERP Suite grid. */}
+        {SHOW_ERP_SUITE_BLOCK && (
+          <h3 className="text-2xl font-bold text-gray-800 text-center mb-8">Our Products</h3>
+        )}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {products.map((product, index) => {
             const Icon = product.icon;
@@ -1040,22 +1059,64 @@ function ProductsAndERPSection() {
         )}
         </div>
 
+        {/* IMPACGO ERP SUITE callout — one compact banner that introduces the
+            suite and sends visitors to the ERP site (a separate app at
+            /erp-suite, so plain <a> links / full page loads). Uses the same
+            card, teal-green header, chips and buttons as the rest of the page. */}
+        <Reveal className="mt-14">
+          <div className="bg-white/70 backdrop-blur-xl rounded-2xl shadow-glass overflow-hidden hover:shadow-glass-lg hover:bg-white/90 transition-all duration-300 border border-white/60 grid grid-cols-1 md:grid-cols-5">
+            <div className="bg-gradient-to-r from-teal-500 to-green-600 p-6 md:p-8 text-white md:col-span-2 flex flex-col justify-center">
+              <span className="inline-block w-fit bg-white/20 backdrop-blur-sm text-xs font-semibold px-3 py-1 rounded-full mb-3 tracking-wider">
+                IMPACGO'S OWN PLATFORM
+              </span>
+              <h3 className="text-2xl md:text-3xl font-bold">Impacgo ERP Suite</h3>
+              <p className="text-white/90 mt-1">One connected platform to run your entire business</p>
+            </div>
+            <div className="p-6 md:p-8 md:col-span-3 flex flex-col justify-center">
+              <p className="text-gray-600 mb-4">
+                Seven modules that work from one shared set of data — so every department plans,
+                works and reports in one place instead of across separate tools and spreadsheets.
+              </p>
+              <div className="flex flex-wrap gap-2 mb-6">
+                {["HR & Payroll", "Finance", "Supply Chain", "Manufacturing", "Planning & MRP", "Retail & POS", "Projects"].map((m) => (
+                  <span key={m} className="text-xs font-medium bg-gray-100 text-gray-700 px-2.5 py-1 rounded-full">
+                    {m}
+                  </span>
+                ))}
+              </div>
+              <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+                <a
+                  href={ERP_SITE_URL}
+                  className="inline-flex items-center gap-2 bg-blue-600 text-white py-2 px-6 rounded-full hover:bg-blue-700 active:scale-95 transition-all"
+                >
+                  Explore Impacgo ERP <span aria-hidden="true">→</span>
+                </a>
+                <a
+                  href={`${ERP_SITE_URL}/demo`}
+                  className="text-blue-600 font-semibold text-sm hover:text-blue-800 underline underline-offset-4 transition-colors"
+                >
+                  Book a free demo
+                </a>
+              </div>
+            </div>
+          </div>
+        </Reveal>
+
         {/* IMPACGO ERP SUITE — same "always in the DOM, preview + Show More"
             pattern as Our Products above. Card content stays "basic" here —
             module name, one-line description, a handful of capability chips
             — the full pitch (workflows, module breakdown, benefits, FAQ)
             lives on each module's own detail page at /erp/:slug
             (src/pages/erp/ERPModuleDetail.jsx). Data is shared from
-            src/data/erpModules.js so the two never drift apart. */}
+            src/data/erpModules.js so the two never drift apart.
+            Hidden for now — see SHOW_ERP_SUITE_BLOCK above. */}
+        {SHOW_ERP_SUITE_BLOCK && (
         <div>
         <div id="erp-products" className="text-center mb-8 scroll-mt-24">
-          <span className="inline-block bg-amber-100 text-amber-800 text-xs font-bold px-4 py-1.5 rounded-full tracking-wide mb-4">
-            IN DEVELOPMENT
-          </span>
           <h3 className="text-2xl font-bold text-gray-800 mb-3">Impacgo ERP Suite</h3>
           <p className="text-gray-500 text-sm max-w-2xl mx-auto">
             Our own suite of business applications — HR, Finance, Supply Chain, Manufacturing,
-            Planning and Retail — built as one connected system. Click a module for the full picture.
+            Planning, Retail and Projects — built as one connected system. Choose a module to explore it.
           </p>
         </div>
 
@@ -1065,18 +1126,16 @@ function ProductsAndERPSection() {
             const isPreviewHidden = index >= MODULES_PREVIEW_COUNT && !showAllModules;
             return (
               <RevealItem key={mod.name} index={Math.min(index, MODULES_PREVIEW_COUNT)} className={isPreviewHidden ? "hidden" : ""}>
-              <Link
+              {/* Plain <a>: the ERP site is a separate app (see src/config/erp.js). */}
+              <a
                 id={`erp-${mod.slug}`}
-                to={`/erp/${mod.slug}`}
+                href={erpModuleUrl(mod.slug)}
                 className="group block h-full bg-white/70 backdrop-blur-xl rounded-2xl shadow-glass hover:shadow-glass-lg hover:bg-white/90 transition-all duration-300 border border-white/60 hover:border-white/80 p-6 scroll-mt-28 hover:-translate-y-1"
               >
                 <div className="flex items-start justify-between mb-4">
                   <div className={`h-12 w-12 rounded-xl flex items-center justify-center ${colorClasses[mod.color]}`}>
                     <Icon className="h-6 w-6" />
                   </div>
-                  <span className="text-[10px] font-bold uppercase tracking-wide bg-amber-100 text-amber-700 px-2.5 py-1 rounded-full">
-                    In Development
-                  </span>
                 </div>
 
                 <h3 className="text-lg font-bold text-gray-800">Impacgo {mod.name}</h3>
@@ -1099,7 +1158,7 @@ function ProductsAndERPSection() {
                 <span className="inline-flex items-center gap-1 text-sm font-semibold text-blue-600 group-hover:gap-2 transition-all">
                   Learn more <span aria-hidden="true">→</span>
                 </span>
-              </Link>
+              </a>
               </RevealItem>
             );
           })}
@@ -1118,6 +1177,7 @@ function ProductsAndERPSection() {
           </div>
         )}
         </div>
+        )}
       </div>
     </section>
   );
@@ -1235,7 +1295,8 @@ function ClientLogosSection() {
     { name: "Ironing Boy", logo: ironingboy },
     { name: "Perfect Model Solutions", logo: pms },
     { name: "ETOR", logo: etor },
-    { name: "Rosti", logo: rosti },
+    // TEMP-HIDDEN: uncomment this + the rosti import at the top to restore.
+    // { name: "Rosti", logo: rosti },
     { name: "Daxonet", logo: daxonet },
   ];
 

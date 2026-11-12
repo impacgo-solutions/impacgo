@@ -76,8 +76,8 @@ export default function Terms() {
 
           <Section title="3. Content marked 'In Development'">
             <p>
-              Some products and modules on this site — including parts of the Impacgo ERP Suite and Construction
-              Planner — are explicitly labelled “In Development.” These are shown to describe our roadmap and
+              Some products on this site — such as Construction Planner — are explicitly labelled
+              “In Development.” These are shown to describe our roadmap and
               take early-access interest; they are not yet generally available, and availability, feature set,
               and timelines can change.
             </p>
@@ -138,7 +138,8 @@ export default function Terms() {
               We may update these terms from time to time — the “last updated” date at the top of this page
               will reflect that. Continued use of the site after a change means you accept the updated terms.
               Questions can be sent to{" "}
-              <a href="mailto:info@impacgo.com" className="text-blue-600 hover:underline">info@impacgo.com</a>.
+              <a href="mailto:info@impacgo.com" className="text-blue-600 hover:underline">info@impacgo.com</a> or{" "}
+              <a href="tel:+919966477499" className="text-blue-600 hover:underline">+91 99664 77499</a>.
             </p>
           </Section>
 

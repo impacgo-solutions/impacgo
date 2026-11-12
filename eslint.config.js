@@ -5,7 +5,8 @@ import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
 
 export default [
-  { ignores: ['dist'] },
+  // erp/ is the Next.js ERP section with its own ESLint setup (npm run lint:erp).
+  { ignores: ['dist', 'erp/**'] },
   {
     files: ['**/*.{js,jsx}'],
     languageOptions: {
@@ -29,10 +30,19 @@ export default [
       ...react.configs['jsx-runtime'].rules,
       ...reactHooks.configs.recommended.rules,
       'react/jsx-no-target-blank': 'off',
+      // This codebase doesn't use PropTypes, and plain apostrophes/quotes in
+      // JSX copy render correctly in React — both rules were pure noise.
+      'react/prop-types': 'off',
+      'react/no-unescaped-entities': 'off',
       'react-refresh/only-export-components': [
         'warn',
         { allowConstantExport: true },
       ],
     },
+  },
+  // Build/config scripts run in Node, not the browser.
+  {
+    files: ['vite.config.js', 'scripts/**/*.{js,mjs}', '*.config.js'],
+    languageOptions: { globals: { ...globals.node } },
   },
 ]

@@ -1,4 +1,3 @@
-import React from "react";
 import { FaCogs, FaMobileAlt, FaDatabase, FaSyncAlt, FaUsers, FaShieldAlt } from "react-icons/fa";
 import { useLocation,useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';

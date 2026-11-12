@@ -103,7 +103,7 @@ export const erpModules = [
       {
         question: "Is Impacgo HRMS available today?",
         answer:
-          "HRMS is an active, in-development module of the Impacgo ERP Suite. We're onboarding early-access partners who want a say in the roadmap — reach out and we'll walk you through where it stands and what's next.",
+          "Yes. Impacgo HRMS is available today as its own app at hrms.impacgo.com. Book a free demo and our team will walk you through it and set up your access.",
       },
       {
         question: "Can it handle payroll for multiple states or entities?",
@@ -113,7 +113,7 @@ export const erpModules = [
       {
         question: "Does it replace our existing HR software, or work alongside it?",
         answer:
-          "Either — some early-access partners are replacing spreadsheets and legacy tools outright, others are running it in parallel first. We'll scope the right approach for your team.",
+          "Either — some teams replace spreadsheets and legacy tools outright, others run it in parallel first. We'll scope the right approach for your team.",
       },
     ],
   },
@@ -191,7 +191,7 @@ export const erpModules = [
       {
         question: "Is Impacgo Finance available today?",
         answer:
-          "Finance is an active, in-development module. We're bringing on early-access finance teams to validate the ledger, compliance and closing workflows against real books — talk to us about joining.",
+          "Yes. Impacgo Finance is available today as its own app at finance.impacgo.com. Book a free demo and our team will walk you through the ledger, compliance and closing workflows and set up your access.",
       },
       {
         question: "Does it handle GST and TDS filing directly?",
@@ -291,7 +291,7 @@ export const erpModules = [
       {
         question: "Is Impacgo Chain available today?",
         answer:
-          "Chain is an active, in-development module — currently at prototype v2.4. We're working with early-access trading and distribution businesses to validate the CRM-to-logistics flow end to end.",
+          "Yes. Impacgo Chain is available today as its own app at chain.impacgo.com. Book a free demo and our team will walk you through the flow from lead to delivery and set up your access.",
       },
       {
         question: "Does it cover both sales and purchasing, or just one side?",
@@ -374,7 +374,7 @@ export const erpModules = [
       {
         question: "Is Impacgo Make available today?",
         answer:
-          "Make is an active, in-development module. We're bringing on early-access manufacturers to pressure-test the BOM-to-costing flow against real production runs — get in touch to join.",
+          "Yes. Impacgo Make is available today as its own app at make.impacgo.com. Book a free demo and our team will walk you through the BOM-to-costing flow and set up your access.",
       },
       {
         question: "Can it handle multi-level BOMs and revisions?",
@@ -457,7 +457,7 @@ export const erpModules = [
       {
         question: "Is Impacgo Plan available today?",
         answer:
-          "Plan is an active, in-development module, built alongside Make and Chain since planning depends on real production and supply data. Reach out if you'd like to shape it as an early-access partner.",
+          "Impacgo Plan works hand in hand with Make and Chain, since planning depends on real production and supply data. Book a free demo and our team will walk you through it and how it fits your operations.",
       },
       {
         question: "Does it work without Impacgo Make or Chain?",
@@ -552,7 +552,7 @@ export const erpModules = [
       {
         question: "Is Impacgo Retail available today?",
         answer:
-          "Retail is an active, in-development module. We're onboarding early-access multi-store retailers to validate POS billing, inventory sync and shift closing under real store conditions.",
+          "Yes. Impacgo Retail is available today as its own app at retail.impacgo.com. Book a free demo and our team will walk you through POS billing, inventory sync and shift closing and set up your access.",
       },
       {
         question: "Can it run across multiple store locations?",
@@ -632,7 +632,7 @@ export const erpModules = [
       {
         question: "Is Impacgo Project available today?",
         answer:
-          "Project is an active, in-development module of the Impacgo ERP Suite. We're onboarding early-access project teams to validate the Kanban, Gantt and budget-tracking workflows on real engagements — reach out and we'll walk you through where it stands.",
+          "Impacgo Project brings tasks, timelines, timesheets and budgets into one place. Book a free demo and our team will walk you through the Kanban, Gantt and budget-tracking workflows and how they fit your delivery process.",
       },
       {
         question: "Does it handle billable time and timesheets?",

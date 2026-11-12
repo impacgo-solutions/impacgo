@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const API_URL = 'https://api.dfms.impacgo.com/api/public/signup';
 const APP_LOGIN_URL = 'https://calviq.impacgo.com/#/login';
@@ -82,6 +83,11 @@ export default function SignUp() {
   };
 
   return (
+    <>
+      {/* Own tab title (the sub-app's Helmet sets the landing page's); canonical stays on the landing page. */}
+      <Helmet>
+        <title>Sign up | CALVIQ Dairy Farm Management | Impacgo Solutions</title>
+      </Helmet>
     <section className="bg-background-alt min-h-[100svh] pt-28 pb-16 md:pt-40 md:pb-24 px-margin-mobile md:px-gutter flex items-center justify-center">
       <div className="w-full max-w-2xl">
         <div className="text-center mb-8 md:mb-10">
@@ -261,5 +267,6 @@ export default function SignUp() {
         </p>
       </div>
     </section>
+    </>
   );
 }

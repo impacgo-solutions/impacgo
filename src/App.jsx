@@ -9,7 +9,8 @@ import { AnimatePresence, motion } from "framer-motion";
 // downloads the JS for the page they're actually on.
 const Pos = lazy(() => import("./pages/Pos"));
 const FAQ = lazy(() => import("./pages/FAQ"));
-const About = lazy(() => import("./pages/About"));
+// TEMP-HIDDEN: About page — uncomment together with the /about <Route> below.
+// const About = lazy(() => import("./pages/About"));
 const Privacy = lazy(() => import("./pages/Privacy"));
 const Terms = lazy(() => import("./pages/Terms"));
 const NotFound = lazy(() => import("./pages/NotFound"));
@@ -34,7 +35,10 @@ const AIAutomation = lazy(() => import("./pages/Aiautomation"));
 const DairyFarm = lazy(() => import("./pages/Dairyfarm"));
 const InventoryManagement = lazy(() => import("./pages/Inventorymanagement"));
 const FarmYieldIQ = lazy(() => import("./pages/FarmYieldIQ"));
-const ERPModuleDetail = lazy(() => import("./pages/erp/ERPModuleDetail"));
+// Old /erp/:slug module pages redirect to the Impacgo ERP site (/erp-suite).
+// The previous detail page (pages/erp/ERPModuleDetail.jsx) is kept in the
+// repo, unused, in case it's needed again.
+const ERPModuleRedirect = lazy(() => import("./pages/erp/ERPModuleRedirect"));
 const WorkTask = lazy(() => import("./pages/Worktask"));
 const ConstructionPlanner = lazy(() => import("./pages/Constructionplanner"));
 const HealthVault = lazy(() => import("./pages/HealthVault"));
@@ -215,7 +219,7 @@ function AnimatedRoutes() {
         {/* ---------------- IMPACGO ERP SUITE ---------------- */}
         <Route
           path="/erp/:slug"
-          element={<ERPModuleDetail />}
+          element={<ERPModuleRedirect />}
         />
 
         <Route
@@ -344,10 +348,12 @@ function AnimatedRoutes() {
         />
 
         {/* ---------------- ABOUT ---------------- */}
+        {/* TEMP-HIDDEN: uncomment this route + the About import at the top to restore.
         <Route
           path="/about"
           element={<About />}
         />
+        */}
 
         {/* ---------------- LEGAL ---------------- */}
         <Route

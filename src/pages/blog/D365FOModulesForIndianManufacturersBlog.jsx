@@ -9,7 +9,6 @@ import {
   AlertCircle,
   TrendingUp,
   Factory,
-  Database,
 } from "lucide-react";
 
 import Header from "../../components/Header";

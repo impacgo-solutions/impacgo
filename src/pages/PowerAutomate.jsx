@@ -9,7 +9,6 @@ import {
   FaShieldAlt,
   FaBell,
   FaUserShield,
-  FaChartLine,
   FaLifeRing,
   FaCodeBranch,
   FaRobot,

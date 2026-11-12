@@ -26,6 +26,7 @@ import {
   Award,
 } from "lucide-react";
 import founderPhoto from "../assets/founder-srikar-tantravahi.webp";
+import { ERP_SITE_URL } from "../config/erp";
 // Uncomment when real client logos/results are ready to publish here again.
 // import resonac from "../assets/clients/Resonac.webp";
 // import hitechi from "../assets/clients/hitechi.webp";
@@ -240,8 +241,8 @@ export default function About() {
               },
               {
                 title: "Impacgo ERP Suite",
-                description: "Our connected business platform spanning HR, Finance, Supply Chain, Manufacturing, Planning, Retail and Projects — currently in active development.",
-                href: `${import.meta.env.BASE_URL}#erp-products`,
+                description: "Our connected business platform spanning HR, Finance, Supply Chain, Manufacturing, Planning, Retail and Projects.",
+                href: ERP_SITE_URL,
               },
             ].map((item, index) => (
               <RevealItem

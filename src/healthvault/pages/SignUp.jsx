@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import emailjs from '@emailjs/browser';
+import { Helmet } from 'react-helmet-async';
 
 // HealthVault is a mobile app (not yet a hosted web product), so this page
 // collects early-access leads via the same EmailJS integration the main
@@ -60,6 +61,11 @@ export default function SignUp() {
   };
 
   return (
+    <>
+      {/* Own tab title (the sub-app's Helmet sets the landing page's); canonical stays on the landing page. */}
+      <Helmet>
+        <title>Sign up | HealthVault Family Health Records | Impacgo Solutions</title>
+      </Helmet>
     <section className="bg-healthvault-background min-h-[100svh] pt-28 pb-16 md:pt-40 md:pb-24 px-margin-mobile md:px-gutter flex items-center justify-center">
       <div className="w-full max-w-2xl">
         <div className="text-center mb-8 md:mb-10">
@@ -185,5 +191,6 @@ export default function SignUp() {
         </p>
       </div>
     </section>
+    </>
   );
 }

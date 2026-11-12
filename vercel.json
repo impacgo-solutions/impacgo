@@ -3,6 +3,8 @@
       { "source": "/blog/ax-2012-end-of-support-2028-india", "destination": "/blog/ax-2012-end-of-support-india", "permanent": true }
     ],
     "rewrites": [
+      { "source": "/erp-suite", "destination": "https://erp-app.impacgo.com/erp-suite" },
+      { "source": "/erp-suite/:path*", "destination": "https://erp-app.impacgo.com/erp-suite/:path*" },
       { "source": "/(.*)", "destination": "/" }
     ],
     "build": {

@@ -7,7 +7,6 @@ import {
   FaPaintBrush,
   FaCodeBranch,
   FaShieldAlt,
-  FaRocket,
   FaUserShield,
   FaCogs,
   FaClock,

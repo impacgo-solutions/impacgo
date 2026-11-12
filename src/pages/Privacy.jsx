@@ -60,8 +60,8 @@ export default function Privacy() {
               <strong className="text-gray-800">Impacgo Solutions Private Limited</strong>, No 9-29-19, Gupta
               Villa, Third Floor, Balaji Nagar, Visakhapatnam, Andhra Pradesh 530003, India. For any privacy
               question, contact us at{" "}
-              <a href="mailto:info@impacgo.com" className="text-blue-600 hover:underline">info@impacgo.com</a>{" "} .
-              {/* or <a href="tel:+919866323418" className="text-blue-600 hover:underline">+91-9866323418</a> */}
+              <a href="mailto:info@impacgo.com" className="text-blue-600 hover:underline">info@impacgo.com</a> or{" "}
+              <a href="tel:+919966477499" className="text-blue-600 hover:underline">+91 99664 77499</a>.
             </p>
           </Section>
 

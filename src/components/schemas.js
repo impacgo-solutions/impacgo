@@ -30,7 +30,7 @@ export const organizationSchema = {
   },
   contactPoint: {
     "@type": "ContactPoint",
-    telephone: "+91-9866323418",
+    telephone: "+91-9966477499",
     contactType: "Customer Service",
     email: "srikar@impacgo.com",
     areaServed: "IN",
@@ -49,7 +49,7 @@ export const localBusinessSchema = {
   image: "https://www.impacgo.com/logo.png",
   "@id": "https://www.impacgo.com",
   url: "https://www.impacgo.com",
-  telephone: "+91-9866323418",
+  telephone: "+91-9966477499",
   priceRange: "$$",
   address: {
     "@type": "PostalAddress",

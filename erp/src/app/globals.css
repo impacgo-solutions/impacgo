@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+/* Impacgo design tokens */
+:root {
+  --ink: #14161c;
+  --brand: #2d4fe0;
+  --brand-hover: #2443cc;
+  --brand-soft: #eef1ff;
+  --ocean: #6d4ef0;
+  --aqua: #8b6cf6;
+  --coral: #e65a3d;
+  --coral-ink: #c8452a;
+  --coral-soft: #fff1ec;
+  --surface: #faf7f2;
+  --line: #ebe5dc;
+  --text: #14161c;
+  --muted: #5c6170;
+
+  --background: #ffffff;
+  --foreground: var(--text);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-ink: var(--ink);
+  --color-brand: var(--brand);
+  --color-brand-hover: var(--brand-hover);
+  --color-brand-soft: var(--brand-soft);
+  --color-ocean: var(--ocean);
+  --color-aqua: var(--aqua);
+  --color-coral: var(--coral);
+  --color-surface: var(--surface);
+  --color-line: var(--line);
+  --color-muted: var(--muted);
+  --color-border: var(--line);
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono);
+}
+
+@keyframes crm-pop {
+  from { opacity: 0; transform: translateY(-4px) scale(0.98); }
+  to { opacity: 1; transform: none; }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

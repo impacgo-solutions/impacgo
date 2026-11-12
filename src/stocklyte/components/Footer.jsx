@@ -17,7 +17,8 @@ const COLUMNS = [
   {
     title: 'Company',
     links: [
-      { label: 'About Impacgo', to: '/about' },
+      // TEMP-HIDDEN: About page is hidden — uncomment when the /about route is restored.
+      // { label: 'About Impacgo', to: '/about' },
       { label: 'Blog', to: '/blog' },
       { label: 'Contact', to: '/contact' },
       { label: 'Get Started', to: '/stocklyte/signup' },
@@ -62,6 +63,14 @@ export default function Footer() {
                 title="Email us"
               >
                 <Icon name="alternate_email" className="text-sm" />
+              </a>
+              <a
+                className="size-10 glass rounded-xl flex items-center justify-center hover:text-stocklyte-primary transition-colors border-gradient"
+                href="tel:+919966477499"
+                aria-label="Call us: +91 99664 77499"
+                title="Call us: +91 99664 77499"
+              >
+                <Icon name="call" className="text-sm" />
               </a>
             </div>
           </div>

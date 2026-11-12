@@ -1,0 +1,60 @@
+# Checks both apps on every pull request and every push to main, so anything
+# that would break www.impacgo.com fails here before it reaches production.
+#   main-site: lint + production build (Vite)
+#   erp:       lint + production build incl. type check (Next.js, erp/)
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  main-site:
+    name: Main site (lint + build)
+    runs-on: ubuntu-latest
+    env:
+      PUPPETEER_SKIP_DOWNLOAD: "true" # Chromium is only needed for the prerender step on Vercel
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - name: Build (Vite)
+        run: npx vite build
+      - name: vercel.json is valid and routes /erp-suite before the catch-all
+        run: |
+          node -e '
+            const v = JSON.parse(require("fs").readFileSync("vercel.json", "utf8"));
+            const r = v.rewrites.map((x) => x.source);
+            const erp = r.indexOf("/erp-suite/:path*"), all = r.indexOf("/(.*)");
+            if (r.indexOf("/erp-suite") < 0 || erp < 0) throw new Error("missing /erp-suite rewrites");
+            if (all >= 0 && all < erp) throw new Error("catch-all rewrite must come after /erp-suite");
+            console.log("vercel.json OK");
+          '
+
+  erp:
+    name: ERP (lint + build)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: erp
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: erp/package-lock.json
+      - run: npm ci
+      - run: npm run lint
+      # next build also runs the TypeScript check (it needs the route types it generates).
+      - name: Build (Next.js, includes type check)
+        run: npm run build

@@ -1,4 +1,4 @@
-import { useNavigate, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import {
   Mail,
@@ -67,7 +67,7 @@ export default function ContactSection() {
       setStatus("error");
       setErrorMessage(data.message || "Something went wrong. Please try again.");
     }
-  } catch (error) {
+  } catch {
     setStatus("error");
     setErrorMessage(
       "Failed to send message. Please check your internet connection or email us directly."
@@ -239,6 +239,10 @@ export default function ContactSection() {
                       className="underline font-medium"
                     >
                       info@impacgo.com
+                    </a>{" "}
+                    or call{" "}
+                    <a href="tel:+919966477499" className="underline font-medium">
+                      +91 99664 77499
                     </a>
                   </p>
                 </div>

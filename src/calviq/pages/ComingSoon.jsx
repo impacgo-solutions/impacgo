@@ -1,7 +1,13 @@
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 export default function ComingSoon() {
   return (
+    <>
+      {/* Own tab title (the sub-app's Helmet sets the landing page's); canonical stays on the landing page. */}
+      <Helmet>
+        <title>Coming soon | CALVIQ Dairy Farm Management | Impacgo Solutions</title>
+      </Helmet>
     <section className="hero-gradient min-h-[100svh] flex items-center justify-center px-margin-mobile md:px-gutter text-center">
       <div className="space-y-6">
         <span className="material-symbols-outlined text-white text-6xl block">phone_iphone</span>
@@ -18,5 +24,6 @@ export default function ComingSoon() {
         </Link>
       </div>
     </section>
+    </>
   );
 }

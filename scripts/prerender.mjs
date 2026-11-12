@@ -76,13 +76,8 @@ const ROUTES = [
   "/products/dairy-farm",
   "/products/inventory-management",
   "/products/farm-yield-iq",
-  "/erp/hrms",
-  "/erp/finance",
-  "/erp/chain",
-  "/erp/make",
-  "/erp/plan",
-  "/erp/retail",
-  "/erp/project",
+  // /erp/:slug pages now redirect to the ERP site (/erp-suite), which is a
+  // separate Next.js app with its own server rendering — nothing to prerender.
   "/products/work-task",
   "/products/construction-planner",
   "/industries/manufacturing",
@@ -107,7 +102,7 @@ const ROUTES = [
   "/healthvault",
   "/products/health-vault",
   "/faq",
-  "/about",
+  // "/about", // TEMP-HIDDEN: re-enable when the /about route is restored.
   "/contact",
   "/privacy",
   "/terms",

@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
+import { ERP_SITE_URL, erpModuleUrl } from "../config/erp";
 
 // Links shown in the "Products" dropdown/accordion — kept here rather than
 // derived from HomePage's ProductsSection data because Header renders on
@@ -39,14 +40,20 @@ const ourProducts = [
 // "Impacgo X — Tagline" form wraps to two lines and throws off the column
 // height next to "Our Products". The full tagline still shows immediately
 // on each module's own detail page and on the homepage Suite cards.
+// "Products" in the nav goes straight to the Impacgo ERP site (see src/config/erp.js).
+
+// Set to true to bring back the old Products dropdown (Our Products + ERP
+// Suite lists below) instead of linking straight to the ERP site.
+const SHOW_PRODUCTS_DROPDOWN = false;
+
 const erpProducts = [
-  { name: "Impacgo HRMS", path: "/erp/hrms" },
-  { name: "Impacgo Finance", path: "/erp/finance" },
-  { name: "Impacgo Chain", path: "/erp/chain" },
-  { name: "Impacgo Make", path: "/erp/make" },
-  { name: "Impacgo Plan", path: "/erp/plan" },
-  { name: "Impacgo Retail", path: "/erp/retail" },
-  { name: "Impacgo Project", path: "/erp/project" },  
+  { name: "Impacgo HRMS", path: erpModuleUrl("hrms") },
+  { name: "Impacgo Finance", path: erpModuleUrl("finance") },
+  { name: "Impacgo Chain", path: erpModuleUrl("chain") },
+  { name: "Impacgo Make", path: erpModuleUrl("make") },
+  { name: "Impacgo Plan", path: erpModuleUrl("plan") },
+  { name: "Impacgo Retail", path: erpModuleUrl("retail") },
+  { name: "Impacgo Project", path: erpModuleUrl("project") },
 ];
 
 // `alwaysSolid` is for pages whose content starts light/white right at the
@@ -141,8 +148,13 @@ export default function Header({ alwaysSolid = false }) {
   // Router's basename automatically.
   const navItems = [
     { name: "Home", path: "/", isRoute: true },
-    { name: "About Us", path: "/about", isRoute: true },
-    { name: "Products", path: `${import.meta.env.BASE_URL}#products`, isRoute: false },
+    // TEMP-HIDDEN: About Us — uncomment this line + the /about route in App.jsx to restore.
+    // { name: "About Us", path: "/about", isRoute: true },
+    // Products opens the Impacgo ERP site (separate Next.js app served at
+    // /erp-suite — see ERP_SITE_URL above). Plain <a>, NOT a React Router
+    // Link: it must be a full page load so the request reaches the ERP app
+    // instead of this SPA's router.
+    { name: "Products", path: SHOW_PRODUCTS_DROPDOWN ? `${import.meta.env.BASE_URL}#products` : ERP_SITE_URL, isRoute: false },
     { name: "Services", path: `${import.meta.env.BASE_URL}#services`, isRoute: false },
     { name: "Blog", path: "/blog", isRoute: true },
     { name: "FAQ", path: "/faq", isRoute: true },
@@ -201,7 +213,7 @@ export default function Header({ alwaysSolid = false }) {
                       delay: index * 0.1,
                     }}
                   >
-                    {item.name === "Products" ? (
+                    {item.name === "Products" && SHOW_PRODUCTS_DROPDOWN ? (
                       <div
                         ref={productsRef}
                         className="relative"
@@ -259,29 +271,26 @@ export default function Header({ alwaysSolid = false }) {
                               <div className="border-l border-gray-100 pl-6">
                                 <p className="text-xs font-bold uppercase tracking-wider text-emerald-600 mb-3">
                                   Impacgo ERP Suite
-                                  <span className="ml-1.5 align-middle text-[9px] font-bold bg-amber-100 text-amber-700 px-1.5 py-0.5 rounded-full normal-case tracking-normal">
-                                    In Development
-                                  </span>
                                 </p>
                                 <ul className="space-y-2.5">
                                   {erpProducts.map((p) => (
                                     <li key={p.name}>
-                                      <Link
-                                        to={p.path}
+                                      <a
+                                        href={p.path}
                                         onClick={() => setIsProductsOpen(false)}
                                         className="text-gray-700 hover:text-emerald-600 text-sm transition-colors"
                                       >
                                         {p.name}
-                                      </Link>
+                                      </a>
                                     </li>
                                   ))}
                                 </ul>
                                 <a
-                                  href={`${import.meta.env.BASE_URL}#erp-products`}
+                                  href={ERP_SITE_URL}
                                   onClick={() => setIsProductsOpen(false)}
                                   className="inline-block mt-3 text-xs font-semibold text-emerald-600 hover:text-emerald-700"
                                 >
-                                  View all Impacgo ERP Suite modules →  
+                                  View all Impacgo ERP Suite modules →
                                 </a>
                               </div>
                             </motion.div>
@@ -372,7 +381,7 @@ export default function Header({ alwaysSolid = false }) {
                 delay: index * 0.1,
               }}
             >
-              {item.name === "Products" ? (
+              {item.name === "Products" && SHOW_PRODUCTS_DROPDOWN ? (
                 <div>
                   <button
                     type="button"
@@ -415,18 +424,18 @@ export default function Header({ alwaysSolid = false }) {
                           </ul>
 
                           <p className="text-xs font-bold uppercase tracking-wider text-emerald-600 mb-2">
-                            Impacgo ERP Suite <span className="text-[9px] font-bold bg-amber-100 text-amber-700 px-1.5 py-0.5 rounded-full normal-case">In Development</span>
+                            Impacgo ERP Suite
                           </p>
                           <ul className="space-y-2">
                             {erpProducts.map((p) => (
                               <li key={p.name}>
-                                <Link
-                                  to={p.path}
+                                <a
+                                  href={p.path}
                                   onClick={closeMenu}
                                   className="text-sm text-gray-600 hover:text-emerald-600 transition"
                                 >
                                   {p.name}
-                                </Link>
+                                </a>
                               </li>
                             ))}
                           </ul>

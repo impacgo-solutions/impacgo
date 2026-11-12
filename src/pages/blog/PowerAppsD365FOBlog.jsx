@@ -8,9 +8,7 @@ import {
  CheckCircle,
  AlertCircle,
  TrendingUp,
- Users,
  Database,
- Code2,
 } from "lucide-react";
  
 import Header from "../../components/Header";

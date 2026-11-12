@@ -13,7 +13,6 @@ import {
   FaProjectDiagram,
   FaTools,
   FaRocket,
-  FaHandshake,
 } from "react-icons/fa";
 import { MdOutlineEngineering, MdOutlineSupportAgent } from "react-icons/md";
 import Header from "../components/Header";

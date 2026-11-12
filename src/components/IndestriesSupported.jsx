@@ -1,4 +1,3 @@
-import React from "react";
 import { FaIndustry, FaStoreAlt, FaHeartbeat, FaMoneyCheckAlt, FaCar, FaCity, FaProjectDiagram, FaGraduationCap, FaPlug, FaTruck } from "react-icons/fa";
 
 const industries = [
