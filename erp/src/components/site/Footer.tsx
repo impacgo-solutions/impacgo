@@ -88,7 +88,7 @@ export function CtaBand() {
           <div className="relative min-h-[380px] overflow-hidden">
             <span aria-hidden className="absolute bottom-[-30%] left-1/2 size-[420px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,#ffd2b3,transparent_66%)]" />
             <span aria-hidden className="absolute top-[10%] right-[8%] size-[220px] rounded-full bg-[radial-gradient(circle,#d9d0ff,transparent_68%)]" />
-            <Image src={withBasePath("/images/people/celebrate-in.webp")} alt="A business owner celebrating a smooth month-end close" width={579} height={1000} sizes="(max-width: 1024px) 60vw, 300px" className="site-person absolute bottom-0 left-1/2 h-[92%] w-auto -translate-x-[40%]" />
+            <Image src={withBasePath("/images/people/founder-in.webp")} alt="A smiling, confident business owner" width={558} height={1000} sizes="(max-width: 1024px) 60vw, 300px" className="site-person absolute bottom-0 left-1/2 h-[92%] w-auto -translate-x-[40%]" />
             <div className="site-float absolute bottom-6 left-5 flex items-center gap-3 rounded-2xl bg-white/95 px-4 py-3 shadow-[0_14px_34px_-16px_rgb(20_22_28/40%)] backdrop-blur sm:left-8">
               <span className="grid size-9 place-items-center rounded-full bg-[#dcfce7] text-[#16a34a]">
                 <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5" /></svg>
