@@ -102,7 +102,7 @@ const ROUTES = [
   "/healthvault",
   "/products/health-vault",
   "/faq",
-  // "/about", // TEMP-HIDDEN: re-enable when the /about route is restored.
+  "/about",
   "/contact",
   "/privacy",
   "/terms",

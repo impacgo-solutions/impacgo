@@ -49,9 +49,7 @@ Our own in-house business platform, built as one connected system. Impacgo HRMS,
 
 ## More
 
-<!-- TEMP-HIDDEN: restore when the /about route is restored.
 - [About](https://www.impacgo.com/about) — company story, founder, and clients
--->
 - [Blog](https://www.impacgo.com/blog) — Dynamics 365, AX migration, and Power Platform articles
 - [FAQ](https://www.impacgo.com/faq)
 - [Contact](https://www.impacgo.com/contact) — email info@impacgo.com, phone +91 99664 77499
