@@ -148,8 +148,7 @@ export default function Header({ alwaysSolid = false }) {
   // Router's basename automatically.
   const navItems = [
     { name: "Home", path: "/", isRoute: true },
-    // TEMP-HIDDEN: About Us — uncomment this line + the /about route in App.jsx to restore.
-    // { name: "About Us", path: "/about", isRoute: true },
+    { name: "About Us", path: "/about", isRoute: true },
     // Products opens the Impacgo ERP site (separate Next.js app served at
     // /erp-suite — see ERP_SITE_URL above). Plain <a>, NOT a React Router
     // Link: it must be a full page load so the request reaches the ERP app
