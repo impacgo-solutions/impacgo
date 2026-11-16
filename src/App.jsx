@@ -9,7 +9,8 @@ import { AnimatePresence, motion } from "framer-motion";
 // downloads the JS for the page they're actually on.
 const Pos = lazy(() => import("./pages/Pos"));
 const FAQ = lazy(() => import("./pages/FAQ"));
-const About = lazy(() => import("./pages/About"));
+// TEMP-HIDDEN: About page — uncomment together with the /about <Route> below.
+// const About = lazy(() => import("./pages/About"));
 const Privacy = lazy(() => import("./pages/Privacy"));
 const Terms = lazy(() => import("./pages/Terms"));
 const NotFound = lazy(() => import("./pages/NotFound"));
@@ -347,10 +348,12 @@ function AnimatedRoutes() {
         />
 
         {/* ---------------- ABOUT ---------------- */}
+        {/* TEMP-HIDDEN: uncomment this route + the About import at the top to restore.
         <Route
           path="/about"
           element={<About />}
         />
+        */}
 
         {/* ---------------- LEGAL ---------------- */}
         <Route

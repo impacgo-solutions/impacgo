@@ -306,13 +306,14 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- About -->
+  <!-- About — TEMP-HIDDEN: remove this comment wrapper when the /about route is restored.
   <url>
     <loc>https://www.impacgo.com/about</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-08-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  -->
 
   <!-- Contact -->
   <url>
