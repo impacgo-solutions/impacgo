@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist_Mono, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { ContactModal } from "@/components/site/ContactModal";
+import { OverviewModal } from "@/components/site/Overview";
 import { INTRO_SKIP_SCRIPT } from "@/lib/intro";
 import { OG_DEFAULTS } from "@/lib/seo";
 import { SITE_SCRIPTS } from "@/lib/site-scripts";
@@ -40,6 +41,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         {children}
         {/* "Book a demo" / "Talk to our team" popup, opened by any <a href="#contact"> on any page. */}
         <ContactModal />
+        {/* Full-screen player for the 36-second overview video, opened by any <a href="#overview-video">. */}
+        <OverviewModal />
       </body>
     </html>
   );

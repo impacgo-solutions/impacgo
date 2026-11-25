@@ -1,55 +1,76 @@
 # Impacgo Solutions
 
-> Microsoft Dynamics 365 Finance & Operations and Power Platform implementation partner for global enterprises, based in Visakhapatnam, India, with deep India compliance expertise (GST, e-invoicing). Impacgo also builds its own software products.
+> Impacgo Solutions Private Limited is a software and consulting company headquartered in Visakhapatnam, Andhra Pradesh, India (founded 2020). It implements Microsoft Dynamics 365 Finance & Operations and the Microsoft Power Platform, builds its own ERP suite (Impacgo ERP, including Impacgo HRMS), and develops custom web, mobile and AI automation solutions for clients across India and for global enterprises, with India compliance (GST, e-invoicing) built in.
 
-## Services
+Key facts:
+- Legal name: Impacgo Solutions Private Limited
+- Founded: 2020, by Venkata Srikar Tantravahi (Founder & CEO)
+- Headquarters: No 9-29-19, Gupta Villa, Third Floor, Balaji Nagar, Visakhapatnam, Andhra Pradesh 530003, India
+- Contact: info@impacgo.com, +91 99664 77499, https://www.impacgo.com/contact
+- LinkedIn: https://www.linkedin.com/company/impacgo-solutions-private-limited/
 
-- [Dynamics 365 F&O Implementation](https://www.impacgo.com/services/d365)
-- [AX 2012 to D365 Migration](https://www.impacgo.com/services/ax-migration) — Microsoft AX 2012 R3 extended support ended 10 January 2023
-- [D365FO Development & Customisation](https://www.impacgo.com/services/d365-development)
-- [Dynamics 365 CRM](https://www.impacgo.com/services/d365-crm) — Sales, Customer Service, Marketing, Field Service
-- [Power Apps Development](https://www.impacgo.com/services/power-apps)
-- [Power Automate Consulting](https://www.impacgo.com/services/power-automate)
-- [Power BI Implementation](https://www.impacgo.com/services/power-bi)
-- [AI Builder Integration](https://www.impacgo.com/services/ai-builder)
-- [Application Development](https://www.impacgo.com/services/app-development) — web and mobile
-- [Integrations](https://www.impacgo.com/services/integrations)
-- [Manufacturing Execution Systems (MES)](https://www.impacgo.com/services/mes)
-- [AI & Automation](https://www.impacgo.com/services/ai-automation)
+## ERP implementation and Microsoft Dynamics 365
+
+- [ERP Implementation Services](https://www.impacgo.com/services/implementation): Microsoft Dynamics 365 F&O, our own Impacgo ERP, and custom ERP deployment for manufacturing, distribution, retail and services
+- [Dynamics 365 Finance & Operations Implementation](https://www.impacgo.com/services/d365)
+- [AX 2012 to Dynamics 365 Migration](https://www.impacgo.com/services/ax-migration)
+- [D365FO Development & Customisation (X++, extensions)](https://www.impacgo.com/services/d365-development)
+- [Dynamics 365 CRM](https://www.impacgo.com/services/d365-crm): Sales, Customer Service, Marketing, Field Service
+- [Application Managed Services (AMS) for Dynamics 365](https://www.impacgo.com/services/ams): SLA-backed support, enhancements, performance tuning
+- [Integrations](https://www.impacgo.com/services/integrations): Dynamics 365 with third-party systems
 - [Consulting & Digital Transformation](https://www.impacgo.com/services/consulting)
-- [POS Solutions](https://www.impacgo.com/services/pos)
 
-## Our own products
+## Impacgo ERP Suite (our own ERP software)
 
-- [CALVIQ](https://www.impacgo.com/products/dairy-farm) — dairy farm management system (milk production, herd health, breeding, feed, finance)
-- [StockLyte](https://www.impacgo.com/products/inventory-management) — real-time, multi-location inventory management
-- [FarmYieldIQ](https://www.impacgo.com/products/farm-yield-iq) — farmland plot operations platform
-- [Work Task Application](https://www.impacgo.com/products/work-task) — consultant/employee time tracking
-- [Construction Planner](https://www.impacgo.com/products/construction-planner) — AI-powered construction planning (in development)
+One connected platform. HRMS, Finance, Chain, Make and Retail are available today; book a free demo at https://www.impacgo.com/erp-suite/demo.
 
-## Impacgo ERP Suite
-
-Our own in-house business platform, built as one connected system. Impacgo HRMS, Finance, Chain, Make and Retail are available today — book a free demo at https://www.impacgo.com/erp-suite/demo.
-
-- [Impacgo ERP — overview](https://www.impacgo.com/erp-suite) — the full ERP suite site
+- [Impacgo ERP overview](https://www.impacgo.com/erp-suite)
+- [Impacgo HRMS](https://www.impacgo.com/erp-suite#module-hrms): human resource management: employee records, attendance and shifts, leave, payroll and payslips, recruitment and onboarding, self-service
+- [Impacgo Finance](https://www.impacgo.com/erp-suite#module-finance): general ledger, payables, receivables, bank, GST and tax workflows
+- [Impacgo Chain](https://www.impacgo.com/erp-suite#module-chain): supply chain: procurement, sales orders, inventory, warehouses, batch/serial tracking
+- [Impacgo Make](https://www.impacgo.com/erp-suite#module-make): manufacturing software: bills of materials, work orders, routings, job cards, production costing
+- [Impacgo Plan](https://www.impacgo.com/erp-suite#module-plan): demand and supply planning, MRP, scheduling, capacity
+- [Impacgo Retail](https://www.impacgo.com/erp-suite#module-retail): retail ERP and POS: billing, pricing, multi-store operations, payments, synced to inventory and accounts
+- [Impacgo Project](https://www.impacgo.com/erp-suite#module-project): projects, tasks, Kanban/Gantt planning, budgets, timesheets
 - [Book a free Impacgo ERP demo](https://www.impacgo.com/erp-suite/demo)
-- [Impacgo HRMS](https://www.impacgo.com/erp-suite#module-hrms) — workforce management
-- [Impacgo Finance](https://www.impacgo.com/erp-suite#module-finance) — accounting & compliance across legal entities
-- [Impacgo Chain](https://www.impacgo.com/erp-suite#module-chain) — supply chain management (CRM to logistics)
-- [Impacgo Make](https://www.impacgo.com/erp-suite#module-make) — manufacturing
-- [Impacgo Plan](https://www.impacgo.com/erp-suite#module-plan) — planning & MRP
-- [Impacgo Retail](https://www.impacgo.com/erp-suite#module-retail) — POS & store operations
-- [Impacgo Project](https://www.impacgo.com/erp-suite#module-project) — project & delivery management
 
 ## Industries
 
-- [Manufacturing](https://www.impacgo.com/industries/manufacturing)
-- [Distribution](https://www.impacgo.com/industries/distribution)
-- [Retail & E-Commerce](https://www.impacgo.com/industries/retail)
+- [Manufacturing](https://www.impacgo.com/industries/manufacturing): Dynamics 365 for production, BOM and MES integration
+- [Manufacturing Execution Systems (MES)](https://www.impacgo.com/services/mes)
+- [Distribution & Wholesale](https://www.impacgo.com/industries/distribution): warehouse management, trade agreements, multi-warehouse
+- [Retail & E-Commerce](https://www.impacgo.com/industries/retail): Dynamics 365 Commerce, omnichannel POS
+- [POS Solutions](https://www.impacgo.com/services/pos): cloud POS and Dynamics 365 Commerce integration
+
+## AI and automation
+
+- [AI & Automation Consulting](https://www.impacgo.com/services/ai-automation): RPA, AI chatbots, intelligent document processing, predictive analytics, AI embedded in ERP workflows
+- [AI Builder Integration](https://www.impacgo.com/services/ai-builder)
+- [Power Automate Consulting](https://www.impacgo.com/services/power-automate): workflow automation and RPA
+- [Power Apps Development](https://www.impacgo.com/services/power-apps)
+- [Power BI Implementation](https://www.impacgo.com/services/power-bi): dashboards and reporting on Dynamics 365 data
+
+## Custom software development
+
+- [Custom App Development](https://www.impacgo.com/services/app-development): web and mobile apps (React, React Native, .NET, Power Apps) integrated with ERP systems
+- [Software Development Services](https://www.impacgo.com/services/development): custom ERP extensions, web apps, mobile apps, integration development
+
+## Our own products
+
+- [CALVIQ](https://www.impacgo.com/calviq): dairy farm and cattle management software for cow farms: milk production tracking per animal, herd health and veterinary records, breeding, feed, QR ear tags, AI body condition scoring from smartphone photos, farm finance and KPI dashboards. For dairy farmers, cooperatives and multi-farm enterprises.
+- [StockLyte](https://www.impacgo.com/stocklyte): inventory management software: real-time stock tracking across warehouses and stores, barcode scanning, reorder alerts, purchase orders, demand forecasting, works offline and syncs later.
+- [FarmYieldIQ](https://www.impacgo.com/farmyieldiq): farmland plot management software for managed farmland projects: layouts, blocks and plots, pricing and registrations, partner portfolios with document vault and payments, plot sales pipeline.
+- [HealthVault](https://www.impacgo.com/healthvault): family health records app: OCR-scanned prescriptions and reports per family member, AI health insights, vitals, reminders, emergency QR profile.
+- [Work Task Application](https://www.impacgo.com/products/work-task): task and time tracking for consultants and field teams
+- [Construction Planner](https://www.impacgo.com/products/construction-planner): construction project planning (in development)
 
 ## More
 
-- [About](https://www.impacgo.com/about) — company story, founder, and clients
-- [Blog](https://www.impacgo.com/blog) — Dynamics 365, AX migration, and Power Platform articles
+- [CALVIQ: QR-based cattle tracking for dairy farm management](https://www.impacgo.com/blog/calviq-dairy-farm-management)
+- [Dairy farm management software: a practical guide for cow and cattle farms](https://www.impacgo.com/blog/dairy-farm-management-software-guide)
+- [Inventory management software for multi-location businesses](https://www.impacgo.com/blog/multi-location-inventory-management-software)
+- [Farmland plot management software: tracking plots, partners and sales](https://www.impacgo.com/blog/farmland-plot-management-software)
+- [Blog](https://www.impacgo.com/blog): Dynamics 365, AX migration, GST e-invoicing, Power Platform articles
 - [FAQ](https://www.impacgo.com/faq)
-- [Contact](https://www.impacgo.com/contact) — email info@impacgo.com, phone +91 99664 77499
+- [Contact](https://www.impacgo.com/contact)
+- [Sitemap](https://www.impacgo.com/sitemap.xml)

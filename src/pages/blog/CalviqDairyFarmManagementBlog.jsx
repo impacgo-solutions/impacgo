@@ -349,7 +349,7 @@ export default function CalviqDairyFarmManagementBlog() {
                         <p className="text-gray-700 leading-relaxed mb-8">
                             For farms that also need feed and nutrition tracking or milk-sales
                             invoicing, Impacgo's{" "}
-                            <Link to="/products/dairy-farm" className="text-blue-600 hover:underline font-medium">
+                            <Link to="/calviq" className="text-blue-600 hover:underline font-medium">
                                 Dairy Farm Management System
                             </Link>{" "}
                             extends the same herd data into ration planning, feed cost tracking, and
@@ -413,7 +413,7 @@ export default function CalviqDairyFarmManagementBlog() {
                         <p className="text-gray-700 leading-relaxed mb-12">
                             For dairy operations that also need financial and feed management,
                             pairing Calviq's herd tracking with Impacgo's{" "}
-                            <Link to="/products/dairy-farm" className="text-blue-600 hover:underline font-medium">
+                            <Link to="/calviq" className="text-blue-600 hover:underline font-medium">
                                 Dairy Farm Management System
                             </Link>{" "}
                             builds a complete, digital operating picture of the farm.

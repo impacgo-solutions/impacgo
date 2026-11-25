@@ -169,6 +169,7 @@ export function BeforeAfter() {
 const CHAPTERS = [
   { id: "top", label: "Welcome" },
   { id: "problem", label: "The problem" },
+  { id: "overview", label: "Overview video" },
   { id: "before-after", label: "Before & after" },
   { id: "features", label: "Why Impacgo ERP" },
   { id: "modules", label: "The seven modules" },

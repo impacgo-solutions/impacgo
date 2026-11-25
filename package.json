@@ -17,7 +17,8 @@
     "lint": "eslint .",
     "optimize-images": "node scripts/optimize-images.mjs",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "indexnow": "node scripts/indexnow.mjs"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",

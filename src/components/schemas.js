@@ -3,10 +3,31 @@
  * These help Google understand your business and improve rich results in search.
  */
 
+// One stable identifier for the company. Every schema below that mentions
+// Impacgo (provider, publisher, brand, employer…) points at this same @id, so
+// Google and AI search tools read them all as ONE organisation rather than
+// several unrelated "Impacgo Solutions" entities.
+const SITE_URL = "https://www.impacgo.com";
+export const ORG_ID = `${SITE_URL}/#organization`;
+
+// Where Impacgo works, as the site itself describes it: clients across India,
+// plus "India and global enterprises" on the service pages.
+const AREA_SERVED = [
+  { "@type": "Country", name: "India" },
+  { "@type": "Place", name: "Worldwide" },
+];
+
+// Profiles confirmed in this project. Add more official profiles here (e.g.
+// a Clutch or Microsoft partner listing) only once they're confirmed.
+const SAME_AS = [
+  "https://www.linkedin.com/company/impacgo-solutions-private-limited/",
+];
+
 // 1. Organization Schema — use on HOMEPAGE
 export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": ORG_ID,
   name: "Impacgo Solutions",
   legalName: "Impacgo Solutions Private Limited",
   url: "https://www.impacgo.com",
@@ -18,8 +39,11 @@ export const organizationSchema = {
       name: "Venkata Srikar Tantravahi",
     },
   ],
+  email: "info@impacgo.com",
+  telephone: "+91-9966477499",
   description:
-    "Visakhapatnam-based Microsoft Dynamics 365 Finance and Operations (D365FO) implementation partner and Power Platform consulting firm. Specialising in D365FO ERP implementation, AX 2012 to D365 migration, Power Apps, Power Automate, Power BI, and AI Builder for manufacturing, distribution, and enterprise clients across India.",
+    "Visakhapatnam-based Microsoft Dynamics 365 Finance and Operations (D365FO) implementation partner and Power Platform consulting firm, and the maker of Impacgo ERP (HRMS, Finance, Chain, Make, Plan, Retail and Project). Specialising in ERP implementation, AX 2012 to D365 migration, Power Apps, Power Automate, Power BI, AI and automation, and custom web and mobile development for manufacturing, distribution, retail, and enterprise clients across India and worldwide.",
+  areaServed: AREA_SERVED,
   address: {
     "@type": "PostalAddress",
     streetAddress: "No 9-29-19, Gupta Villa, Third Floor, Balaji Nagar",
@@ -32,24 +56,39 @@ export const organizationSchema = {
     "@type": "ContactPoint",
     telephone: "+91-9966477499",
     contactType: "Customer Service",
-    email: "srikar@impacgo.com",
-    areaServed: "IN",
+    email: "info@impacgo.com",
+    areaServed: AREA_SERVED,
     availableLanguage: ["en", "hi", "te"],
   },
-  sameAs: [
-    "https://www.linkedin.com/company/impacgo-solutions-private-limited/",
-  ],
+  sameAs: SAME_AS,
 };
 
-// 2. Local Business Schema — also use on HOMEPAGE
+// 1b. WebSite Schema — use on HOMEPAGE, tells search engines which
+// organisation publishes www.impacgo.com.
+export const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${SITE_URL}/#website`,
+  name: "Impacgo Solutions",
+  url: SITE_URL,
+  inLanguage: "en",
+  publisher: { "@id": ORG_ID },
+};
+
+// 2. Local Business Schema — also use on HOMEPAGE. Same @id as the
+// Organization above, so search engines merge the two into one record
+// (company details + office location/hours).
 export const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   name: "Impacgo Solutions",
   image: "https://www.impacgo.com/logo.png",
-  "@id": "https://www.impacgo.com",
+  "@id": ORG_ID,
   url: "https://www.impacgo.com",
   telephone: "+91-9966477499",
+  email: "info@impacgo.com",
+  areaServed: AREA_SERVED,
+  sameAs: SAME_AS,
   priceRange: "$$",
   address: {
     "@type": "PostalAddress",
@@ -83,8 +122,9 @@ export const founderSchema = {
   jobTitle: "Founder & CEO",
   worksFor: {
     "@type": "Organization",
+    "@id": ORG_ID,
     name: "Impacgo Solutions",
-    url: "https://www.impacgo.com",
+    url: SITE_URL,
   },
   url: "https://www.impacgo.com/about",
 };
@@ -99,6 +139,12 @@ export const createProductSchema = ({
   category,
   path,
   image,
+  // Optional extras (all backward compatible): other names people search
+  // for, the main features, who it's for, and search phrases it covers.
+  alternateName,
+  featureList,
+  audience,
+  keywords,
 }) => ({
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
@@ -108,11 +154,17 @@ export const createProductSchema = ({
   operatingSystem: "Web",
   url: `https://www.impacgo.com${path}`,
   ...(image ? { image: image.startsWith("http") ? image : `https://www.impacgo.com${image}` } : {}),
+  ...(alternateName ? { alternateName } : {}),
+  ...(featureList ? { featureList } : {}),
+  ...(audience ? { audience: { "@type": "Audience", audienceType: audience } } : {}),
+  ...(keywords ? { keywords } : {}),
   brand: {
     "@type": "Organization",
+    "@id": ORG_ID,
     name: "Impacgo Solutions",
-    url: "https://www.impacgo.com",
+    url: SITE_URL,
   },
+  publisher: { "@id": ORG_ID },
   // Deliberately no `offers`/`availability` block — these are contact-based
   // B2B products with no public self-serve pricing, so an InStock/PreOrder
   // claim would just be a guess dressed up as structured data.
@@ -132,13 +184,11 @@ export const createServiceSchema = ({
   description: description,
   provider: {
     "@type": "Organization",
+    "@id": ORG_ID,
     name: "Impacgo Solutions",
-    url: "https://www.impacgo.com",
+    url: SITE_URL,
   },
-  areaServed: {
-    "@type": "Country",
-    name: "India",
-  },
+  areaServed: AREA_SERVED,
   url: `https://www.impacgo.com${path}`,
 });
 
@@ -188,9 +238,11 @@ export const createArticleSchema = ({
   author: {
     "@type": "Organization",
     name: authorName,
+    ...(authorName === "Impacgo Solutions" ? { "@id": ORG_ID, url: SITE_URL } : {}),
   },
   publisher: {
     "@type": "Organization",
+    "@id": ORG_ID,
     name: "Impacgo Solutions",
     logo: {
       "@type": "ImageObject",

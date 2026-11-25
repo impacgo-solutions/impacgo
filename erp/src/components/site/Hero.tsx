@@ -8,6 +8,8 @@ import { RotatingWord } from "@/components/site/motion";
 import { SuiteConsole } from "@/components/site/suite";
 import { SectionHead, accent, button, container, d, type } from "@/components/site/Section";
 import { CONTACT_HREF } from "@/lib/contact";
+import { OVERVIEW_HREF } from "@/components/site/Overview";
+import { Robot, ROBOT_RISE } from "@/components/site/Robot";
 
 /*
  * Home-page demo request card (desktop; on smaller screens the hero's
@@ -16,17 +18,21 @@ import { CONTACT_HREF } from "@/lib/contact";
  */
 function DemoCard() {
   return (
-    <div id="demo-card" className="rounded-3xl border border-[#ebe5dc] bg-white p-7 shadow-[0_30px_70px_-30px_rgb(45_79_224/35%)] sm:p-8">
-      <DemoForm
-        compact
-        source="the ERP home page demo card"
-        heading={
-          <div className="pb-2">
-            <p className="text-[22px] font-semibold tracking-[-0.02em] text-[#14161c]">See Impacgo ERP in action</p>
-            <p className="pt-1.5 text-[15px] text-[#5c6170]">Book a free, personalised demo. We&apos;ll walk you through the modules your business needs.</p>
-          </div>
-        }
-      />
+    <div className="relative" style={{ paddingTop: ROBOT_RISE }}>
+      {/* The Impacgo robot peeks over the card, hands on a line in the seven module colours. */}
+      <Robot />
+      <div id="demo-card" className="relative z-10 rounded-3xl border border-[#ebe5dc] bg-white p-7 shadow-[0_30px_70px_-30px_rgb(45_79_224/35%)] sm:p-8">
+        <DemoForm
+          compact
+          source="the ERP home page demo card"
+          heading={
+            <div className="pb-2">
+              <p className="text-[22px] font-semibold tracking-[-0.02em] text-[#14161c]">See Impacgo ERP in action</p>
+              <p className="pt-1.5 text-[15px] text-[#5c6170]">Book a free, personalised demo. We&apos;ll walk you through the modules your business needs.</p>
+            </div>
+          }
+        />
+      </div>
     </div>
   );
 }
@@ -71,7 +77,7 @@ export function Hero() {
         <span className="site-hero-glow absolute inset-0" />
       </div>
 
-      <div className="relative mx-auto grid max-w-[1200px] items-center gap-12 px-5 pt-[136px] pb-24 sm:px-8 lg:min-h-[100svh] lg:grid-cols-[minmax(0,1fr)_420px] lg:gap-20 lg:pt-[112px] lg:pb-16">
+      <div data-hero-now className="relative mx-auto grid max-w-[1200px] items-center gap-12 px-5 pt-[136px] pb-24 sm:px-8 lg:min-h-[100svh] lg:grid-cols-[minmax(0,1fr)_420px] lg:gap-20 lg:pt-[112px] lg:pb-16">
         <div data-scroll="exit" className="max-lg:text-center">
           <a href="#modules" data-reveal className="group inline-flex items-center gap-2 text-[15px] font-medium max-sm:hidden text-[#383d48] transition-colors hover:text-[#2d4fe0]">
             <span className="text-[13px] font-semibold tracking-[0.08em] text-[#c8452a] uppercase">New</span>
@@ -99,6 +105,14 @@ export function Hero() {
               </li>
             ))}
           </ul>
+          <div data-reveal style={d(300)} className="pt-8 max-lg:flex max-lg:justify-center">
+            <a href={OVERVIEW_HREF} className="group inline-flex items-center gap-3 rounded-full border border-[#e6ddd0] bg-white/80 py-1.5 pr-5 pl-1.5 text-[15px] font-semibold text-[#14161c] shadow-[0_10px_30px_-18px_rgb(20_22_28/45%)] backdrop-blur-sm transition-colors hover:border-[#d6cbbb] hover:bg-white">
+              <span className="grid size-9 place-items-center rounded-full bg-[linear-gradient(180deg,#e5512f,#cc3b1c)] text-white transition-transform group-hover:scale-105">
+                <svg width="13" height="13" viewBox="0 0 14 14" aria-hidden><path d="M4 2.5l8 4.5-8 4.5z" fill="currentColor" /></svg>
+              </span>
+              Watch the overview <span className="font-normal text-[#686c79]">· 0:36</span>
+            </a>
+          </div>
           <div data-reveal style={d(320)} className="flex flex-wrap gap-3 pt-9 max-lg:justify-center lg:hidden">
             <a href={CONTACT_HREF} className={button.primary}>
               Book a free demo <ArrowRight />

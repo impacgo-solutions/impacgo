@@ -15,7 +15,8 @@ const FOOTER_COLUMNS = [
   {
     title: 'Company',
     links: [
-      { label: 'About Impacgo', to: '/about' },
+      // TEMP-HIDDEN: About page is hidden — uncomment when the /about route is restored.
+      // { label: 'About Impacgo', to: '/about' },
       { label: 'CALVIQ Blog', to: '/blog/calviq-dairy-farm-management' },
       { label: 'Book a Demo', to: '/calviq/demo' },
       { label: 'Contact Support', to: '/contact' },

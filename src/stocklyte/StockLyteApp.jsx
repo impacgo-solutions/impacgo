@@ -6,7 +6,8 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar.jsx';
 import Home from './pages/Home.jsx';
 import SignUp from './pages/SignUp.jsx';
-import { createProductSchema, createBreadcrumbSchema, organizationSchema } from '../components/schemas';
+import { createProductSchema, createBreadcrumbSchema, createFaqSchema, organizationSchema } from '../components/schemas';
+import { STOCKLYTE_FAQS } from './data/faqs';
 
 // Matches the ScrollToTop pattern used elsewhere in the site (Calviq,
 // Dairyfarm.jsx) — without it, navigating here from a scrolled-down page
@@ -20,12 +21,27 @@ function ScrollToTop() {
 }
 
 const stocklyteProductSchema = createProductSchema({
-  name: "StockLyte — Inventory Management System",
+  name: "StockLyte",
+  alternateName: ["Stocklyte","StockLyte Inventory Management System"],
   description:
-    "Real-time, multi-location inventory management software with barcode scanning, purchase orders, and demand forecasting.",
+    "Real-time, multi-location inventory management software for warehouses, storefronts and multi-store businesses, with barcode scanning, automated reorder alerts, purchase orders, demand forecasting and local-first scanning that syncs when connectivity returns. Built by Impacgo Solutions.",
   category: "BusinessApplication",
   path: "/stocklyte",
+  featureList: [
+    "Real-time stock tracking across every location",
+    "Multi-warehouse and multi-store visibility",
+    "Barcode scanning",
+    "Automated reorder points and low-stock alerts",
+    "Purchase orders",
+    "Demand forecasting",
+    "Local-first scanning that works with poor or no connectivity and syncs later",
+    "Command center dashboard",
+  ],
+  audience: "Retailers, distributors, warehouses and multi-location businesses",
+  keywords: "inventory management software, stock management software, multi-location inventory, warehouse inventory system, barcode inventory",
 });
+
+const stocklyteFaqSchema = createFaqSchema(STOCKLYTE_FAQS.map(({ q, a }) => ({ question: q, answer: a })));
 
 const stocklyteBreadcrumbSchema = createBreadcrumbSchema([
   { name: "Home", path: "/" },
@@ -40,38 +56,40 @@ export default function StockLyteApp() {
     // dark: variant anywhere else on the site trigger unexpectedly.
     <div className="dark bg-stocklyte-background text-stocklyte-on-background font-stocklyte-body selection:bg-stocklyte-primary selection:text-stocklyte-on-primary antialiased overflow-x-hidden">
       <Helmet>
-        <title>StockLyte | Master Your Inventory. Everywhere. In Real-Time.</title>
+        <title>StockLyte | Inventory Management Software for Multi-Location Stock Tracking | Impacgo</title>
         <meta
           name="description"
-          content="StockLyte is a real-time, multi-location inventory management system — stock tracking, automated reorder alerts, barcode scanning, purchase orders, and demand forecasting. Built by Impacgo Solutions."
+          content="StockLyte is real-time inventory management software for warehouses and multi-store businesses: stock tracking across locations, barcode scanning, reorder alerts, purchase orders, demand forecasting and offline-first scanning."
         />
         <meta
           name="keywords"
-          content="StockLyte, inventory management software, multi-location inventory, stock tracking software, barcode inventory system, demand forecasting software"
+          content="StockLyte, inventory management software, stock management software, multi-location inventory software, warehouse inventory system, barcode inventory software, stock tracking app, reorder alert software, inventory software India"
         />
         <link rel="canonical" href="https://www.impacgo.com/stocklyte" />
 
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.impacgo.com/stocklyte" />
-        <meta property="og:title" content="StockLyte | Master Your Inventory. Everywhere. In Real-Time." />
+        <meta property="og:title" content="StockLyte | Inventory Management Software for Multi-Location Stock Tracking | Impacgo" />
         <meta
           property="og:description"
-          content="Real-time, multi-location inventory control tower — stock tracking, reorder alerts, barcode scanning, and demand forecasting."
+          content="Real-time, multi-location inventory management software: stock tracking, barcode scanning, reorder alerts and demand forecasting."
         />
         <meta property="og:image" content="https://www.impacgo.com/logo.png" />
         <meta property="og:site_name" content="Impacgo Solutions" />
+        <meta property="og:locale" content="en_IN" />
 
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="StockLyte | Real-Time Inventory Management" />
+        {/* "summary" card: the only share image is the small logo (see SEO.jsx) */}
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="StockLyte | Inventory Management Software for Multi-Location Stock Tracking | Impacgo" />
         <meta
           name="twitter:description"
-          content="Real-time, multi-location inventory control tower, built by Impacgo Solutions."
+          content="Real-time, multi-location inventory management software: stock tracking, barcode scanning, reorder alerts and demand forecasting."
         />
 
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 
         <script type="application/ld+json">
-          {JSON.stringify([stocklyteProductSchema, stocklyteBreadcrumbSchema, organizationSchema])}
+          {JSON.stringify([stocklyteProductSchema, stocklyteFaqSchema, stocklyteBreadcrumbSchema, organizationSchema])}
         </script>
 
         {/* These fonts are only used on this sub-app, so they're declared

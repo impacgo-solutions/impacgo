@@ -1,23 +1,5 @@
 import { Link } from 'react-router-dom';
-
-const faqs = [
-  {
-    q: 'How secure are partner and payment records?',
-    a: 'Role-based access controls limit each employee to the modules and data their role covers, and every partner’s documents and payment history are kept in a dedicated profile.',
-  },
-  {
-    q: 'Can I track crop details alongside plot pricing?',
-    a: 'Yes — each plot can carry optional cropping details, such as crop type and plant count, right alongside its pricing, payment and registration status.',
-  },
-  {
-    q: 'Does it handle my sales team, not just customers?',
-    a: 'Yes. Leads, follow-ups and bookings run through a pipeline with your sales hierarchy — from sales associate up to branch and regional leadership — plus targets and commissions.',
-  },
-  {
-    q: 'What about staff expenses and documents?',
-    a: 'Employees can log travel expenses for approval and reimbursement, and certificates, agreements and invoices are stored against the relevant partner in a central document vault.',
-  },
-];
+import { FARMYIELDIQ_FAQS as faqs } from '../data/faqs';
 
 export default function FinalCTA() {
   return (

@@ -8,7 +8,7 @@ import worktast from "../assets/worktask.webp";
 import construction from "../assets/Construction.webp";
 import farmYieldIq from "../assets/farmyieldiq-dashboard.webp";
 import SEO from "../components/SEO";
-import { organizationSchema, localBusinessSchema } from "../components/schemas";
+import { organizationSchema, localBusinessSchema, websiteSchema } from "../components/schemas";
 import { erpModules } from "../data/erpModules";
 import emailjs from "@emailjs/browser";
 import {
@@ -62,7 +62,7 @@ export default function HomePage() {
   description="Specialist Microsoft Dynamics 365 Finance & Operations and Power Platform implementation partner for global enterprises. AX 2012 migration, D365FO, Power Apps, Power BI, AI Builder. Deep India compliance expertise (GST, e-invoicing). Multi-country rollouts. Free consultation."
   keywords="Microsoft Dynamics 365 partner, D365FO implementation partner, Power Platform consultant, AX 2012 migration specialist, Power Apps developer, Power BI implementation, AI Builder integration, Dynamics 365 CRM partner, Microsoft Dynamics 365 India, D365 partner India, Power Platform India, ERP partner India"
   path="/"
-  schema={[organizationSchema, localBusinessSchema]}
+  schema={[organizationSchema, localBusinessSchema, websiteSchema]}
 />
       <Header />
       <main>
@@ -872,7 +872,7 @@ function ProductsAndERPSection() {
         "Finance, milk sales invoicing & reporting",
       ],
       image: dfms,
-      path: "/products/dairy-farm",
+      path: "/calviq",
       landingPage: { path: "/calviq", label: "Explore CALVIQ" },
       tag: null,
       gradient: "from-green-500 to-emerald-600",
@@ -887,7 +887,7 @@ function ProductsAndERPSection() {
         "Multi-warehouse & multi-location visibility",
       ],
       image: supplyChain,
-      path: "/products/inventory-management",
+      path: "/stocklyte",
       landingPage: { path: "/stocklyte", label: "Explore StockLyte" },
       tag: null,
       gradient: "from-indigo-500 to-blue-600",
@@ -902,7 +902,7 @@ function ProductsAndERPSection() {
         "Real estate sales pipeline — leads, bookings & team hierarchy",
       ],
       image: farmYieldIq,
-      path: "/products/farm-yield-iq",
+      path: "/farmyieldiq",
       landingPage: { path: "/farmyieldiq", label: "Explore FarmYieldIQ" },
       tag: null,
       gradient: "from-emerald-600 to-amber-600",
@@ -917,7 +917,7 @@ function ProductsAndERPSection() {
         "Family profiles, vitals tracking, reminders & emergency QR card",
       ],
       image: health,
-      path: "/products/health-vault",
+      path: "/healthvault",
       landingPage: { path: "/healthvault", label: "Explore HealthVault" },
       tag: "📱 Mobile App",
       gradient: "from-blue-600 to-teal-500",

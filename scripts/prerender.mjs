@@ -38,7 +38,9 @@ const PORT = 4173;
 // actually building on Vercel; local dev (and the local GitHub Pages build)
 // keeps using the full `puppeteer` package, which already works fine there.
 async function launchBrowser() {
-  if (process.env.VERCEL) {
+  // Only on Linux: lets a local Windows/macOS build set VERCEL=1 to produce
+  // (and test) the Vercel-style output with the normal puppeteer Chromium.
+  if (process.env.VERCEL && process.platform === "linux") {
     return puppeteerCore.launch({
       args: chromium.args,
       executablePath: await chromium.executablePath(),
@@ -73,9 +75,9 @@ const ROUTES = [
   "/services/ai-builder",
   "/services/d365-development",
   "/services/d365-crm",
-  "/products/dairy-farm",
-  "/products/inventory-management",
-  "/products/farm-yield-iq",
+  // /products/dairy-farm, /products/inventory-management,
+  // /products/farm-yield-iq and /products/health-vault permanently redirect
+  // (vercel.json) to /calviq, /stocklyte, /farmyieldiq and /healthvault.
   // /erp/:slug pages now redirect to the ERP site (/erp-suite), which is a
   // separate Next.js app with its own server rendering — nothing to prerender.
   "/products/work-task",
@@ -96,13 +98,15 @@ const ROUTES = [
   "/blog/copilot-in-dynamics-365-finance-operations",
   "/blog/gst-e-invoicing-in-dynamics-365-finance-operations",
   "/blog/ax-2012-to-d365-finance-operations-upgrade-checklist",
+  "/blog/dairy-farm-management-software-guide",
+  "/blog/multi-location-inventory-management-software",
+  "/blog/farmland-plot-management-software",
   "/calviq",
   "/stocklyte",
   "/farmyieldiq",
   "/healthvault",
-  "/products/health-vault",
   "/faq",
-  "/about",
+  // "/about" stays hidden on the live site, so it isn't prerendered.
   "/contact",
   "/privacy",
   "/terms",
@@ -184,7 +188,10 @@ async function main() {
       await page.waitForFunction(
         () => {
           const root = document.getElementById("root");
-          return root && root.children.length > 0 && root.textContent.trim().length > 0;
+          // Also wait for the page's SEO tags (react-helmet-async adds them
+          // to <head> asynchronously), so they are never missing from the snapshot.
+          const seoReady = document.querySelector('meta[name="robots"]');
+          return root && root.children.length > 0 && root.textContent.trim().length > 0 && seoReady;
         },
         { timeout: 10000 }
       );
@@ -211,6 +218,28 @@ async function main() {
     } catch (err) {
       failed++;
       console.error(`[prerender] ✗ ${route}: ${err.message}`);
+    }
+  }
+
+  // Vercel serves dist/404.html, with a real 404 status, for any URL that
+  // isn't a file or a vercel.json rewrite. Render the app's own NotFound
+  // page into it (it carries noindex). GitHub Pages builds keep
+  // public/404.html, which that host needs for its SPA redirect trick.
+  if (process.env.VERCEL) {
+    try {
+      await page.goto(`http://localhost:${PORT}/__prerender-not-found__`, { waitUntil: "networkidle2", timeout: 20000 });
+      await page.waitForFunction(() => document.querySelector('meta[name="robots"][content*="noindex"]'), { timeout: 10000 });
+      await new Promise((r) => setTimeout(r, 500));
+      // This one file answers every unknown URL, so drop the tags that name
+      // the placeholder URL it was rendered from (the page is noindex anyway).
+      const notFoundHtml = (await page.content())
+        .replace(/<link rel="canonical"[^>]*>/g, "")
+        .replace(/<meta property="og:url"[^>]*>/g, "");
+      await writeFile(path.join(DIST_DIR, "404.html"), notFoundHtml, "utf8");
+      console.log("[prerender] ✓ 404.html");
+    } catch (err) {
+      failed++;
+      console.error(`[prerender] ✗ 404.html: ${err.message}`);
     }
   }
 

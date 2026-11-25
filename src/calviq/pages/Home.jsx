@@ -9,6 +9,7 @@ import AISpotlight from '../components/AISpotlight';
 import ComparisonTable from '../components/ComparisonTable';
 import Pricing from '../components/Pricing';
 import SocialProof from '../components/SocialProof';
+import FAQ from '../components/FAQ';
 import FinalCTA from '../components/FinalCTA';
 import Footer from '../components/Footer';
 import useRevealAnimation from '../hooks/useRevealAnimation';
@@ -37,6 +38,7 @@ export default function Home() {
       <ComparisonTable />
       <Pricing />
       <SocialProof />
+      <FAQ />
       <FinalCTA />
       <Footer />
     </>

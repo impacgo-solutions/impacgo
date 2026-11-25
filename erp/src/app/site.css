@@ -124,6 +124,7 @@
   .site-w-in, .site-bar { transform: none; filter: none; transition: none; }
   .site-orbit, .site-orbit-counter { animation: none; }
   .site-fill { animation: none; transform: scaleX(1); }
+  [data-hero-now] [data-reveal], [data-hero-now] .site-w-in, .site-robot { animation: none; }
 }
 
 /* Brand text selection and keyboard focus across the marketing site */
@@ -202,7 +203,7 @@
   position: fixed; inset: 0; z-index: 90; display: grid; place-items: center; pointer-events: none;
   background: radial-gradient(60% 60% at 50% 45%, #eef1ff, #ffffff 70%);
   clip-path: inset(0 0 0 0);
-  animation: site-intro-lift 0.85s cubic-bezier(0.76, 0, 0.24, 1) 1.05s forwards;
+  animation: site-intro-lift 0.6s cubic-bezier(0.76, 0, 0.24, 1) 0.6s forwards;
 }
 .site-intro[data-skip],
 html[data-intro-skip] .site-intro { display: none; }
@@ -213,14 +214,33 @@ html[data-intro-skip] .site-intro { display: none; }
 @keyframes site-intro-bar { from { transform: scaleY(0); } }
 .site-intro-arrow { stroke-dasharray: 20; animation: site-intro-draw 0.5s ease-out 0.45s both; }
 @keyframes site-intro-draw { from { stroke-dashoffset: 20; } to { stroke-dashoffset: 0; } }
-.site-intro-logo { display: block; animation: site-intro-logo 0.7s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.site-intro-logo { display: block; animation: site-intro-logo 0.5s cubic-bezier(0.22, 1, 0.36, 1) both; }
 @keyframes site-intro-logo { from { transform: scale(0.85) translateY(8px); opacity: 0; filter: blur(4px); } to { transform: none; opacity: 1; filter: none; } }
-.site-intro-divider { transform-origin: 50% 50%; animation: site-intro-bar 0.45s cubic-bezier(0.22, 1, 0.36, 1) 0.25s both; }
-.site-intro-word { animation: site-intro-word 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.35s both; }
+.site-intro-divider { transform-origin: 50% 50%; animation: site-intro-bar 0.35s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both; }
+.site-intro-word { animation: site-intro-word 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both; }
 @keyframes site-intro-word { from { transform: translateY(110%); filter: blur(6px); } to { transform: none; filter: none; } }
-/* While the intro plays, the hero's own entrance waits for the curtain. */
-html:not([data-intro-skip]) .site-intro:not([data-skip]) ~ main #top [data-reveal] { transition-delay: calc(var(--d, 0ms) + 0.95s); }
-html:not([data-intro-skip]) .site-intro:not([data-skip]) ~ main #top .site-w-in { transition-delay: calc(var(--i, 0) * 55ms + var(--d, 0ms) + 0.95s); }
+/*
+ * Hero first screen ([data-hero-now], see Hero.tsx): its entrance runs as pure CSS from the first
+ * paint instead of waiting for JavaScript to mark it [data-shown]. On a slow phone that wait was
+ * most of the time before the headline and intro paragraph appeared (Largest Contentful Paint).
+ * Same motion as the scroll reveals above, so it looks unchanged.
+ */
+[data-hero-now] [data-reveal] { opacity: 1; transform: none; transition: none; animation: site-hero-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) var(--d, 0ms) both; }
+[data-hero-now] [data-reveal="zoom"] { animation-name: site-hero-zoom; }
+[data-hero-now] [data-reveal="words"] { animation: none; }
+[data-hero-now] .site-w-in { transform: none; filter: none; transition: none; animation: site-hero-word 0.8s cubic-bezier(0.22, 1, 0.36, 1) calc(var(--i, 0) * 45ms + var(--d, 0ms)) both; }
+@keyframes site-hero-in { from { opacity: 0; transform: translateY(20px); } }
+@keyframes site-hero-zoom { from { opacity: 0; transform: scale(0.96); } }
+@keyframes site-hero-word { from { transform: translateY(105%); filter: blur(8px); } }
+/* While the intro plays, the hero's entrance waits for the curtain (0.5s). */
+html:not([data-intro-skip]) .site-intro:not([data-skip]) ~ main [data-hero-now] [data-reveal] { animation-delay: calc(var(--d, 0ms) + 0.5s); }
+html:not([data-intro-skip]) .site-intro:not([data-skip]) ~ main [data-hero-now] .site-w-in { animation-delay: calc(var(--i, 0) * 45ms + var(--d, 0ms) + 0.5s); }
+html:not([data-intro-skip]) .site-intro:not([data-skip]) ~ main [data-hero-now] [data-reveal="words"] { animation: none; }
+
+/* The robot (see Robot.tsx) pops up over the demo card once the card has landed, with a little bounce. */
+.site-robot { animation: site-robot-rise 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.95s both; }
+@keyframes site-robot-rise { from { transform: translateY(78%); } }
+html:not([data-intro-skip]) .site-intro:not([data-skip]) ~ main .site-robot { animation-delay: 1.45s; }
 
 /* "Love Impacgo": the heart beats twice, then rests; people rise into their cards when revealed. */
 @keyframes site-heartbeat { 0%, 30%, 60%, 100% { transform: scale(1); } 12% { transform: scale(1.14); } 44% { transform: scale(1.1); } }

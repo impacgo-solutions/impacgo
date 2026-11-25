@@ -17,7 +17,8 @@ const COLUMNS = [
   {
     title: 'Company',
     links: [
-      { label: 'About Impacgo', to: '/about' },
+      // TEMP-HIDDEN: About page is hidden — uncomment when the /about route is restored.
+      // { label: 'About Impacgo', to: '/about' },
       { label: 'Blog', to: '/blog' },
       { label: 'Contact', to: '/contact' },
       { label: 'Get Started', to: '/stocklyte/signup' },

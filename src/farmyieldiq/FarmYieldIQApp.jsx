@@ -6,7 +6,8 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar.jsx';
 import Home from './pages/Home.jsx';
 import SignUp from './pages/SignUp.jsx';
-import { createProductSchema, createBreadcrumbSchema, organizationSchema } from '../components/schemas';
+import { createProductSchema, createBreadcrumbSchema, createFaqSchema, organizationSchema } from '../components/schemas';
+import { FARMYIELDIQ_FAQS } from './data/faqs';
 
 // Matches the ScrollToTop pattern used elsewhere in the site (Calviq,
 // StockLyte) — without it, navigating here from a scrolled-down page keeps
@@ -20,12 +21,25 @@ function ScrollToTop() {
 }
 
 const farmYieldIqProductSchema = createProductSchema({
-  name: "FarmYieldIQ — Farmland Plot Operations Platform",
+  name: "FarmYieldIQ",
+  alternateName: ["Farm Yield IQ","FarmYield IQ","FarmYieldIQ Farmland Plot Operations Platform"],
   description:
-    "Operations platform for plotted-land businesses — layout, block and plot management, partner portfolios, and an internal sales pipeline.",
+    "Farmland plot management software for managed farmland and agricultural land projects: layout, block and plot management with pricing and registration tracking, partner portfolios with a document vault and payment tracking, and a sales pipeline for leads, bookings and team hierarchy. Built by Impacgo Solutions.",
   category: "BusinessApplication",
   path: "/farmyieldiq",
+  featureList: [
+    "Layout, block and plot management",
+    "Plot pricing and registration tracking",
+    "Partner portfolios with document vault",
+    "Partner payment tracking",
+    "Plot sales pipeline: leads, bookings and team hierarchy",
+    "One dashboard for land, partners and sales",
+  ],
+  audience: "Managed farmland companies, agricultural land developers and farmland plot sellers",
+  keywords: "farmland plot management software, managed farmland software, plot sales CRM, agricultural real estate software",
 });
+
+const farmYieldIqFaqSchema = createFaqSchema(FARMYIELDIQ_FAQS.map(({ q, a }) => ({ question: q, answer: a })));
 
 const farmYieldIqBreadcrumbSchema = createBreadcrumbSchema([
   { name: "Home", path: "/" },
@@ -36,38 +50,40 @@ export default function FarmYieldIQApp() {
   return (
     <div className="bg-farmyieldiq-background text-farmyieldiq-on-background font-farmyieldiq-body selection:bg-farmyieldiq-primary-fixed selection:text-farmyieldiq-on-primary-fixed antialiased overflow-x-hidden">
       <Helmet>
-        <title>FarmYieldIQ | Farmland Plot Operations Platform | Impacgo Solutions</title>
+        <title>FarmYieldIQ | Farmland Plot Management Software: Layouts, Partners & Plot Sales | Impacgo</title>
         <meta
           name="description"
-          content="FarmYieldIQ is a unified operations platform for managed farmland plots — layout and plot management, partner portfolios with document vault, and an internal real estate sales pipeline. Built by Impacgo Solutions."
+          content="FarmYieldIQ is farmland plot management software for managed farmland and agricultural land projects: layouts, blocks and plots, pricing and registrations, partner portfolios with a document vault and payments, and a plot sales pipeline."
         />
         <meta
           name="keywords"
-          content="FarmYieldIQ, farmland plot operations, agricultural real estate software, plot management software, farmland partner portfolio management"
+          content="FarmYieldIQ, farmland plot management software, managed farmland software, farm land layout management, plot sales CRM, agricultural real estate software, land partner portfolio management, plot registration tracking"
         />
         <link rel="canonical" href="https://www.impacgo.com/farmyieldiq" />
 
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.impacgo.com/farmyieldiq" />
-        <meta property="og:title" content="FarmYieldIQ | Farmland Plot Operations Platform" />
+        <meta property="og:title" content="FarmYieldIQ | Farmland Plot Management Software: Layouts, Partners & Plot Sales | Impacgo" />
         <meta
           property="og:description"
-          content="Unified operations for managed farmland plots, partners and sales — layout, plot management, and an internal sales pipeline."
+          content="Farmland plot management software: layouts, blocks and plots, partner portfolios, payments and plot sales in one place."
         />
         <meta property="og:image" content="https://www.impacgo.com/logo.png" />
         <meta property="og:site_name" content="Impacgo Solutions" />
+        <meta property="og:locale" content="en_IN" />
 
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="FarmYieldIQ | Farmland Plot Operations Platform" />
+        {/* "summary" card: the only share image is the small logo (see SEO.jsx) */}
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="FarmYieldIQ | Farmland Plot Management Software: Layouts, Partners & Plot Sales | Impacgo" />
         <meta
           name="twitter:description"
-          content="Unified operations platform for managed farmland plots, built by Impacgo Solutions."
+          content="Farmland plot management software: layouts, blocks and plots, partner portfolios, payments and plot sales in one place."
         />
 
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 
         <script type="application/ld+json">
-          {JSON.stringify([farmYieldIqProductSchema, farmYieldIqBreadcrumbSchema, organizationSchema])}
+          {JSON.stringify([farmYieldIqProductSchema, farmYieldIqFaqSchema, farmYieldIqBreadcrumbSchema, organizationSchema])}
         </script>
 
         {/* These fonts are only used on this sub-app, so they're declared

@@ -9,7 +9,8 @@ import { AnimatePresence, motion } from "framer-motion";
 // downloads the JS for the page they're actually on.
 const Pos = lazy(() => import("./pages/Pos"));
 const FAQ = lazy(() => import("./pages/FAQ"));
-const About = lazy(() => import("./pages/About"));
+// TEMP-HIDDEN: About page — uncomment together with the /about <Route> below.
+// const About = lazy(() => import("./pages/About"));
 const Privacy = lazy(() => import("./pages/Privacy"));
 const Terms = lazy(() => import("./pages/Terms"));
 const NotFound = lazy(() => import("./pages/NotFound"));
@@ -31,16 +32,15 @@ const Consulting = lazy(() => import("./pages/Consulting"));
 const AIAutomation = lazy(() => import("./pages/Aiautomation"));
 
 // Product Pages
-const DairyFarm = lazy(() => import("./pages/Dairyfarm"));
-const InventoryManagement = lazy(() => import("./pages/Inventorymanagement"));
-const FarmYieldIQ = lazy(() => import("./pages/FarmYieldIQ"));
 // Old /erp/:slug module pages redirect to the Impacgo ERP site (/erp-suite).
 // The previous detail page (pages/erp/ERPModuleDetail.jsx) is kept in the
 // repo, unused, in case it's needed again.
+// /products/dairy-farm, /products/inventory-management, /products/farm-yield-iq
+// and /products/health-vault now redirect to the branded product sites below
+// (also permanently in vercel.json). Their old page components stay in the repo.
 const ERPModuleRedirect = lazy(() => import("./pages/erp/ERPModuleRedirect"));
 const WorkTask = lazy(() => import("./pages/Worktask"));
 const ConstructionPlanner = lazy(() => import("./pages/Constructionplanner"));
-const HealthVault = lazy(() => import("./pages/HealthVault"));
 const AXMigration = lazy(() => import("./pages/Axmigration"));
 
 // Blog Pages
@@ -55,6 +55,9 @@ const D365DistributionGuideBlog = lazy(() => import("./pages/blog/D365Distributi
 const CopilotD365FOBlog = lazy(() => import("./pages/blog/CopilotD365FOBlog"));
 const GSTEInvoicingD365FOBlog = lazy(() => import("./pages/blog/GSTEInvoicingD365FOBlog"));
 const AX2012UpgradeChecklistBlog = lazy(() => import("./pages/blog/AX2012UpgradeChecklistBlog"));
+const DairyFarmSoftwareGuideBlog = lazy(() => import("./pages/blog/DairyFarmSoftwareGuideBlog"));
+const MultiLocationInventoryBlog = lazy(() => import("./pages/blog/MultiLocationInventoryBlog"));
+const FarmlandPlotManagementBlog = lazy(() => import("./pages/blog/FarmlandPlotManagementBlog"));
 
 // Power Platform Pages
 const PowerApps = lazy(() => import("./pages/Powerapps"));
@@ -202,17 +205,17 @@ function AnimatedRoutes() {
         {/* ---------------- PRODUCTS ---------------- */}
         <Route
           path="/products/dairy-farm"
-          element={<DairyFarm />}
+          element={<Navigate to="/calviq" replace />}
         />
 
         <Route
           path="/products/inventory-management"
-          element={<InventoryManagement />}
+          element={<Navigate to="/stocklyte" replace />}
         />
 
         <Route
           path="/products/farm-yield-iq"
-          element={<FarmYieldIQ />}
+          element={<Navigate to="/farmyieldiq" replace />}
         />
 
         {/* ---------------- IMPACGO ERP SUITE ---------------- */}
@@ -233,7 +236,7 @@ function AnimatedRoutes() {
 
         <Route
           path="/products/health-vault"
-          element={<HealthVault />}
+          element={<Navigate to="/healthvault" replace />}
         />
 
         {/* ---------------- INDUSTRIES ---------------- */}
@@ -316,6 +319,18 @@ function AnimatedRoutes() {
           path="/blog/ax-2012-to-d365-finance-operations-upgrade-checklist"
           element={<AX2012UpgradeChecklistBlog />}
         />
+        <Route
+          path="/blog/dairy-farm-management-software-guide"
+          element={<DairyFarmSoftwareGuideBlog />}
+        />
+        <Route
+          path="/blog/multi-location-inventory-management-software"
+          element={<MultiLocationInventoryBlog />}
+        />
+        <Route
+          path="/blog/farmland-plot-management-software"
+          element={<FarmlandPlotManagementBlog />}
+        />
         {/* ---------------- CALVIQ LANDING PAGE ---------------- */}
         <Route
           path="/calviq/*"
@@ -347,10 +362,12 @@ function AnimatedRoutes() {
         />
 
         {/* ---------------- ABOUT ---------------- */}
+        {/* TEMP-HIDDEN: uncomment this route + the About import at the top to restore.
         <Route
           path="/about"
           element={<About />}
         />
+        */}
 
         {/* ---------------- LEGAL ---------------- */}
         <Route

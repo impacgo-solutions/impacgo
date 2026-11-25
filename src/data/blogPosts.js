@@ -1,5 +1,35 @@
 export const blogPosts = [
 
+  // Product guide: Calviq
+  {
+    slug: "dairy-farm-management-software-guide",
+    title: "Dairy Farm Management Software: A Practical Guide for Cow and Cattle Farms",
+    excerpt: "What dairy farm management software actually does, what every cow farm should be tracking — milk per cow, health, breeding, feed and finance — the features that matter in the barn, and how to move off paper registers without disrupting the farm.",
+    category: "Calviq",
+    datePublished: "2026-11-25",
+    readTime: "10 min read",
+  },
+
+  // Product guide: StockLyte
+  {
+    slug: "multi-location-inventory-management-software",
+    title: "Inventory Management Software for Multi-Location Businesses: What to Look For",
+    excerpt: "Why spreadsheets break once stock lives in more than one store or warehouse, the inventory management software features that actually prevent stockouts, shrinkage and expiry losses, and how to roll a system out without stopping operations.",
+    category: "StockLyte",
+    datePublished: "2026-11-25",
+    readTime: "9 min read",
+  },
+
+  // Product guide: FarmYieldIQ
+  {
+    slug: "farmland-plot-management-software",
+    title: "Farmland Plot Management Software: How Managed Farmland Businesses Track Plots, Partners and Sales",
+    excerpt: "Managed farmland businesses juggle layouts, plot payments, partner paperwork and a sales team — usually across spreadsheets and chat threads. Here is what a single plot management system should cover, and how to move to one.",
+    category: "FarmYieldIQ",
+    datePublished: "2026-11-25",
+    readTime: "8 min read",
+  },
+
   // GST E-Invoicing in D365FO (Blog #11) - NEWEST
   {
     slug: "gst-e-invoicing-in-dynamics-365-finance-operations",

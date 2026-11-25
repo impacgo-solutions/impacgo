@@ -1,11 +1,19 @@
 {
     "redirects": [
-      { "source": "/blog/ax-2012-end-of-support-2028-india", "destination": "/blog/ax-2012-end-of-support-india", "permanent": true }
+      { "source": "/blog/ax-2012-end-of-support-2028-india", "destination": "/blog/ax-2012-end-of-support-india", "permanent": true },
+      { "source": "/products/dairy-farm", "destination": "/calviq", "permanent": true },
+      { "source": "/products/inventory-management", "destination": "/stocklyte", "permanent": true },
+      { "source": "/products/farm-yield-iq", "destination": "/farmyieldiq", "permanent": true },
+      { "source": "/products/health-vault", "destination": "/healthvault", "permanent": true },
+      { "source": "/erp/:slug", "destination": "/erp-suite#module-:slug", "permanent": true }
     ],
     "rewrites": [
       { "source": "/erp-suite", "destination": "https://erp-app.impacgo.com/erp-suite" },
       { "source": "/erp-suite/:path*", "destination": "https://erp-app.impacgo.com/erp-suite/:path*" },
-      { "source": "/(.*)", "destination": "/" }
+      { "source": "/calviq/:path(demo|signup|coming-soon)", "destination": "/calviq.html" },
+      { "source": "/stocklyte/signup", "destination": "/stocklyte.html" },
+      { "source": "/farmyieldiq/signup", "destination": "/farmyieldiq.html" },
+      { "source": "/healthvault/signup", "destination": "/healthvault.html" }
     ],
     "build": {
       "env": {
