@@ -119,8 +119,8 @@ export default function PowerAppsD365FOBlog() {
  return (
  <div className="flex flex-col min-h-screen bg-gray-50">
  <SEO
- title="Power Apps for D365FO: Complete Guide to Extending Dynamics 365 Finance & Operations"
- description="Learn how Microsoft Power Apps integrates with Dynamics 365 Finance & Operations (D365FO) to build custom applications, automate business processes, improve productivity, and extend ERP capabilities with low-code development."
+ title="Power Apps for D365 F&O: Guide to Extending Dynamics 365"
+ description="How Power Apps extends Dynamics 365 F&O: build low-code custom apps, automate business processes and add ERP capabilities without heavy development."
  keywords="Power Apps for D365FO, Dynamics 365 Finance and Operations Power Apps, Microsoft Power Platform, D365FO integration, Canvas Apps, Model Driven Apps, Power Apps use cases, D365FO automation, low code applications, Dynamics 365 customization, Power Platform for ERP"
  path="/blog/power-apps-for-d365fo"
  schema={[articleSchema, faqSchema, breadcrumbSchema]}

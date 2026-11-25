@@ -206,8 +206,8 @@ export default function AIBuilder() {
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
       <SEO
-  title="AI Builder Integration Partner | Power Platform AI | Global Low-Code AI Specialists"
-  description="Microsoft AI Builder integration services worldwide. Embed AI into Power Apps and Power Automate for invoice extraction, document processing, prediction, sentiment analysis, and object detection. Connected to Dynamics 365 F&O. India compliance built in. Delivered in 3-6 weeks."
+  title="Microsoft AI Builder Integration Services | Impacgo"
+  description="Embed AI Builder in Power Apps and Power Automate: invoice extraction, document processing, prediction and sentiment, connected to D365 F&O. 3–6 weeks."
   keywords="AI Builder, Microsoft AI Builder consultant, AI Builder D365FO, Power Platform AI, AI invoice processing, document AI, AI prediction Power Apps, Microsoft AI integration, low code AI, AI Builder India, AI Builder consultant India, AI Builder partner"
   path="/services/ai-builder"
   schema={[serviceSchema, faqSchema, breadcrumbSchema]}

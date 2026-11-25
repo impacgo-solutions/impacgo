@@ -185,8 +185,8 @@ const breadcrumbSchema = createBreadcrumbSchema([
   return (
     <div>
       <SEO
-  title="Microsoft Dynamics Integration Services | D365FO + Third-Party Systems | Global Specialists"
-  description="Specialist Microsoft Dynamics 365 integration services worldwide. Connect D365FO with CRM, e-commerce, MES, banking, logistics, and custom systems via Azure Logic Apps, Service Bus, OData, and REST APIs. India and global enterprises."
+  title="Dynamics 365 Integration Services | Impacgo"
+  description="Connect Dynamics 365 F&O with CRM, e-commerce, MES, banking and logistics systems using Azure Logic Apps, Service Bus, OData and REST APIs."
   keywords="Dynamics 365 integration, D365FO integration partner, Microsoft Dynamics integration consultant, Azure Logic Apps integration, D365 OData integration, D365 REST API, ERP integration partner, D365 middleware, integration India, integration global"
   path="/services/integrations"
   schema={[serviceSchema, faqSchema, breadcrumbSchema]}

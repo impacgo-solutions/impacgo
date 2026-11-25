@@ -104,8 +104,8 @@ export default function D365FOModulesForIndianManufacturersBlog() {
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
       <SEO
-        title="D365FO Modules for Indian Manufacturers | Complete Guide 2026"
-        description="Explore the most important D365FO modules for Indian manufacturers, including Finance, Supply Chain Management, Production Control, Warehouse Management, Quality Management, Asset Management, and Master Planning. Learn how these modules improve productivity, compliance, inventory control, and operational efficiency."
+        title="D365 F&O Modules for Indian Manufacturers (2026 Guide)"
+        description="The key D365 F&O modules for Indian manufacturers: Finance, Supply Chain, Production, Warehouse, Quality, Asset Management and Master Planning, explained."
         keywords="D365FO modules for manufacturers, D365FO manufacturing module, D365FO production control, D365FO supply chain management, D365FO warehouse management, D365FO quality management, D365FO master planning, Dynamics 365 manufacturing ERP India, D365FO GST compliance India, D365FO for Indian manufacturers"
         path="/blog/d365fo-modules-for-indian-manufacturers"
         schema={[articleSchema, faqSchema, breadcrumbSchema]}

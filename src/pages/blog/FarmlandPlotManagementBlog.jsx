@@ -3,9 +3,9 @@ import ProductGuideArticle from "./ProductGuideArticle";
 
 const article = {
   slug: "farmland-plot-management-software",
-  seoTitle: "Farmland Plot Management Software: Track Layouts, Partners & Plot Sales",
+  seoTitle: "Farmland Plot Management Software: Plots, Partners, Sales",
   seoDescription:
-    "How managed farmland and plotted-land businesses track layouts, plots, partner payments, documents and sales in one system instead of spreadsheets, and what software features to look for.",
+    "How managed farmland businesses track layouts, plots, partner payments, documents and sales in one system instead of spreadsheets, and what to look for.",
   title: "Farmland Plot Management Software: How Managed Farmland Businesses Track Plots, Partners and Sales",
   excerpt:
     "Managed farmland businesses juggle layouts, plot payments, partner paperwork and a sales team — usually across spreadsheets and chat threads. Here is what a single plot management system should cover, and how to move to one.",

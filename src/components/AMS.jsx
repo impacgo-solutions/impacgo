@@ -109,8 +109,8 @@ export default function AMS() {
   return (
     <div>
       <SEO
-  title="Application Managed Services | Microsoft Dynamics 365 AMS | Global Specialists"
-  description="Specialist Application Managed Services (AMS) for Microsoft Dynamics 365 worldwide. SLA-backed support, minor enhancements, performance tuning, and continuous improvement. India and global enterprises."
+  title="Dynamics 365 Application Managed Services (AMS) | Impacgo"
+  description="SLA-backed Application Managed Services for Microsoft Dynamics 365: support, minor enhancements, performance tuning and continuous improvement."
   keywords="Application Managed Services, AMS partner, D365 managed services, Microsoft Dynamics support, ERP managed services, AMS India, AMS global, Dynamics 365 AMS"
   path="/services/ams"
   schema={[serviceSchema, breadcrumbSchema]}

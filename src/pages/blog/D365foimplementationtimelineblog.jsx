@@ -104,8 +104,8 @@ export default function D365FOImplementationTimelineBlog() {
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
       <SEO
-        title="How Long Does a D365FO Implementation Take? Realistic Timeline Guide 2026"
-        description="Microsoft Dynamics 365 Finance & Operations implementation timeline guide. Realistic durations for SMEs, mid-market, and global enterprises. Factors that speed up or slow down your project. Honest insights from a D365FO developer."
+        title="How Long Does a D365 F&O Implementation Take? (2026)"
+        description="Realistic Dynamics 365 F&O implementation timelines for SMEs, mid-market and large enterprises, and the factors that speed up or slow down your project."
         keywords="D365FO implementation timeline, Dynamics 365 Finance Operations implementation duration, how long D365 implementation takes, D365 F&O project timeline, Microsoft Dynamics 365 implementation phases, D365FO go-live timeline, D365 implementation India, D365FO implementation global, Dynamics 365 deployment time, ERP implementation duration"
         path="/blog/how-long-does-d365fo-implementation-take"
         schema={[articleSchema, faqSchema, breadcrumbSchema]}

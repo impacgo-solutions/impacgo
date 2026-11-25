@@ -56,10 +56,10 @@ export default function CalviqApp() {
   return (
     <div className="bg-background text-on-surface font-body-md selection:bg-primary-fixed selection:text-primary antialiased overflow-x-hidden">
       <Helmet>
-        <title>CALVIQ | Dairy Farm & Cattle Management Software for Cow Farms | Impacgo</title>
+        <title>CALVIQ: Dairy Farm & Cattle Management Software | Impacgo</title>
         <meta
           name="description"
-          content="CALVIQ is dairy farm and cattle management software for cow farms: milk production tracking per animal, herd health and vet records, breeding, feed, QR ear tags, AI body condition scoring, and farm finance."
+          content="CALVIQ is dairy farm software for cow farms: milk records per animal, herd health, breeding, feed, QR ear tags, AI body condition scoring and farm finance."
         />
         <meta
           name="keywords"
@@ -69,7 +69,7 @@ export default function CalviqApp() {
 
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.impacgo.com/calviq" />
-        <meta property="og:title" content="CALVIQ | Dairy Farm & Cattle Management Software for Cow Farms | Impacgo" />
+        <meta property="og:title" content="CALVIQ: Dairy Farm & Cattle Management Software | Impacgo" />
         <meta
           property="og:description"
           content="Dairy farm and cattle management software for cow farms: milk records, herd health, breeding, feed, QR ear tags and AI body condition scoring."
@@ -80,7 +80,7 @@ export default function CalviqApp() {
 
         {/* "summary" card: the only share image is the small logo (see SEO.jsx) */}
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="CALVIQ | Dairy Farm & Cattle Management Software for Cow Farms | Impacgo" />
+        <meta name="twitter:title" content="CALVIQ: Dairy Farm & Cattle Management Software | Impacgo" />
         <meta
           name="twitter:description"
           content="Dairy farm and cattle management software for cow farms: milk records, herd health, breeding, feed, QR ear tags and AI body condition scoring."

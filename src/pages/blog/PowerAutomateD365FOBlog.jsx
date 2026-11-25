@@ -85,8 +85,8 @@ export default function PowerAutomateD365FOBlog() {
     return (
         <div className="flex flex-col min-h-screen bg-white">
             <SEO
-                title="Power Automate for D365FO | Streamline Business Processes with Automation"
-                description="Learn how Power Automate enhances Microsoft Dynamics 365 Finance & Operations (D365FO) by automating approvals, notifications, data updates, and integrations. Discover how low-code automation improves efficiency, reduces manual tasks, and accelerates business operations."
+                title="Power Automate for D365 F&O: Automate Business Processes"
+                description="How Power Automate streamlines Dynamics 365 F&O: automated approvals, notifications, data updates and integrations that cut manual work for your teams."
                 keywords="Power Automate for D365FO, D365FO automation, Power Automate workflows, Dynamics 365 Finance and Operations, business process automation, automated approvals, workflow automation, Microsoft Power Platform, D365FO integration, low-code automation"
                 path="/blog/power-automate-for-d365fo"
                 schema={[articleSchema, faqSchema, breadcrumbSchema]}

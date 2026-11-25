@@ -207,8 +207,8 @@ export default function D365Manufacturing() {
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
       <SEO
-  title="D365 for Manufacturing | Production · BOM · MES Integration | Global Specialists"
-  description="Microsoft Dynamics 365 Finance & Operations implementation for global manufacturers. Production control, BOM, MRP/MPS, quality management, warehouse, and MES integration. Discrete, process, and lean manufacturing. India compliance (GST, TDS, e-invoicing) built in. Free discovery workshop."
+  title="Dynamics 365 for Manufacturing: Production & MES | Impacgo"
+  description="Dynamics 365 F&O for manufacturers: production control, BOM, MRP, quality, warehousing and MES integration for discrete, process and lean manufacturing."
   keywords="D365 Manufacturing, Dynamics 365 Finance Operations Manufacturing, Microsoft ERP for Manufacturing, D365FO production control, D365 BOM, Manufacturing ERP partner, Microsoft Dynamics Manufacturing implementation, D365 MES integration, D365 process manufacturing, D365 discrete manufacturing, D365 Manufacturing India, Manufacturing ERP India"
   path="/industries/manufacturing"
   schema={[serviceSchema, faqSchema, breadcrumbSchema]}

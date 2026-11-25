@@ -127,8 +127,8 @@ export default function AX2012UpgradeChecklistBlog() {
     return (
         <div className="flex flex-col min-h-screen bg-white">
             <SEO
-                title="AX 2012 to D365 Finance & Operations Upgrade Checklist | Step by Step"
-                description="A step-by-step checklist for upgrading Dynamics AX 2012 to Dynamics 365 Finance & Operations: supported versions, upgrade vs re-implementation, customizations, integrations, data upgrade and cutover."
+                title="AX 2012 to D365 F&O Upgrade Checklist, Step by Step"
+                description="A step-by-step checklist for upgrading AX 2012 to Dynamics 365 F&O: supported versions, upgrade vs re-implementation, customisations, data and cutover."
                 keywords="AX 2012 upgrade checklist, AX 2012 to D365 upgrade, Dynamics AX to D365 Finance and Operations, AX 2012 migration steps, AX 2012 end of support, AX 2012 data upgrade, AX 2012 R3 upgrade"
                 path={SLUG}
                 schema={[articleSchema, faqSchema, breadcrumbSchema]}

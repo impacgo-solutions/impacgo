@@ -116,8 +116,8 @@ export default function GSTEInvoicingD365FOBlog() {
     return (
         <div className="flex flex-col min-h-screen bg-white">
             <SEO
-                title="GST E-Invoicing in Dynamics 365 Finance & Operations | 2026 Setup Guide"
-                description="Set up GST e-invoicing in D365 Finance & Operations the right way: the ₹5 crore threshold, the 30-day IRP rule, step-by-step IRP integration, e-way bills and the pitfalls to avoid."
+                title="GST E-Invoicing in Dynamics 365 F&O: 2026 Setup Guide"
+                description="Set up GST e-invoicing in D365 F&O: the ₹5 crore threshold, the 30-day IRP rule, step-by-step IRP integration, e-way bills and pitfalls to avoid."
                 keywords="GST e-invoicing Dynamics 365, D365 F&O e-invoice India, IRP integration D365, e-invoice 30 day rule, D365 e-way bill, Electronic invoice under GST D365, India localization Dynamics 365 Finance"
                 path={SLUG}
                 schema={[articleSchema, faqSchema, breadcrumbSchema]}

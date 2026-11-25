@@ -56,8 +56,8 @@ const breadcrumbSchema = createBreadcrumbSchema([
   return (
     <div className="flex flex-col min-h-screen bg-gray-100">
       <SEO
-  title="POS Solutions | Cloud POS & D365 Commerce Integration | Global Specialists"
-  description="Specialist POS implementation and D365 Commerce integration worldwide. Cloud POS, modern POS, payment gateway integration, and retail operations. India and global retailers."
+  title="POS Solutions & Dynamics 365 Commerce Integration | Impacgo"
+  description="Cloud and modern POS implementation with Dynamics 365 Commerce integration, payment gateways and retail store operations, for retailers in India and abroad."
   keywords="POS solutions, cloud POS partner, D365 Commerce POS, modern POS implementation, retail POS partner, POS partner India, POS implementation global"
   path="/services/pos"
   schema={[serviceSchema, faqSchema, breadcrumbSchema]}

@@ -85,8 +85,8 @@ export default function CalviqDairyFarmManagementBlog() {
     return (
         <div className="flex flex-col min-h-screen bg-white">
             <SEO
-                title="Calviq: QR-Based Cattle Tracking for Modern Dairy Farm Management"
-                description="Discover how Calviq uses QR-based cattle identity to modernize dairy farm management — tracking milk production, herd health, and breeding records from a mobile app in the field."
+                title="CALVIQ: QR-Based Cattle Tracking for Dairy Farms"
+                description="How CALVIQ uses QR cattle identity to modernise dairy farm management: milk production, herd health and breeding records from a mobile app in the field."
                 keywords="Calviq, dairy farm management app, QR cattle tracking, cattle management software, herd management app, dairy farm software India, milk production tracking, livestock management app"
                 path="/blog/calviq-dairy-farm-management"
                 schema={[articleSchema, faqSchema, breadcrumbSchema]}

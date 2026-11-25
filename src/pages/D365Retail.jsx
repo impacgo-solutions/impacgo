@@ -204,8 +204,8 @@ export default function D365Retail() {
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
       <SEO
-  title="D365 for Retail | D365 Commerce · Omnichannel POS · E-Commerce | Global Specialists"
-  description="Microsoft Dynamics 365 Commerce implementation for global retailers. Omnichannel POS, e-commerce, store operations, inventory, merchandising, loyalty programmes, and India GST/e-invoicing compliance. Free retail discovery workshop."
+  title="Dynamics 365 Commerce for Retail: POS & E-commerce | Impacgo"
+  description="Dynamics 365 Commerce for retailers: omnichannel POS, e-commerce, store operations, merchandising, loyalty and GST e-invoicing. Free discovery workshop."
   keywords="D365 Retail, Dynamics 365 Commerce, Microsoft retail ERP, D365 POS, omnichannel retail Microsoft, D365 Commerce partner, retail ERP partner, retail POS partner, Microsoft Dynamics retail implementation, D365 Retail India, Dynamics 365 Commerce India, omnichannel retail"
   path="/industries/retail"
   schema={[serviceSchema, faqSchema, breadcrumbSchema]}

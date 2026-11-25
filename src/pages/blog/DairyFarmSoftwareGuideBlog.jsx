@@ -3,9 +3,9 @@ import ProductGuideArticle from "./ProductGuideArticle";
 
 const article = {
   slug: "dairy-farm-management-software-guide",
-  seoTitle: "Dairy Farm Management Software: A Practical Guide for Cow & Cattle Farms",
+  seoTitle: "Dairy Farm Management Software: A Guide for Cow Farms",
   seoDescription:
-    "What dairy farm management software does, what a cow farm should track (milk per cow, health, breeding, feed, finance), the features to look for, and how to move from paper registers.",
+    "What dairy farm software does, what a cow farm should track (milk per cow, health, breeding, feed, finance), what to look for, and moving off paper.",
   title: "Dairy Farm Management Software: A Practical Guide for Cow and Cattle Farms",
   excerpt:
     "What dairy farm management software actually does, what every cow farm should be tracking — milk per cow, health, breeding, feed and finance — the features that matter in the barn, and how to move off paper registers without disrupting the farm.",

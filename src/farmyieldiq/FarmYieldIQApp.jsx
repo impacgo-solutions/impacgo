@@ -50,10 +50,10 @@ export default function FarmYieldIQApp() {
   return (
     <div className="bg-farmyieldiq-background text-farmyieldiq-on-background font-farmyieldiq-body selection:bg-farmyieldiq-primary-fixed selection:text-farmyieldiq-on-primary-fixed antialiased overflow-x-hidden">
       <Helmet>
-        <title>FarmYieldIQ | Farmland Plot Management Software: Layouts, Partners & Plot Sales | Impacgo</title>
+        <title>FarmYieldIQ: Farmland Plot Management Software | Impacgo</title>
         <meta
           name="description"
-          content="FarmYieldIQ is farmland plot management software for managed farmland and agricultural land projects: layouts, blocks and plots, pricing and registrations, partner portfolios with a document vault and payments, and a plot sales pipeline."
+          content="FarmYieldIQ manages farmland projects: layouts and plots, pricing and registrations, partner portfolios with documents and payments, and plot sales."
         />
         <meta
           name="keywords"
@@ -63,7 +63,7 @@ export default function FarmYieldIQApp() {
 
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.impacgo.com/farmyieldiq" />
-        <meta property="og:title" content="FarmYieldIQ | Farmland Plot Management Software: Layouts, Partners & Plot Sales | Impacgo" />
+        <meta property="og:title" content="FarmYieldIQ: Farmland Plot Management Software | Impacgo" />
         <meta
           property="og:description"
           content="Farmland plot management software: layouts, blocks and plots, partner portfolios, payments and plot sales in one place."
@@ -74,7 +74,7 @@ export default function FarmYieldIQApp() {
 
         {/* "summary" card: the only share image is the small logo (see SEO.jsx) */}
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="FarmYieldIQ | Farmland Plot Management Software: Layouts, Partners & Plot Sales | Impacgo" />
+        <meta name="twitter:title" content="FarmYieldIQ: Farmland Plot Management Software | Impacgo" />
         <meta
           name="twitter:description"
           content="Farmland plot management software: layouts, blocks and plots, partner portfolios, payments and plot sales in one place."

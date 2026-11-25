@@ -75,8 +75,8 @@ export default function BlogIndex() {
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
       <SEO
-  title="Impacgo Blog | Microsoft Dynamics 365 & Power Platform Insights"
-  description="Expert articles on Microsoft Dynamics 365, AX 2012 migration, Power Platform, Power BI, and digital transformation for global enterprises. Microsoft partner insights from Impacgo."
+  title="Impacgo Blog: Dynamics 365, ERP & Power Platform"
+  description="Practical guides on Dynamics 365, AX 2012 migration, Power Platform, Power BI, GST e-invoicing, dairy farm and inventory software from the Impacgo team."
   keywords="Microsoft Dynamics 365 blog, AX 2012 migration blog, Power Platform blog, D365FO insights, Microsoft partner blog, ERP blog India, Dynamics 365 articles"
   path="/blog"
   schema={[breadcrumbSchema]}

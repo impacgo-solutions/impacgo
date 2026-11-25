@@ -84,8 +84,8 @@ export default function D365DistributionGuideBlog() {
     return (
         <div className="flex flex-col min-h-screen bg-white">
             <SEO
-                title="Dynamics 365 F&O for Distribution & Wholesale Businesses | Complete Guide"
-                description="A practical guide to Microsoft Dynamics 365 Finance and Operations for Indian distributors and wholesalers — warehouse management, trade agreement pricing, B2B integration, and GST compliance."
+                title="Dynamics 365 F&O for Distribution: A Complete Guide"
+                description="A practical guide to Dynamics 365 F&O for Indian distributors and wholesalers: warehouse management, trade agreement pricing, B2B integration and GST."
                 keywords="D365 for distribution, Dynamics 365 wholesale, D365FO warehouse management, distribution ERP India, trade agreement pricing, multi-warehouse inventory D365, GST compliant ERP, D365 B2B integration"
                 path="/blog/d365-for-distribution-wholesale-businesses"
                 schema={[articleSchema, faqSchema, breadcrumbSchema]}

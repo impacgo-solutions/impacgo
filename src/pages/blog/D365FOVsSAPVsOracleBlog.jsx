@@ -87,8 +87,8 @@ export default function D365FOVsSAPVsOracleBlog() {
   return (
     <div className="flex flex-col min-h-screen bg-white">
       <SEO
-        title="D365FO vs SAP S/4HANA vs Oracle NetSuite | ERP Comparison Guide 2026"
-        description="Compare Microsoft Dynamics 365 Finance & Operations, SAP S/4HANA, and Oracle NetSuite. Learn which ERP platform is best for manufacturing, scalability, implementation, and business growth."
+        title="D365 F&O vs SAP S/4HANA vs NetSuite: 2026 Comparison"
+        description="Dynamics 365 F&O, SAP S/4HANA and Oracle NetSuite compared on manufacturing fit, scalability, implementation effort and cost, to help you choose an ERP."
         keywords="D365FO vs SAP, D365FO vs Oracle NetSuite, ERP comparison 2026, best ERP for manufacturing, Microsoft Dynamics 365 Finance and Operations, SAP S4HANA ERP"
         path="/blog/d365fo-vs-sap-s4hana-vs-oracle-netsuite"
         schema={[articleSchema, faqSchema, breadcrumbSchema]}

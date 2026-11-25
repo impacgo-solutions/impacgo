@@ -86,8 +86,8 @@ const articleSchema = createArticleSchema({
   return (
       <div className="flex flex-col min-h-screen bg-white">
         <SEO
-    title="Excel replace with PowerBI in D365FO | Practical Guide for Finance Teams"
-    description="Many finance teams using Microsoft Dynamics 365 Finance & Operations (D365FO) still rely on Excel-based reporting. This guide explains how to replace manual Excel reports with Microsoft Power BI, enabling automated reporting, real-time insights, interactive dashboards, and improved financial decision-making."
+    title="Replace Excel with Power BI in D365 F&O: Finance Guide"
+    description="How finance teams on Dynamics 365 F&O replace manual Excel reports with Power BI: automated reporting, live dashboards and faster financial decisions."
     keywords="Excel to Power BI, D365FO reporting, Power BI dashboards, financial reporting, real-time analytics, reporting automation, finance reporting, D365FO analytics, Microsoft Power BI, business intelligence."
     path="/blog/replace-excel-reporting-with-power-bi-d365fo"
     schema={[articleSchema, faqSchema, breadcrumbSchema]}

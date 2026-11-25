@@ -14,6 +14,27 @@ import ContactCard from "./ContactCard";
 import Footer from "./Footer";
 import Header from "./Header";
 import SEO from "../components/SEO";
+import { ORG_ID, organizationSchema, createBreadcrumbSchema } from "./schemas";
+
+// Tells search engines and AI assistants this is the official contact page.
+const contactPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "@id": "https://www.impacgo.com/contact#webpage",
+  url: "https://www.impacgo.com/contact",
+  name: "Contact Impacgo Solutions",
+  description:
+    "Contact Impacgo Solutions for Microsoft Dynamics 365, Impacgo ERP, Power Platform, MES, AI automation and custom software development.",
+  inLanguage: "en-IN",
+  isPartOf: { "@id": "https://www.impacgo.com/#website" },
+  about: { "@id": ORG_ID },
+  mainEntity: { "@id": ORG_ID },
+};
+
+const contactBreadcrumbSchema = createBreadcrumbSchema([
+  { name: "Home", path: "/" },
+  { name: "Contact", path: "/contact" },
+]);
 
 
 const WEB3FORMS_ACCESS_KEY = "70949111-6e73-4de6-8dee-c571c73dee66";
@@ -87,10 +108,11 @@ export default function ContactSection() {
   return (
     <div>
       <SEO
-  title="Contact Impacgo Solutions | Microsoft Dynamics 365 Partner India"
-  description="Get in touch with Impacgo Solutions — Microsoft Dynamics 365 and Power Platform implementation partner in India. Free consultation for D365FO, Impacgo ERP, MES, AI automation, and digital transformation."
+  title="Contact Impacgo | Dynamics 365 & ERP Partner in India"
+  description="Contact Impacgo for a free consultation on Dynamics 365, Impacgo ERP, Power Platform, MES and AI. Call +91 99664 77499 or email info@impacgo.com."
   keywords="contact Impacgo Solutions, D365FO consultation India, Microsoft partner contact India, ERP consultation Visakhapatnam"
   path="/contact"
+  schema={[contactPageSchema, organizationSchema, contactBreadcrumbSchema]}
 />
       <ScrollToTop />
       <Header alwaysSolid />
@@ -104,6 +126,17 @@ export default function ContactSection() {
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Have a question or want to discuss a project? Fill out the form
               below and we'll get back to you as soon as possible.
+            </p>
+            <p className="text-gray-600 max-w-2xl mx-auto mt-4">
+              Talk to us about Microsoft Dynamics 365 Finance &amp; Operations,
+              AX 2012 migration, our own Impacgo ERP (HRMS, Finance, Chain, Make,
+              Plan, Retail and Project), Power Apps, Power Automate, Power BI,
+              MES, AI automation, or custom web and mobile apps. Our team works
+              from Visakhapatnam, India with clients across India and worldwide,
+              and the first consultation is free. You can also call{" "}
+              <a href="tel:+919966477499" className="text-blue-600 hover:underline">+91 99664 77499</a>{" "}
+              or email{" "}
+              <a href="mailto:info@impacgo.com" className="text-blue-600 hover:underline">info@impacgo.com</a>.
             </p>
           </div>
 

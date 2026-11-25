@@ -172,8 +172,8 @@ const breadcrumbSchema = createBreadcrumbSchema([
   return (
     <div> 
       <SEO
-  title="Custom App Development | Web · Mobile · Power Apps | Global Specialists"
-  description="Custom web, mobile, and Power Apps development services worldwide. React, React Native, .NET, and Microsoft Power Platform. India and global enterprises."
+  title="Custom App Development: Web, Mobile & Power Apps | Impacgo"
+  description="Custom web, mobile and Power Apps development with React, React Native, .NET and Microsoft Power Platform, for businesses in India and worldwide."
   keywords="custom app development, web app development, mobile app development, Power Apps development, React developer, React Native developer, .NET developer, app development partner India, app development partner global"
   path="/services/app-development"
   schema={[serviceSchema, faqSchema, breadcrumbSchema]}

@@ -101,8 +101,8 @@ export default function DevelopmentServices() {
   return (
     <div>
       <SEO
-  title="Software Development Services | Custom ERP & App Development | Global Specialists"
-  description="Specialist software development services worldwide. Custom ERP extensions, web apps, mobile apps, Power Apps, and integration development. India and global enterprises."
+  title="Custom Software Development: ERP, Web & Mobile | Impacgo"
+  description="Custom software development by Impacgo: ERP extensions, web and mobile apps, Power Apps and system integrations for businesses in India and worldwide."
   keywords="software development services, custom software development, ERP development, web app development, mobile app development, software development India, software development global"
   path="/services/development"
   schema={[serviceSchema, breadcrumbSchema]}

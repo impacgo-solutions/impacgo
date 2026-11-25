@@ -205,8 +205,8 @@ export default function PowerApps() {
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
       <SEO
-  title="Power Apps Development Partner | Canvas & Model-Driven Apps | Global Power Platform Specialists"
-  description="Microsoft Power Apps development services worldwide. Custom canvas and model-driven apps connected to Dynamics 365 F&O. Mobile-ready field apps, shop floor solutions, and approval workflows. Delivered in 4-8 weeks. India compliance built in."
+  title="Power Apps Development: Canvas & Model-Driven | Impacgo"
+  description="Custom canvas and model-driven Power Apps connected to Dynamics 365 F&O: mobile field apps, shop floor solutions and approval workflows in 4–8 weeks."
   keywords="Power Apps developer, Power Apps D365FO, canvas app developer, model-driven app developer, Power Apps development partner, Microsoft Power Apps consultant, Power Apps mobile development, Power Apps Microsoft Dynamics, Power Apps developer India, Power Platform development, Power Apps consulting"
   path="/services/power-apps"
   schema={[serviceSchema, faqSchema, breadcrumbSchema]}

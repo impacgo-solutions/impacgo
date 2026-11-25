@@ -56,10 +56,10 @@ export default function StockLyteApp() {
     // dark: variant anywhere else on the site trigger unexpectedly.
     <div className="dark bg-stocklyte-background text-stocklyte-on-background font-stocklyte-body selection:bg-stocklyte-primary selection:text-stocklyte-on-primary antialiased overflow-x-hidden">
       <Helmet>
-        <title>StockLyte | Inventory Management Software for Multi-Location Stock Tracking | Impacgo</title>
+        <title>StockLyte: Multi-Location Inventory Software | Impacgo</title>
         <meta
           name="description"
-          content="StockLyte is real-time inventory management software for warehouses and multi-store businesses: stock tracking across locations, barcode scanning, reorder alerts, purchase orders, demand forecasting and offline-first scanning."
+          content="StockLyte is real-time inventory software for warehouses and stores: stock across locations, barcode scanning, reorder alerts, purchase orders, forecasting."
         />
         <meta
           name="keywords"
@@ -69,7 +69,7 @@ export default function StockLyteApp() {
 
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.impacgo.com/stocklyte" />
-        <meta property="og:title" content="StockLyte | Inventory Management Software for Multi-Location Stock Tracking | Impacgo" />
+        <meta property="og:title" content="StockLyte: Multi-Location Inventory Software | Impacgo" />
         <meta
           property="og:description"
           content="Real-time, multi-location inventory management software: stock tracking, barcode scanning, reorder alerts and demand forecasting."
@@ -80,7 +80,7 @@ export default function StockLyteApp() {
 
         {/* "summary" card: the only share image is the small logo (see SEO.jsx) */}
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="StockLyte | Inventory Management Software for Multi-Location Stock Tracking | Impacgo" />
+        <meta name="twitter:title" content="StockLyte: Multi-Location Inventory Software | Impacgo" />
         <meta
           name="twitter:description"
           content="Real-time, multi-location inventory management software: stock tracking, barcode scanning, reorder alerts and demand forecasting."

@@ -84,8 +84,8 @@ export default function AX2012EndOfSupportBlog() {
   return (
     <div className="flex flex-col min-h-screen bg-white">
       <SEO
-        title="AX 2012 End of Support | What Indian Enterprises Need to Do Now"
-        description="Microsoft ended extended support for Dynamics AX 2012 R3 on 10 January 2023. Understand the security and GST compliance risks of running unsupported AX 2012, the three migration approaches, and how to plan your move to D365 Finance & Operations."
+        title="AX 2012 End of Support: What Indian Businesses Must Do"
+        description="AX 2012 R3 support ended on 10 January 2023. The security and GST risks of staying, the three migration options, and how to plan your move to D365 F&O."
         keywords="AX 2012 end of support, Dynamics AX 2012 end of life, AX 2012 R3 end of support, AX 2012 unsupported, AX 2012 migration, AX 2012 to D365 migration, Dynamics AX migration plan, AX 2012 India, AX 2012 GST compliance"
         path={SLUG}
         schema={[articleSchema, faqSchema, breadcrumbSchema]}

@@ -3,9 +3,9 @@ import ProductGuideArticle from "./ProductGuideArticle";
 
 const article = {
   slug: "multi-location-inventory-management-software",
-  seoTitle: "Inventory Management Software for Multi-Location Businesses | What to Look For",
+  seoTitle: "Multi-Location Inventory Software: What to Look For",
   seoDescription:
-    "How multi-store and multi-warehouse businesses stop stockouts, shrinkage and spreadsheet chaos: the inventory management software features that matter, and how to roll one out.",
+    "How multi-store and multi-warehouse businesses stop stockouts, shrinkage and spreadsheet chaos: the inventory software features that matter.",
   title: "Inventory Management Software for Multi-Location Businesses: What to Look For",
   excerpt:
     "Why spreadsheets break once stock lives in more than one store or warehouse, the inventory management software features that actually prevent stockouts, shrinkage and expiry losses, and how to roll a system out without stopping operations.",

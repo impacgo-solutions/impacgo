@@ -185,8 +185,8 @@ const breadcrumbSchema = createBreadcrumbSchema([
   return (
     <div>
       <SEO
-  title="Manufacturing Execution Systems (MES) Implementation | D365FO Integration | Global Specialists"
-  description="Specialist MES implementation and D365FO integration services worldwide. Shop floor data capture, production tracking, quality management, and OEE dashboards. Integration with Wonderware, Rockwell, Siemens MES, and custom platforms. India and global manufacturers."
+  title="MES Implementation & Dynamics 365 Integration | Impacgo"
+  description="Manufacturing Execution System (MES) implementation with D365 F&O integration: shop floor data, production tracking, quality and OEE dashboards."
   keywords="MES implementation, manufacturing execution systems, MES D365FO integration, shop floor data capture, OEE dashboard, MES consultant, Wonderware integration, Rockwell MES integration, MES India, MES partner global, smart factory implementation"
   path="/services/mes"
   schema={[serviceSchema, faqSchema, breadcrumbSchema]}

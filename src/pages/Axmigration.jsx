@@ -214,8 +214,8 @@ export default function AXMigration() {
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
       <SEO
-  title="AX 2012 to D365 Migration Partner | AX 2012 End of Support | Global Migration Specialists"
-  description="Specialist Microsoft Dynamics AX 2012 to D365 Finance & Operations migration services for global enterprises. AX 2012 has been out of support since January 2023 — move safely to D365. Deep India compliance expertise (GST, e-invoicing, TDS). Multi-country rollout experience. Free migration assessment."
+  title="AX 2012 to Dynamics 365 Migration Partner | Impacgo"
+  description="AX 2012 is out of support. Migrate safely to Dynamics 365 Finance & Operations with GST, e-invoicing and TDS expertise. Free migration assessment."
   keywords="AX 2012 migration partner, Dynamics AX to D365 migration, AX 2012 end of support, AX 2012 unsupported, Dynamics AX 2012 R3 migration, D365FO migration services, AX 2012 to cloud migration, AX 2012 upgrade specialist, Microsoft Dynamics migration partner, AX 2012 migration India, AX 2012 migration consultant India, Dynamics 365 finance operations migration"
   path="/services/ax-migration"
   schema={[serviceSchema, faqSchema, breadcrumbSchema]}

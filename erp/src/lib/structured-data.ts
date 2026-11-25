@@ -81,5 +81,38 @@ export const erpSuiteJsonLd = {
   ],
 };
 
+/** /erp-suite/demo: the demo request page, linked to the Impacgo ERP software entity. */
+export const erpDemoJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    organization,
+    {
+      "@type": "WebPage",
+      "@id": `${ERP_URL}/demo#webpage`,
+      url: `${ERP_URL}/demo`,
+      name: "Book a free Impacgo ERP demo",
+      description:
+        "Request a free, personalised walkthrough of Impacgo ERP (HRMS, Finance, Chain, Make, Plan, Retail and Project) mapped to your business.",
+      inLanguage: "en-IN",
+      about: { "@id": `${ERP_URL}#software` },
+      publisher: { "@id": ORG_ID },
+      potentialAction: {
+        "@type": "ReserveAction",
+        name: "Book a free demo",
+        target: `${ERP_URL}/demo`,
+        object: { "@id": `${ERP_URL}#software` },
+      },
+      breadcrumb: {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+          { "@type": "ListItem", position: 2, name: "Impacgo ERP", item: ERP_URL },
+          { "@type": "ListItem", position: 3, name: "Book a demo", item: `${ERP_URL}/demo` },
+        ],
+      },
+    },
+  ],
+};
+
 /** Serialise for a <script type="application/ld+json"> tag (escapes "<", per the Next.js JSON-LD guide). */
 export const toJsonLd = (data: unknown) => JSON.stringify(data).replace(/</g, "\\u003c");

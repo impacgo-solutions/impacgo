@@ -204,8 +204,8 @@ export default function D365CRM() {
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
       <SEO
-  title="Dynamics 365 CRM Implementation Partner | D365 Sales · Service · Marketing | Global Specialists"
-  description="Specialist Microsoft Dynamics 365 CRM implementation worldwide. D365 Sales, Customer Service, Marketing, and Field Service for global sales and service teams. Native integration with D365 Finance & Operations. India compliance built in. Free consultation."
+  title="Dynamics 365 CRM: Sales, Service & Marketing | Impacgo"
+  description="Dynamics 365 CRM implementation: Sales, Customer Service, Marketing and Field Service, integrated natively with D365 F&O. Free consultation."
   keywords="Dynamics 365 CRM, D365 Sales, D365 Customer Service, D365 Marketing, D365 Field Service, Microsoft CRM partner, Dynamics 365 CRM implementation, CRM consultant, Dynamics 365 CRM India, D365 CRM India, customer engagement Microsoft, CRM global partner"
   path="/services/d365-crm"
   schema={[serviceSchema, faqSchema, breadcrumbSchema]}

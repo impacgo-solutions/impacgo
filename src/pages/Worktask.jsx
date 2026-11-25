@@ -129,8 +129,8 @@ const breadcrumbSchema = createBreadcrumbSchema([
   return (
     <div>
       <SEO
-  title="Work Task Management App | Field Service Mobile App | Global"
-  description="Mobile work task management app for field service teams worldwide. Task assignment, real-time tracking, photo capture, and reporting. India and global field service operations."
+  title="Work Task: Field Service Task Management App | Impacgo"
+  description="Work Task is a mobile task management app for field service teams: assign tasks, track progress in real time, capture photos and report on every job."
   keywords="work task management app, field service app, task management mobile, field service software India, work order management, mobile task app global"
   path="/products/work-task"
   schema={[serviceSchema, faqSchema, breadcrumbSchema]}

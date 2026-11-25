@@ -50,10 +50,10 @@ export default function HealthVaultApp() {
   return (
     <div className="bg-healthvault-background text-healthvault-on-background font-healthvault-body selection:bg-healthvault-primary-fixed selection:text-healthvault-on-primary-fixed antialiased overflow-x-hidden">
       <Helmet>
-        <title>HealthVault | Family Health Records App with AI Health Insights | Impacgo</title>
+        <title>HealthVault: Family Health Records App | Impacgo</title>
         <meta
           name="description"
-          content="HealthVault is a family health records app: OCR-scanned prescriptions, lab reports and scans filed per family member, AI health insights, vitals tracking, medication reminders and an emergency QR profile."
+          content="HealthVault keeps your family health records in one app: scanned prescriptions and lab reports, AI health insights, vitals, reminders and an emergency QR."
         />
         <meta
           name="keywords"
@@ -63,7 +63,7 @@ export default function HealthVaultApp() {
 
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.impacgo.com/healthvault" />
-        <meta property="og:title" content="HealthVault | Family Health Records App with AI Health Insights | Impacgo" />
+        <meta property="og:title" content="HealthVault: Family Health Records App | Impacgo" />
         <meta
           property="og:description"
           content="Family health records app: OCR-scanned prescriptions and reports, AI health insights, vitals, reminders and an emergency QR profile."
@@ -74,7 +74,7 @@ export default function HealthVaultApp() {
 
         {/* "summary" card: the only share image is the small logo (see SEO.jsx) */}
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="HealthVault | Family Health Records App with AI Health Insights | Impacgo" />
+        <meta name="twitter:title" content="HealthVault: Family Health Records App | Impacgo" />
         <meta
           name="twitter:description"
           content="Family health records app: OCR-scanned prescriptions and reports, AI health insights, vitals, reminders and an emergency QR profile."

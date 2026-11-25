@@ -85,8 +85,8 @@ export default function CopilotD365FOBlog() {
     return (
         <div className="flex flex-col min-h-screen bg-white">
             <SEO
-                title="Microsoft Copilot in Dynamics 365 F&O: What It Actually Does in 2026"
-                description="What Microsoft Copilot actually does inside D365 Finance and Operations today — AI-assisted collections, variance analysis, and natural-language queries — and where it stops."
+                title="Copilot in Dynamics 365 F&O: What It Does in 2026"
+                description="What Microsoft Copilot really does in D365 Finance & Operations today: AI-assisted collections, variance analysis, natural-language queries and its limits."
                 keywords="Copilot in Dynamics 365, D365FO Copilot, Microsoft Copilot finance operations, AI in D365FO, Dynamics 365 AI features, Copilot accounts receivable, D365FO generative AI"
                 path="/blog/copilot-in-dynamics-365-finance-operations"
                 schema={[articleSchema, faqSchema, breadcrumbSchema]}

@@ -58,8 +58,8 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-gray-50">
       <SEO
-  title="Microsoft Dynamics 365 & Power Platform Partner | Global D365FO Specialists | Impacgo"
-  description="Specialist Microsoft Dynamics 365 Finance & Operations and Power Platform implementation partner for global enterprises. AX 2012 migration, D365FO, Power Apps, Power BI, AI Builder. Deep India compliance expertise (GST, e-invoicing). Multi-country rollouts. Free consultation."
+  title="Impacgo | Dynamics 365, ERP & Power Platform Partner"
+  description="Impacgo implements Microsoft Dynamics 365, Impacgo ERP and Power Platform: AX 2012 migration, Power Apps, Power BI and AI, with India compliance built in."
   keywords="Microsoft Dynamics 365 partner, D365FO implementation partner, Power Platform consultant, AX 2012 migration specialist, Power Apps developer, Power BI implementation, AI Builder integration, Dynamics 365 CRM partner, Microsoft Dynamics 365 India, D365 partner India, Power Platform India, ERP partner India"
   path="/"
   schema={[organizationSchema, localBusinessSchema, websiteSchema]}
