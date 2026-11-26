@@ -64,7 +64,7 @@ export default function CopilotD365FOBlog() {
             "Microsoft Copilot in Dynamics 365 F&O: What It Actually Does in 2026",
         description:
             "A practical look at what Microsoft Copilot actually does inside Dynamics 365 Finance and Operations today — collections, variance analysis, and natural-language queries — versus what it doesn't replace.",
-        imageUrl: "https://www.impacgo.com/logo.png",
+        imageUrl: "https://www.impacgo.com/og-image.jpg",
         datePublished: "2026-08-11",
         dateModified: "2026-08-11",
         authorName: "Impacgo Solutions",

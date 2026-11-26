@@ -92,7 +92,7 @@ export default function ProductGuideArticle({ article }) {
   const articleSchema = createArticleSchema({
     title,
     description: excerpt,
-    imageUrl: "https://www.impacgo.com/logo.png",
+    imageUrl: "https://www.impacgo.com/og-image.jpg",
     datePublished,
     dateModified: datePublished,
     authorName: "Impacgo Solutions",

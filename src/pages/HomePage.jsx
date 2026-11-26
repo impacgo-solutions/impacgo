@@ -24,7 +24,7 @@ import Header from "../components/Header";
 import SectionBlobs from "../components/SectionBlobs";
 import Footer from "../components/Footer";
 import Reveal, { RevealItem } from "../components/Reveal";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import LocationMap from "../components/LocationMap";
 import ContactCard from "../components/ContactCard";
 import financial from "../assets/financialimg.webp";
@@ -58,8 +58,8 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-gray-50">
       <SEO
-  title="Impacgo | Dynamics 365, ERP & Power Platform Partner"
-  description="Impacgo implements Microsoft Dynamics 365, Impacgo ERP and Power Platform: AX 2012 migration, Power Apps, Power BI and AI, with India compliance built in."
+  title="Impacgo: Global ERP & Dynamics 365 Partner, India"
+  description="ERP software and Dynamics 365 partner from India: 15+ ERP projects in 8+ countries incl. Japan, Malaysia, USA and UK. Impacgo ERP, HRMS, e-invoicing, AI."
   keywords="Microsoft Dynamics 365 partner, D365FO implementation partner, Power Platform consultant, AX 2012 migration specialist, Power Apps developer, Power BI implementation, AI Builder integration, Dynamics 365 CRM partner, Microsoft Dynamics 365 India, D365 partner India, Power Platform India, ERP partner India"
   path="/"
   schema={[organizationSchema, localBusinessSchema, websiteSchema]}
@@ -148,9 +148,9 @@ function HeroSection() {
         </h1>
 
         <p className="text-xl md:text-2xl mb-8 max-w-3xl">
-          Your technology partner from strategy to go-live — Microsoft
-          Dynamics 365, AI and our own Impacgo ERP, delivered with complete
-          transparency.
+          Your global ERP partner from Visakhapatnam, India, from strategy to
+          go-live — Microsoft Dynamics 365, AI and our own Impacgo ERP,
+          delivered with complete transparency.
         </p>
 
         <button
@@ -1577,7 +1577,11 @@ function LocationSection() {
       <div className="relative z-10 container mx-auto px-4 max-w-4xl">
         <Reveal className="text-center mb-8">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">Where We're Based</h2>
-          <p className="text-gray-600">Visakhapatnam, Andhra Pradesh, India — serving global enterprises.</p>
+          <p className="text-gray-600">
+            Headquartered in Visakhapatnam (Vizag), India — 15+ ERP implementations for clients in India, Japan, Southeast Asia, the Middle East, the USA and the UK.{" "}
+            <Link to="/global-erp-implementation" className="text-blue-600 font-semibold hover:underline">Our global work →</Link>{" "}
+            <Link to="/erp-company-visakhapatnam" className="text-blue-600 font-semibold hover:underline">Visit us in Vizag →</Link>
+          </p>
         </Reveal>
         <RevealItem index={0}>
           <LocationMap />

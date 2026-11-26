@@ -29,6 +29,8 @@ const ContactUs = lazy(() => import("./components/ContactUs"));
 const MES = lazy(() => import("./pages/mes"));
 const Integrations = lazy(() => import("./pages/integrations"));
 const Consulting = lazy(() => import("./pages/Consulting"));
+const VizagErpCompany = lazy(() => import("./pages/VizagErpCompany"));
+const GlobalErpPartner = lazy(() => import("./pages/GlobalErpPartner"));
 const AIAutomation = lazy(() => import("./pages/Aiautomation"));
 
 // Product Pages
@@ -384,6 +386,18 @@ function AnimatedRoutes() {
         <Route
           path="/contact"
           element={<ContactUs />}
+        />
+
+        {/* Local page: ERP company in Visakhapatnam (Vizag) */}
+        <Route
+          path="/erp-company-visakhapatnam"
+          element={<VizagErpCompany />}
+        />
+
+        {/* Global page: ERP implementation partner for clients worldwide */}
+        <Route
+          path="/global-erp-implementation"
+          element={<GlobalErpPartner />}
         />
 
         {/* ---------------- FALLBACK ---------------- */}

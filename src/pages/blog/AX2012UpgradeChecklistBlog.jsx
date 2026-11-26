@@ -109,7 +109,7 @@ export default function AX2012UpgradeChecklistBlog() {
         title: TITLE,
         description:
             "A practical checklist for upgrading from Dynamics AX 2012 to Dynamics 365 Finance & Operations — supported versions, upgrade vs re-implementation, customizations, integrations, data upgrade and cutover.",
-        imageUrl: "https://www.impacgo.com/logo.png",
+        imageUrl: "https://www.impacgo.com/og-image.jpg",
         datePublished: "2026-11-10",
         dateModified: "2026-11-10",
         authorName: "Impacgo Solutions",

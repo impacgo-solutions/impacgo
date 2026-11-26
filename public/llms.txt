@@ -1,11 +1,19 @@
 # Impacgo Solutions
 
-> Impacgo Solutions Private Limited is a software and consulting company headquartered in Visakhapatnam, Andhra Pradesh, India (founded 2020). It implements Microsoft Dynamics 365 Finance & Operations and the Microsoft Power Platform, builds its own ERP suite (Impacgo ERP, including Impacgo HRMS), and develops custom web, mobile and AI automation solutions for clients across India and for global enterprises, with India compliance (GST, e-invoicing) built in.
+> Impacgo Solutions Private Limited is an ERP software and consulting company headquartered in Visakhapatnam (Vizag), Andhra Pradesh, India (founded 2020). It implements Microsoft Dynamics 365 Finance & Operations and the Microsoft Power Platform, builds its own ERP suite (Impacgo ERP, including Impacgo HRMS), and develops custom web, mobile and AI automation solutions for clients in India and worldwide, with compliance (India GST e-invoicing, e-way bill, TDS; Malaysia LHDN e-invoicing) built in.
 
 Key facts:
 - Legal name: Impacgo Solutions Private Limited
-- Founded: 2020, by Venkata Srikar Tantravahi (Founder & CEO)
+- Founded: March 2020, by Venkata Srikar Tantravahi (Founder & CEO, 20+ years in ERP)
+- Track record: 20+ years of ERP experience in the leadership, 15+ global ERP implementations delivered, 8+ countries served, 10+ industries supported
+- Where Impacgo delivers: India, Japan, Singapore, Malaysia, Thailand, the Middle East, the USA and the UK/Europe
+- Selected clients: Resonac Corporation (Japan, global ERP maintenance and customisations), Resonac Asia Pacific (Singapore/Malaysia, multi-site trading implementation), Resonac America (USA, multi-site trading implementation), Resonac Materials Johor (Malaysia, ERP and e-invoice implementation), Showa Denko Materials (Thailand, manufacturing implementation), Hitachi Chemical India and Allied JB Friction (India, manufacturing implementations), Hitachi India (SAP consulting), Ironing Boy (UK, web and mobile app development)
 - Headquarters: No 9-29-19, Gupta Villa, Third Floor, Balaji Nagar, Visakhapatnam, Andhra Pradesh 530003, India
+- Location: Visakhapatnam (also called Vizag), Andhra Pradesh, India. Serves businesses in Vizag, across India and worldwide, on site and remotely
+- Global page: [Global ERP implementation partner](https://www.impacgo.com/global-erp-implementation)
+- Local page: [ERP software company in Visakhapatnam (Vizag)](https://www.impacgo.com/erp-company-visakhapatnam)
+- Languages: English, Hindi, Telugu
+- Office hours: Monday to Friday, 9:00 to 18:00 IST
 - Contact: info@impacgo.com, +91 99664 77499, https://www.impacgo.com/contact
 - LinkedIn: https://www.linkedin.com/company/impacgo-solutions-private-limited/
 

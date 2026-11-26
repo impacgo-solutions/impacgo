@@ -108,6 +108,8 @@ const ROUTES = [
   "/faq",
   // "/about" stays hidden on the live site, so it isn't prerendered.
   "/contact",
+  "/erp-company-visakhapatnam",
+  "/global-erp-implementation",
   "/privacy",
   "/terms",
 ];

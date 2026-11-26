@@ -66,7 +66,7 @@ export default function AX2012EndOfSupportBlog() {
     title: TITLE,
     description:
       "Microsoft ended extended support for Dynamics AX 2012 R3 on 10 January 2023. What running unsupported AX 2012 means for Indian enterprises, the three migration approaches to D365 Finance & Operations, and how to plan the move now.",
-    imageUrl: "https://www.impacgo.com/logo.png",
+    imageUrl: "https://www.impacgo.com/og-image.jpg",
     datePublished: "2026-05-18",
     dateModified: "2026-11-10",
     authorName: "Impacgo Solutions",

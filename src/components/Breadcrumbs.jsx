@@ -49,6 +49,9 @@ const LEAF_LABELS = {
   "farm-yield-iq": "FarmYieldIQ",
   "work-task": "Work Task Application",
   "construction-planner": "Construction Planner",
+  // local page
+  "erp-company-visakhapatnam": "ERP Company in Visakhapatnam",
+  "global-erp-implementation": "Global ERP Implementation",
   // industries/*
   manufacturing: "Manufacturing",
   distribution: "Distribution",

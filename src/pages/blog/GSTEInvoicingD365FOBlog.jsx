@@ -98,7 +98,7 @@ export default function GSTEInvoicingD365FOBlog() {
         title: TITLE,
         description:
             "How to set up and run GST e-invoicing in Microsoft Dynamics 365 Finance & Operations — the ₹5 crore threshold, the 30-day IRP reporting rule, step-by-step configuration, e-way bills and common pitfalls.",
-        imageUrl: "https://www.impacgo.com/logo.png",
+        imageUrl: "https://www.impacgo.com/og-image.jpg",
         datePublished: "2026-11-10",
         dateModified: "2026-11-10",
         authorName: "Impacgo Solutions",

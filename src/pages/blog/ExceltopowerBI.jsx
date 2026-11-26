@@ -65,7 +65,7 @@ const articleSchema = createArticleSchema({
       "How to Replace Excel Reporting with Power BI in D365FO - A Practical Guide for Finance Teams",
     description:
       "Microsoft Dynamics 365 Finance and Operations (D365FO) helps organizations manage their financial and business processes. While many finance teams use Excel for reporting, it often requires manual effort and can lead to errors. Microsoft Power BI provides automated, real-time, and interactive reporting, helping finance teams improve efficiency and make better decisions.",
-    imageUrl: "https://www.impacgo.com/logo.png",
+    imageUrl: "https://www.impacgo.com/og-image.jpg",
     datePublished: "2026-06-02",
     dateModified: "2026-06-02",
     authorName: "Impacgo Solutions",

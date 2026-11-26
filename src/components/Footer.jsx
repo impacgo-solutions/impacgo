@@ -14,6 +14,10 @@ export default function Footer(){
             <Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
             <span aria-hidden="true">&middot;</span>
             <Link to="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
+            <span aria-hidden="true">&middot;</span>
+            <Link to="/global-erp-implementation" className="hover:text-white transition-colors">Global ERP Partner</Link>
+            <span aria-hidden="true">&middot;</span>
+            <Link to="/erp-company-visakhapatnam" className="hover:text-white transition-colors">ERP Company in Vizag</Link>
           </div>
             </div>
         </div>

@@ -108,8 +108,8 @@ export default function ContactSection() {
   return (
     <div>
       <SEO
-  title="Contact Impacgo | Dynamics 365 & ERP Partner in India"
-  description="Contact Impacgo for a free consultation on Dynamics 365, Impacgo ERP, Power Platform, MES and AI. Call +91 99664 77499 or email info@impacgo.com."
+  title="Contact Impacgo | Global ERP & Dynamics 365 Partner"
+  description="Contact Impacgo for a free ERP, HRMS or Dynamics 365 consultation, in India or worldwide. Call +91 99664 77499 or email info@impacgo.com."
   keywords="contact Impacgo Solutions, D365FO consultation India, Microsoft partner contact India, ERP consultation Visakhapatnam"
   path="/contact"
   schema={[contactPageSchema, organizationSchema, contactBreadcrumbSchema]}
@@ -132,7 +132,7 @@ export default function ContactSection() {
               AX 2012 migration, our own Impacgo ERP (HRMS, Finance, Chain, Make,
               Plan, Retail and Project), Power Apps, Power Automate, Power BI,
               MES, AI automation, or custom web and mobile apps. Our team works
-              from Visakhapatnam, India with clients across India and worldwide,
+              from Visakhapatnam (Vizag), India, with clients in India, Japan, Southeast Asia, the Middle East, the USA and the UK,
               and the first consultation is free. You can also call{" "}
               <a href="tel:+919966477499" className="text-blue-600 hover:underline">+91 99664 77499</a>{" "}
               or email{" "}

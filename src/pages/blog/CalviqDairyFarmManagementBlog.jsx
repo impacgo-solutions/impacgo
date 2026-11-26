@@ -64,7 +64,7 @@ export default function CalviqDairyFarmManagementBlog() {
             "Calviq: How QR-Based Cattle Tracking Is Modernizing Dairy Farm Management",
         description:
             "How Calviq replaces paper herd registers with QR-based cattle tracking — giving every cow a digital identity for milk production, health records, and breeding history, accessible from a phone in the field.",
-        imageUrl: "https://www.impacgo.com/logo.png",
+        imageUrl: "https://www.impacgo.com/og-image.jpg",
         datePublished: "2026-07-14",
         dateModified: "2026-07-14",
         authorName: "Impacgo Solutions",

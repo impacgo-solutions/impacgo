@@ -34,7 +34,7 @@ export default function D365FOModulesForIndianManufacturersBlog() {
       "D365FO Modules for Indian Manufacturers: Complete Guide for 2026",
     description:
       "Explore the most important D365FO modules used by Indian manufacturers including Finance, Supply Chain Management, Production Control, Warehouse Management, Quality Management, Asset Management, and Master Planning.",
-    image: "https://www.impacgo.com/logo.png",
+    image: "https://www.impacgo.com/og-image.jpg",
     datePublished: "2026-06-22",
     dateModified: "2026-06-22",
     author: {
@@ -52,7 +52,7 @@ export default function D365FOModulesForIndianManufacturersBlog() {
       name: "Impacgo Solutions",
       logo: {
         "@type": "ImageObject",
-        url: "https://www.impacgo.com/logo.png",
+        url: "https://www.impacgo.com/logo-512.png",
       },
     },
     mainEntityOfPage: {

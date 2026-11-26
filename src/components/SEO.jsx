@@ -19,12 +19,11 @@ import { Helmet } from "react-helmet-async";
 
 const SITE_URL = "https://www.impacgo.com";
 
-// Default social-sharing image, used when a page doesn't pass its own.
-// public/logo.png is only 31x60px, below the minimum LinkedIn/Facebook/X
-// need for a large preview card, so it's shown as a small "summary" card.
-// TO UPGRADE: add a 1200x630 branded image as public/og-default.jpg, then set
-// DEFAULT_SHARE_IMAGE to { url: "/og-default.jpg", width: 1200, height: 630 }.
-const DEFAULT_SHARE_IMAGE = { url: "/logo.png", width: null, height: null };
+// Default social-sharing image, used when a page doesn't pass its own: a
+// 1200x630 branded card (public/og-image.jpg). Also the picture ChatGPT,
+// Google, LinkedIn and WhatsApp show next to Impacgo links.
+const DEFAULT_SHARE_IMAGE = { url: "/og-image.jpg", width: 1200, height: 630 };
+const DEFAULT_SHARE_ALT = "Impacgo Solutions: ERP software and Dynamics 365 partner in Visakhapatnam (Vizag), India";
 const LARGE_IMAGE_MIN_WIDTH = 600;
 
 export default function SEO({
@@ -48,7 +47,7 @@ export default function SEO({
   // A page-specific image is assumed to be a proper large share image; the
   // default only gets the large card once it is a real 1200x630 image.
   const largeCard = !usingDefault || (width && width >= LARGE_IMAGE_MIN_WIDTH);
-  const alt = imageAlt || title;
+  const alt = imageAlt || (usingDefault ? DEFAULT_SHARE_ALT : title);
 
   return (
     <Helmet>

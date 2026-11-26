@@ -66,7 +66,7 @@ export default function D365FOVsSAPVsOracleBlog() {
       "D365FO vs SAP S/4HANA vs Oracle NetSuite: Which ERP Should Growing Enterprises Choose in 2026?",
     description:
       "Compare Microsoft Dynamics 365 Finance & Operations, SAP S/4HANA, and Oracle NetSuite. Learn which ERP platform is best for manufacturing, finance, scalability, implementation cost, and business growth.",
-    imageUrl: "https://www.impacgo.com/logo.png",
+    imageUrl: "https://www.impacgo.com/og-image.jpg",
     datePublished: "2026-06-02",
     dateModified: "2026-06-02",
     authorName: "Impacgo Solutions",

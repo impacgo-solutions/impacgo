@@ -34,7 +34,7 @@ export default function PowerAppsD365FOBlog() {
  "Power Apps for D365FO: Extending Dynamics 365 Finance & Operations with Low-Code Applications",
  description:
  "Learn how Microsoft Power Apps integrates with Dynamics 365 Finance & Operations (D365FO) to create custom business applications, streamline processes, and improve productivity without extensive coding.",
- image: "https://www.impacgo.com/logo.png",
+ image: "https://www.impacgo.com/og-image.jpg",
  datePublished: "2026-05-19",
  dateModified: "2026-05-19",
  author: {
@@ -52,7 +52,7 @@ export default function PowerAppsD365FOBlog() {
  name: "Impacgo Solutions",
  logo: {
  "@type": "ImageObject",
- url: "https://www.impacgo.com/logo.png",
+ url: "https://www.impacgo.com/logo-512.png",
  },
  },
  mainEntityOfPage: {

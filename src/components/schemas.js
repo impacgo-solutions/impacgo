@@ -10,12 +10,40 @@
 const SITE_URL = "https://www.impacgo.com";
 export const ORG_ID = `${SITE_URL}/#organization`;
 
-// Where Impacgo works, as the site itself describes it: clients across India,
-// plus "India and global enterprises" on the service pages.
+// Where Impacgo works: its home city and state (local searches such as "ERP
+// company in Vizag"), India, and the countries in the company profile (2026):
+// Japan, Singapore, Malaysia, Thailand, the USA, the UK and the Middle East.
 const AREA_SERVED = [
+  { "@type": "City", name: "Visakhapatnam", alternateName: "Vizag" },
+  { "@type": "State", name: "Andhra Pradesh" },
   { "@type": "Country", name: "India" },
+  { "@type": "Country", name: "Japan" },
+  { "@type": "Country", name: "Singapore" },
+  { "@type": "Country", name: "Malaysia" },
+  { "@type": "Country", name: "Thailand" },
+  { "@type": "Country", name: "United States" },
+  { "@type": "Country", name: "United Kingdom" },
+  { "@type": "Place", name: "Middle East" },
   { "@type": "Place", name: "Worldwide" },
 ];
+
+// Logo (512x512, Google needs at least 112x112) and the 1200x630 share image.
+const LOGO = { "@type": "ImageObject", url: `${SITE_URL}/logo-512.png`, width: 512, height: 512 };
+const SHARE_IMAGE = `${SITE_URL}/og-image.jpg`;
+
+// What Impacgo does, in the words people search for. Lets search engines and
+// AI assistants connect searches like "HRMS software" or "Dynamics 365 partner"
+// to this company. Only things the site actually offers.
+const KNOWS_ABOUT = [
+  "ERP software", "Impacgo ERP", "HRMS software", "Payroll software", "Accounting software with GST",
+  "Supply chain management software", "Inventory management software", "Manufacturing ERP", "MRP software",
+  "Retail POS software", "Project management software", "Microsoft Dynamics 365 Finance and Operations",
+  "Dynamics 365 implementation", "AX 2012 to Dynamics 365 migration", "Power Apps", "Power Automate", "Power BI",
+  "MES (Manufacturing Execution System)", "AI and automation", "Custom web and mobile app development",
+  "Dairy farm management software", "GST e-invoicing", "e-way bill", "Malaysia e-invoicing (LHDN)",
+  "Global ERP implementation", "Multi-country ERP rollout", "ERP support and managed services", "SAP consulting",
+];
+const ALTERNATE_NAMES = ["Impacgo", "IMPACGO Solutions", "Impacgo Solutions Private Limited", "Impacgo ERP"];
 
 // Profiles confirmed in this project. Add more official profiles here (e.g.
 // a Clutch or Microsoft partner listing) only once they're confirmed.
@@ -30,9 +58,13 @@ export const organizationSchema = {
   "@id": ORG_ID,
   name: "Impacgo Solutions",
   legalName: "Impacgo Solutions Private Limited",
+  alternateName: ALTERNATE_NAMES,
   url: "https://www.impacgo.com",
-  logo: "https://www.impacgo.com/logo.png",
+  logo: LOGO,
+  image: SHARE_IMAGE,
   foundingDate: "2020-03",
+  foundingLocation: { "@type": "Place", name: "Visakhapatnam, Andhra Pradesh, India" },
+  knowsAbout: KNOWS_ABOUT,
   founders: [
     {
       "@type": "Person",
@@ -82,7 +114,13 @@ export const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   name: "Impacgo Solutions",
-  image: "https://www.impacgo.com/logo.png",
+  alternateName: ALTERNATE_NAMES,
+  description:
+    "ERP software company in Visakhapatnam (Vizag), Andhra Pradesh, India: Impacgo ERP (HRMS, Finance, supply chain, manufacturing, planning, retail POS and projects), Microsoft Dynamics 365 and Power Platform implementation, and custom web and mobile apps.",
+  image: SHARE_IMAGE,
+  logo: LOGO,
+  knowsAbout: KNOWS_ABOUT,
+  hasMap: "https://www.google.com/maps/search/?api=1&query=Impacgo+Solutions+Visakhapatnam",
   "@id": ORG_ID,
   url: "https://www.impacgo.com",
   telephone: "+91-9966477499",
@@ -244,10 +282,7 @@ export const createArticleSchema = ({
     "@type": "Organization",
     "@id": ORG_ID,
     name: "Impacgo Solutions",
-    logo: {
-      "@type": "ImageObject",
-      url: "https://www.impacgo.com/logo.png",
-    },
+    logo: LOGO,
   },
   mainEntityOfPage: {
     "@type": "WebPage",

@@ -64,7 +64,7 @@ export default function PowerAutomateD365FOBlog() {
             "Power Automate for D365FO: Streamline Approvals, Notifications, and Business Workflows",
         description:
             "Learn how Power Automate integrates with D365FO to automate repetitive tasks, streamline approvals, trigger notifications, and connect business systems. Discover how low-code automation can improve productivity and operational efficiency.",
-        imageUrl: "https://www.impacgo.com/logo.png",
+        imageUrl: "https://www.impacgo.com/og-image.jpg",
         datePublished: "2026-06-25",
         dateModified: "2026-06-25",
         authorName: "Srikar Tantravahi",

@@ -63,7 +63,7 @@ export default function D365DistributionGuideBlog() {
             "Dynamics 365 F&O for Distribution & Wholesale Businesses: A Complete Guide",
         description:
             "How Microsoft Dynamics 365 Finance and Operations handles multi-warehouse inventory, trade agreement pricing, B2B integrations, and Indian tax compliance for distributors and wholesalers.",
-        imageUrl: "https://www.impacgo.com/logo.png",
+        imageUrl: "https://www.impacgo.com/og-image.jpg",
         datePublished: "2026-07-21",
         dateModified: "2026-07-21",
         authorName: "Impacgo Solutions",

@@ -28,11 +28,11 @@ export type ModulePage = {
   faqs: { q: string; a: string }[];
 };
 
-export const MODULE_PAGES: ModulePage[] = [
+const PAGES: ModulePage[] = [
   {
     key: "hrms",
     slug: "hrms",
-    title: "HRMS Software: Payroll, Attendance & Leave | Impacgo",
+    title: "HRMS Software India: Payroll, Attendance & Leave | Impacgo",
     description: "Impacgo HRMS is HR and payroll software: employee records, attendance and shifts, leave, payroll and payslips, recruitment and one approval queue.",
     h1: "HRMS software for payroll, attendance and leave",
     intro:
@@ -182,7 +182,7 @@ export const MODULE_PAGES: ModulePage[] = [
   {
     key: "plan",
     slug: "mrp-planning",
-    title: "MRP & Production Planning Software | Impacgo Plan",
+    title: "MRP & Production Planning Software India | Impacgo Plan",
     description: "Impacgo Plan: demand forecasting, MRP, master production scheduling, capacity planning and shortage exceptions, connected to production and stock.",
     h1: "MRP and production planning software",
     intro:
@@ -216,7 +216,7 @@ export const MODULE_PAGES: ModulePage[] = [
   {
     key: "retail",
     slug: "retail-pos",
-    title: "Retail POS & Billing Software for Multi-Store | Impacgo",
+    title: "Retail POS & Billing Software India | Impacgo Retail",
     description: "Impacgo Retail: POS billing with barcode scanning, cash, card, UPI and wallet payments, loyalty, promotions, store stock and shift closing for every store.",
     h1: "Retail POS and billing software for multi-store chains",
     intro:
@@ -286,6 +286,22 @@ export const MODULE_PAGES: ModulePage[] = [
     ],
   },
 ];
+
+/*
+ * Every module page also answers "who makes it and where are you based?", so
+ * local searches (Vizag, Visakhapatnam, Andhra Pradesh, India) reach these pages too.
+ */
+const NAMES: Record<ModuleKey, string> = { hrms: "HRMS", finance: "Finance", chain: "Chain", make: "Make", plan: "Plan", retail: "Retail", project: "Project" };
+export const MODULE_PAGES: ModulePage[] = PAGES.map((p) => ({
+  ...p,
+  faqs: [
+    ...p.faqs,
+    {
+      q: `Who makes Impacgo ${NAMES[p.key]}, and where are you based?`,
+      a: `Impacgo ${NAMES[p.key]} is built by Impacgo Solutions, an ERP software company headquartered in Visakhapatnam (Vizag), Andhra Pradesh, India. We implement it for businesses in India and worldwide, and have delivered 15+ ERP implementations in 8+ countries, including Japan, Malaysia, Thailand, the USA and the UK. Call +91 99664 77499 or email info@impacgo.com for a free demo.`,
+    },
+  ],
+}));
 
 export const PAGE_BY_KEY = Object.fromEntries(MODULE_PAGES.map((p) => [p.key, p])) as Record<ModuleKey, ModulePage>;
 export const PAGE_BY_SLUG = Object.fromEntries(MODULE_PAGES.map((p) => [p.slug, p])) as Record<string, ModulePage>;

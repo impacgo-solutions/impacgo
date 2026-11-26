@@ -68,12 +68,14 @@ export default function FarmYieldIQApp() {
           property="og:description"
           content="Farmland plot management software: layouts, blocks and plots, partner portfolios, payments and plot sales in one place."
         />
-        <meta property="og:image" content="https://www.impacgo.com/logo.png" />
+        <meta property="og:image" content="https://www.impacgo.com/og-image.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta property="og:site_name" content="Impacgo Solutions" />
         <meta property="og:locale" content="en_IN" />
 
-        {/* "summary" card: the only share image is the small logo (see SEO.jsx) */}
-        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://www.impacgo.com/og-image.jpg" />
         <meta name="twitter:title" content="FarmYieldIQ: Farmland Plot Management Software | Impacgo" />
         <meta
           name="twitter:description"

@@ -20,11 +20,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: { default: "Impacgo ERP: one platform to run your entire business", template: "%s · Impacgo" },
-  description: "Impacgo ERP connects HR, finance, supply chain, manufacturing, planning, retail and projects in one integrated, multi-tenant platform.",
+  description: "Impacgo ERP from Visakhapatnam (Vizag), India: HRMS, Finance, supply chain, manufacturing, MRP, retail POS and projects in one connected platform.",
   // Absolute URLs throughout: this app lives at www.impacgo.com/erp-suite (basePath).
   metadataBase: new URL("https://www.impacgo.com"),
   openGraph: OG_DEFAULTS,
-  twitter: { card: "summary" },
+  twitter: { card: "summary_large_image" },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

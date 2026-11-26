@@ -34,7 +34,7 @@ export default function D365FOImplementationTimelineBlog() {
       "How Long Does a D365FO Implementation Take? A Realistic Timeline Guide for 2026",
     description:
       "Microsoft Dynamics 365 Finance & Operations implementation timeline guide. Realistic durations for SMEs, mid-market, and global enterprises. Factors that speed up or slow down your project. From a developer who has lived through dozens of D365FO go-lives.",
-    image: "https://www.impacgo.com/logo.png",
+    image: "https://www.impacgo.com/og-image.jpg",
     datePublished: "2026-05-19",
     dateModified: "2026-05-19",
     author: {
@@ -52,7 +52,7 @@ export default function D365FOImplementationTimelineBlog() {
       name: "Impacgo Solutions",
       logo: {
         "@type": "ImageObject",
-        url: "https://www.impacgo.com/logo.png",
+        url: "https://www.impacgo.com/logo-512.png",
       },
     },
     mainEntityOfPage: {
