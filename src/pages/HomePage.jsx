@@ -37,7 +37,7 @@ import etor from "../assets/clients/etor.webp";
 // TEMP-HIDDEN: Rosti logo — uncomment together with the Rosti entry in ClientLogosSection.
 // import rosti from "../assets/clients/rosti.webp";
 import daxonet from "../assets/clients/daxonet.webp";
-import { ERP_SITE_URL, erpModuleUrl } from "../config/erp";
+import { ERP_SITE_URL, erpModulePageUrl } from "../config/erp";
 
 export default function HomePage() {
   // Header nav items like "Products"/"Services" link to "/#products" etc.
@@ -1078,10 +1078,11 @@ function ProductsAndERPSection() {
                 works and reports in one place instead of across separate tools and spreadsheets.
               </p>
               <div className="flex flex-wrap gap-2 mb-6">
-                {["HR & Payroll", "Finance", "Supply Chain", "Manufacturing", "Planning & MRP", "Retail & POS", "Projects"].map((m) => (
-                  <span key={m} className="text-xs font-medium bg-gray-100 text-gray-700 px-2.5 py-1 rounded-full">
+                {/* Each chip opens that module's own page on the ERP site (plain <a>: separate app). */}
+                {[["HR & Payroll", "hrms"], ["Finance", "finance"], ["Supply Chain", "chain"], ["Manufacturing", "make"], ["Planning & MRP", "plan"], ["Retail & POS", "retail"], ["Projects", "project"]].map(([m, slug]) => (
+                  <a key={m} href={erpModulePageUrl(slug)} className="text-xs font-medium bg-gray-100 text-gray-700 px-2.5 py-1 rounded-full hover:bg-blue-50 hover:text-blue-700 transition-colors">
                     {m}
-                  </span>
+                  </a>
                 ))}
               </div>
               <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
@@ -1129,7 +1130,7 @@ function ProductsAndERPSection() {
               {/* Plain <a>: the ERP site is a separate app (see src/config/erp.js). */}
               <a
                 id={`erp-${mod.slug}`}
-                href={erpModuleUrl(mod.slug)}
+                href={erpModulePageUrl(mod.slug)}
                 className="group block h-full bg-white/70 backdrop-blur-xl rounded-2xl shadow-glass hover:shadow-glass-lg hover:bg-white/90 transition-all duration-300 border border-white/60 hover:border-white/80 p-6 scroll-mt-28 hover:-translate-y-1"
               >
                 <div className="flex items-start justify-between mb-4">

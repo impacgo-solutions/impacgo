@@ -5,6 +5,13 @@
       { "source": "/products/inventory-management", "destination": "/stocklyte", "permanent": true },
       { "source": "/products/farm-yield-iq", "destination": "/farmyieldiq", "permanent": true },
       { "source": "/products/health-vault", "destination": "/healthvault", "permanent": true },
+      { "source": "/erp/hrms", "destination": "/erp-suite/hrms", "permanent": true },
+      { "source": "/erp/finance", "destination": "/erp-suite/finance-accounting", "permanent": true },
+      { "source": "/erp/chain", "destination": "/erp-suite/supply-chain", "permanent": true },
+      { "source": "/erp/make", "destination": "/erp-suite/manufacturing", "permanent": true },
+      { "source": "/erp/plan", "destination": "/erp-suite/mrp-planning", "permanent": true },
+      { "source": "/erp/retail", "destination": "/erp-suite/retail-pos", "permanent": true },
+      { "source": "/erp/project", "destination": "/erp-suite/project-management", "permanent": true },
       { "source": "/erp/:slug", "destination": "/erp-suite#module-:slug", "permanent": true }
     ],
     "rewrites": [

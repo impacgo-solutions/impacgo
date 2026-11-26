@@ -25,13 +25,13 @@ Key facts:
 One connected platform. HRMS, Finance, Chain, Make and Retail are available today; book a free demo at https://www.impacgo.com/erp-suite/demo.
 
 - [Impacgo ERP overview](https://www.impacgo.com/erp-suite)
-- [Impacgo HRMS](https://www.impacgo.com/erp-suite#module-hrms): human resource management: employee records, attendance and shifts, leave, payroll and payslips, recruitment and onboarding, self-service
-- [Impacgo Finance](https://www.impacgo.com/erp-suite#module-finance): general ledger, payables, receivables, bank, GST and tax workflows
-- [Impacgo Chain](https://www.impacgo.com/erp-suite#module-chain): supply chain: procurement, sales orders, inventory, warehouses, batch/serial tracking
-- [Impacgo Make](https://www.impacgo.com/erp-suite#module-make): manufacturing software: bills of materials, work orders, routings, job cards, production costing
-- [Impacgo Plan](https://www.impacgo.com/erp-suite#module-plan): demand and supply planning, MRP, scheduling, capacity
-- [Impacgo Retail](https://www.impacgo.com/erp-suite#module-retail): retail ERP and POS: billing, pricing, multi-store operations, payments, synced to inventory and accounts
-- [Impacgo Project](https://www.impacgo.com/erp-suite#module-project): projects, tasks, Kanban/Gantt planning, budgets, timesheets
+- [Impacgo HRMS: HRMS and payroll software](https://www.impacgo.com/erp-suite/hrms): human resource management: employee records, attendance and shifts, leave, payroll and payslips, recruitment and onboarding, self-service
+- [Impacgo Finance: accounting software with GST](https://www.impacgo.com/erp-suite/finance-accounting): general ledger, payables, receivables, bank, GST and tax workflows
+- [Impacgo Chain: supply chain and inventory management software](https://www.impacgo.com/erp-suite/supply-chain): supply chain: procurement, sales orders, inventory, warehouses, batch/serial tracking
+- [Impacgo Make: manufacturing ERP software](https://www.impacgo.com/erp-suite/manufacturing): manufacturing software: bills of materials, work orders, routings, job cards, production costing
+- [Impacgo Plan: MRP and production planning software](https://www.impacgo.com/erp-suite/mrp-planning): demand and supply planning, MRP, scheduling, capacity
+- [Impacgo Retail: retail POS and billing software](https://www.impacgo.com/erp-suite/retail-pos): retail ERP and POS: billing, pricing, multi-store operations, payments, synced to inventory and accounts
+- [Impacgo Project: project management software](https://www.impacgo.com/erp-suite/project-management): projects, tasks, Kanban/Gantt planning, budgets, timesheets
 - [Book a free Impacgo ERP demo](https://www.impacgo.com/erp-suite/demo)
 
 ## Industries

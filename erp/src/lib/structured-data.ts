@@ -10,18 +10,21 @@
  * (that file is a client module, so its data can't be imported here).
  */
 
+import type { ErpModule } from "@/lib/erp-modules";
+import { PAGE_BY_KEY, type ModulePage } from "@/lib/module-pages";
+
 const SITE_URL = "https://www.impacgo.com";
 const ERP_URL = `${SITE_URL}/erp-suite`;
 const ORG_ID = `${SITE_URL}/#organization`;
 
 const MODULES = [
-  { name: "Impacgo HRMS", key: "hrms", description: "Human resource management: employee records, attendance and shifts, leave, payroll and payslips, recruitment and onboarding, employee self-service." },
-  { name: "Impacgo Finance", key: "finance", description: "Financial management and accounting: general ledger, payables, receivables, cash and bank, GST and tax workflows, financial statements." },
-  { name: "Impacgo Chain", key: "chain", description: "Supply chain management: procurement, sales orders, inventory and warehouse management, batch/serial tracking and stock transfers." },
-  { name: "Impacgo Make", key: "make", description: "Manufacturing and production: bills of materials, work orders, routings, job cards, material consumption and production costing." },
-  { name: "Impacgo Plan", key: "plan", description: "Planning and MRP: demand and supply planning, material requirements planning, production scheduling and capacity planning." },
-  { name: "Impacgo Retail", key: "retail", description: "Retail and point of sale: POS billing, product and pricing management, multi-store operations and payments, synced to inventory and accounts." },
-  { name: "Impacgo Project", key: "project", description: "Project and delivery management: tasks and milestones, Kanban and Gantt planning, budgets, cost tracking and timesheets." },
+  { name: "Impacgo HRMS", key: "hrms" as const, description: "Human resource management: employee records, attendance and shifts, leave, payroll and payslips, recruitment and onboarding, employee self-service." },
+  { name: "Impacgo Finance", key: "finance" as const, description: "Financial management and accounting: general ledger, payables, receivables, cash and bank, GST and tax workflows, financial statements." },
+  { name: "Impacgo Chain", key: "chain" as const, description: "Supply chain management: procurement, sales orders, inventory and warehouse management, batch/serial tracking and stock transfers." },
+  { name: "Impacgo Make", key: "make" as const, description: "Manufacturing and production: bills of materials, work orders, routings, job cards, material consumption and production costing." },
+  { name: "Impacgo Plan", key: "plan" as const, description: "Planning and MRP: demand and supply planning, material requirements planning, production scheduling and capacity planning." },
+  { name: "Impacgo Retail", key: "retail" as const, description: "Retail and point of sale: POS billing, product and pricing management, multi-store operations and payments, synced to inventory and accounts." },
+  { name: "Impacgo Project", key: "project" as const, description: "Project and delivery management: tasks and milestones, Kanban and Gantt planning, budgets, cost tracking and timesheets." },
 ];
 
 const organization = {
@@ -56,7 +59,8 @@ export const erpSuiteJsonLd = {
       hasPart: MODULES.map((m) => ({
         "@type": "SoftwareApplication",
         name: m.name,
-        url: `${ERP_URL}#module-${m.key}`,
+        "@id": `${ERP_URL}/${PAGE_BY_KEY[m.key].slug}#software`,
+        url: `${ERP_URL}/${PAGE_BY_KEY[m.key].slug}`,
         description: m.description,
         applicationCategory: "BusinessApplication",
         operatingSystem: "Web",
@@ -113,6 +117,58 @@ export const erpDemoJsonLd = {
     },
   ],
 };
+
+/** One module page (/erp-suite/hrms …): the module as software, the page, its breadcrumb and FAQs. */
+export function moduleJsonLd(page: ModulePage, m: ErpModule) {
+  const url = `${ERP_URL}/${page.slug}`;
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      organization,
+      {
+        "@type": "SoftwareApplication",
+        "@id": `${url}#software`,
+        name: `Impacgo ${m.name}`,
+        alternateName: page.searchTerms.slice(0, 3),
+        url,
+        description: page.description,
+        applicationCategory: "BusinessApplication",
+        applicationSubCategory: m.area,
+        operatingSystem: "Web",
+        featureList: page.groups.flatMap((g) => g.items),
+        keywords: page.searchTerms.join(", "),
+        isPartOf: { "@id": `${ERP_URL}#software` },
+        publisher: { "@id": ORG_ID },
+        brand: { "@id": ORG_ID },
+        ...(m.appUrl ? { installUrl: m.appUrl } : {}),
+      },
+      {
+        "@type": "WebPage",
+        "@id": `${url}#webpage`,
+        url,
+        name: page.title,
+        description: page.description,
+        inLanguage: "en-IN",
+        about: { "@id": `${url}#software` },
+        isPartOf: { "@id": `${ERP_URL}#webpage` },
+        publisher: { "@id": ORG_ID },
+        breadcrumb: {
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+            { "@type": "ListItem", position: 2, name: "Impacgo ERP", item: ERP_URL },
+            { "@type": "ListItem", position: 3, name: `Impacgo ${m.name}`, item: url },
+          ],
+        },
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${url}#faq`,
+        mainEntity: page.faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+      },
+    ],
+  };
+}
 
 /** Serialise for a <script type="application/ld+json"> tag (escapes "<", per the Next.js JSON-LD guide). */
 export const toJsonLd = (data: unknown) => JSON.stringify(data).replace(/</g, "\\u003c");

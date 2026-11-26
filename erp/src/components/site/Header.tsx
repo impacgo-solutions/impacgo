@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { BrandLockup } from "@/components/site/BrandLockup";
-import { isMainSiteHref, MAIN_SITE } from "@/lib/base-path";
+import { homeSection, isMainSiteHref, MAIN_SITE } from "@/lib/base-path";
 import { CONTACT_HREF } from "@/lib/contact";
 import { ERP_MODULES, ErpIcon } from "@/components/site/suite";
 import { ArrowRight, Caret, Close, Menu } from "@/components/site/icons";
@@ -24,8 +25,15 @@ const RESOURCES = [
   { label: "About Impacgo", href: MAIN_SITE.home },
 ];
 
-function NavLink({ href, className, onClick, children }: { href: string; className: string; onClick?: () => void; children: ReactNode }) {
-  if (href.startsWith("#") || isMainSiteHref(href)) return <a href={href} className={className} onClick={onClick}>{children}</a>;
+/* On the module pages, section links (#flows …) lead back to the ERP home page (see homeSection). */
+function useSection() {
+  const onHome = usePathname() === "/";
+  return (href: string) => homeSection(href, onHome);
+}
+
+function NavLink({ href: raw, className, onClick, children }: { href: string; className: string; onClick?: () => void; children: ReactNode }) {
+  const href = useSection()(raw);
+  if (href.includes("#") || isMainSiteHref(href)) return <a href={href} className={className} onClick={onClick}>{children}</a>;
   if (href.startsWith("http")) return <a href={href} target="_blank" rel="noopener noreferrer" className={className} onClick={onClick}>{children}</a>;
   return <Link href={href} className={className} onClick={onClick}>{children}</Link>;
 }
@@ -68,6 +76,7 @@ function Dropdown({ label, dark, children, wide }: { label: string; dark: boolea
 
 function MobileMenu({ onClose }: { onClose: () => void }) {
   const [section, setSection] = useState<string | null>("Suite");
+  const go = useSection();
   const group = (title: string, links: { label: string; href: string }[]) => (
     <div className="border-b border-[#f3efe8]">
       <button type="button" onClick={() => setSection(section === title ? null : title)} aria-expanded={section === title} className="flex w-full cursor-pointer items-center justify-between py-4 text-[17px] font-semibold text-[#14161c]">
@@ -102,7 +111,7 @@ function MobileMenu({ onClose }: { onClose: () => void }) {
         {group("Suite", PRODUCT.map((p) => ({ label: p.title, href: p.href })))}
         {group("Platform", PLATFORM)}
         {group("Resources", RESOURCES)}
-        <a href="#flows" onClick={onClose} className="block border-b border-[#f3efe8] py-4 text-[17px] font-semibold text-[#14161c]">
+        <a href={go("#flows")} onClick={onClose} className="block border-b border-[#f3efe8] py-4 text-[17px] font-semibold text-[#14161c]">
           How it works
         </a>
       </div>
@@ -123,6 +132,7 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [progress, setProgress] = useState(0);
   const [mobile, setMobile] = useState(false);
+  const go = useSection();
 
   useEffect(() => {
     let frame = 0;
@@ -162,7 +172,7 @@ export function Header() {
                 <div className="grid grid-cols-[1fr_220px] gap-2">
                   <div className="grid grid-cols-2 gap-1">
                     {PRODUCT.map((p) => (
-                      <a key={p.key} href={p.href} className="group flex gap-3 rounded-xl p-3 transition-colors hover:bg-[#faf7f2]">
+                      <a key={p.key} href={go(p.href)} className="group flex gap-3 rounded-xl p-3 transition-colors hover:bg-[#faf7f2]">
                         <span className="grid size-10 shrink-0 place-items-center rounded-lg transition-transform duration-200 group-hover:scale-105" style={{ background: p.tint, color: p.color }}>
                           <ErpIcon name={p.key} size={19} />
                         </span>
@@ -184,13 +194,13 @@ export function Header() {
               </Dropdown>
               <Dropdown label="Platform" dark={dark}>
                 {PLATFORM.map((m) => (
-                  <a key={m.label} href={m.href} className="block rounded-lg px-3 py-2 text-[14px] text-[#383d48] hover:bg-[#faf7f2] hover:text-[#14161c]">
+                  <a key={m.label} href={go(m.href)} className="block rounded-lg px-3 py-2 text-[14px] text-[#383d48] hover:bg-[#faf7f2] hover:text-[#14161c]">
                     {m.label}
                   </a>
                 ))}
               </Dropdown>
               <li>
-                <a href="#flows" className={`block rounded-lg px-3 py-2 text-[15px] font-medium transition-colors ${dark ? "text-white/85 hover:text-white" : "text-[#383d48] hover:text-[#14161c]"}`}>
+                <a href={go("#flows")} className={`block rounded-lg px-3 py-2 text-[15px] font-medium transition-colors ${dark ? "text-white/85 hover:text-white" : "text-[#383d48] hover:text-[#14161c]"}`}>
                   How it works
                 </a>
               </li>

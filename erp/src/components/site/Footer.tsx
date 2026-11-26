@@ -4,22 +4,17 @@ import type { CSSProperties, ReactNode } from "react";
 import { BrandLockup } from "@/components/site/BrandLockup";
 import { ArrowRight, Glyph } from "@/components/site/icons";
 import { button, sectionFrame, type } from "@/components/site/Section";
-import { isMainSiteHref, MAIN_SITE, withBasePath } from "@/lib/base-path";
+import { homeSection, isMainSiteHref, MAIN_SITE, withBasePath } from "@/lib/base-path";
+import { ERP_MODULES } from "@/lib/erp-modules";
+import { modulePath } from "@/lib/module-pages";
 import { CONTACT_EMAIL, CONTACT_HREF, CONTACT_PHONE, CONTACT_PHONE_TEL } from "@/lib/contact";
 
 
 const COLUMNS = [
   {
     title: "Suite",
-    links: [
-      ["Impacgo HRMS", "#module-hrms"],
-      ["Impacgo Finance", "#module-finance"],
-      ["Impacgo Chain", "#module-chain"],
-      ["Impacgo Make", "#module-make"],
-      ["Impacgo Plan", "#module-plan"],
-      ["Impacgo Retail", "#module-retail"],
-      ["Impacgo Project", "#module-project"],
-    ],
+    // Each module's own page (/erp-suite/hrms …), so search engines find them.
+    links: ERP_MODULES.map((m) => [`Impacgo ${m.name}`, modulePath(m.key)] as const),
   },
   {
     title: "Platform",
@@ -41,7 +36,7 @@ const COLUMNS = [
       ["Sign in to your app", "/login"],
     ],
   },
-] as const;
+];
 
 const SERVICES = [
   { icon: "services", name: "Dynamics 365", desc: "Finance & Operations", href: MAIN_SITE.d365 },
@@ -51,7 +46,7 @@ const SERVICES = [
 
 function FooterLink({ href, children }: { href: string; children: ReactNode }) {
   const cls = "site-sweep pb-0.5 text-[15px] text-[#5c6170] hover:text-[#2d4fe0]";
-  if (href.startsWith("#") || isMainSiteHref(href))
+  if (href.includes("#") || isMainSiteHref(href))
     return (
       <a href={href} className={cls}>
         {children}
@@ -103,7 +98,8 @@ export function CtaBand() {
   );
 }
 
-export function Footer() {
+/** onHome: false on the module pages, so section links (#flows …) lead back to the ERP home page. */
+export function Footer({ onHome = true }: { onHome?: boolean }) {
   return (
     <footer className="border-t border-[#ebe5dc] bg-[#faf7f2] text-[#14161c]">
       <div className="mx-auto grid max-w-[1200px] gap-12 px-5 pt-20 pb-14 sm:px-8 lg:grid-cols-[1.2fr_2fr]">
@@ -134,7 +130,7 @@ export function Footer() {
               <ul className="flex flex-col gap-3 pt-5">
                 {col.links.map(([label, href]) => (
                   <li key={label}>
-                    <FooterLink href={href}>{label}</FooterLink>
+                    <FooterLink href={homeSection(href, onHome)}>{label}</FooterLink>
                   </li>
                 ))}
               </ul>

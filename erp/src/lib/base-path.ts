@@ -33,3 +33,14 @@ const MAIN_SITE_HREFS = new Set<string>(Object.values(MAIN_SITE));
 
 /** True for links to the main Impacgo site (see MAIN_SITE). */
 export const isMainSiteHref = (href: string) => MAIN_SITE_HREFS.has(href);
+
+/*
+ * Section links (#flows, #module-hrms …) point at sections of the ERP home
+ * page. On the other ERP pages (the module pages such as /erp-suite/hrms) they
+ * must lead back to the home page; the popups (#contact, #overview-video) are
+ * mounted in the layout and work on every page, so those stay as they are.
+ * The result is a full path, so render it as a plain <a> (never next/link).
+ */
+const POPUP_HASHES = new Set(["#contact", "#overview-video"]);
+export const homeSection = (href: string, onHome: boolean) =>
+  onHome || !href.startsWith("#") || POPUP_HASHES.has(href) ? href : `${BASE_PATH || "/"}${href}`;

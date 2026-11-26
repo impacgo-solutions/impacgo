@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState, useSyncExternalStore, type CSSProperties, type PointerEvent, type ReactNode } from "react";
 import { ArrowRight, Check, ExternalArrow } from "@/components/site/icons";
@@ -8,6 +9,7 @@ import { CountUp, useAutoplay } from "@/components/site/motion";
 import { Section, SectionHead, accent, afterHead, button, d, type } from "@/components/site/Section";
 import { ERP_MODULES, ErpIcon, FLOWS, MODULE, ModuleScreen, ModuleTile, appHost, type ModuleKey } from "@/components/site/suite";
 import { MAIN_SITE, withBasePath } from "@/lib/base-path";
+import { modulePath } from "@/lib/module-pages";
 import { CONTACT_HREF } from "@/lib/contact";
 
 export const DEMO_URL = CONTACT_HREF; // opens the contact popup (components/site/ContactModal.tsx)
@@ -317,6 +319,10 @@ export function ModuleExplorer() {
           <div className="pt-7">
             <Ticks items={m.features} color={m.color} tint={m.tint} cols />
           </div>
+          {/* The module's own page: full feature list, workflow and FAQs. */}
+          <Link href={modulePath(m.key)} className={`${button.link} pt-6 text-[16px]`}>
+            Explore Impacgo {m.name} in detail <ArrowRight className="transition-transform group-hover:translate-x-1" />
+          </Link>
           <div className="flex flex-wrap items-center gap-2 pt-8">
             <span className="text-[13px] font-semibold text-[#686c79]">Works with</span>
             {m.links.map((k) => {
@@ -425,7 +431,7 @@ function curve(a: ModuleKey, b: ModuleKey) {
   return `M${s[0]} ${s[1]} Q${cx} ${cy} ${e[0]} ${e[1]}`;
 }
 
-function FlowMap({ flow }: { flow: number }) {
+export function FlowMap({ flow }: { flow: number }) {
   const reduce = useReducedMotion();
   const f = FLOWS[flow];
   const hops = f.path.slice(1).map((to, i) => [f.path[i], to] as [ModuleKey, ModuleKey]);
