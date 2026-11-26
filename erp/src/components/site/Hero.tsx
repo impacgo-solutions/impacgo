@@ -77,7 +77,7 @@ export function Hero() {
         <span className="site-hero-glow absolute inset-0" />
       </div>
 
-      <div data-hero-now className="relative mx-auto grid max-w-[1200px] items-center gap-12 px-5 pt-[136px] pb-24 sm:px-8 lg:min-h-[100svh] lg:grid-cols-[minmax(0,1fr)_420px] lg:gap-20 lg:pt-[112px] lg:pb-16">
+      <div data-hero-now className="relative mx-auto grid max-w-[1200px] grid-cols-1 items-center gap-12 px-5 pt-[136px] pb-24 sm:px-8 lg:min-h-[100svh] lg:grid-cols-[minmax(0,1fr)_420px] lg:gap-20 lg:pt-[112px] lg:pb-16">
         <div data-scroll="exit" className="max-lg:text-center">
           <a href="#modules" data-reveal className="group inline-flex items-center gap-2 text-[15px] font-medium max-sm:hidden text-[#383d48] transition-colors hover:text-[#2d4fe0]">
             <span className="text-[13px] font-semibold tracking-[0.08em] text-[#c8452a] uppercase">New</span>

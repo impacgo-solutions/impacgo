@@ -305,7 +305,7 @@ export function ModuleExplorer() {
         ))}
       </div>
 
-      <div key={m.key} className="grid animate-[site-rise_.45s_cubic-bezier(.22,1,.36,1)] items-center gap-12 pt-14 lg:grid-cols-[minmax(0,440px)_minmax(0,1fr)] lg:gap-14">
+      <div key={m.key} className="grid animate-[site-rise_.45s_cubic-bezier(.22,1,.36,1)] grid-cols-1 items-center gap-12 pt-14 lg:grid-cols-[minmax(0,440px)_minmax(0,1fr)] lg:gap-14">
         <div>
           <p className="text-[15px] font-semibold" style={{ color: m.color }}>
             <span className="tabular-nums text-[#9a9ea8]">0{active + 1}</span> &nbsp;Impacgo {m.name} · {m.area}

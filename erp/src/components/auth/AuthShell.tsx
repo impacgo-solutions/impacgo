@@ -8,7 +8,7 @@ const POINTS = ["Seven integrated modules, one platform", "Role-based access on 
 /* Split layout for the sign-in and demo request pages: light brand panel with a cut-out photo (desktop) + content. */
 export function AuthShell({ title, subtitle, children }: { title: string; subtitle: string; children: ReactNode }) {
   return (
-    <main className="grid min-h-screen bg-white lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)]">
+    <main className="grid min-h-screen grid-cols-1 bg-white lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)]">
       <aside className="relative hidden overflow-hidden bg-[linear-gradient(150deg,#eef1ff,#fff5f1_55%,#fff3ea)] p-12 lg:flex lg:flex-col">
         <div className="relative">
           <BrandLockup logoClass="h-10" priority />

@@ -95,7 +95,7 @@ export default async function ModulePage({ params }: PageProps<"/[slug]">) {
             <span data-scroll="drift" style={vars({ "--k": "-60px", background: `color-mix(in srgb, ${m.color} 22%, transparent)` })} className="site-blob-b absolute -top-24 right-[-12%] size-[520px] rounded-full blur-[110px]" />
             <span className="site-grid-light absolute inset-0 [mask-image:linear-gradient(180deg,#000,transparent_85%)]" />
           </div>
-          <div data-hero-now className={`${container} relative grid items-center gap-12 pt-28 pb-20 sm:pt-32 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-14 lg:pb-24`}>
+          <div data-hero-now className={`${container} relative grid grid-cols-1 items-center gap-12 pt-28 pb-20 sm:pt-32 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-14 lg:pb-24`}>
             <div>
               <nav data-reveal aria-label="Breadcrumb" className="text-[14px] text-[#5c6170]">
                 <ol className="flex flex-wrap items-center gap-1.5">
@@ -149,7 +149,7 @@ export default async function ModulePage({ params }: PageProps<"/[slug]">) {
               <Words parts={["Everything in", { text: `Impacgo ${m.name}`, className: "site-gradient-text" }]} />
             </h2>
             <p data-reveal style={d(120)} className={`${type.body} max-w-[680px] pt-4`}>{m.what}</p>
-            <div className="grid gap-4 pt-12 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-1 gap-4 pt-12 sm:grid-cols-2 lg:grid-cols-3">
               {page.groups.map((g, i) => (
                 <div
                   key={g.category}
@@ -190,7 +190,7 @@ export default async function ModulePage({ params }: PageProps<"/[slug]">) {
                 <div aria-hidden className="absolute top-[84px] right-[12.5%] left-[12.5%] hidden h-0.5 rounded-full bg-[#ebe5dc] lg:block">
                   <span className="site-draw-line block h-full rounded-full" style={{ background: `linear-gradient(90deg, ${m.color}, color-mix(in srgb, ${m.color} 55%, #6d4ef0))` }} />
                 </div>
-                <ol className="relative grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+                <ol className="relative grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
                   {page.workflow.lanes[0].steps.map((step, i, all) => (
                     <li key={step} data-step style={vars({ "--i": i, "--n": all.length })} className="flex flex-col items-center text-center">
                       <span className="site-step-icon grid size-14 place-items-center rounded-2xl text-[18px] font-bold text-white" style={{ background: `linear-gradient(140deg, ${m.color}, color-mix(in srgb, ${m.color} 70%, #14161c))`, boxShadow: `0 12px 30px -12px ${m.color}` }}>
@@ -225,7 +225,7 @@ export default async function ModulePage({ params }: PageProps<"/[slug]">) {
 
         {/* Benefits: a photo of the module's world (drifts gently on scroll) with floating cards, benefit cards alongside. */}
         <section className="py-20 sm:py-24">
-          <div className={`${container} grid items-center gap-12 lg:grid-cols-[440px_minmax(0,1fr)] lg:gap-16`}>
+          <div className={`${container} grid grid-cols-1 items-center gap-12 lg:grid-cols-[440px_minmax(0,1fr)] lg:gap-16`}>
             <div data-reveal="zoom" className="relative order-2 lg:order-1">
               <div className="relative h-[360px] overflow-hidden rounded-[28px] shadow-[0_40px_80px_-40px_rgb(20_22_28/50%)] sm:h-[440px] lg:h-[500px]">
                 <div data-scroll="photo">
@@ -267,7 +267,7 @@ export default async function ModulePage({ params }: PageProps<"/[slug]">) {
               <h2 data-reveal="words" className={`${h2} pt-3`}>
                 <Words parts={[m.pitch]} />
               </h2>
-              <div className="grid gap-4 pt-10 sm:grid-cols-2">
+              <div className="grid grid-cols-1 gap-4 pt-10 sm:grid-cols-2">
                 {page.benefits.map((b, i) => (
                   <div key={b.title} data-reveal className="rounded-2xl p-6 transition-[translate] duration-300 hover:-translate-y-1" style={{ ...d(i * 80), background: m.tint }}>
                     <h3 className="text-[17px] font-semibold text-[#14161c]">{b.title}</h3>
@@ -294,7 +294,7 @@ export default async function ModulePage({ params }: PageProps<"/[slug]">) {
 
         {/* FAQs: plain <details>, so every answer is in the page HTML. */}
         <section className="py-20 sm:py-24">
-          <div className={`${container} grid gap-10 lg:grid-cols-[360px_minmax(0,1fr)] lg:gap-16`}>
+          <div className={`${container} grid grid-cols-1 gap-10 lg:grid-cols-[360px_minmax(0,1fr)] lg:gap-16`}>
             <div className="lg:sticky lg:top-28 lg:self-start">
               <p data-reveal className={type.eyebrow} style={{ color: m.color }}>FAQ</p>
               <h2 data-reveal="words" className={`${h2} pt-3`}>
@@ -328,7 +328,7 @@ export default async function ModulePage({ params }: PageProps<"/[slug]">) {
             <h2 data-reveal="words" className={h2}>
               <Words parts={["Explore the other", { text: "Impacgo ERP modules", className: "site-gradient-text" }]} />
             </h2>
-            <ul className="grid gap-3 pt-10 sm:grid-cols-2 lg:grid-cols-3">
+            <ul className="grid grid-cols-1 gap-3 pt-10 sm:grid-cols-2 lg:grid-cols-3">
               {others.map((o, i) => (
                 <li key={o.key} data-reveal style={d(i * 60)}>
                   <Link href={modulePath(o.key)} className="group flex items-center gap-4 rounded-2xl bg-white p-5 ring-1 ring-[#ebe5dc] transition-[translate,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-[0_20px_36px_-26px_rgb(20_22_28/40%)] hover:ring-[#c9c1b4]">

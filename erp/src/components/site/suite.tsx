@@ -456,7 +456,7 @@ export function SuiteConsole() {
           </aside>
           <div className="min-w-0">
             <div className="flex items-center gap-3 border-b border-[#efe9e0] px-4 py-2.5">
-              <span className="flex h-8 flex-1 items-center gap-2 rounded-lg bg-[#f6f3ee] px-3 text-[12px] text-[#686c79]">
+              <span className="flex h-8 min-w-0 flex-1 items-center gap-2 rounded-lg bg-[#f6f3ee] px-3 text-[12px] text-[#686c79]">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden>
                   <circle cx="11" cy="11" r="7" />
                   <path d="M20 20l-3.5-3.5" />

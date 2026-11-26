@@ -68,7 +68,7 @@ export function ModuleFlows({ k }: { k: ModuleKey }) {
   const { index, go, pauseProps } = useAutoplay(mine.length, 5200);
   const f = mine[index];
   return (
-    <div className="grid items-center gap-10 pt-12 lg:grid-cols-[380px_minmax(0,1fr)] lg:gap-14" {...pauseProps}>
+    <div className="grid grid-cols-1 items-center gap-10 pt-12 lg:grid-cols-[380px_minmax(0,1fr)] lg:gap-14" {...pauseProps}>
       <ol data-reveal="left" className="flex flex-col gap-1.5">
         {mine.map((x, i) => (
           <li key={x.activity}>
